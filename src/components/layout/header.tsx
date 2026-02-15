@@ -60,7 +60,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               {link.label}
             </Link>
@@ -81,6 +81,7 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? (
               <X className="size-5" />
@@ -93,7 +94,12 @@ export function Header() {
 
       {/* モバイルメニュー */}
       {isMobileMenuOpen && (
-        <div className="border-t bg-background md:hidden">
+        <div
+          id="mobile-navigation"
+          className="border-t bg-background md:hidden"
+          role="region"
+          aria-label="モバイルナビゲーション"
+        >
           <nav
             className="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6"
             aria-label="モバイルナビゲーション"
@@ -102,7 +108,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

@@ -294,9 +294,9 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
 function FAQItem({ faq }: { faq: FAQ }) {
   return (
     <details className="group rounded-lg border bg-white">
-      <summary className="flex cursor-pointer items-center justify-between p-4 font-medium text-foreground">
+      <summary className="flex cursor-pointer items-center justify-between rounded-lg p-4 font-medium text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors">
         {faq.question}
-        <ChevronDown className="size-5 text-muted-foreground transition-transform group-open:rotate-180" />
+        <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
       </summary>
       <div className="border-t px-4 py-3">
         <p className="text-sm text-muted-foreground">{faq.answer}</p>
@@ -334,18 +334,21 @@ export default async function ServiceDetailPage({
           src={getServiceHero(service.slug)}
           alt=""
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services"
-            className="mb-6 inline-flex items-center text-sm text-blue-200 hover:text-white"
-          >
-            <ArrowLeft className="mr-1 size-4" />
-            サービス一覧に戻る
-          </Link>
+          <nav aria-label="パンくずリスト" className="mb-6">
+            <Link
+              href="/services"
+              className="inline-flex items-center text-sm text-blue-200 hover:text-white hover:underline transition-colors"
+            >
+              <ArrowLeft className="mr-1 size-4" />
+              サービス一覧に戻る
+            </Link>
+          </nav>
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge
               variant={
@@ -391,8 +394,8 @@ export default async function ServiceDetailPage({
                 key={kpi}
                 className="text-center rounded-lg border bg-muted p-4"
               >
-                <p className="text-sm font-medium text-primary">KPI</p>
-                <p className="mt-1 text-sm font-semibold text-foreground">
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">KPI</p>
+                <p className="mt-1 text-sm font-bold text-primary">
                   {kpi}
                 </p>
               </div>
@@ -505,12 +508,12 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 text-white md:py-20">
+      <section className="bg-gradient-to-r from-primary to-primary/80 py-16 text-primary-foreground md:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight">
             {service.displayName}の導入をご検討ですか？
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             まずは無料相談で、貴自治体に最適な導入プランをご提案します。
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -518,7 +521,7 @@ export default async function ServiceDetailPage({
               size="lg"
               variant="cta"
               asChild
-              className="w-full sm:w-auto"
+              className="w-full shadow-md hover:shadow-lg sm:w-auto"
             >
               <Link href="/contact">
                 無料相談を申し込む
@@ -529,7 +532,7 @@ export default async function ServiceDetailPage({
               size="lg"
               variant="outline"
               asChild
-              className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white sm:w-auto"
+              className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white hover:shadow-md sm:w-auto"
             >
               <Link href="/services">他のサービスを見る</Link>
             </Button>

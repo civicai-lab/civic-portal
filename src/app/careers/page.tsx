@@ -35,32 +35,38 @@ const positions = [
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-muted">
-      <section className="relative overflow-hidden py-20 text-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 text-primary-foreground">
         <Image
           src="/images/team/team-meeting.jpg"
-          alt=""
+          alt="シビックAI総合研究所のチームミーティング風景"
           fill
+          sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             採用情報
           </h1>
-          <p className="mt-4 text-lg text-blue-100">
+          <p className="mt-4 text-lg text-primary-foreground/80">
             AIで行政を変える仲間を募集しています
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      {/* 募集職種 */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-8 text-2xl font-bold text-foreground">
             募集職種
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {positions.map((pos) => (
-              <Card key={pos.title}>
+              <Card
+                key={pos.title}
+                className="group cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+              >
                 <CardHeader>
                   <div className="mb-2 flex gap-2">
                     <Badge>{pos.type}</Badge>
@@ -76,7 +82,7 @@ export default function CareersPage() {
               </Card>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <p className="mb-4 text-muted-foreground">
               ご興味をお持ちの方はお気軽にお問い合わせください
             </p>

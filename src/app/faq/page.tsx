@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "よくある質問",
@@ -57,7 +57,8 @@ const faqs = [
 export default function FAQPage() {
   return (
     <div className="min-h-screen bg-muted">
-      <section className="border-b bg-white py-16">
+      {/* Hero */}
+      <section className="border-b border-border bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             よくある質問
@@ -68,7 +69,8 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      {/* FAQ一覧 */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {faqs.map((section) => (
             <div key={section.category} className="mb-10">
@@ -79,13 +81,14 @@ export default function FAQPage() {
                 {section.items.map((faq) => (
                   <details
                     key={faq.q}
-                    className="group rounded-lg border bg-white"
+                    className="group rounded-lg border border-border bg-card transition-shadow duration-200 hover:shadow-sm open:shadow-sm"
                   >
-                    <summary className="flex cursor-pointer items-center justify-between p-4 font-medium text-foreground">
-                      {faq.q}
+                    <summary className="flex cursor-pointer select-none items-center justify-between gap-4 p-4 font-medium text-foreground transition-colors hover:text-primary focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+                      <span>{faq.q}</span>
+                      <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                     </summary>
-                    <div className="border-t px-4 py-3">
-                      <p className="text-sm text-muted-foreground">{faq.a}</p>
+                    <div className="border-t border-border px-4 py-3">
+                      <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
                     </div>
                   </details>
                 ))}
@@ -93,7 +96,7 @@ export default function FAQPage() {
             </div>
           ))}
 
-          <div className="mt-12 rounded-lg border bg-white p-8 text-center">
+          <div className="mt-16 rounded-lg border border-border bg-card p-8 text-center">
             <p className="mb-4 font-medium text-foreground">
               お探しの質問が見つかりませんか？
             </p>

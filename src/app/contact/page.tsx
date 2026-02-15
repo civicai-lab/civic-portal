@@ -22,6 +22,13 @@ interface FormData {
   message: string;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  organization?: string;
+  message?: string;
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -32,6 +39,27 @@ export default function ContactPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+
+  function validateForm(): FormErrors {
+    const newErrors: FormErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "お名前を入力してください";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "メールアドレスを入力してください";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "正しいメールアドレスの形式で入力してください";
+    }
+    if (!formData.organization.trim()) {
+      newErrors.organization = "自治体名・組織名を入力してください";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "お問い合わせ内容を入力してください";
+    }
+    return newErrors;
+  }
 
   function handleChange(
     e: React.ChangeEvent<
@@ -40,10 +68,31 @@ export default function ContactPage() {
   ) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // 送信試行後はリアルタイムバリデーション
+    if (hasAttemptedSubmit) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name as keyof FormErrors];
+        return newErrors;
+      });
+    }
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setHasAttemptedSubmit(true);
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      // 最初のエラーフィールドにフォーカス
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const element = document.getElementById(firstErrorField);
+      element?.focus();
+      return;
+    }
+
+    setErrors({});
     setIsSubmitting(true);
 
     // バックエンド未接続のため、送信完了をシミュレート
@@ -110,7 +159,7 @@ export default function ContactPage() {
                   <CardTitle>お問い合わせフォーム</CardTitle>
                   <CardDescription>
                     以下の項目をご入力の上、送信してください。
-                    <span className="text-red-500">*</span> は必須項目です。
+                    <span className="text-red-500" aria-hidden="true">*</span> は必須項目です。
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -121,18 +170,27 @@ export default function ContactPage() {
                         htmlFor="name"
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
-                        お名前 <span className="text-red-500">*</span>
+                        お名前 <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">（必須）</span>
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
                         required
+                        aria-required="true"
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? "name-error" : undefined}
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="山田 太郎"
-                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.name ? "border-destructive" : "border-border"}`}
                       />
+                      {errors.name && (
+                        <p id="name-error" className="mt-1.5 text-sm text-destructive" role="alert">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
 
                     {/* メールアドレス */}
@@ -141,18 +199,27 @@ export default function ContactPage() {
                         htmlFor="email"
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
-                        メールアドレス <span className="text-red-500">*</span>
+                        メールアドレス <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">（必須）</span>
                       </label>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         required
+                        aria-required="true"
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? "email-error" : undefined}
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="taro.yamada@city.example.lg.jp"
-                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.email ? "border-destructive" : "border-border"}`}
                       />
+                      {errors.email && (
+                        <p id="email-error" className="mt-1.5 text-sm text-destructive" role="alert">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     {/* 自治体名・組織名 */}
@@ -162,18 +229,27 @@ export default function ContactPage() {
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         自治体名・組織名{" "}
-                        <span className="text-red-500">*</span>
+                        <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">（必須）</span>
                       </label>
                       <input
                         type="text"
                         id="organization"
                         name="organization"
                         required
+                        aria-required="true"
+                        aria-invalid={!!errors.organization}
+                        aria-describedby={errors.organization ? "organization-error" : undefined}
                         value={formData.organization}
                         onChange={handleChange}
                         placeholder="○○市 DX推進課"
-                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.organization ? "border-destructive" : "border-border"}`}
                       />
+                      {errors.organization && (
+                        <p id="organization-error" className="mt-1.5 text-sm text-destructive" role="alert">
+                          {errors.organization}
+                        </p>
+                      )}
                     </div>
 
                     {/* サービス選択 */}
@@ -189,7 +265,7 @@ export default function ContactPage() {
                         name="serviceSlug"
                         value={formData.serviceSlug}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="w-full rounded-md border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">選択してください（任意）</option>
                         <optgroup label="SaaS型サービス">
@@ -220,18 +296,27 @@ export default function ContactPage() {
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         お問い合わせ内容{" "}
-                        <span className="text-red-500">*</span>
+                        <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">（必須）</span>
                       </label>
                       <textarea
                         id="message"
                         name="message"
                         required
+                        aria-required="true"
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? "message-error" : undefined}
                         rows={6}
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="ご質問やご要望をご記入ください"
-                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 ${errors.message ? "border-destructive" : "border-border"}`}
                       />
+                      {errors.message && (
+                        <p id="message-error" className="mt-1.5 text-sm text-destructive" role="alert">
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
 
                     {/* 送信ボタン */}

@@ -45,28 +45,34 @@ const cases = [
 export default function CasesPage() {
   return (
     <div className="min-h-screen bg-muted">
-      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 py-20 text-white">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             導入事例
           </h1>
-          <p className="mt-4 text-lg text-blue-100">
+          <p className="mt-4 text-lg text-primary-foreground/80">
             全国の自治体でのAI活用事例をご紹介します
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      {/* 事例一覧 */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             {cases.map((caseItem) => (
-              <Card key={caseItem.title} className="overflow-hidden">
-                <div className="relative h-48 w-full">
+              <Card
+                key={caseItem.title}
+                className="group cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+              >
+                <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={caseItem.image}
                     alt={caseItem.title}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <CardHeader>
@@ -85,7 +91,7 @@ export default function CasesPage() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <p className="mb-4 text-muted-foreground">
               さらに多くの導入事例については、お気軽にお問い合わせください
             </p>

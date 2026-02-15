@@ -7,8 +7,9 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="border-b py-16">
+    <div className="min-h-screen bg-card">
+      {/* Hero */}
+      <section className="border-b border-border py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             プライバシーポリシー
@@ -19,8 +20,9 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-3xl space-y-8 px-4 sm:px-6 lg:px-8">
+      {/* 本文 */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-3xl space-y-10 px-4 sm:px-6 lg:px-8">
           {[
             {
               title: "1. 個人情報の収集",
@@ -49,10 +51,10 @@ export default function PrivacyPage() {
             },
           ].map((section) => (
             <div key={section.title}>
-              <h2 className="mb-3 text-xl font-bold text-foreground">
+              <h2 className="mb-3 text-lg font-bold text-foreground md:text-xl">
                 {section.title}
               </h2>
-              <p className="leading-relaxed text-muted-foreground">
+              <p className="max-w-prose leading-relaxed text-muted-foreground">
                 {section.content}
               </p>
             </div>

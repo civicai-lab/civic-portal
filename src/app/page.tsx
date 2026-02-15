@@ -33,10 +33,11 @@ export default function HomePage() {
           src="/images/hero/hero_bg.webp"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <Badge variant="secondary" className="mb-6 text-sm">
@@ -47,7 +48,7 @@ export default function HomePage() {
             <br className="hidden sm:block" />
             AIで加速する
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100 md:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80 md:text-xl">
             20のAIサービスで行政の課題を解決。
             <br className="hidden sm:block" />
             住民サービスの向上と業務効率化を同時に実現します。
@@ -63,7 +64,7 @@ export default function HomePage() {
               size="lg"
               variant="cta"
               asChild
-              className="w-full sm:w-auto"
+              className="w-full shadow-lg hover:shadow-xl motion-safe:animate-[pulse_3s_ease-in-out_infinite] sm:w-auto"
             >
               <Link href="/contact">無料相談</Link>
             </Button>
@@ -120,6 +121,7 @@ export default function HomePage() {
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 className="group"
+                aria-label={service.displayName + "の詳細を見る"}
               >
                 <Card className="h-full cursor-pointer transition-shadow hover:shadow-lg">
                   <div className="relative h-40 w-full overflow-hidden rounded-t-lg">
@@ -127,6 +129,7 @@ export default function HomePage() {
                       src={getServiceThumbnail(service.slug)}
                       alt={service.displayName}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
@@ -154,7 +157,7 @@ export default function HomePage() {
                     <p className="text-sm text-muted-foreground">
                       {service.description}
                     </p>
-                    <div className="mt-4 flex items-center text-sm font-medium text-primary">
+                    <div className="mt-4 flex items-center text-sm font-semibold text-primary">
                       詳しく見る
                       <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -272,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust Section - パートナー & 資格 */}
-      <section className="border-t bg-white py-16 md:py-20">
+      <section className="border-t bg-white py-16 md:py-20" aria-label="信頼のパートナー">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
@@ -283,42 +286,24 @@ export default function HomePage() {
             </p>
           </div>
           {/* パートナーロゴ */}
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0">
-            <Image
-              src="/images/partners/jinomi_logo.webp"
-              alt="JINOMI"
-              width={120}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
-            <Image
-              src="/images/partners/maruzen_logo.png"
-              alt="丸善"
-              width={120}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
-            <Image
-              src="/images/partners/yopaz_logo.webp"
-              alt="Yopaz"
-              width={120}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
-            <Image
-              src="/images/partners/quickiterate_logo.webp"
-              alt="QuickIterate"
-              width={120}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
-            <Image
-              src="/images/partners/shinagawaship_logo.webp"
-              alt="品川シップ"
-              width={120}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {[
+              { src: "/images/partners/jinomi_logo.webp", alt: "JINOMI" },
+              { src: "/images/partners/maruzen_logo.png", alt: "丸善" },
+              { src: "/images/partners/yopaz_logo.webp", alt: "Yopaz" },
+              { src: "/images/partners/quickiterate_logo.webp", alt: "QuickIterate" },
+              { src: "/images/partners/shinagawaship_logo.webp", alt: "品川シップ" },
+            ].map((partner) => (
+              <Image
+                key={partner.alt}
+                src={partner.src}
+                alt={partner.alt}
+                width={120}
+                height={40}
+                loading="lazy"
+                className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0"
+              />
+            ))}
           </div>
           {/* 資格バッジ */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
@@ -327,6 +312,7 @@ export default function HomePage() {
               alt="IPA SECURITY ACTION"
               width={80}
               height={80}
+              loading="lazy"
               className="size-16 object-contain"
             />
             <Image
@@ -334,6 +320,7 @@ export default function HomePage() {
               alt="SDGs"
               width={80}
               height={80}
+              loading="lazy"
               className="size-16 object-contain"
             />
             <Image
@@ -341,6 +328,7 @@ export default function HomePage() {
               alt="Microsoft Partner"
               width={80}
               height={80}
+              loading="lazy"
               className="size-16 object-contain"
             />
           </div>
@@ -353,14 +341,16 @@ export default function HomePage() {
           src="/images/hero/hero-collaboration.jpg"
           alt=""
           fill
+          sizes="100vw"
+          loading="lazy"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             まずは無料相談から
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             自治体のDX推進に関するご相談を無料で承ります。
             <br className="hidden sm:block" />
             お気軽にお問い合わせください。
@@ -370,7 +360,7 @@ export default function HomePage() {
               size="lg"
               variant="cta"
               asChild
-              className="w-full sm:w-auto"
+              className="w-full shadow-lg hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">
                 無料相談を申し込む

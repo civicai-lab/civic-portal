@@ -37,13 +37,14 @@ const subcategoryLabels = [
 
 function ServiceCard({ service }: { service: ServiceData }) {
   return (
-    <Link href={`/services/${service.slug}`} className="group">
-      <Card className="h-full transition-shadow hover:shadow-lg">
+    <Link href={`/services/${service.slug}`} className="group cursor-pointer">
+      <Card className="h-full transition-shadow duration-200 hover:shadow-lg">
         <div className="relative h-40 w-full overflow-hidden">
           <Image
             src={getServiceThumbnail(service.slug)}
             alt={service.displayName}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
@@ -132,7 +133,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             {/* Priority Filter */}
             <div className="flex items-center gap-2">
-              <span className="shrink-0 text-sm font-medium text-foreground/80">
+              <span className="shrink-0 text-sm font-medium text-muted-foreground">
                 優先度:
               </span>
               <div className="flex flex-wrap gap-1">
@@ -141,6 +142,7 @@ export default function ServicesPage() {
                     key={key}
                     variant={priorityFilter === key ? "default" : "outline"}
                     size="sm"
+                    className="min-h-[44px]"
                     onClick={() => setPriorityFilter(key)}
                   >
                     {label}
@@ -151,7 +153,7 @@ export default function ServicesPage() {
 
             {/* Subcategory Filter */}
             <div className="flex items-center gap-2">
-              <span className="shrink-0 text-sm font-medium text-foreground/80">
+              <span className="shrink-0 text-sm font-medium text-muted-foreground">
                 分野:
               </span>
               <div className="flex flex-wrap gap-1">
@@ -160,6 +162,7 @@ export default function ServicesPage() {
                     key={label}
                     variant={subcategoryFilter === label ? "default" : "outline"}
                     size="sm"
+                    className="min-h-[44px]"
                     onClick={() => setSubcategoryFilter(label)}
                   >
                     {label}

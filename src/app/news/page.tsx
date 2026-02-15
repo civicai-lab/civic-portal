@@ -42,7 +42,8 @@ const newsItems = [
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-muted">
-      <section className="border-b bg-white py-16">
+      {/* Hero */}
+      <section className="border-b border-border bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             ニュース
@@ -53,18 +54,23 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      {/* ニュース一覧 */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             {newsItems.map((item) => (
-              <Card key={item.title} className="overflow-hidden">
+              <Card
+                key={item.title}
+                className="group cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+              >
                 <div className="flex flex-col md:flex-row">
-                  <div className="relative h-48 w-full md:h-auto md:w-64 shrink-0">
+                  <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 256px"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="flex-1">
