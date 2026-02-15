@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { DemoLayout } from "@/components/demo/demo-layout";
 import {
   FileText,
   Upload,
@@ -707,25 +708,13 @@ export default function MinutesSummaryDemoPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* ヘッダーセクション */}
-      <section className="border-b bg-gradient-to-b from-primary/5 to-background py-10 md:py-14">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <Badge variant="secondary" className="mb-4">
-            デモ体験
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            議事録要約AI
-          </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground md:text-lg">
-            議事録テキストをAIが自動分析し、構造化された要約・アクションアイテム・広報原稿を生成します
-          </p>
-        </div>
-      </section>
-
+    <DemoLayout
+      serviceName="議事録要約AI"
+      serviceIcon={<FileText className="size-5 text-primary-foreground" />}
+      subtitle="要約ワークフローデモ"
+    >
       {/* ワークフロー */}
-      <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div>
           <StepIndicator currentStep={currentStep} />
 
           {currentStep === 1 && (
@@ -742,7 +731,6 @@ export default function MinutesSummaryDemoPage() {
 
           {currentStep === 3 && <Step3Result onReset={handleReset} />}
         </div>
-      </section>
-    </div>
+    </DemoLayout>
   );
 }

@@ -3,8 +3,9 @@
 ## Current
 - 作業中: なし
 - ブランチ: main
-- ビルド状態: 成功（全ページ、TypeScriptエラーなし）
-- 直近完了: Phase E サブページ品質改善（about/footer/cases/news/careers/faq/privacy/terms）
+- ビルド状態: 成功（53ページ、TypeScriptエラーなし）
+- 直近コミット: コミット予定 — UI/UX大規模改善Phase F1-F5完了
+- 直近完了: 全20サービスデモページ完成 + 共通コンポーネント基盤 + グローバルUX改善
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -99,8 +100,27 @@
 - bg-white → bg-card
 - border bg-white → border border-border bg-card
 
+### Phase F3: Avatar型デモ3ページ
+- [x] shiori-library/demo: AI司書SHIORIデモ（サイドバー+チャット+BookCard、545行）
+- [x] shiori-academic/demo: SHIORI Academic学術検索デモ（テーマ分解+論文カード+引用形式モーダル、573行）
+- [x] tourism-guide/demo: 多言語観光AIガイドデモ（4言語切替+チャット+スポットカード+緊急モード、736行）
+
+### Phase F4: Dashboard型+Chat型デモ5ページ
+- [x] staff-knowledge/demo: 庁内ナレッジ検索AI（チャット+アクセス制御Badge+監査ログサイドパネル、~480行）
+- [x] ai-starter-pack/demo: AI導入スターターパック（5段階診断フォーム→スコア結果+推奨サービス、~460行）
+- [x] guideline-service/demo: ガイドライン策定支援AI（3タブ: 分析/比較/ドラフト生成、~520行）
+- [x] assembly-archive/demo: 議会アーカイブ検索AI（検索+発言者カード+タイムライン、~480行）
+- [x] infra-inspection/demo: インフラ点検AIサポーター（KPIカード+施設テーブル+統計グラフ、~530行）
+
+### Phase F5: Tool型デモ5ページ
+- [x] rfp-support/demo: RFP作成支援AI（4ステップウィザード+チェックリスト+RFPドラフト+質問票テーブル、~280行）
+- [x] ai-audit/demo: AI監査・評価サービス（KPIカード+3タブ: システム一覧/リスクマトリクス/改善レポート、~280行）
+- [x] tourism-analytics/demo: 観光データ分析AI（期間フィルタ+KPIカード+3タブ: トレンド棒グラフ/言語分析/感情分析、~250行）
+- [x] ai-reskilling/demo: AI研修・リスキリング支援（3ステップ: 基本情報→スキル5段階評価→結果+スキルマップ+推奨研修+タイムライン、~290行）
+- [x] ai-lab/demo: 官民共創AIラボ（3タブ: イベント一覧+カテゴリフィルタ/プロジェクト進捗/審査シート星評価+判定、~310行）
+
 ## Next
-- [ ] 残り13サービスのデモページ追加（Phase3候補）
+- [ ] 全20サービスデモページ完了 - ビルド一括確認
 - [ ] E2Eテスト（Playwright）
 - [ ] Vercelデプロイ確認
 - [ ] パフォーマンス最適化（画像lazy loading等）

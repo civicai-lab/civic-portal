@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import { DemoLayout } from "@/components/demo/demo-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -325,29 +326,13 @@ export default function WelfareNavigatorDemo() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-muted">
-      {/* ヘッダー */}
-      <section className="border-b bg-white py-10 md:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services/welfare-navigator"
-            className="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
-          >
-            <ChevronLeft className="size-4" />
-            サービス詳細に戻る
-          </Link>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            福祉案内ナビゲーター デモ
-          </h1>
-          <p className="mt-2 text-muted-foreground">
-            いくつかの質問にお答えいただくだけで、利用できる可能性のある福祉制度をAIがご案内します。
-          </p>
-        </div>
-      </section>
-
+    <DemoLayout
+      serviceName="福祉制度ナビゲーター"
+      serviceIcon={<Shield className="size-5 text-primary-foreground" />}
+      subtitle="制度マッチングデモ"
+    >
       {/* メインコンテンツ */}
-      <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div>
           <div className="flex flex-col gap-8 lg:flex-row">
             {/* 左カラム: 質問フロー */}
             <div className="w-full lg:w-2/5">
@@ -648,7 +633,6 @@ export default function WelfareNavigatorDemo() {
             </p>
           </div>
         </div>
-      </section>
-    </div>
+    </DemoLayout>
   );
 }

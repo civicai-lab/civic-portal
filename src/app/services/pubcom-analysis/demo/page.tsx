@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { CountUp } from "@/components/ui/count-up";
+import { DemoLayout } from "@/components/demo/demo-layout";
 import {
   BarChart3,
   PieChart,
@@ -145,28 +146,24 @@ export default function PubcomAnalysisDemoPage() {
   const [selectedSentiment, setSelectedSentiment] = useState("all");
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      {/* ヘッダー */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-2">
-            <BarChart3 className="size-8" />
-            <Badge variant="secondary" className="text-sm">
-              デモ
-            </Badge>
-          </div>
-          <h1 className="text-2xl font-bold sm:text-3xl font-heading">
-            ○○市 都市計画マスタープラン改定
-            <br className="sm:hidden" />
-            パブリックコメント分析結果
-          </h1>
-          <p className="mt-2 text-primary-foreground/80 text-sm sm:text-base">
-            意見募集期間: 2026年1月6日〜2月3日 | AI自動分析レポート
-          </p>
-        </div>
+    <DemoLayout
+      serviceName="パブコメ分析AI"
+      serviceIcon={<BarChart3 className="size-5 text-primary-foreground" />}
+      subtitle="分析ダッシュボードデモ"
+    >
+      {/* ダッシュボードヘッダー */}
+      <div className="bg-primary text-primary-foreground rounded-lg px-4 py-6 sm:px-6 mb-6 -mx-4 sm:mx-0">
+        <h2 className="text-xl font-bold sm:text-2xl font-heading">
+          ○○市 都市計画マスタープラン改定
+          <br className="sm:hidden" />
+          パブリックコメント分析結果
+        </h2>
+        <p className="mt-2 text-primary-foreground/80 text-sm sm:text-base">
+          意見募集期間: 2026年1月6日〜2月3日 | AI自動分析レポート
+        </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div>
         <div className="flex flex-col lg:flex-row gap-8">
           {/* メインコンテンツ */}
           <div className="flex-1 min-w-0">
@@ -614,7 +611,7 @@ export default function PubcomAnalysisDemoPage() {
       </div>
 
       {/* モバイル用 炎上リスク（lgで非表示） */}
-      <div className="lg:hidden px-4 pb-8">
+      <div className="lg:hidden pb-4">
         <Card className="border-amber-300 bg-amber-50">
           <CardContent className="pt-0">
             <div className="flex items-center gap-2 mb-2">
@@ -627,6 +624,6 @@ export default function PubcomAnalysisDemoPage() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </DemoLayout>
   );
 }

@@ -4,6 +4,8 @@ import { Source_Sans_3 } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ToastProvider } from "@/components/ui/toast";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import "./globals.css";
 
 const lexend = Lexend({
@@ -54,18 +56,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body
         className={`${lexend.variable} ${sourceSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <a href="#main-content" className="skip-link">
-          メインコンテンツにスキップ
-        </a>
-        <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ToastProvider>
+          <a href="#main-content" className="skip-link">
+            メインコンテンツにスキップ
+          </a>
+          <Header />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </ToastProvider>
       </body>
     </html>
   );

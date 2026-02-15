@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import Link from "next/link";
+import { DemoLayout } from "@/components/demo/demo-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -234,36 +235,18 @@ export default function FacilityConciergeDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-muted">
-      {/* ヘッダー */}
-      <section className="border-b bg-white py-10 md:py-14">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services/facility-concierge"
-            className="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
-          >
-            <ChevronLeft className="size-4" />
-            サービス詳細に戻る
-          </Link>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            施設案内コンシェルジュ デモ
-          </h1>
-          <p className="mt-2 text-muted-foreground">
-            AIが最適な公共施設を提案します。目的や条件を入力して、簡単に施設を見つけましょう。
-          </p>
-        </div>
-      </section>
-
+    <DemoLayout
+      serviceName="施設予約AIコンシェルジュ"
+      serviceIcon={<Building2 className="size-5 text-primary-foreground" />}
+      subtitle="4ステップウィザードデモ"
+    >
       {/* ステップインジケーター */}
-      <section className="border-b bg-white py-6">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <StepIndicator currentStep={step} steps={stepLabels} />
-        </div>
-      </section>
+      <div className="border-b bg-white rounded-lg py-6 px-4 mb-6 -mx-4 sm:mx-0 sm:px-6">
+        <StepIndicator currentStep={step} steps={stepLabels} />
+      </div>
 
       {/* コンテンツ */}
-      <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div>
           <div
             key={fadeKey}
             className="animate-page-enter"
@@ -597,7 +580,6 @@ export default function FacilityConciergeDemo() {
             )}
           </div>
         </div>
-      </section>
-    </div>
+    </DemoLayout>
   );
 }

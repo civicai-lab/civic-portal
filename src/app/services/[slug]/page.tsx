@@ -375,7 +375,13 @@ export default async function ServiceDetailPage({
             {service.description}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" asChild className="w-full sm:w-auto">
+            <Button size="lg" variant="cta" asChild className="w-full sm:w-auto">
+              <Link href={`/services/${service.slug}/demo`}>
+                デモを試す
+                <Monitor className="ml-2 size-4" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
               <Link href="/contact">
                 お問い合わせ
                 <ArrowRight className="ml-2 size-4" />

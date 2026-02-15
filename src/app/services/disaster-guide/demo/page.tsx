@@ -27,6 +27,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { DemoLayout } from "@/components/demo/demo-layout";
 
 // --- 型定義 ---
 
@@ -473,18 +474,15 @@ export default function DisasterGuideDemoPage() {
   }, [quizIndex]);
 
   return (
-    <div className="min-h-screen bg-muted">
-      {/* デモバナー */}
-      <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center">
-        <p className="text-sm text-amber-800 flex items-center justify-center gap-2">
-          <AlertTriangle className="size-4" />
-          デモ版 - 実際のデータは使用していません
-        </p>
-      </div>
-
+    <DemoLayout
+      serviceName="防災AIガイド"
+      serviceIcon={<Shield className="size-5 text-primary-foreground" />}
+      subtitle="チャット+マップデモ"
+      fullHeight
+    >
       {/* 緊急情報バナー（有事モード時） */}
       {phase === "emergency" && (
-        <div className="bg-red-600 text-white px-4 py-3 text-center">
+        <div className="bg-red-600 text-white px-4 py-3 text-center -mx-4 -mt-4 mb-4">
           <p className="text-sm font-bold flex items-center justify-center gap-2">
             <Siren className="size-5 animate-pulse" />
             {strings.emergencyBanner}
@@ -492,96 +490,51 @@ export default function DisasterGuideDemoPage() {
         </div>
       )}
 
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-border sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Link
-                href="/services"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <ArrowLeft className="size-5" />
-              </Link>
-              <div className="flex items-center gap-2">
-                <div className="size-9 rounded-full bg-primary flex items-center justify-center">
-                  <Shield className="size-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <h1 className="text-lg font-semibold text-foreground">
-                    防災AIガイド
-                  </h1>
-                  <p className="text-xs text-muted-foreground">
-                    デモ版
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* フェーズ切替 + 言語切替 */}
-            <div className="flex items-center gap-3">
-              {/* 言語切替 */}
-              <div className="hidden sm:flex items-center gap-1">
-                <Globe className="size-4 text-muted-foreground" />
-                {(Object.keys(LANG_LABELS) as Language[]).map((l) => (
-                  <Button
-                    key={l}
-                    variant={lang === l ? "default" : "ghost"}
-                    size="xs"
-                    onClick={() => handleLangChange(l)}
-                    className="text-xs"
-                  >
-                    {LANG_LABELS[l]}
-                  </Button>
-                ))}
-              </div>
-
-              {/* フェーズ切替トグル */}
-              <div className="flex items-center bg-muted rounded-lg p-0.5">
-                <button
-                  onClick={() => handlePhaseChange("normal")}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                    phase === "normal"
-                      ? "bg-white text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  平時モード
-                </button>
-                <button
-                  onClick={() => handlePhaseChange("emergency")}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                    phase === "emergency"
-                      ? "bg-red-600 text-white shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  有事モード
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* モバイル言語切替 */}
-          <div className="sm:hidden flex items-center gap-1 mt-2 overflow-x-auto">
-            <Globe className="size-4 text-muted-foreground shrink-0" />
-            {(Object.keys(LANG_LABELS) as Language[]).map((l) => (
-              <Button
-                key={l}
-                variant={lang === l ? "default" : "ghost"}
-                size="xs"
-                onClick={() => handleLangChange(l)}
-                className="text-xs shrink-0"
-              >
-                {LANG_LABELS[l]}
-              </Button>
-            ))}
-          </div>
+      {/* フェーズ切替 + 言語切替 */}
+      <div className="flex items-center justify-between gap-3 mb-4 -mt-2">
+        {/* 言語切替 */}
+        <div className="flex items-center gap-1 overflow-x-auto">
+          <Globe className="size-4 text-muted-foreground shrink-0" />
+          {(Object.keys(LANG_LABELS) as Language[]).map((l) => (
+            <Button
+              key={l}
+              variant={lang === l ? "default" : "ghost"}
+              size="xs"
+              onClick={() => handleLangChange(l)}
+              className="text-xs shrink-0"
+            >
+              {LANG_LABELS[l]}
+            </Button>
+          ))}
         </div>
-      </header>
+
+        {/* フェーズ切替トグル */}
+        <div className="flex items-center bg-muted rounded-lg p-0.5 shrink-0">
+          <button
+            onClick={() => handlePhaseChange("normal")}
+            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+              phase === "normal"
+                ? "bg-white text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            平時モード
+          </button>
+          <button
+            onClick={() => handlePhaseChange("emergency")}
+            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+              phase === "emergency"
+                ? "bg-red-600 text-white shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            有事モード
+          </button>
+        </div>
+      </div>
 
       {/* メインコンテンツ - 2カラム */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div>
         <div className="flex flex-col md:flex-row gap-4" style={{ height: "calc(100vh - 200px)" }}>
           {/* 左カラム: チャット (60%) */}
           <div className="flex-1 md:w-[60%] flex flex-col min-h-0">
@@ -999,6 +952,6 @@ export default function DisasterGuideDemoPage() {
           </div>
         </div>
       </div>
-    </div>
+    </DemoLayout>
   );
 }

@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { CountUp } from "@/components/ui/count-up";
+import { DemoLayout } from "@/components/demo/demo-layout";
 import {
   BookOpen,
   BarChart3,
@@ -273,26 +274,22 @@ export default function BookSelectionDemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      {/* ヘッダー */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Library className="size-8" />
-            <Badge variant="secondary" className="text-sm">
-              デモ
-            </Badge>
-          </div>
-          <h1 className="text-2xl font-bold sm:text-3xl font-heading">
-            ○○市立図書館 選書最適化分析ダッシュボード
-          </h1>
-          <p className="mt-2 text-primary-foreground/80 text-sm sm:text-base">
-            AI蔵書分析・選書推薦システム | 2025年度データ
-          </p>
-        </div>
+    <DemoLayout
+      serviceName="AI選書最適化"
+      serviceIcon={<BookOpen className="size-5 text-primary-foreground" />}
+      subtitle="選書ダッシュボードデモ"
+    >
+      {/* ダッシュボードヘッダー */}
+      <div className="bg-primary text-primary-foreground rounded-lg px-4 py-6 sm:px-6 mb-6 -mx-4 sm:mx-0">
+        <h2 className="text-xl font-bold sm:text-2xl font-heading">
+          ○○市立図書館 選書最適化分析ダッシュボード
+        </h2>
+        <p className="mt-2 text-primary-foreground/80 text-sm sm:text-base">
+          AI蔵書分析・選書推薦システム | 2025年度データ
+        </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div>
         {/* フィルタバー */}
         <Card className="mb-8">
           <CardContent className="pt-0">
@@ -775,6 +772,6 @@ export default function BookSelectionDemoPage() {
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+    </DemoLayout>
   );
 }

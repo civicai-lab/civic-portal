@@ -13,13 +13,13 @@ import {
   Send,
   Bot,
   User,
-  AlertTriangle,
   MessageSquare,
   HelpCircle,
   Building2,
-  ArrowLeft,
+  AlertTriangle,
 } from "lucide-react";
-import Link from "next/link";
+import { DemoLayout } from "@/components/demo/demo-layout";
+import { ConfidenceIndicator } from "@/components/demo/confidence-indicator";
 
 // --- 型定義 ---
 
@@ -176,37 +176,6 @@ const QUICK_QUESTIONS = [
   "マイナンバーカードの受け取り方法",
 ];
 
-// --- 信頼度インジケーター ---
-
-function ConfidenceIndicator({ confidence }: { confidence: number }) {
-  const getColor = () => {
-    if (confidence >= 80) return "bg-green-500";
-    if (confidence >= 60) return "bg-yellow-500";
-    return "bg-red-500";
-  };
-
-  const getLabel = () => {
-    if (confidence >= 80) return "高信頼度";
-    if (confidence >= 60) return "中信頼度";
-    return "低信頼度";
-  };
-
-  return (
-    <div className="flex items-center gap-2 mt-2">
-      <span className="text-xs text-muted-foreground">信頼度:</span>
-      <div className="flex-1 max-w-[120px] h-2 bg-muted rounded-full overflow-hidden">
-        <div
-          className={`h-full rounded-full transition-all duration-500 ${getColor()}`}
-          style={{ width: `${confidence}%` }}
-        />
-      </div>
-      <span className="text-xs text-muted-foreground">
-        {confidence}% ({getLabel()})
-      </span>
-    </div>
-  );
-}
-
 // --- メインコンポーネント ---
 
 export default function MunicipalFaqDemoPage() {
@@ -274,39 +243,12 @@ export default function MunicipalFaqDemoPage() {
   );
 
   return (
-    <div className="min-h-screen bg-muted">
-      {/* デモバナー */}
-      <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center">
-        <p className="text-sm text-amber-800 flex items-center justify-center gap-2">
-          <AlertTriangle className="size-4" />
-          デモ版 - 実際のデータは使用していません
-        </p>
-      </div>
-
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-border sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
-          <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="size-5" />
-          </Link>
-          <div className="flex items-center gap-2">
-            <div className="size-9 rounded-full bg-primary flex items-center justify-center">
-              <MessageSquare className="size-5 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold text-foreground">
-                住民問い合わせAI
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                チャットデモ
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* メインコンテンツ */}
-      <div className="max-w-4xl mx-auto px-4 py-4 flex flex-col" style={{ height: "calc(100vh - 130px)" }}>
+    <DemoLayout
+      serviceName="住民問い合わせAI"
+      serviceIcon={<MessageSquare className="size-5 text-primary-foreground" />}
+      subtitle="チャットデモ"
+      fullHeight
+    >
         {/* よくある質問 */}
         <Card className="mb-4 py-4">
           <CardHeader className="pb-2 pt-0">
@@ -412,21 +354,7 @@ export default function MunicipalFaqDemoPage() {
 
                   {/* 信頼度インジケーター（AI応答のみ） */}
                   {msg.role === "ai" && msg.confidence !== undefined && (
-                    <>
-                      <ConfidenceIndicator confidence={msg.confidence} />
-                      {msg.confidence < 60 && (
-                        <div className="mt-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="text-xs h-7 border-destructive text-destructive hover:bg-destructive hover:text-white"
-                          >
-                            <Building2 className="size-3" />
-                            窓口案内を表示
-                          </Button>
-                        </div>
-                      )}
-                    </>
+                    <ConfidenceIndicator confidence={msg.confidence} />
                   )}
                 </div>
               </div>
@@ -474,7 +402,6 @@ export default function MunicipalFaqDemoPage() {
             </div>
           </div>
         </Card>
-      </div>
-    </div>
+    </DemoLayout>
   );
 }
