@@ -202,13 +202,13 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
   return (
     <Card className="h-full">
       <CardHeader>
-        <div className="mb-3 flex size-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
+        <div className="mb-3 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon className="size-6" />
         </div>
         <CardTitle className="text-lg">{feature.title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-gray-600">{feature.description}</p>
+        <p className="text-sm text-muted-foreground">{feature.description}</p>
       </CardContent>
     </Card>
   );
@@ -218,7 +218,7 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
     <Card
-      className={`h-full ${plan.recommended ? "border-blue-500 ring-2 ring-blue-500/20" : ""}`}
+      className={`h-full ${plan.recommended ? "border-primary ring-2 ring-primary/20" : ""}`}
     >
       <CardHeader>
         {plan.recommended && (
@@ -226,11 +226,11 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         )}
         <CardTitle className="text-xl">{plan.name}</CardTitle>
         <div className="mt-2">
-          <span className="text-3xl font-bold text-gray-900">
+          <span className="text-3xl font-bold text-foreground">
             {plan.price}
           </span>
           {plan.period && (
-            <span className="ml-2 text-sm text-gray-500">{plan.period}</span>
+            <span className="ml-2 text-sm text-muted-foreground">{plan.period}</span>
           )}
         </div>
       </CardHeader>
@@ -239,7 +239,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2 text-sm">
               <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500" />
-              <span className="text-gray-600">{feature}</span>
+              <span className="text-muted-foreground">{feature}</span>
             </li>
           ))}
         </ul>
@@ -270,19 +270,19 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
           <p className="mb-1 text-xs font-medium uppercase tracking-wider text-red-500">
             課題
           </p>
-          <p className="text-sm text-gray-600">{useCase.problem}</p>
+          <p className="text-sm text-muted-foreground">{useCase.problem}</p>
         </div>
         <div>
-          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-blue-500">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-primary">
             ソリューション
           </p>
-          <p className="text-sm text-gray-600">{useCase.solution}</p>
+          <p className="text-sm text-muted-foreground">{useCase.solution}</p>
         </div>
         <div>
-          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-green-500">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-emerald-500">
             成果
           </p>
-          <p className="text-sm text-gray-600">{useCase.result}</p>
+          <p className="text-sm text-muted-foreground">{useCase.result}</p>
         </div>
       </CardContent>
     </Card>
@@ -293,12 +293,12 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
 function FAQItem({ faq }: { faq: FAQ }) {
   return (
     <details className="group rounded-lg border bg-white">
-      <summary className="flex cursor-pointer items-center justify-between p-4 font-medium text-gray-900">
+      <summary className="flex cursor-pointer items-center justify-between p-4 font-medium text-foreground">
         {faq.question}
-        <ChevronDown className="size-5 text-gray-500 transition-transform group-open:rotate-180" />
+        <ChevronDown className="size-5 text-muted-foreground transition-transform group-open:rotate-180" />
       </summary>
       <div className="border-t px-4 py-3">
-        <p className="text-sm text-gray-600">{faq.answer}</p>
+        <p className="text-sm text-muted-foreground">{faq.answer}</p>
       </div>
     </details>
   );
@@ -326,10 +326,10 @@ export default async function ServiceDetailPage({
         : "官民連携";
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 py-20 text-white">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
             className="mb-6 inline-flex items-center text-sm text-blue-200 hover:text-white"
@@ -375,15 +375,15 @@ export default async function ServiceDetailPage({
 
       {/* KPI */}
       <section className="border-b bg-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {service.kpi.map((kpi) => (
               <div
                 key={kpi}
-                className="text-center rounded-lg border bg-gray-50 p-4"
+                className="text-center rounded-lg border bg-muted p-4"
               >
-                <p className="text-sm font-medium text-blue-600">KPI</p>
-                <p className="mt-1 text-sm font-semibold text-gray-900">
+                <p className="text-sm font-medium text-primary">KPI</p>
+                <p className="mt-1 text-sm font-semibold text-foreground">
                   {kpi}
                 </p>
               </div>
@@ -393,13 +393,13 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Features */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               主な機能
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-muted-foreground">
               {service.displayName}の特長的な機能をご紹介します
             </p>
           </div>
@@ -412,13 +412,13 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Use Cases */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               導入事例
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-muted-foreground">
               実際の導入シナリオをご紹介します
             </p>
           </div>
@@ -431,13 +431,13 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Pricing */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               料金プラン
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-muted-foreground">
               ご要望に合わせたプランをお選びいただけます
             </p>
           </div>
@@ -458,10 +458,10 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               よくある質問
             </h2>
           </div>
@@ -474,10 +474,10 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Target Customers */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground">
               対象のお客様
             </h2>
           </div>
@@ -496,8 +496,8 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 text-white md:py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight">
             {service.displayName}の導入をご検討ですか？
           </h2>
@@ -507,7 +507,7 @@ export default async function ServiceDetailPage({
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
               size="lg"
-              variant="secondary"
+              variant="cta"
               asChild
               className="w-full sm:w-auto"
             >

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 const serviceLinks = [
@@ -35,9 +36,13 @@ export function Footer() {
               className="inline-block"
               aria-label="Civic AI ホーム"
             >
-              <span className="text-xl font-bold tracking-tight text-primary">
-                CIVIC AI
-              </span>
+              <Image
+                src="/logo/header-logo.png"
+                alt="Civic AI"
+                width={120}
+                height={32}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               シビックAI総合研究所は、自治体向けAIソリューションを提供し、

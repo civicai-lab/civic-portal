@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { CountUp } from "@/components/ui/count-up";
 import {
   Card,
   CardContent,
@@ -8,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getPriorityServices, services } from "@/data/services";
+import { getPriorityServices, services, getServiceThumbnail } from "@/data/services";
 import {
   ArrowRight,
   Building2,
@@ -25,9 +28,17 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden py-24 text-white md:py-32">
+        <Image
+          src="/images/hero/hero_bg.webp"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-        <div className="container relative mx-auto px-4 text-center">
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <Badge variant="secondary" className="mb-6 text-sm">
             Civic AI Product Suite
           </Badge>
@@ -50,9 +61,9 @@ export default function HomePage() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="cta"
               asChild
-              className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white sm:w-auto"
+              className="w-full sm:w-auto"
             >
               <Link href="/contact">無料相談</Link>
             </Button>
@@ -62,53 +73,47 @@ export default function HomePage() {
 
       {/* Stats Section */}
       <section className="border-b bg-white py-16">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              {
-                icon: Building2,
-                value: "50+",
-                label: "導入自治体数",
-              },
-              {
-                icon: TestTube2,
-                value: "3,200+",
-                label: "テスト数",
-              },
-              {
-                icon: Layers,
-                value: "20",
-                label: "サービス数",
-              },
-              {
-                icon: CheckCircle,
-                value: "99.9%",
-                label: "テスト通過率",
-              },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <stat.icon className="mx-auto mb-3 size-8 text-blue-600" />
-                <div className="text-3xl font-bold text-gray-900 md:text-4xl">
-                  {stat.value}
+              { icon: Building2, end: 50, suffix: "+", label: "導入自治体数" },
+              { icon: TestTube2, end: 3200, suffix: "+", label: "テスト数" },
+              { icon: Layers, end: 20, suffix: "", label: "サービス数" },
+              { icon: CheckCircle, end: 999, suffix: "", label: "テスト通過率", display: "99.9%" },
+            ].map((stat, index) => (
+              <AnimatedSection key={stat.label} animation="fade-up" delay={index * 100} className="text-center">
+                <stat.icon className="mx-auto mb-3 size-8 text-primary" />
+                {stat.display ? (
+                  <div className="text-3xl font-bold text-foreground md:text-4xl">
+                    {stat.display}
+                  </div>
+                ) : (
+                  <CountUp
+                    end={stat.end}
+                    suffix={stat.suffix}
+                    className="text-3xl font-bold text-foreground md:text-4xl"
+                  />
+                )}
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {stat.label}
                 </div>
-                <div className="mt-1 text-sm text-gray-500">{stat.label}</div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
       {/* Priority Services Highlight */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+      <section className="bg-muted py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               注力サービス
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-muted-foreground">
               導入実績が豊富な、最優先サービスをご紹介します
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {priorityServices.map((service) => (
               <Link
@@ -116,7 +121,15 @@ export default function HomePage() {
                 href={`/services/${service.slug}`}
                 className="group"
               >
-                <Card className="h-full transition-shadow hover:shadow-lg">
+                <Card className="h-full cursor-pointer transition-shadow hover:shadow-lg">
+                  <div className="relative h-40 w-full overflow-hidden rounded-t-lg">
+                    <Image
+                      src={getServiceThumbnail(service.slug)}
+                      alt={service.displayName}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="mb-2 flex items-center gap-2">
                       <Badge
@@ -130,7 +143,7 @@ export default function HomePage() {
                       </Badge>
                       <Badge variant="outline">{service.subcategory}</Badge>
                     </div>
-                    <CardTitle className="text-xl group-hover:text-blue-600">
+                    <CardTitle className="text-xl group-hover:text-primary">
                       {service.displayName}
                     </CardTitle>
                     <CardDescription className="text-base">
@@ -138,10 +151,10 @@ export default function HomePage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-muted-foreground">
                       {service.description}
                     </p>
-                    <div className="mt-4 flex items-center text-sm font-medium text-blue-600">
+                    <div className="mt-4 flex items-center text-sm font-medium text-primary">
                       詳しく見る
                       <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -162,21 +175,22 @@ export default function HomePage() {
       </section>
 
       {/* Category Explanation */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               2つのサービスカテゴリ
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-muted-foreground">
               自治体のニーズに合わせた2種類のサービス形態を提供しています
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {/* SaaS */}
-            <Card className="relative overflow-hidden border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+            <AnimatedSection animation="slide-left">
+            <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-white">
               <CardHeader>
-                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-blue-600 text-white">
+                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-primary text-white">
                   <BrainCircuit className="size-7" />
                 </div>
                 <CardTitle className="text-2xl">SaaS型サービス</CardTitle>
@@ -185,20 +199,20 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 text-gray-600">
+                <p className="mb-4 text-muted-foreground">
                   図書館AI司書、住民問い合わせAI、庁内ナレッジ検索など、パッケージ化されたAIサービスを月額制で提供。POCから始めて段階的に導入できます。
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-blue-600" />
+                    <CheckCircle className="size-4 text-primary" />
                     対話案内・業務削減・教育ガバナンス
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-blue-600" />
+                    <CheckCircle className="size-4 text-primary" />
                     POCから始めてリスクを最小化
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-blue-600" />
+                    <CheckCircle className="size-4 text-primary" />
                     月額制で予算管理が容易
                   </li>
                 </ul>
@@ -210,8 +224,10 @@ export default function HomePage() {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
 
             {/* Think Tank */}
+            <AnimatedSection animation="slide-right" delay={200}>
             <Card className="relative overflow-hidden border-emerald-200 bg-gradient-to-br from-emerald-50 to-white">
               <CardHeader>
                 <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-emerald-600 text-white">
@@ -225,10 +241,10 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 text-gray-600">
+                <p className="mb-4 text-muted-foreground">
                   ガイドライン策定、RFP作成支援、AI倫理監査、データ分析など、専門知識を活かしたコンサルティングサービスを提供。一回限りのスポット利用も可能です。
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="size-4 text-emerald-600" />
                     策定支援・データ分析・専門実証
@@ -250,13 +266,97 @@ export default function HomePage() {
                 </Button>
               </CardContent>
             </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section - パートナー & 資格 */}
+      <section className="border-t bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground">
+              パートナー・認定
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              信頼できるパートナーとともに、安心のサービスを提供しています
+            </p>
+          </div>
+          {/* パートナーロゴ */}
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0">
+            <Image
+              src="/images/partners/jinomi_logo.webp"
+              alt="JINOMI"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/images/partners/maruzen_logo.png"
+              alt="丸善"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/images/partners/yopaz_logo.webp"
+              alt="Yopaz"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/images/partners/quickiterate_logo.webp"
+              alt="QuickIterate"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/images/partners/shinagawaship_logo.webp"
+              alt="品川シップ"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+          </div>
+          {/* 資格バッジ */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+            <Image
+              src="/images/credentials/ipa_security_action.png"
+              alt="IPA SECURITY ACTION"
+              width={80}
+              height={80}
+              className="size-16 object-contain"
+            />
+            <Image
+              src="/images/credentials/sdgs_wheel.png"
+              alt="SDGs"
+              width={80}
+              height={80}
+              className="size-16 object-contain"
+            />
+            <Image
+              src="/images/credentials/microsoft.png"
+              alt="Microsoft Partner"
+              width={80}
+              height={80}
+              className="size-16 object-contain"
+            />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative overflow-hidden py-16 text-white md:py-20">
+        <Image
+          src="/images/hero/hero-collaboration.jpg"
+          alt=""
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-700/90" />
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             まずは無料相談から
           </h2>
@@ -268,7 +368,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
               size="lg"
-              variant="secondary"
+              variant="cta"
               asChild
               className="w-full sm:w-auto"
             >

@@ -16,6 +16,7 @@ export interface ServiceData {
   kpi: string[];
   useCases: UseCase[];
   faqs: FAQ[];
+  thumbnail?: string;
 }
 
 export interface ServiceFeature {

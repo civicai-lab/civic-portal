@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,20 +30,25 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 shadow-sm backdrop-blur-md"
+          ? "bg-background/95 shadow-sm backdrop-blur-md border-b"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${isScrolled ? "h-14" : "h-16"}`}>
         {/* ロゴ */}
         <Link
           href="/"
           className="flex items-center gap-2"
           aria-label="Civic AI ホーム"
         >
-          <span className="text-xl font-bold tracking-tight text-primary">
-            CIVIC AI
-          </span>
+          <Image
+            src="/logo/header-logo.png"
+            alt="Civic AI"
+            width={120}
+            height={32}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* デスクトップナビゲーション */}

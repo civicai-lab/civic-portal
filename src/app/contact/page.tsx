@@ -55,7 +55,7 @@ export default function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
+      <div className="flex min-h-screen items-center justify-center bg-muted px-4">
         <Card className="w-full max-w-md text-center">
           <CardHeader>
             <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-green-100">
@@ -79,29 +79,29 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Header */}
       <section className="border-b bg-white py-16">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="mb-6 inline-flex items-center text-sm text-gray-600 hover:text-gray-900"
+            className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="mr-1 size-4" />
             トップページに戻る
           </Link>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             お問い合わせ
           </h1>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-muted-foreground">
             サービスに関するご質問やご相談はこちらからお気軽にどうぞ
           </p>
         </div>
       </section>
 
       {/* Form & Info */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Contact Form */}
             <div className="lg:col-span-2">
@@ -119,7 +119,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="mb-2 block text-sm font-medium text-gray-700"
+                        className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         お名前 <span className="text-red-500">*</span>
                       </label>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="山田 太郎"
-                        className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
 
@@ -139,7 +139,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="mb-2 block text-sm font-medium text-gray-700"
+                        className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         メールアドレス <span className="text-red-500">*</span>
                       </label>
@@ -151,7 +151,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="taro.yamada@city.example.lg.jp"
-                        className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
 
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="organization"
-                        className="mb-2 block text-sm font-medium text-gray-700"
+                        className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         自治体名・組織名{" "}
                         <span className="text-red-500">*</span>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                         value={formData.organization}
                         onChange={handleChange}
                         placeholder="○○市 DX推進課"
-                        className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
 
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="serviceSlug"
-                        className="mb-2 block text-sm font-medium text-gray-700"
+                        className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         ご興味のあるサービス
                       </label>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                         name="serviceSlug"
                         value={formData.serviceSlug}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">選択してください（任意）</option>
                         <optgroup label="SaaS型サービス">
@@ -217,7 +217,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="mb-2 block text-sm font-medium text-gray-700"
+                        className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         お問い合わせ内容{" "}
                         <span className="text-red-500">*</span>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="ご質問やご要望をご記入ください"
-                        className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-md border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
 
@@ -256,33 +256,33 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Mail className="mt-0.5 size-5 text-blue-600" />
+                    <Mail className="mt-0.5 size-5 text-primary" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-sm font-medium text-foreground">
                         メール
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-muted-foreground">
                         contact@civic-ai.jp
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="mt-0.5 size-5 text-blue-600" />
+                    <Phone className="mt-0.5 size-5 text-primary" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">電話</p>
-                      <p className="text-sm text-gray-600">03-XXXX-XXXX</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-sm font-medium text-foreground">電話</p>
+                      <p className="text-sm text-muted-foreground">03-XXXX-XXXX</p>
+                      <p className="text-xs text-muted-foreground/60">
                         平日 9:00-18:00
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 size-5 text-blue-600" />
+                    <MapPin className="mt-0.5 size-5 text-primary" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-sm font-medium text-foreground">
                         所在地
                       </p>
-                      <p className="text-sm text-gray-600">東京都千代田区</p>
+                      <p className="text-sm text-muted-foreground">東京都千代田区</p>
                     </div>
                   </div>
                 </CardContent>
@@ -294,39 +294,39 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <p className="text-sm font-medium text-gray-900">
+                    <p className="text-sm font-medium text-foreground">
                       返信までの目安は？
                     </p>
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       2営業日以内にご返信いたします。
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">
+                    <p className="text-sm font-medium text-foreground">
                       無料相談は何回まで？
                     </p>
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       初回のご相談は無料です。オンラインまたは訪問で対応します。
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">
+                    <p className="text-sm font-medium text-foreground">
                       POC（概念実証）は可能？
                     </p>
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       ほとんどのSaaS型サービスでPOCプランをご用意しています。
                     </p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-blue-200 bg-blue-50">
+              <Card className="border-primary/20 bg-primary/5">
                 <CardContent className="pt-6">
                   <Badge className="mb-3">おすすめ</Badge>
-                  <p className="text-sm font-medium text-gray-900">
+                  <p className="text-sm font-medium text-foreground">
                     どのサービスを選べばいいかわからない方へ
                   </p>
-                  <p className="mt-2 text-sm text-gray-600">
+                  <p className="mt-2 text-sm text-muted-foreground">
                     課題のヒアリングから最適なサービスのご提案まで、無料でサポートいたします。お気軽にご相談ください。
                   </p>
                 </CardContent>

@@ -2384,3 +2384,31 @@ export function getServicesByPriority(priority: "S" | "A" | "B" | "C"): ServiceD
 export function getPriorityServices(): ServiceData[] {
   return services.filter((s) => s.priority === "S");
 }
+
+// サムネイル画像マッピング
+const thumbnailMap: Record<string, string> = {
+  "shiori-library": "/images/shiori-library.webp",
+  "shiori-academic": "/images/hero-library.webp",
+  "facility-concierge": "/images/cases/general-office.jpg",
+  "tourism-guide": "/images/cases/public-sector.jpg",
+  "municipal-faq": "/images/service-conversation.webp",
+  "welfare-navigator": "/images/cases/general-meeting.jpg",
+  "staff-knowledge": "/images/cases/backend-code.jpg",
+  "minutes-summary": "/images/cases/general-work.jpg",
+  "education-content": "/images/tech/genai-lab.webp",
+  "disaster-guide": "/images/cases/ai-dashboard.jpg",
+  "ai-guideline": "/images/tech/dashboard.webp",
+  "rfp-builder": "/images/features/feature-contract.jpg",
+  "ai-ethics-audit": "/images/features/feature-security.jpg",
+  "pubcom-analysis": "/images/cases/ai-data.jpg",
+  "book-selection": "/images/cases/ai-neural.jpg",
+  "assembly-archive": "/images/cases/ai-llm.jpg",
+  "vulnerability-scan": "/images/tech/blockchain-security.jpg",
+  "tourism-analytics": "/images/tech/dashboard-analytics.jpg",
+  "ai-reskilling": "/images/cases/ai-vision.jpg",
+  "ai-lab": "/images/cases/ai-robot.jpg",
+};
+
+export function getServiceThumbnail(slug: string): string {
+  return thumbnailMap[slug] || "/images/cases/ai-dashboard.jpg";
+}

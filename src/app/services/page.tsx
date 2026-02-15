@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { services, getServicesByCategory } from "@/data/services";
+import { services, getServicesByCategory, getServiceThumbnail } from "@/data/services";
 import type { ServiceData } from "@/types/service";
 import { ArrowRight } from "lucide-react";
 
@@ -38,6 +39,14 @@ function ServiceCard({ service }: { service: ServiceData }) {
   return (
     <Link href={`/services/${service.slug}`} className="group">
       <Card className="h-full transition-shadow hover:shadow-lg">
+        <div className="relative h-40 w-full overflow-hidden">
+          <Image
+            src={getServiceThumbnail(service.slug)}
+            alt={service.displayName}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
         <CardHeader>
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <Badge
@@ -52,26 +61,26 @@ function ServiceCard({ service }: { service: ServiceData }) {
               </Badge>
             )}
           </div>
-          <CardTitle className="text-lg group-hover:text-blue-600">
+          <CardTitle className="text-lg group-hover:text-primary">
             {service.displayName}
           </CardTitle>
           <CardDescription>{service.tagline}</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="mb-3 line-clamp-2 text-sm text-gray-600">
+          <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
             {service.description}
           </p>
           <div className="mb-3 flex flex-wrap gap-1">
             {service.targetCustomers.map((customer) => (
               <span
                 key={customer}
-                className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600"
+                className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
               >
                 {customer}
               </span>
             ))}
           </div>
-          <div className="flex items-center text-sm font-medium text-blue-600">
+          <div className="flex items-center text-sm font-medium text-primary">
             詳しく見る
             <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
           </div>
@@ -103,14 +112,14 @@ export default function ServicesPage() {
   const filteredThinktank = filterServices(thinktankServices);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {/* Header */}
       <section className="border-b bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             サービス一覧
           </h1>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-muted-foreground">
             自治体のDXを支援する{services.length}
             のAIサービスをご覧いただけます
           </p>
@@ -119,11 +128,11 @@ export default function ServicesPage() {
 
       {/* Filters */}
       <section className="border-b bg-white py-4">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             {/* Priority Filter */}
             <div className="flex items-center gap-2">
-              <span className="shrink-0 text-sm font-medium text-gray-700">
+              <span className="shrink-0 text-sm font-medium text-foreground/80">
                 優先度:
               </span>
               <div className="flex flex-wrap gap-1">
@@ -142,7 +151,7 @@ export default function ServicesPage() {
 
             {/* Subcategory Filter */}
             <div className="flex items-center gap-2">
-              <span className="shrink-0 text-sm font-medium text-gray-700">
+              <span className="shrink-0 text-sm font-medium text-foreground/80">
                 分野:
               </span>
               <div className="flex flex-wrap gap-1">
@@ -163,8 +172,8 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="all">
             <TabsList className="mb-8">
               <TabsTrigger value="all">
@@ -180,7 +189,7 @@ export default function ServicesPage() {
 
             <TabsContent value="all">
               {filteredAll.length === 0 ? (
-                <p className="py-12 text-center text-gray-500">
+                <p className="py-12 text-center text-muted-foreground">
                   該当するサービスが見つかりません
                 </p>
               ) : (
@@ -194,7 +203,7 @@ export default function ServicesPage() {
 
             <TabsContent value="saas">
               {filteredSaas.length === 0 ? (
-                <p className="py-12 text-center text-gray-500">
+                <p className="py-12 text-center text-muted-foreground">
                   該当するサービスが見つかりません
                 </p>
               ) : (
@@ -208,7 +217,7 @@ export default function ServicesPage() {
 
             <TabsContent value="thinktank">
               {filteredThinktank.length === 0 ? (
-                <p className="py-12 text-center text-gray-500">
+                <p className="py-12 text-center text-muted-foreground">
                   該当するサービスが見つかりません
                 </p>
               ) : (
@@ -224,15 +233,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900">
+      <section className="border-t bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground">
             お探しのサービスが見つかりましたか？
           </h2>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-muted-foreground">
             サービスについてのご質問やカスタマイズのご要望はお気軽にお問い合わせください
           </p>
-          <Button className="mt-6" size="lg" asChild>
+          <Button className="mt-6" size="lg" variant="cta" asChild>
             <Link href="/contact">
               お問い合わせ
               <ArrowRight className="ml-2 size-4" />
