@@ -1,0 +1,245 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { services, getServicesByCategory } from "@/data/services";
+import type { ServiceData } from "@/types/service";
+import { ArrowRight } from "lucide-react";
+
+const priorityLabels: Record<string, string> = {
+  all: "すべて",
+  S: "最優先 (S)",
+  A: "高 (A)",
+  B: "中 (B)",
+  C: "低 (C)",
+};
+
+const subcategoryLabels = [
+  "すべて",
+  "対話案内",
+  "業務削減",
+  "教育ガバナンス",
+  "策定支援",
+  "データ分析",
+  "専門実証",
+];
+
+function ServiceCard({ service }: { service: ServiceData }) {
+  return (
+    <Link href={`/services/${service.slug}`} className="group">
+      <Card className="h-full transition-shadow hover:shadow-lg">
+        <CardHeader>
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <Badge
+              variant={service.category === "saas" ? "default" : "secondary"}
+            >
+              {service.category === "saas" ? "SaaS" : "シンクタンク"}
+            </Badge>
+            <Badge variant="outline">{service.subcategory}</Badge>
+            {service.priority === "S" && (
+              <Badge className="bg-amber-500 text-white hover:bg-amber-600">
+                注力
+              </Badge>
+            )}
+          </div>
+          <CardTitle className="text-lg group-hover:text-blue-600">
+            {service.displayName}
+          </CardTitle>
+          <CardDescription>{service.tagline}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="mb-3 line-clamp-2 text-sm text-gray-600">
+            {service.description}
+          </p>
+          <div className="mb-3 flex flex-wrap gap-1">
+            {service.targetCustomers.map((customer) => (
+              <span
+                key={customer}
+                className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600"
+              >
+                {customer}
+              </span>
+            ))}
+          </div>
+          <div className="flex items-center text-sm font-medium text-blue-600">
+            詳しく見る
+            <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
+  );
+}
+
+export default function ServicesPage() {
+  const [priorityFilter, setPriorityFilter] = useState("all");
+  const [subcategoryFilter, setSubcategoryFilter] = useState("すべて");
+
+  const saasServices = getServicesByCategory("saas");
+  const thinktankServices = getServicesByCategory("thinktank");
+
+  function filterServices(list: ServiceData[]): ServiceData[] {
+    return list.filter((s) => {
+      const matchPriority =
+        priorityFilter === "all" || s.priority === priorityFilter;
+      const matchSubcategory =
+        subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
+      return matchPriority && matchSubcategory;
+    });
+  }
+
+  const filteredAll = filterServices(services);
+  const filteredSaas = filterServices(saasServices);
+  const filteredThinktank = filterServices(thinktankServices);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <section className="border-b bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+            サービス一覧
+          </h1>
+          <p className="mt-4 text-lg text-gray-600">
+            自治体のDXを支援する{services.length}
+            のAIサービスをご覧いただけます
+          </p>
+        </div>
+      </section>
+
+      {/* Filters */}
+      <section className="border-b bg-white py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
+            {/* Priority Filter */}
+            <div className="flex items-center gap-2">
+              <span className="shrink-0 text-sm font-medium text-gray-700">
+                優先度:
+              </span>
+              <div className="flex flex-wrap gap-1">
+                {Object.entries(priorityLabels).map(([key, label]) => (
+                  <Button
+                    key={key}
+                    variant={priorityFilter === key ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setPriorityFilter(key)}
+                  >
+                    {label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Subcategory Filter */}
+            <div className="flex items-center gap-2">
+              <span className="shrink-0 text-sm font-medium text-gray-700">
+                分野:
+              </span>
+              <div className="flex flex-wrap gap-1">
+                {subcategoryLabels.map((label) => (
+                  <Button
+                    key={label}
+                    variant={subcategoryFilter === label ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setSubcategoryFilter(label)}
+                  >
+                    {label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Grid */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <Tabs defaultValue="all">
+            <TabsList className="mb-8">
+              <TabsTrigger value="all">
+                すべて ({filteredAll.length})
+              </TabsTrigger>
+              <TabsTrigger value="saas">
+                SaaS型 ({filteredSaas.length})
+              </TabsTrigger>
+              <TabsTrigger value="thinktank">
+                シンクタンク型 ({filteredThinktank.length})
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="all">
+              {filteredAll.length === 0 ? (
+                <p className="py-12 text-center text-gray-500">
+                  該当するサービスが見つかりません
+                </p>
+              ) : (
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {filteredAll.map((service) => (
+                    <ServiceCard key={service.slug} service={service} />
+                  ))}
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="saas">
+              {filteredSaas.length === 0 ? (
+                <p className="py-12 text-center text-gray-500">
+                  該当するサービスが見つかりません
+                </p>
+              ) : (
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {filteredSaas.map((service) => (
+                    <ServiceCard key={service.slug} service={service} />
+                  ))}
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="thinktank">
+              {filteredThinktank.length === 0 ? (
+                <p className="py-12 text-center text-gray-500">
+                  該当するサービスが見つかりません
+                </p>
+              ) : (
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {filteredThinktank.map((service) => (
+                    <ServiceCard key={service.slug} service={service} />
+                  ))}
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t bg-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-900">
+            お探しのサービスが見つかりましたか？
+          </h2>
+          <p className="mt-4 text-gray-600">
+            サービスについてのご質問やカスタマイズのご要望はお気軽にお問い合わせください
+          </p>
+          <Button className="mt-6" size="lg" asChild>
+            <Link href="/contact">
+              お問い合わせ
+              <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
