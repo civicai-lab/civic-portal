@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { services, getServiceBySlug } from "@/data/services";
+import { services, getServiceBySlug, getServiceHero } from "@/data/services";
 import type { ServiceFeature, PricingPlan, UseCase, FAQ } from "@/types/service";
 import {
   ArrowLeft,
@@ -328,8 +329,16 @@ export default async function ServiceDetailPage({
   return (
     <div className="min-h-screen bg-muted">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20 text-white">
+        <Image
+          src={getServiceHero(service.slug)}
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
             className="mb-6 inline-flex items-center text-sm text-blue-200 hover:text-white"

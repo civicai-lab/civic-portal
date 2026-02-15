@@ -2387,28 +2387,55 @@ export function getPriorityServices(): ServiceData[] {
 
 // サムネイル画像マッピング
 const thumbnailMap: Record<string, string> = {
-  "shiori-library": "/images/shiori-library.webp",
-  "shiori-academic": "/images/hero-library.webp",
-  "facility-concierge": "/images/cases/general-office.jpg",
-  "tourism-guide": "/images/cases/public-sector.jpg",
-  "municipal-faq": "/images/service-conversation.webp",
-  "welfare-navigator": "/images/cases/general-meeting.jpg",
-  "staff-knowledge": "/images/cases/backend-code.jpg",
-  "minutes-summary": "/images/cases/general-work.jpg",
-  "education-content": "/images/tech/genai-lab.webp",
-  "disaster-guide": "/images/cases/ai-dashboard.jpg",
-  "ai-guideline": "/images/tech/dashboard.webp",
-  "rfp-builder": "/images/features/feature-contract.jpg",
-  "ai-ethics-audit": "/images/features/feature-security.jpg",
-  "pubcom-analysis": "/images/cases/ai-data.jpg",
-  "book-selection": "/images/cases/ai-neural.jpg",
-  "assembly-archive": "/images/cases/ai-llm.jpg",
-  "vulnerability-scan": "/images/tech/blockchain-security.jpg",
-  "tourism-analytics": "/images/tech/dashboard-analytics.jpg",
-  "ai-reskilling": "/images/cases/ai-vision.jpg",
-  "ai-lab": "/images/cases/ai-robot.jpg",
+  "shiori-library": "/images/services/shiori-library-thumb.webp",
+  "shiori-academic": "/images/services/shiori-academic-thumb.webp",
+  "facility-concierge": "/images/services/facility-concierge-thumb.webp",
+  "tourism-guide": "/images/services/tourism-guide-thumb.webp",
+  "municipal-faq": "/images/services/municipal-faq-thumb.webp",
+  "welfare-navigator": "/images/services/welfare-navigator-thumb.webp",
+  "staff-knowledge": "/images/services/staff-knowledge-thumb.webp",
+  "minutes-summary": "/images/services/minutes-summary-thumb.webp",
+  "ai-starter-pack": "/images/services/ai-starter-pack-thumb.webp",
+  "disaster-guide": "/images/services/disaster-guide-thumb.webp",
+  "guideline-service": "/images/services/guideline-service-thumb.webp",
+  "rfp-support": "/images/services/regulation-research-thumb.webp",
+  "ai-audit": "/images/services/policy-impact-thumb.webp",
+  "pubcom-analysis": "/images/services/pubcom-analysis-thumb.webp",
+  "book-selection": "/images/services/book-selection-thumb.webp",
+  "assembly-archive": "/images/services/assembly-archive-thumb.webp",
+  "infra-inspection": "/images/services/infra-inspection-thumb.webp",
+  "tourism-analytics": "/images/services/tourism-analytics-thumb.webp",
+  "ai-reskilling": "/images/services/ai-reskilling-thumb.webp",
+  "ai-lab": "/images/services/ai-lab-thumb.webp",
+};
+
+const heroMap: Record<string, string> = {
+  "shiori-library": "/images/services/shiori-library-hero.webp",
+  "shiori-academic": "/images/services/shiori-academic-hero.webp",
+  "facility-concierge": "/images/services/facility-concierge-hero.webp",
+  "tourism-guide": "/images/services/tourism-guide-hero.webp",
+  "municipal-faq": "/images/services/municipal-faq-hero.webp",
+  "welfare-navigator": "/images/services/welfare-navigator-hero.webp",
+  "staff-knowledge": "/images/services/staff-knowledge-hero.webp",
+  "minutes-summary": "/images/services/minutes-summary-hero.webp",
+  "ai-starter-pack": "/images/services/ai-starter-pack-hero.webp",
+  "disaster-guide": "/images/services/disaster-guide-hero.webp",
+  "guideline-service": "/images/services/guideline-service-hero.webp",
+  "rfp-support": "/images/services/regulation-research-hero.webp",
+  "ai-audit": "/images/services/policy-impact-hero.webp",
+  "pubcom-analysis": "/images/services/pubcom-analysis-hero.webp",
+  "book-selection": "/images/services/book-selection-hero.webp",
+  "assembly-archive": "/images/services/assembly-archive-hero.webp",
+  "infra-inspection": "/images/services/infra-inspection-hero.webp",
+  "tourism-analytics": "/images/services/tourism-analytics-hero.webp",
+  "ai-reskilling": "/images/services/ai-reskilling-hero.webp",
+  "ai-lab": "/images/services/ai-lab-hero.webp",
 };
 
 export function getServiceThumbnail(slug: string): string {
-  return thumbnailMap[slug] || "/images/cases/ai-dashboard.jpg";
+  return thumbnailMap[slug] || "/images/services/ai-starter-pack-thumb.webp";
+}
+
+export function getServiceHero(slug: string): string {
+  return heroMap[slug] || "/images/services/ai-starter-pack-hero.webp";
 }
