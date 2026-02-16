@@ -136,13 +136,13 @@ export default function ServicesPage() {
               <span className="shrink-0 text-sm font-medium text-muted-foreground">
                 優先度:
               </span>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {Object.entries(priorityLabels).map(([key, label]) => (
                   <Button
                     key={key}
                     variant={priorityFilter === key ? "default" : "outline"}
                     size="sm"
-                    className="min-h-[44px]"
+                    className="min-h-[44px] text-xs sm:text-sm"
                     onClick={() => setPriorityFilter(key)}
                   >
                     {label}
@@ -156,13 +156,13 @@ export default function ServicesPage() {
               <span className="shrink-0 text-sm font-medium text-muted-foreground">
                 分野:
               </span>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {subcategoryLabels.map((label) => (
                   <Button
                     key={label}
                     variant={subcategoryFilter === label ? "default" : "outline"}
                     size="sm"
-                    className="min-h-[44px]"
+                    className="min-h-[44px] text-xs sm:text-sm"
                     onClick={() => setSubcategoryFilter(label)}
                   >
                     {label}

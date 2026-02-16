@@ -43,7 +43,7 @@ export default function HomePage() {
           <Badge variant="secondary" className="mb-6 text-sm">
             Civic AI Product Suite
           </Badge>
-          <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mx-auto max-w-4xl text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             自治体のDXを、
             <br className="hidden sm:block" />
             AIで加速する
@@ -115,8 +115,8 @@ export default function HomePage() {
               導入実績が豊富な、最優先サービスをご紹介します
             </p>
           </AnimatedSection>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {priorityServices.map((service) => (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {priorityServices.map((service, index) => (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
@@ -131,6 +131,7 @@ export default function HomePage() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      priority={index < 3}
                     />
                   </div>
                   <CardHeader>
@@ -286,25 +287,27 @@ export default function HomePage() {
             </p>
           </div>
           {/* パートナーロゴ */}
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {[
-              { src: "/images/partners/jinomi_logo.webp", alt: "JINOMI" },
-              { src: "/images/partners/maruzen_logo.webp", alt: "丸善" },
-              { src: "/images/partners/yopaz_logo.webp", alt: "Yopaz" },
-              { src: "/images/partners/quickiterate_logo.webp", alt: "QuickIterate" },
-              { src: "/images/partners/shinagawaship_logo.webp", alt: "品川シップ" },
-            ].map((partner) => (
-              <Image
-                key={partner.alt}
-                src={partner.src}
-                alt={partner.alt}
-                width={120}
-                height={40}
-                loading="lazy"
-                className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert dark:opacity-60 dark:hover:opacity-90"
-              />
-            ))}
-          </div>
+          <AnimatedSection animation="fade-in">
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              {[
+                { src: "/images/partners/jinomi_logo.webp", alt: "JINOMI" },
+                { src: "/images/partners/maruzen_logo.webp", alt: "丸善" },
+                { src: "/images/partners/yopaz_logo.webp", alt: "Yopaz" },
+                { src: "/images/partners/quickiterate_logo.webp", alt: "QuickIterate" },
+                { src: "/images/partners/shinagawaship_logo.webp", alt: "品川シップ" },
+              ].map((partner) => (
+                <Image
+                  key={partner.alt}
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={120}
+                  height={40}
+                  loading="lazy"
+                  className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert dark:opacity-60 dark:hover:opacity-90"
+                />
+              ))}
+            </div>
+          </AnimatedSection>
           {/* 資格バッジ */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
             <Image
@@ -347,9 +350,11 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            まずは無料相談から
-          </h2>
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              まずは無料相談から
+            </h2>
+          </AnimatedSection>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             自治体のDX推進に関するご相談を無料で承ります。
             <br className="hidden sm:block" />

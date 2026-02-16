@@ -201,7 +201,7 @@ export async function generateMetadata({
 function FeatureCard({ feature }: { feature: ServiceFeature }) {
   const Icon = getIcon(feature.icon);
   return (
-    <Card className="h-full">
+    <Card className="h-full transition-shadow hover:shadow-lg">
       <CardHeader>
         <div className="mb-3 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon className="size-6" />
@@ -219,7 +219,7 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
     <Card
-      className={`h-full ${plan.recommended ? "border-primary ring-2 ring-primary/20" : ""}`}
+      className={`h-full transition-shadow hover:shadow-lg ${plan.recommended ? "border-primary ring-2 ring-primary/20" : ""}`}
     >
       <CardHeader>
         {plan.recommended && (
@@ -259,7 +259,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 // UseCase Card コンポーネント
 function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
   return (
-    <Card className="h-full">
+    <Card className="h-full transition-shadow hover:shadow-lg">
       <CardHeader>
         <Badge variant="outline" className="mb-2 w-fit">
           事例 {index + 1}

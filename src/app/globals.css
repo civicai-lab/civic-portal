@@ -248,7 +248,7 @@ html {
 
 /* テキスト選択色をブランドカラーに */
 ::selection {
-  background-color: hsl(var(--primary) / 0.15);
+  background-color: hsl(var(--primary) / 0.25);
   color: hsl(var(--foreground));
 }
 

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   // 画像最適化
   images: {
     formats: ["image/webp"],
+    deviceSizes: [375, 640, 768, 1024, 1280, 1536],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // バンドル最適化（lucide-react等のTree Shaking改善）

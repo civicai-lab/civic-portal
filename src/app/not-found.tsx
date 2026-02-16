@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
       {/* 404数字 */}
       <div className="relative mb-8">
-        <span className="text-[120px] font-bold leading-none tracking-tighter text-primary/10 md:text-[180px]">
+        <span className="text-[80px] font-bold leading-none tracking-tighter text-primary/10 sm:text-[120px] md:text-[180px]">
           404
         </span>
         <div className="absolute inset-0 flex items-center justify-center">
