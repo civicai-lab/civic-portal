@@ -389,7 +389,8 @@ export default function GuidelineServiceDemoPage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm" role="table" aria-label="ガイドライン比較表">
+                <table className="w-full min-w-[600px] text-sm" role="table" aria-label="ガイドライン比較表">
+                  <caption className="sr-only">ガイドライン比較表</caption>
                   <thead>
                     <tr className="border-b border-border">
                       <th className="text-left py-3 px-2 font-medium text-foreground" scope="col">セクション</th>

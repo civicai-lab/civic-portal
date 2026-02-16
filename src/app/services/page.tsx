@@ -147,6 +147,7 @@ export default function ServicesPage() {
                     size="sm"
                     className="min-h-[44px] text-xs sm:text-sm"
                     onClick={() => setPriorityFilter(key)}
+                    aria-pressed={priorityFilter === key}
                   >
                     {label}
                   </Button>
@@ -167,6 +168,7 @@ export default function ServicesPage() {
                     size="sm"
                     className="min-h-[44px] text-xs sm:text-sm"
                     onClick={() => setSubcategoryFilter(label)}
+                    aria-pressed={subcategoryFilter === label}
                   >
                     {label}
                   </Button>

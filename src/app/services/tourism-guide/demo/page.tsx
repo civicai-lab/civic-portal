@@ -553,6 +553,7 @@ export default function TourismGuideDemoPage() {
                 onClick={() => setLang(l)}
                 role="radio"
                 aria-checked={lang === l}
+                aria-pressed={lang === l}
                 aria-label={LANGUAGE_LABELS[l]}
               >
                 <span className="font-bold">{LANGUAGE_FLAGS[l]}</span>

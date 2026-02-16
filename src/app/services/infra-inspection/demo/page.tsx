@@ -268,7 +268,8 @@ export default function InfraInspectionDemoPage() {
 
                 {/* テーブル */}
                 <div className="overflow-x-auto">
-                  <table className="w-full text-sm" role="table" aria-label="施設一覧">
+                  <table className="w-full min-w-[600px] text-sm" role="table" aria-label="施設一覧">
+                    <caption className="sr-only">施設点検一覧</caption>
                     <thead>
                       <tr className="border-b border-border">
                         <th className="text-left py-2 px-2" scope="col">

@@ -167,6 +167,7 @@ export default function AiLabDemoPage() {
               variant={categoryFilter === "all" ? "default" : "outline"}
               size="xs"
               onClick={() => setCategoryFilter("all")}
+              aria-pressed={categoryFilter === "all"}
             >
               すべて
             </Button>
@@ -176,6 +177,7 @@ export default function AiLabDemoPage() {
                 variant={categoryFilter === cat ? "default" : "outline"}
                 size="xs"
                 onClick={() => setCategoryFilter(cat)}
+                aria-pressed={categoryFilter === cat}
               >
                 {cat}
               </Button>

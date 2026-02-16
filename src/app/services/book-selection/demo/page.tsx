@@ -477,7 +477,7 @@ export default function BookSelectionDemoPage() {
               </CardHeader>
               <CardContent>
                 <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
+                  <table className="w-full min-w-[600px] text-sm">
                     <thead>
                       <tr className="border-b">
                         <th className="text-left py-3 px-2 font-medium">
@@ -679,7 +679,7 @@ export default function BookSelectionDemoPage() {
               </CardHeader>
               <CardContent>
                 <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
+                  <table className="w-full min-w-[600px] text-sm">
                     <thead>
                       <tr className="border-b">
                         <th className="text-left py-3 px-2 font-medium">

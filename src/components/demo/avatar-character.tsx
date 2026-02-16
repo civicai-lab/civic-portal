@@ -72,9 +72,9 @@ export function AvatarCharacter({
         {/* ムードインジケーター */}
         {mood === "thinking" && (
           <div className="absolute -top-1 -right-1 flex gap-0.5">
-            <span className="size-1.5 bg-amber-400 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
-            <span className="size-1.5 bg-amber-400 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
-            <span className="size-1.5 bg-amber-400 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
+            <span className="size-1.5 bg-warning rounded-full motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
+            <span className="size-1.5 bg-warning rounded-full motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
+            <span className="size-1.5 bg-warning rounded-full motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
           </div>
         )}
       </div>

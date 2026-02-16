@@ -350,6 +350,7 @@ export default function RfpSupportDemoPage() {
                 {/* テーブル */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm" role="table">
+                    <caption className="sr-only">ベンダー質問票一覧</caption>
                     <thead>
                       <tr className="border-b bg-muted/50">
                         <th className="text-left py-3 px-3 font-semibold w-12">No</th>

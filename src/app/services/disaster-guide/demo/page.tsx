@@ -502,6 +502,7 @@ export default function DisasterGuideDemoPage() {
               size="xs"
               onClick={() => handleLangChange(l)}
               className="text-xs shrink-0"
+              aria-pressed={lang === l}
             >
               {LANG_LABELS[l]}
             </Button>
@@ -512,6 +513,7 @@ export default function DisasterGuideDemoPage() {
         <div className="flex items-center bg-muted rounded-lg p-0.5 shrink-0">
           <button
             onClick={() => handlePhaseChange("normal")}
+            aria-pressed={phase === "normal"}
             className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
               phase === "normal"
                 ? "bg-background text-foreground shadow-sm"
@@ -522,6 +524,7 @@ export default function DisasterGuideDemoPage() {
           </button>
           <button
             onClick={() => handlePhaseChange("emergency")}
+            aria-pressed={phase === "emergency"}
             className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
               phase === "emergency"
                 ? "bg-destructive text-destructive-foreground shadow-sm"
