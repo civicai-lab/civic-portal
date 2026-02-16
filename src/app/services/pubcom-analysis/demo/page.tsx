@@ -341,7 +341,7 @@ export default function PubcomAnalysisDemoPage() {
                     <h3 className="font-semibold mb-4">代表的な意見</h3>
                     <div className="space-y-4">
                       {representativeOpinions.map((op, i) => (
-                        <Card key={i} className="bg-muted/50">
+                        <Card key={i} className="bg-muted/50 transition-shadow duration-300 hover:shadow-md">
                           <CardContent className="pt-0">
                             <div className="flex items-center gap-2 mb-2">
                               {op.sentiment === "賛成" && (
@@ -371,7 +371,7 @@ export default function PubcomAnalysisDemoPage() {
               <TabsContent value="topics" className="mt-6 animate-tab-fade-in">
                 <div className="space-y-4">
                   {topics.map((topic, i) => (
-                    <Card key={i}>
+                    <Card key={i} className="transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <div>

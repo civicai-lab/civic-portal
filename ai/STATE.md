@@ -1,13 +1,14 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H33完了）
+- 作業中: UI/UX洗練（Phase H36完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
 - E2Eテスト: 32/32パス（Playwright, ~7秒）
-- 直近コミット: ed19faa — Phase H33 a11y強化+テーブルレスポンシブ改善
-- 直近完了: Phase H33 a11y強化+テーブルレスポンシブ改善
+- 直近コミット: 未コミット — Phase H36 残り10デモhoverインタラクション強化
+- 直近完了: Phase H36 残り10デモhoverインタラクション強化
 - Vercel: https://civic-portal-nine.vercel.app
+- Lighthouse（H33時点）: Performance 91, Accessibility 96, Best Practices 100, SEO 100
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -270,13 +271,41 @@
 - テーブルmin-w: infra-inspection/guideline-service/book-selection(2テーブル)にmin-w-[600px]
 - avatar-character: TypingIndicatorドット bg-amber-400→bg-warning(3箇所)
 
+### Phase H34: Lighthouse指摘修正+パフォーマンス最適化（7a5390a）
+- CTAコントラスト: oklch(0.702→0.58)でWCAG AA準拠
+- aria-label不一致修正: サービスカードの冗長aria-label削除
+- CountUp CLS防止: min-h-[2.5rem]
+- カードhover: -translate-y-0.5+shadow-xl（page.tsx+services/page.tsx）
+- Header scroll: requestAnimationFrameスロットル化
+- サービス詳細Hero: fetchPriority="high"追加
+
+### Phase H35: デモUXアニメーション+マイクロ改善（ce2d29c）
+- チャットメッセージ: animate-in fade-in slide-in-from-bottom-2（5デモ）
+- 送信ボタン: active:scale-90（6デモ）
+- shiori-academic: 検索結果カードstaggerアニメーション
+- テーブルスクロールヒント: モバイル用（3デモ4箇所）
+- カテゴリBadge: text-[10px]→text-xs（municipal-faq）
+- ステップインジケーター: size-9→size-10（facility-concierge）
+- 免責事項: text-xs→text-xs sm:text-sm（demo-layout）
+
+### Phase H36: 残り10デモhoverインタラクション強化
+- welfare-navigator: 制度カード hover:shadow-lg hover:-translate-y-0.5
+- pubcom-analysis: 意見カード hover:shadow-md + 論点カード hover:shadow-md hover:-translate-y-0.5
+- ai-starter-pack: 推奨サービスカード hover:-translate-y-0.5 hover:shadow-md
+- guideline-service: 3タブに animate-tab-fade-in 追加
+- assembly-archive: 検索結果カード hover:-translate-y-0.5 追加 + タイムライン発言カード hover:shadow-md
+- rfp-support: カテゴリカード hover:shadow-md + RFPドラフトカード hover:shadow-lg
+- ai-audit: システムカード hover:-translate-y-0.5 + 改善レポートカード hover:shadow-md hover:-translate-y-0.5
+- tourism-analytics: KPIカード4枚 hover:shadow-md
+- ai-reskilling: 推奨研修カード hover:-translate-y-0.5 hover:shadow-md
+- ai-lab: イベントカード+プロジェクトカード hover:shadow-lg hover:-translate-y-0.5
+
 ## Next
-- [ ] Lighthouseスコア計測+改善
+- [ ] Lighthouse再計測（H34+H35+H36改善後）
 - [ ] デモページ共通コンポーネント抽出（ChatMessage, TypingIndicator等）
-- [ ] 残カテゴリ色分けはデータ可視化用途のため変更不要
 
 ## Blocked
 - なし
 
 ---
-*最終更新: 2026-02-17 Phase H33 a11y強化+テーブルレスポンシブ改善*
+*最終更新: 2026-02-17 Phase H36 残り10デモhoverインタラクション強化*

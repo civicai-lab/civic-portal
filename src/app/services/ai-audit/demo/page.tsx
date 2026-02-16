@@ -169,7 +169,7 @@ export default function AiAuditDemoPage() {
             {SYSTEMS.map((sys) => (
               <Card
                 key={sys.id}
-                className={`cursor-pointer transition-all hover:shadow-md ${
+                className={`cursor-pointer transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
                   selectedSystem === sys.id ? "ring-2 ring-primary" : ""
                 }`}
                 onClick={() => setSelectedSystem(selectedSystem === sys.id ? null : sys.id)}
@@ -317,7 +317,7 @@ export default function AiAuditDemoPage() {
                   </div>
                   <div className="space-y-3">
                     {items.map((item) => (
-                      <Card key={item.id}>
+                      <Card key={item.id} className="transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                         <CardContent>
                           <div className="flex items-start justify-between gap-2 mb-2">
                             <div>

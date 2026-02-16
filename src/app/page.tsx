@@ -55,7 +55,7 @@ export default function HomePage() {
             住民サービスの向上と業務効率化を同時に実現します。
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" variant="outline" asChild className="w-full border-white/60 bg-white/15 text-white backdrop-blur-sm hover:bg-white/25 hover:border-white/80 sm:w-auto">
+            <Button size="lg" variant="secondary" asChild className="w-full bg-white text-primary shadow-sm hover:bg-white/90 sm:w-auto">
               <Link href="/services">
                 サービス一覧を見る
                 <ArrowRight className="ml-2 size-4" />

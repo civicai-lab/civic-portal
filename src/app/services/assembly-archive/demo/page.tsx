@@ -268,7 +268,7 @@ export default function AssemblyArchiveDemoPage() {
             ) : (
               <div className="space-y-3">
                 {filteredSpeeches.map((speech) => (
-                  <Card key={speech.id} className="py-4 hover:shadow-md transition-shadow">
+                  <Card key={speech.id} className="py-4 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                     <CardContent className="pt-0 pb-0">
                       {/* 発言者情報 */}
                       <div className="flex items-center gap-2 flex-wrap mb-2">
@@ -346,7 +346,7 @@ export default function AssemblyArchiveDemoPage() {
                           </div>
 
                           {/* 発言カード */}
-                          <div className="p-3 rounded-lg border border-border bg-card">
+                          <div className="p-3 rounded-lg border border-border bg-card transition-shadow duration-300 hover:shadow-md">
                             <div className="flex items-center gap-2 flex-wrap mb-2">
                               <span className="font-medium text-sm text-foreground">{speech.speaker}</span>
                               <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${ROLE_COLORS[speech.role] || ""}`}>

@@ -297,7 +297,7 @@ export default function GuidelineServiceDemoPage() {
         </TabsList>
 
         {/* --- 分析タブ --- */}
-        <TabsContent value="analysis">
+        <TabsContent value="analysis" className="animate-tab-fade-in">
           <div className="space-y-4">
             <Card className="py-6">
               <CardHeader className="pt-0">
@@ -376,7 +376,7 @@ export default function GuidelineServiceDemoPage() {
         </TabsContent>
 
         {/* --- 比較タブ --- */}
-        <TabsContent value="compare">
+        <TabsContent value="compare" className="animate-tab-fade-in">
           <Card className="py-6">
             <CardHeader className="pt-0">
               <CardTitle className="text-base flex items-center gap-2">
@@ -445,7 +445,7 @@ export default function GuidelineServiceDemoPage() {
         </TabsContent>
 
         {/* --- ドラフトタブ --- */}
-        <TabsContent value="draft">
+        <TabsContent value="draft" className="animate-tab-fade-in">
           <div className="space-y-4">
             <Card className="py-6">
               <CardHeader className="pt-0">

@@ -187,7 +187,7 @@ export default function AiLabDemoPage() {
           {/* イベントカード */}
           <div className="space-y-4">
             {filteredEvents.map((event) => (
-              <Card key={event.id}>
+              <Card key={event.id} className="transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
                 <CardContent>
                   <div className="flex items-start justify-between gap-2 mb-3 flex-wrap">
                     <div>
@@ -236,7 +236,7 @@ export default function AiLabDemoPage() {
         <TabsContent value="projects" className="mt-6 animate-tab-fade-in">
           <div className="space-y-4">
             {PROJECTS.map((project) => (
-              <Card key={project.id}>
+              <Card key={project.id} className="transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
                 <CardContent>
                   <div className="flex items-start justify-between gap-2 mb-2 flex-wrap">
                     <h3 className="font-semibold text-foreground">{project.name}</h3>

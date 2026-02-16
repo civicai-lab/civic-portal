@@ -302,7 +302,7 @@ export default function AiStarterPackDemoPage() {
                 {recommendations.map((service, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-lg border border-border bg-muted/30 hover:bg-muted/50 transition-colors"
+                    className="p-4 rounded-lg border border-border bg-muted/30 hover:bg-muted/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">

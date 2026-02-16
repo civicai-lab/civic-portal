@@ -531,7 +531,7 @@ export default function WelfareNavigatorDemo() {
                     {matchedPrograms.map((program) => {
                       const match = matchLevelConfig[program.matchLevel];
                       return (
-                        <Card key={program.id} className="transition-shadow hover:shadow-md">
+                        <Card key={program.id} className="transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
                           <CardHeader>
                             <div className="flex items-start justify-between gap-2">
                               <CardTitle className="text-base">

@@ -337,7 +337,7 @@ export default function AiReskillingDemoPage() {
               <CardContent>
                 <div className="space-y-4">
                   {getRecommendedPrograms().map((program) => (
-                    <Card key={program.id} className="bg-muted/30">
+                    <Card key={program.id} className="bg-muted/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
                       <CardContent>
                         <div className="flex items-start justify-between gap-2 mb-2 flex-wrap">
                           <h4 className="font-semibold text-sm">{program.title}</h4>
