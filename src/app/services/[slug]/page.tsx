@@ -219,15 +219,23 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
     <Card
-      className={`h-full transition-shadow hover:shadow-lg ${plan.recommended ? "border-primary ring-2 ring-primary/20" : ""}`}
+      className={`relative h-full transition-all hover:shadow-lg ${
+        plan.recommended
+          ? "scale-[1.02] border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
+          : "hover:scale-[1.01]"
+      }`}
     >
-      <CardHeader>
-        {plan.recommended && (
-          <Badge className="mb-2 w-fit">おすすめ</Badge>
-        )}
+      {plan.recommended && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-bold shadow-md">
+            おすすめ
+          </Badge>
+        </div>
+      )}
+      <CardHeader className={plan.recommended ? "pt-8" : ""}>
         <CardTitle className="text-xl">{plan.name}</CardTitle>
         <div className="mt-2">
-          <span className="text-3xl font-bold text-foreground">
+          <span className={`text-3xl font-bold ${plan.recommended ? "text-primary" : "text-foreground"}`}>
             {plan.price}
           </span>
           {plan.period && (
@@ -239,7 +247,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         <ul className="space-y-2">
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2 text-sm">
-              <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500 dark:text-green-400" />
+              <CheckCircle className={`mt-0.5 size-4 shrink-0 ${plan.recommended ? "text-primary" : "text-success dark:text-success"}`} />
               <span className="text-muted-foreground">{feature}</span>
             </li>
           ))}
@@ -293,13 +301,17 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
 // FAQ Item コンポーネント
 function FAQItem({ faq }: { faq: FAQ }) {
   return (
-    <details className="group rounded-lg border bg-card">
+    <details className="group rounded-lg border bg-card transition-colors open:border-l-4 open:border-l-primary">
       <summary className="flex cursor-pointer items-center justify-between rounded-lg p-4 font-medium text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors">
         {faq.question}
-        <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+        <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
       </summary>
-      <div className="border-t px-4 py-3">
-        <p className="text-sm text-muted-foreground">{faq.answer}</p>
+      <div className="faq-content">
+        <div>
+          <div className="border-t px-4 py-3">
+            <p className="text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
+          </div>
+        </div>
       </div>
     </details>
   );
@@ -375,7 +387,7 @@ export default async function ServiceDetailPage({
             {service.description}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" variant="cta" asChild className="w-full sm:w-auto">
+            <Button size="lg" variant="cta" asChild className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg transition-shadow hover:shadow-xl sm:w-auto">
               <Link href={`/services/${service.slug}/demo`}>
                 デモを試す
                 <Monitor className="ml-2 size-4" />
@@ -460,7 +472,7 @@ export default async function ServiceDetailPage({
             </p>
           </div>
           <div
-            className={`grid gap-6 ${
+            className={`grid gap-8 pt-4 ${
               service.pricing.length === 1
                 ? "max-w-md mx-auto"
                 : service.pricing.length === 2
@@ -527,7 +539,7 @@ export default async function ServiceDetailPage({
               size="lg"
               variant="cta"
               asChild
-              className="w-full shadow-md hover:shadow-lg sm:w-auto"
+              className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">
                 無料相談を申し込む

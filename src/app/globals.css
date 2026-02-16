@@ -222,7 +222,7 @@
   100% { background-position: 200% 0; }
 }
 .skeleton-shimmer {
-  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted-foreground) / 0.08) 50%, hsl(var(--muted)) 75%);
+  background: linear-gradient(90deg, var(--muted) 25%, color-mix(in oklch, var(--muted-foreground) 8%, transparent) 50%, var(--muted) 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
@@ -240,15 +240,15 @@ html {
 
 /* カスタムフォーカスリング - 全インタラクティブ要素 */
 :focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
   border-radius: var(--radius);
 }
 
 /* テキスト選択色をブランドカラーに */
 ::selection {
-  background-color: hsl(var(--primary) / 0.25);
-  color: hsl(var(--foreground));
+  background-color: color-mix(in oklch, var(--primary) 25%, transparent);
+  color: var(--foreground);
 }
 
 /* カスタムスクロールバー */
@@ -260,11 +260,11 @@ html {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
+  background: color-mix(in oklch, var(--muted-foreground) 30%, transparent);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.5);
+  background: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
 }
 
 /* ========================================
@@ -330,6 +330,21 @@ html {
   50% { opacity: 0.6; }
 }
 
+/* FAQ開閉アニメーション（details/summary用） */
+details .faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+details[open] .faq-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+details .faq-content > div {
+  overflow: hidden;
+}
+
 /* 全追加アニメーションも reduced-motion で無効化 */
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-down,
@@ -339,5 +354,13 @@ html {
   .animate-\[pulse-subtle_2s_ease-in-out_infinite\] {
     animation: none !important;
     opacity: 1 !important;
+  }
+  details .faq-content {
+    transition: none !important;
+    opacity: 1 !important;
+    grid-template-rows: 0fr !important;
+  }
+  details[open] .faq-content {
+    grid-template-rows: 1fr !important;
   }
 }

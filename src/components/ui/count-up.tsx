@@ -8,6 +8,7 @@ interface CountUpProps {
   suffix?: string;
   prefix?: string;
   duration?: number;
+  decimals?: number;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ export function CountUp({
   suffix = "",
   prefix = "",
   duration = 2000,
+  decimals = 0,
   className,
 }: CountUpProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
@@ -41,7 +43,8 @@ export function CountUp({
       const progress = Math.min(elapsed / duration, 1);
       // easeOutQuart for smooth deceleration
       const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.round(eased * end));
+      const raw = eased * end;
+      setCount(decimals > 0 ? parseFloat(raw.toFixed(decimals)) : Math.round(raw));
 
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -49,11 +52,11 @@ export function CountUp({
     };
 
     requestAnimationFrame(animate);
-  }, [isVisible, end, duration]);
+  }, [isVisible, end, duration, decimals]);
 
   return (
     <div ref={ref} className={className}>
-      {prefix}{count.toLocaleString()}{suffix}
+      {prefix}{decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}{suffix}
     </div>
   );
 }

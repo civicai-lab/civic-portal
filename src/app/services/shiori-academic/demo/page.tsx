@@ -474,9 +474,9 @@ export default function ShioriAcademicDemoPage() {
         <Card className="mb-4 py-6">
           <CardContent className="flex flex-col items-center gap-3 pb-0">
             <div className="flex gap-1.5">
-              <span className="size-2.5 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-              <span className="size-2.5 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-              <span className="size-2.5 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+              <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
+              <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
+              <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
             </div>
             <p className="text-sm text-muted-foreground">
               学術データベースを検索中...

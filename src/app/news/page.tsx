@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { Calendar } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "ニュース",
@@ -51,6 +53,12 @@ const newsItems = [
   },
 ];
 
+const categoryStyles: Record<string, string> = {
+  "プレスリリース": "bg-primary/10 text-primary dark:bg-primary/20",
+  "イベント": "bg-amber-500/10 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400",
+  "メディア": "bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400",
+};
+
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr);
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
@@ -60,17 +68,20 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-muted">
       {/* Hero */}
-      <section className="border-b border-border bg-card py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-4">
             <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "ニュース" }]} />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            ニュース
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            最新のお知らせ・プレスリリース
-          </p>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
+              ニュース
+            </h1>
+            <p className="mt-4 text-lg text-primary-foreground/80">
+              最新のお知らせ・プレスリリース
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -78,39 +89,48 @@ export default function NewsPage() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
-            {newsItems.map((item) => (
-              <Card
-                key={item.title}
-                className="group cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-lg"
-              >
-                <div className="flex flex-col md:flex-row">
-                  <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 256px"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+            {newsItems.map((item, i) => (
+              <AnimatedSection key={item.title} animation="fade-up" delay={i * 100}>
+                <Card className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 256px"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <CardHeader>
+                        <div className="mb-2 flex items-center gap-3">
+                          <time
+                            dateTime={item.date}
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
+                          >
+                            <Calendar className="size-3.5 text-muted-foreground" />
+                            {formatDate(item.date)}
+                          </time>
+                          <Badge
+                            className={categoryStyles[item.category] ?? ""}
+                          >
+                            {item.category}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-lg transition-colors duration-200 group-hover:text-primary">
+                          {item.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </CardContent>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <CardHeader>
-                      <div className="mb-1 flex items-center gap-2">
-                        <time dateTime={item.date} className="text-sm text-muted-foreground">
-                          {formatDate(item.date)}
-                        </time>
-                        <Badge variant="outline">{item.category}</Badge>
-                      </div>
-                      <CardTitle className="text-lg">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>

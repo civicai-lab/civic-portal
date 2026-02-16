@@ -565,7 +565,7 @@ export default function TourismGuideDemoPage() {
           <Button
             variant="destructive"
             size="sm"
-            className="text-xs h-8 gap-1.5 animate-pulse hover:animate-none"
+            className="text-xs h-8 gap-1.5 motion-safe:animate-pulse hover:animate-none"
             onClick={() => setShowEmergency(true)}
             aria-label="緊急連絡先を表示"
           >
@@ -677,9 +677,9 @@ export default function TourismGuideDemoPage() {
                 </div>
                 <div className="bg-muted rounded-2xl px-4 py-3">
                   <div className="flex gap-1">
-                    <span className="size-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="size-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="size-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
                   </div>
                 </div>
               </div>

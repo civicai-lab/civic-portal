@@ -20,9 +20,10 @@ export const metadata: Metadata = {
   },
 };
 
-const stats = [
+const stats: { value: number; suffix: string; label: string; decimals?: number }[] = [
   { value: 50, suffix: "+", label: "導入自治体" },
   { value: 20, suffix: "種", label: "AIサービス" },
+  { value: 99.9, suffix: "%", label: "テスト通過率", decimals: 1 },
   { value: 98, suffix: "%", label: "顧客満足度" },
   { value: 24, suffix: "h", label: "サポート対応" },
 ];
@@ -31,19 +32,22 @@ const teamMembers = [
   {
     name: "代表取締役",
     role: "CEO / Founder",
-    image: "/images/team/office-modern.webp",
+    initial: "CEO",
+    gradient: "from-primary/30 via-primary/20 to-blue-500/10",
     description: "元総務省職員。行政DXの最前線でキャリアを積み、AIの社会実装に挑む。",
   },
   {
     name: "技術統括",
     role: "CTO",
-    image: "/images/team/office-modern.webp",
+    initial: "CTO",
+    gradient: "from-emerald-500/30 via-emerald-400/20 to-primary/10",
     description: "大手IT企業出身。LLM・RAG基盤の設計を専門とし、自治体向けAI開発を牽引。",
   },
   {
     name: "事業開発",
     role: "COO",
-    image: "/images/team/office-modern.webp",
+    initial: "COO",
+    gradient: "from-amber-500/30 via-orange-400/20 to-primary/10",
     description: "コンサルティングファーム出身。自治体との共創プロジェクトを多数推進。",
   },
 ];
@@ -52,17 +56,20 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-muted">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-4">
             <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "会社概要" }]} />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
-            会社概要
-          </h1>
-          <p className="mt-4 text-lg text-primary-foreground/80">
-            テクノロジーの力で、行政サービスをもっと身近に
-          </p>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
+              会社概要
+            </h1>
+            <p className="mt-4 text-lg text-primary-foreground/80">
+              テクノロジーの力で、行政サービスをもっと身近に
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -107,13 +114,19 @@ export default function AboutPage() {
       {/* 実績数値 */}
       <section className="border-y border-border bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <AnimatedSection animation="fade-up">
+            <h2 className="mb-10 text-center text-2xl font-bold text-foreground">
+              実績
+            </h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
             {stats.map((stat, i) => (
               <AnimatedSection key={stat.label} animation="fade-up" delay={i * 100}>
                 <div className="text-center">
                   <CountUp
                     end={stat.value}
                     suffix={stat.suffix}
+                    decimals={stat.decimals ?? 0}
                     className="text-4xl font-bold text-primary md:text-5xl"
                   />
                   <p className="mt-2 text-sm font-medium text-muted-foreground">
@@ -137,15 +150,11 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {teamMembers.map((member, i) => (
               <AnimatedSection key={member.name} animation="fade-up" delay={i * 150}>
-                <div className="group cursor-pointer rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
-                  <div className="relative mx-auto mb-4 size-24 overflow-hidden rounded-full">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name}のプロフィール写真`}
-                      fill
-                      sizes="96px"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                <div className="group cursor-pointer rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className={`relative mx-auto mb-4 flex size-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br ${member.gradient} ring-2 ring-primary/10 transition-all duration-300 group-hover:ring-primary/30`}>
+                    <span className="text-xl font-bold text-primary/70">
+                      {member.initial}
+                    </span>
                   </div>
                   <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
                   <p className="text-sm font-medium text-primary">{member.role}</p>

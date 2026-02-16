@@ -484,7 +484,7 @@ export default function DisasterGuideDemoPage() {
       {phase === "emergency" && (
         <div className="bg-red-600 text-white px-4 py-3 text-center -mx-4 -mt-4 mb-4">
           <p className="text-sm font-bold flex items-center justify-center gap-2">
-            <Siren className="size-5 animate-pulse" />
+            <Siren className="size-5 motion-safe:animate-pulse" />
             {strings.emergencyBanner}
           </p>
         </div>
@@ -619,15 +619,15 @@ export default function DisasterGuideDemoPage() {
                     <div className="bg-muted rounded-2xl px-4 py-3">
                       <div className="flex gap-1">
                         <span
-                          className="size-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                          className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce"
                           style={{ animationDelay: "0ms" }}
                         />
                         <span
-                          className="size-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                          className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce"
                           style={{ animationDelay: "150ms" }}
                         />
                         <span
-                          className="size-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                          className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce"
                           style={{ animationDelay: "300ms" }}
                         />
                       </div>
@@ -754,7 +754,7 @@ export default function DisasterGuideDemoPage() {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  <div className="size-4 bg-primary rounded-full border-2 border-white shadow-lg animate-pulse" />
+                  <div className="size-4 bg-primary rounded-full border-2 border-white shadow-lg motion-safe:animate-pulse" />
                   <span className="text-[9px] mt-0.5 font-medium text-primary/90 bg-white/80 px-1 rounded">
                     現在地
                   </span>
