@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -54,12 +55,35 @@ const faqs = [
   },
 ];
 
+function getFaqJsonLd() {
+  const allItems = faqs.flatMap((section) => section.items);
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+}
+
 export default function FAQPage() {
   return (
     <div className="min-h-screen bg-muted">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqJsonLd()) }}
+      />
       {/* Hero */}
       <section className="border-b border-border bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "よくある質問" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             よくある質問
           </h1>

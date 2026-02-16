@@ -57,7 +57,7 @@ function ServiceCard({ service }: { service: ServiceData }) {
             </Badge>
             <Badge variant="outline">{service.subcategory}</Badge>
             {service.priority === "S" && (
-              <Badge className="bg-amber-500 text-white hover:bg-amber-600">
+              <Badge className="bg-warning text-warning-foreground hover:bg-warning/90">
                 注力
               </Badge>
             )}

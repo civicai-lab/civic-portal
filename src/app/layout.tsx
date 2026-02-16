@@ -51,6 +51,32 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "シビックAI総合研究所",
+  alternateName: "Civic AI",
+  url: "https://civic-portal-nine.vercel.app",
+  logo: "https://civic-portal-nine.vercel.app/logo/header-logo.webp",
+  description:
+    "自治体向けAIソリューションを提供し、行政サービスのデジタル変革を支援。20種類のAIサービスで住民と行政をつなぐ。",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "千代田区",
+    addressRegion: "東京都",
+    addressCountry: "JP",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "contact@civic-ai.jp",
+    availableLanguage: "Japanese",
+  },
+  sameAs: ["https://twitter.com/civic_ai", "https://github.com/civic-ai"],
+  numberOfEmployees: { "@type": "QuantitativeValue", value: 20 },
+  foundingDate: "2024",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,6 +87,12 @@ export default function RootLayout({
       <body
         className={`${lexend.variable} ${sourceSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <ToastProvider>
           <a href="#main-content" className="skip-link">
             メインコンテンツにスキップ

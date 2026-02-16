@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "会社概要",
@@ -42,6 +43,9 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "会社概要" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             会社概要
           </h1>

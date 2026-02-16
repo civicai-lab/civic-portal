@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "ニュース",
@@ -39,12 +40,20 @@ const newsItems = [
   },
 ];
 
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
+
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-muted">
       {/* Hero */}
       <section className="border-b border-border bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "ニュース" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             ニュース
           </h1>
@@ -76,8 +85,8 @@ export default function NewsPage() {
                   <div className="flex-1">
                     <CardHeader>
                       <div className="mb-1 flex items-center gap-2">
-                        <time className="text-sm text-muted-foreground">
-                          {item.date}
+                        <time dateTime={item.date} className="text-sm text-muted-foreground">
+                          {formatDate(item.date)}
                         </time>
                         <Badge variant="outline">{item.category}</Badge>
                       </div>

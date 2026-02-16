@@ -58,7 +58,7 @@ export function Footer() {
               aria-label="Civic AI ホーム"
             >
               <Image
-                src="/logo/header-logo.png"
+                src="/logo/header-logo.webp"
                 alt="Civic AI"
                 width={120}
                 height={32}

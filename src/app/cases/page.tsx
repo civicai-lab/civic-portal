@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -48,6 +49,9 @@ export default function CasesPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground py-20 text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "導入事例" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             導入事例
           </h1>

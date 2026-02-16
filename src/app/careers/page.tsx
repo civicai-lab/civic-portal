@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -46,6 +47,9 @@ export default function CareersPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "採用情報" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             採用情報
           </h1>

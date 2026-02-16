@@ -64,7 +64,7 @@ export default function HomePage() {
               size="lg"
               variant="cta"
               asChild
-              className="w-full shadow-lg hover:shadow-xl motion-safe:animate-[pulse_3s_ease-in-out_infinite] sm:w-auto"
+              className="w-full shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">無料相談</Link>
             </Button>
@@ -191,7 +191,7 @@ export default function HomePage() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* SaaS */}
             <AnimatedSection animation="slide-left">
-            <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-white">
+            <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-card">
               <CardHeader>
                 <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-primary text-white">
                   <BrainCircuit className="size-7" />
@@ -289,7 +289,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
               { src: "/images/partners/jinomi_logo.webp", alt: "JINOMI" },
-              { src: "/images/partners/maruzen_logo.png", alt: "丸善" },
+              { src: "/images/partners/maruzen_logo.webp", alt: "丸善" },
               { src: "/images/partners/yopaz_logo.webp", alt: "Yopaz" },
               { src: "/images/partners/quickiterate_logo.webp", alt: "QuickIterate" },
               { src: "/images/partners/shinagawaship_logo.webp", alt: "品川シップ" },
@@ -308,7 +308,7 @@ export default function HomePage() {
           {/* 資格バッジ */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
             <Image
-              src="/images/credentials/ipa_security_action.png"
+              src="/images/credentials/ipa_security_action.webp"
               alt="IPA SECURITY ACTION"
               width={80}
               height={80}
@@ -316,7 +316,7 @@ export default function HomePage() {
               className="size-16 object-contain"
             />
             <Image
-              src="/images/credentials/sdgs_wheel.png"
+              src="/images/credentials/sdgs_wheel.webp"
               alt="SDGs"
               width={80}
               height={80}
@@ -324,7 +324,7 @@ export default function HomePage() {
               className="size-16 object-contain"
             />
             <Image
-              src="/images/credentials/microsoft.png"
+              src="/images/credentials/microsoft.webp"
               alt="Microsoft Partner"
               width={80}
               height={80}

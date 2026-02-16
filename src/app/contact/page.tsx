@@ -107,8 +107,8 @@ export default function ContactPage() {
       <div className="flex min-h-screen items-center justify-center bg-muted px-4">
         <Card className="w-full max-w-md text-center">
           <CardHeader>
-            <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-green-100">
-              <CheckCircle className="size-8 text-green-600" />
+            <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-success/10">
+              <CheckCircle className="size-8 text-success" />
             </div>
             <CardTitle className="text-2xl">
               お問い合わせありがとうございます
