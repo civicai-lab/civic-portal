@@ -551,7 +551,7 @@ export default function DisasterGuideDemoPage() {
                       msg.role === "ai" ? (
                         <>
                           {msg.isOfficial && (
-                            <p className="text-[10px] text-muted-foreground mt-1 flex items-center gap-1">
+                            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                               <AlertTriangle className="size-3" />
                               {strings.officialNotice}
                             </p>
@@ -738,12 +738,12 @@ export default function DisasterGuideDemoPage() {
                         <div className="text-right shrink-0">
                           <Badge
                             variant="outline"
-                            className="text-[10px] mb-0.5"
+                            className="text-xs mb-0.5"
                           >
                             <Navigation className="size-2.5" />
                             {shelter.distance}
                           </Badge>
-                          <p className="text-[10px] text-muted-foreground">
+                          <p className="text-xs text-muted-foreground">
                             残り {shelter.remaining}人
                           </p>
                         </div>

@@ -16,6 +16,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { services, getServicesByCategory, getServiceThumbnail } from "@/data/services";
 import { shimmerBlur } from "@/lib/utils";
 import type { ServiceData } from "@/types/service";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { ArrowRight, Search, X } from "lucide-react";
 
 const priorityLabels: Record<string, string> = {
@@ -120,13 +122,18 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="border-b bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            サービス一覧
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            自治体のDXを支援する{services.length}
-            のAIサービスをご覧いただけます
-          </p>
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "サービス一覧" }]} />
+          </div>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              サービス一覧
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              自治体のDXを支援する{services.length}
+              のAIサービスをご覧いただけます
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 

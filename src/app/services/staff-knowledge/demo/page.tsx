@@ -169,7 +169,7 @@ function DocumentCard({ doc }: { doc: Document }) {
           <span className="text-sm font-medium text-foreground truncate">
             {doc.title}
           </span>
-          <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${accessConfig.className}`}>
+          <Badge variant="secondary" className={`text-xs px-1.5 py-0 ${accessConfig.className}`}>
             {accessConfig.icon} {accessConfig.label}
           </Badge>
         </div>
@@ -439,7 +439,7 @@ export default function StaffKnowledgeDemoPage() {
                         <div className="flex items-center gap-1">
                           <span className="font-medium text-foreground">{entry.user}</span>
                           <span className="text-muted-foreground">が</span>
-                          <Badge variant="secondary" className="text-[10px] px-1 py-0">
+                          <Badge variant="secondary" className="text-xs px-1 py-0">
                             {entry.action}
                           </Badge>
                         </div>
@@ -454,7 +454,7 @@ export default function StaffKnowledgeDemoPage() {
                   ))}
                 </ul>
                 <Separator className="my-2" />
-                <p className="text-[10px] text-muted-foreground text-center">
+                <p className="text-xs text-muted-foreground text-center">
                   全アクセスログは管理画面で確認できます
                 </p>
               </CardContent>

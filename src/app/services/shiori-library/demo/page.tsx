@@ -209,7 +209,7 @@ function BookCard({ book }: { book: BookData }) {
             </div>
             <Badge
               variant="secondary"
-              className={`text-[10px] shrink-0 ${statusInfo.color}`}
+              className={`text-xs shrink-0 ${statusInfo.color}`}
             >
               {statusInfo.label}
             </Badge>
@@ -218,7 +218,7 @@ function BookCard({ book }: { book: BookData }) {
             {book.description}
           </p>
           <div className="flex items-center justify-between">
-            <Badge variant="outline" className="text-[10px]">
+            <Badge variant="outline" className="text-xs">
               {book.ndc} {book.ndcLabel}
             </Badge>
             <Button

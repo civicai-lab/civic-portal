@@ -70,7 +70,7 @@ export default function HomePage() {
               size="lg"
               variant="cta"
               asChild
-              className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
+              className="w-full shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">無料相談</Link>
             </Button>
@@ -429,10 +429,11 @@ export default function HomePage() {
                   {i < 2 && (
                     <div className="absolute left-[calc(50%+2rem)] top-8 hidden h-0.5 w-[calc(100%-4rem)] bg-gradient-to-r from-primary/30 to-primary/10 md:block" />
                   )}
+                  <span className="mb-2 text-sm font-bold text-primary md:hidden">STEP {item.step}</span>
                   <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <item.icon className="size-7" />
                   </div>
-                  <div className="mb-2 text-sm font-bold text-primary">
+                  <div className="mb-2 hidden text-sm font-bold text-primary md:block">
                     STEP {item.step}
                   </div>
                   <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
@@ -471,20 +472,18 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              まずは無料相談から
+              一緒に始めませんか？
             </h2>
           </AnimatedSection>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
-            自治体のDX推進に関するご相談を無料で承ります。
-            <br className="hidden sm:block" />
-            お気軽にお問い合わせください。
+            お気軽にご相談ください
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
               size="lg"
               variant="cta"
               asChild
-              className="w-full shadow-lg hover:shadow-xl sm:w-auto"
+              className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">
                 無料相談を申し込む

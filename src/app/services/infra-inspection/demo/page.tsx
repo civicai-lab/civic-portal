@@ -199,7 +199,7 @@ export default function InfraInspectionDemoPage() {
                 </span>
                 <Badge variant="destructive" className="text-xs">件</Badge>
               </div>
-              <p className="text-[10px] text-muted-foreground mt-1">C・D判定施設</p>
+              <p className="text-xs text-muted-foreground mt-1">C・D判定施設</p>
             </CardContent>
           </Card>
 
@@ -228,7 +228,7 @@ export default function InfraInspectionDemoPage() {
                 <CountUp end={nextInspectionCount} />
                 <span className="text-sm font-normal text-muted-foreground"> 件</span>
               </div>
-              <p className="text-[10px] text-muted-foreground mt-1">今月予定</p>
+              <p className="text-xs text-muted-foreground mt-1">今月予定</p>
             </CardContent>
           </Card>
         </div>
@@ -481,7 +481,7 @@ export default function InfraInspectionDemoPage() {
                           <p className="text-xs mt-1 font-medium">
                             {grade}: {config.label}
                           </p>
-                          <p className="text-[10px] mt-0.5 opacity-75">{config.description}</p>
+                          <p className="text-xs mt-0.5 opacity-75">{config.description}</p>
                         </div>
                       );
                     })}

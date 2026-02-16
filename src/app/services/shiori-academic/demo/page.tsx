@@ -285,10 +285,10 @@ function PaperCard({
           </div>
           <div className="flex items-center justify-between mt-1">
             <div className="flex items-center gap-2">
-              <Badge variant="secondary" className={`text-[10px] ${dbColor}`}>
+              <Badge variant="secondary" className={`text-xs ${dbColor}`}>
                 {paper.db}
               </Badge>
-              <Badge variant="outline" className="text-[10px] gap-1">
+              <Badge variant="outline" className="text-xs gap-1">
                 <FileText className="size-3" />
                 被引用 {paper.citations}
               </Badge>

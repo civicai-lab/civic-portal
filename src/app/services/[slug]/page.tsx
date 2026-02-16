@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { shimmerBlur } from "@/lib/utils";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -16,7 +18,6 @@ import { Separator } from "@/components/ui/separator";
 import { services, getServiceBySlug, getServiceHero } from "@/data/services";
 import type { ServiceFeature, PricingPlan, UseCase, FAQ } from "@/types/service";
 import {
-  ArrowLeft,
   ArrowRight,
   CheckCircle,
   ChevronDown,
@@ -220,10 +221,10 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
     <Card
-      className={`relative h-full transition-[box-shadow,transform] hover:shadow-lg ${
+      className={`relative h-full transition-[box-shadow,transform] ${
         plan.recommended
-          ? "scale-[1.02] border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
-          : "hover:scale-[1.01]"
+          ? "scale-105 border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
+          : "hover:-translate-y-0.5 hover:shadow-lg"
       }`}
     >
       {plan.recommended && (
@@ -356,15 +357,13 @@ export default async function ServiceDetailPage({
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="パンくずリスト" className="mb-6">
-            <Link
-              href="/services"
-              className="inline-flex items-center text-sm text-primary-foreground/70 hover:text-white hover:underline transition-colors"
-            >
-              <ArrowLeft className="mr-1 size-4" />
-              サービス一覧に戻る
-            </Link>
-          </nav>
+          <div className="mb-6 [&_nav]:text-primary-foreground/70 [&_a]:text-primary-foreground/70 [&_a:hover]:text-white [&_span]:text-primary-foreground/90 [&_svg]:text-primary-foreground/50">
+            <Breadcrumb items={[
+              { label: "ホーム", href: "/" },
+              { label: "サービス一覧", href: "/services" },
+              { label: service.displayName }
+            ]} />
+          </div>
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge
               variant={
@@ -391,7 +390,7 @@ export default async function ServiceDetailPage({
             {service.description}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" variant="cta" asChild className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg transition-shadow hover:shadow-xl sm:w-auto">
+            <Button size="lg" variant="cta" asChild className="w-full shadow-lg transition-shadow hover:shadow-xl sm:w-auto">
               <Link href={`/services/${service.slug}/demo`}>
                 デモを試す
                 <Monitor className="ml-2 size-4" />
@@ -429,103 +428,113 @@ export default async function ServiceDetailPage({
       {/* Features */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              主な機能
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              {service.displayName}の特長的な機能をご紹介します
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {service.features.map((feature) => (
-              <FeatureCard key={feature.title} feature={feature} />
-            ))}
-          </div>
+          <AnimatedSection>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                主な機能
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                {service.displayName}の特長的な機能をご紹介します
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {service.features.map((feature) => (
+                <FeatureCard key={feature.title} feature={feature} />
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Use Cases */}
       <section className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              導入事例
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              実際の導入シナリオをご紹介します
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {service.useCases.map((useCase, i) => (
-              <UseCaseCard key={useCase.persona} useCase={useCase} index={i} />
-            ))}
-          </div>
+          <AnimatedSection>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                導入事例
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                実際の導入シナリオをご紹介します
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {service.useCases.map((useCase, i) => (
+                <UseCaseCard key={useCase.persona} useCase={useCase} index={i} />
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Pricing */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              料金プラン
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              ご要望に合わせたプランをお選びいただけます
-            </p>
-          </div>
-          <div
-            className={`grid gap-8 pt-4 ${
-              service.pricing.length === 1
-                ? "max-w-md mx-auto"
-                : service.pricing.length === 2
-                  ? "max-w-2xl mx-auto md:grid-cols-2"
-                  : "md:grid-cols-3"
-            }`}
-          >
-            {service.pricing.map((plan) => (
-              <PricingCard key={plan.name} plan={plan} />
-            ))}
-          </div>
+          <AnimatedSection>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                料金プラン
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                ご要望に合わせたプランをお選びいただけます
+              </p>
+            </div>
+            <div
+              className={`grid gap-8 pt-4 ${
+                service.pricing.length === 1
+                  ? "max-w-md mx-auto"
+                  : service.pricing.length === 2
+                    ? "max-w-2xl mx-auto md:grid-cols-2"
+                    : "lg:grid-cols-3"
+              }`}
+            >
+              {service.pricing.map((plan) => (
+                <PricingCard key={plan.name} plan={plan} />
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              よくある質問
-            </h2>
-          </div>
-          <div className="mx-auto max-w-3xl space-y-3">
-            {service.faqs.map((faq) => (
-              <FAQItem key={faq.question} faq={faq} />
-            ))}
-          </div>
+          <AnimatedSection>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                よくある質問
+              </h2>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-3">
+              {service.faqs.map((faq) => (
+                <FAQItem key={faq.question} faq={faq} />
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Target Customers */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              対象のお客様
-            </h2>
-          </div>
-          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-3">
-            {service.targetCustomers.map((customer) => (
-              <Badge
-                key={customer}
-                variant="secondary"
-                className="px-4 py-2 text-sm"
-              >
-                {customer}
-              </Badge>
-            ))}
-          </div>
+          <AnimatedSection>
+            <div className="mb-8 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                対象のお客様
+              </h2>
+            </div>
+            <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-3">
+              {service.targetCustomers.map((customer) => (
+                <Badge
+                  key={customer}
+                  variant="secondary"
+                  className="px-4 py-2 text-sm"
+                >
+                  {customer}
+                </Badge>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

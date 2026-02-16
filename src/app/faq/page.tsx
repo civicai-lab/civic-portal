@@ -137,8 +137,12 @@ export default function FAQPage() {
                       <span>{faq.q}</span>
                       <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
                     </summary>
-                    <div className="border-t border-border px-4 py-3">
-                      <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                    <div className="faq-content">
+                      <div>
+                        <div className="border-t border-border px-4 py-3">
+                          <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                        </div>
+                      </div>
                     </div>
                   </details>
                 ))}

@@ -276,10 +276,10 @@ export default function AssemblyArchiveDemoPage() {
                           <User className="size-4 text-muted-foreground" />
                           <span className="font-medium text-foreground">{speech.speaker}</span>
                         </div>
-                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${ROLE_COLORS[speech.role] || "bg-muted text-foreground"}`}>
+                        <Badge variant="secondary" className={`text-xs px-1.5 py-0 ${ROLE_COLORS[speech.role] || "bg-muted text-foreground"}`}>
                           {speech.role}
                         </Badge>
-                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${PARTY_COLORS[speech.party] || "bg-muted text-foreground"}`}>
+                        <Badge variant="secondary" className={`text-xs px-1.5 py-0 ${PARTY_COLORS[speech.party] || "bg-muted text-foreground"}`}>
                           {speech.party}
                         </Badge>
                       </div>
@@ -331,7 +331,7 @@ export default function AssemblyArchiveDemoPage() {
                     <div className="flex items-center gap-2 mb-3">
                       <Calendar className="size-4 text-primary" />
                       <span className="text-sm font-semibold text-foreground">{date}</span>
-                      <Badge variant="secondary" className="text-[10px]">
+                      <Badge variant="secondary" className="text-xs">
                         {speeches[0].meeting}
                       </Badge>
                     </div>
@@ -349,10 +349,10 @@ export default function AssemblyArchiveDemoPage() {
                           <div className="p-3 rounded-lg border border-border bg-card transition-shadow duration-300 hover:shadow-md">
                             <div className="flex items-center gap-2 flex-wrap mb-2">
                               <span className="font-medium text-sm text-foreground">{speech.speaker}</span>
-                              <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${ROLE_COLORS[speech.role] || ""}`}>
+                              <Badge variant="secondary" className={`text-xs px-1.5 py-0 ${ROLE_COLORS[speech.role] || ""}`}>
                                 {speech.role}
                               </Badge>
-                              <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${PARTY_COLORS[speech.party] || ""}`}>
+                              <Badge variant="secondary" className={`text-xs px-1.5 py-0 ${PARTY_COLORS[speech.party] || ""}`}>
                                 {speech.party}
                               </Badge>
                             </div>

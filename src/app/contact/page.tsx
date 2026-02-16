@@ -355,11 +355,15 @@ export default function ContactPage() {
                         aria-invalid={!!errors.message}
                         aria-describedby={errors.message ? "message-error" : undefined}
                         rows={6}
+                        maxLength={1000}
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="ご質問やご要望をご記入ください"
                         className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.message ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
+                      <div className="mt-1 text-right text-xs text-muted-foreground/70">
+                        {formData.message.length}/1000文字
+                      </div>
                       {errors.message && (
                         <p id="message-error" className="mt-1.5 text-sm text-destructive" role="alert">
                           {errors.message}
@@ -410,7 +414,7 @@ export default function ContactPage() {
                     <Phone className="mt-0.5 size-5 text-primary" />
                     <div>
                       <p className="text-sm font-medium text-foreground">電話</p>
-                      <p className="text-sm text-muted-foreground">03-XXXX-XXXX</p>
+                      <p className="text-sm text-muted-foreground">050-1234-5678</p>
                       <p className="text-xs text-muted-foreground/70">
                         平日 9:00-18:00
                       </p>

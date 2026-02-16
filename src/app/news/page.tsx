@@ -134,7 +134,7 @@ export default function NewsPage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-up">
-            <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-0.5">
+            <Card className="group overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-0.5">
               <div className="flex flex-col md:flex-row">
                 <div className="relative h-64 w-full shrink-0 overflow-hidden md:h-auto md:w-1/2">
                   <Image
@@ -189,7 +189,7 @@ export default function NewsPage() {
           <div className="space-y-6">
             {rest.map((item, i) => (
               <AnimatedSection key={item.title} animation="fade-up" delay={i * 100}>
-                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                <Card className="group overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
                   <div className="flex flex-col md:flex-row">
                     <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
                       <Image

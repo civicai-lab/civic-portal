@@ -69,10 +69,10 @@ test.describe("サービス詳細ページ（shiori-library）", () => {
     );
   });
 
-  test("パンくずリスト「サービス一覧に戻る」が機能する", async ({ page }) => {
-    const breadcrumb = page.getByRole("link", {
-      name: "サービス一覧に戻る",
-    });
+  test("パンくずリスト「サービス一覧」が機能する", async ({ page }) => {
+    const breadcrumb = page
+      .getByLabel("パンくずリスト")
+      .getByRole("link", { name: "サービス一覧" });
     await expect(breadcrumb).toBeVisible({ timeout: 10000 });
     await breadcrumb.click();
     await expect(page).toHaveURL("/services", { timeout: 10000 });

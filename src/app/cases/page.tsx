@@ -130,7 +130,7 @@ export default function CasesPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {cases.map((caseItem, i) => (
               <AnimatedSection key={caseItem.title} animation="fade-up" delay={i * 100}>
-                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                <Card className="group overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={caseItem.image}
