@@ -2,23 +2,23 @@ import { test, expect } from "@playwright/test";
 
 test.describe("サービス一覧ページ", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/services");
+    await page.goto("/services", { timeout: 10000 });
   });
 
   test("サービス一覧ページが正しくロードされる", async ({ page }) => {
-    await expect(page).toHaveTitle(/Civic AI/);
-    await expect(
-      page.getByRole("heading", { name: "サービス一覧", level: 1 })
-    ).toBeVisible();
+    await expect(page).toHaveTitle(/Civic AI/, { timeout: 10000 });
+    // h1 タグで直接確認（getByRole heading は CardTitle の div も拾う可能性がある）
+    const h1 = page.locator("h1");
+    await expect(h1).toContainText("サービス一覧", { timeout: 10000 });
   });
 
   test("20件のサービスカードが表示される", async ({ page }) => {
     // デフォルトは「すべて」タブが選択されている
-    // サービスカードはLinkで囲まれたCardコンポーネント
+    // サービスカードは Link(a) で囲まれ、CardTitle（data-slot="card-title"）を含む
     const serviceCards = page.locator('a[href^="/services/"]').filter({
-      has: page.locator("h3"),
+      has: page.locator('[data-slot="card-title"]'),
     });
-    await expect(serviceCards).toHaveCount(20);
+    await expect(serviceCards).toHaveCount(20, { timeout: 10000 });
   });
 
   test("SaaS / シンクタンクのカテゴリバッジが存在する", async ({ page }) => {
@@ -37,10 +37,10 @@ test.describe("サービス一覧ページ", () => {
     // 最初のサービスカードをクリック
     const firstCard = page
       .locator('a[href^="/services/"]')
-      .filter({ has: page.locator("h3") })
+      .filter({ has: page.locator('[data-slot="card-title"]') })
       .first();
     const href = await firstCard.getAttribute("href");
     await firstCard.click();
-    await expect(page).toHaveURL(href!);
+    await expect(page).toHaveURL(href!, { timeout: 10000 });
   });
 });

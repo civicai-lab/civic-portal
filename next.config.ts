@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
   },
 
+  // バンドル最適化（lucide-react等のTree Shaking改善）
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+
   // セキュリティヘッダー
   async headers() {
     return [

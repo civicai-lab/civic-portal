@@ -1,11 +1,13 @@
 # State
 
 ## Current
-- 作業中: コミット＋プッシュ
+- 作業中: なし
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- 直近コミット: （コミット予定）品質基盤+E2E+SEO+エラー境界
-- 直近完了: Phase G1-G3（next.config.ts, robots.txt, sitemap, error/loading, Playwright 32テスト, 色修正, 画像名修正）
+- E2Eテスト: 32/32パス（Playwright, 10.8秒）
+- 直近コミット: （プッシュ予定）E2Eテスト修正+パフォーマンス最適化
+- 直近完了: Phase G1-G7完了（品質基盤+E2E全パス+パフォーマンス最適化）
+- Vercel: https://civic-portal-nine.vercel.app (sitemap.xml 71URL, robots.txt 配信確認済み)
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -131,9 +133,10 @@
 - [x] .gitignore: Playwright出力ディレクトリ追加
 
 ## Next
-- [ ] Vercelデプロイ確認
+- [x] Vercelデプロイ確認（sitemap.xml + robots.txt 配信OK）
 - [ ] E2Eテスト実行・修正（devサーバー起動後）
 - [ ] パフォーマンス最適化（Lighthouse）
+- [ ] 20-ai-lab Vercel再デプロイ確認
 
 ## Blocked
 - なし
