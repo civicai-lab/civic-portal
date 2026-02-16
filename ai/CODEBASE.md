@@ -44,10 +44,11 @@
 ## 最近の変更 (git log)
 
 ```
+438f0ae feat: 全20サービスデモページ完成 + 共通コンポーネント基盤 + グローバルUX改善
+bdaab2b feat: UI/UX全面品質改善 — A11y・デザイントークン・インタラクション
 c80fc6f feat: 7サービスのインタラクティブデモページ追加
 6f5c812 サービス画像バリエーション追加: 全20サービスに固有thumb+hero画像
 6dfb8a8 UI/UX全面改善: デザインシステム・画像・アニメーション・デッドリンク解消
-dcfda26 初回コミット: civic-portal Next.js プロジェクト
 ```
 
 **現在のブランチ**: `main`
@@ -60,6 +61,7 @@ dcfda26 初回コミット: civic-portal Next.js プロジェクト
 - ./src/types/service.ts
 - ./src/app/layout.tsx
 - ./src/app/page.tsx
+- ./src/app/not-found.tsx
 - ./src/app/template.tsx
 - ./src/components/service-card.tsx
 - ./src/hooks/use-scroll-animation.ts
@@ -69,4 +71,4 @@ dcfda26 初回コミット: civic-portal Next.js プロジェクト
 ### Python
 
 ---
-*自動生成: 2026-02-16 00:31*
+*自動生成: 2026-02-16 09:01*

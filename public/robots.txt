@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://civic-portal-nine.vercel.app/sitemap.xml

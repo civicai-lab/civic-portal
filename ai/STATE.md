@@ -1,11 +1,11 @@
 # State
 
 ## Current
-- 作業中: なし
+- 作業中: コミット＋プッシュ
 - ブランチ: main
-- ビルド状態: 成功（53ページ、TypeScriptエラーなし）
-- 直近コミット: コミット予定 — UI/UX大規模改善Phase F1-F5完了
-- 直近完了: 全20サービスデモページ完成 + 共通コンポーネント基盤 + グローバルUX改善
+- ビルド状態: 成功（54ページ、TypeScriptエラーなし）
+- 直近コミット: （コミット予定）品質基盤+E2E+SEO+エラー境界
+- 直近完了: Phase G1-G3（next.config.ts, robots.txt, sitemap, error/loading, Playwright 32テスト, 色修正, 画像名修正）
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -119,11 +119,21 @@
 - [x] ai-reskilling/demo: AI研修・リスキリング支援（3ステップ: 基本情報→スキル5段階評価→結果+スキルマップ+推奨研修+タイムライン、~290行）
 - [x] ai-lab/demo: 官民共創AIラボ（3タブ: イベント一覧+カテゴリフィルタ/プロジェクト進捗/審査シート星評価+判定、~310行）
 
+### Phase G: 品質基盤（監査結果に基づく改善）
+- [x] next.config.ts: セキュリティヘッダー6種+画像WebP最適化+reactStrictMode
+- [x] robots.txt + sitemap.ts: SEO基盤（50 URL、全サービス+デモ）
+- [x] error.tsx: グローバルエラー境界（リトライ+ホーム戻り）
+- [x] loading.tsx: スケルトンUIローディング
+- [x] services/[slug]/page.tsx: bg-white→bg-card 4箇所、blue系→デザイントークン5箇所
+- [x] services.ts: rfp-support/ai-audit画像マッピング修正
+- [x] 画像ファイル: rfp-support-*.webp, ai-audit-*.webp 追加
+- [x] Playwright E2Eテスト: 32テスト/6ファイル（home/services/detail/demo/navigation/accessibility）
+- [x] .gitignore: Playwright出力ディレクトリ追加
+
 ## Next
-- [ ] 全20サービスデモページ完了 - ビルド一括確認
-- [ ] E2Eテスト（Playwright）
 - [ ] Vercelデプロイ確認
-- [ ] パフォーマンス最適化（画像lazy loading等）
+- [ ] E2Eテスト実行・修正（devサーバー起動後）
+- [ ] パフォーマンス最適化（Lighthouse）
 
 ## Blocked
 - なし

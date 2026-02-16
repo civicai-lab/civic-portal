@@ -293,7 +293,7 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
 // FAQ Item コンポーネント
 function FAQItem({ faq }: { faq: FAQ }) {
   return (
-    <details className="group rounded-lg border bg-white">
+    <details className="group rounded-lg border bg-card">
       <summary className="flex cursor-pointer items-center justify-between rounded-lg p-4 font-medium text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors">
         {faq.question}
         <ChevronDown className="size-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
@@ -338,12 +338,12 @@ export default async function ServiceDetailPage({
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-indigo-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav aria-label="パンくずリスト" className="mb-6">
             <Link
               href="/services"
-              className="inline-flex items-center text-sm text-blue-200 hover:text-white hover:underline transition-colors"
+              className="inline-flex items-center text-sm text-primary-foreground/70 hover:text-white hover:underline transition-colors"
             >
               <ArrowLeft className="mr-1 size-4" />
               サービス一覧に戻る
@@ -370,8 +370,8 @@ export default async function ServiceDetailPage({
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
             {service.displayName}
           </h1>
-          <p className="mt-4 text-xl text-blue-100">{service.tagline}</p>
-          <p className="mt-6 max-w-3xl text-lg text-blue-200">
+          <p className="mt-4 text-xl text-primary-foreground/80">{service.tagline}</p>
+          <p className="mt-6 max-w-3xl text-lg text-primary-foreground/70">
             {service.description}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -392,7 +392,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* KPI */}
-      <section className="border-b bg-white py-12">
+      <section className="border-b bg-card py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {service.kpi.map((kpi) => (
@@ -430,7 +430,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Use Cases */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
@@ -476,7 +476,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
