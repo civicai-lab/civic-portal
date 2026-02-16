@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { services, getServicesByCategory, getServiceThumbnail } from "@/data/services";
 import { shimmerBlur } from "@/lib/utils";
 import type { ServiceData } from "@/types/service";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 
 const priorityLabels: Record<string, string> = {
   all: "すべて",
@@ -213,9 +213,25 @@ export default function ServicesPage() {
 
             <TabsContent value="all">
               {filteredAll.length === 0 ? (
-                <p className="py-12 text-center text-muted-foreground">
-                  該当するサービスが見つかりません
-                </p>
+                <div className="py-16 text-center">
+                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
+                    <Search className="size-6 text-muted-foreground" />
+                  </div>
+                  <p className="text-lg font-medium text-foreground">
+                    該当するサービスが見つかりません
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    フィルタ条件を変更してお試しください
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-4"
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                  >
+                    フィルタをクリア
+                  </Button>
+                </div>
               ) : (
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {filteredAll.map((service) => (
@@ -227,9 +243,25 @@ export default function ServicesPage() {
 
             <TabsContent value="saas">
               {filteredSaas.length === 0 ? (
-                <p className="py-12 text-center text-muted-foreground">
-                  該当するサービスが見つかりません
-                </p>
+                <div className="py-16 text-center">
+                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
+                    <Search className="size-6 text-muted-foreground" />
+                  </div>
+                  <p className="text-lg font-medium text-foreground">
+                    該当するサービスが見つかりません
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    フィルタ条件を変更してお試しください
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-4"
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                  >
+                    フィルタをクリア
+                  </Button>
+                </div>
               ) : (
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {filteredSaas.map((service) => (
@@ -241,9 +273,25 @@ export default function ServicesPage() {
 
             <TabsContent value="thinktank">
               {filteredThinktank.length === 0 ? (
-                <p className="py-12 text-center text-muted-foreground">
-                  該当するサービスが見つかりません
-                </p>
+                <div className="py-16 text-center">
+                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
+                    <Search className="size-6 text-muted-foreground" />
+                  </div>
+                  <p className="text-lg font-medium text-foreground">
+                    該当するサービスが見つかりません
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    フィルタ条件を変更してお試しください
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-4"
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                  >
+                    フィルタをクリア
+                  </Button>
+                </div>
               ) : (
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {filteredThinktank.map((service) => (

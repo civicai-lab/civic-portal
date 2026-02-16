@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { shimmerBlur } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
+import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "会社概要",
@@ -210,6 +213,35 @@ export default function AboutPage() {
                 </div>
               ))}
             </dl>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-foreground">
+                私たちと一緒に、行政の未来を変えませんか？
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                Civic AIのサービスや導入事例について、お気軽にご相談ください
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button variant="cta" size="lg" asChild>
+                  <Link href="/contact">
+                    お問い合わせ
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link href="/services">
+                    サービス一覧を見る
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </section>

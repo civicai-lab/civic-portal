@@ -52,6 +52,34 @@ const newsItems = [
     description: "小田原市立図書館でのAI司書実証実験がスタートしました。",
     image: "/images/news/odawara-library.webp",
   },
+  {
+    date: "2026-02-15",
+    category: "プレスリリース",
+    title: "横浜市と福祉制度マッチングAIの実証実験を開始",
+    description: "横浜市福祉局との連携により、AIによる福祉制度マッチングの実証実験を開始しました。",
+    image: "/images/services/welfare-navigator-hero.webp",
+  },
+  {
+    date: "2026-02-10",
+    category: "メディア",
+    title: "日経クロステック「自治体AI最前線」特集に掲載",
+    description: "日経クロステックの特集記事にて、当社のAI司書SHIORIが紹介されました。",
+    image: "/images/hero/hero-tech.webp",
+  },
+  {
+    date: "2025-12-15",
+    category: "イベント",
+    title: "GovTech Summit 2025 に出展",
+    description: "東京ビッグサイトで開催されたGovTech Summitにブースを出展しました。",
+    image: "/images/sections/hero-cases.webp",
+  },
+  {
+    date: "2025-11-01",
+    category: "プレスリリース",
+    title: "AIリスキリング研修プログラムを自治体職員向けに提供開始",
+    description: "自治体職員のAIリテラシー向上を支援する研修プログラムの提供を開始しました。",
+    image: "/images/services/ai-reskilling-hero.webp",
+  },
 ];
 
 const categoryStyles: Record<string, string> = {
@@ -66,6 +94,12 @@ function formatDate(dateStr: string): string {
 }
 
 export default function NewsPage() {
+  const sortedNews = [...newsItems].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  const featured = sortedNews[0];
+  const rest = sortedNews.slice(1);
+
   return (
     <div className="min-h-screen bg-muted">
       {/* Hero */}
@@ -96,13 +130,66 @@ export default function NewsPage() {
         </div>
       </section>
 
+      {/* Featured ニュース */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection animation="fade-up">
+            <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-0.5">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative h-64 w-full shrink-0 overflow-hidden md:h-auto md:w-1/2">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    placeholder="blur"
+                    blurDataURL={shimmerBlur}
+                    priority
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-center">
+                  <CardHeader>
+                    <div className="mb-2 flex items-center gap-3">
+                      <Badge variant="outline" className="border-primary/30 text-primary">
+                        最新
+                      </Badge>
+                      <time
+                        dateTime={featured.date}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
+                      >
+                        <Calendar className="size-3.5 text-muted-foreground" />
+                        {formatDate(featured.date)}
+                      </time>
+                      <Badge
+                        className={categoryStyles[featured.category] ?? ""}
+                      >
+                        {featured.category}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-xl md:text-2xl transition-colors duration-200 group-hover:text-primary">
+                      {featured.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-base leading-relaxed text-muted-foreground">
+                      {featured.description}
+                    </p>
+                  </CardContent>
+                </div>
+              </div>
+            </Card>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* ニュース一覧 */}
-      <section className="py-16 md:py-24">
+      <section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
-            {newsItems.map((item, i) => (
+            {rest.map((item, i) => (
               <AnimatedSection key={item.title} animation="fade-up" delay={i * 100}>
-                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.01]">
+                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
                   <div className="flex flex-col md:flex-row">
                     <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
                       <Image

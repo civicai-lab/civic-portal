@@ -58,6 +58,38 @@ const cases = [
     service: "住民問い合わせAI",
     results: ["窓口混雑 30%緩和", "24時間対応を実現"],
   },
+  {
+    title: "品川区 — 窓口対応AIアシスタント導入",
+    description: "窓口での住民対応をAIがリアルタイムでサポート。対応マニュアルの即時検索と多言語対応で、窓口職員の業務効率と住民満足度を同時に向上。",
+    image: "/images/service-conversation.webp",
+    category: "住民サービス",
+    service: "住民問い合わせAI",
+    results: ["対応時間 25%短縮", "多言語対応 5カ国語"],
+  },
+  {
+    title: "横浜市 — 福祉制度マッチングAI実証実験",
+    description: "複雑な福祉制度から住民に最適な支援を自動マッチング。申請書作成支援も含め、福祉窓口の業務効率化と制度利用率の向上を実現。",
+    image: "/images/services/welfare-navigator-hero.webp",
+    category: "福祉",
+    service: "福祉制度ナビゲーター",
+    results: ["制度利用率 20%向上", "申請書作成時間 60%短縮"],
+  },
+  {
+    title: "千葉市 — 議事録要約AI活用",
+    description: "市議会・委員会の議事録をAIが自動要約。発言者別のアクションアイテム抽出で、政策立案のスピードアップを支援。",
+    image: "/images/services/minutes-summary-hero.webp",
+    category: "庁内業務",
+    service: "議事録要約AI",
+    results: ["議事録作成 80%自動化", "アクション抽出精度 95%"],
+  },
+  {
+    title: "静岡県 — インフラ点検AIサポート",
+    description: "道路・橋梁・トンネルの点検データをAIが分析。劣化予測と優先修繕計画の策定を支援し、インフラ維持管理コストを最適化。",
+    image: "/images/services/infra-inspection-hero.webp",
+    category: "インフラ",
+    service: "インフラ点検AI",
+    results: ["点検効率 45%向上", "維持管理コスト 15%削減"],
+  },
 ];
 
 export default function CasesPage() {
@@ -98,7 +130,7 @@ export default function CasesPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {cases.map((caseItem, i) => (
               <AnimatedSection key={caseItem.title} animation="fade-up" delay={i * 100}>
-                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.02]">
+                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={caseItem.image}
@@ -141,15 +173,22 @@ export default function CasesPage() {
 
           <AnimatedSection animation="fade-up" delay={400}>
             <div className="mt-16 text-center">
-              <p className="mb-4 text-muted-foreground">
+              <p className="mb-6 text-muted-foreground">
                 さらに多くの導入事例については、お気軽にお問い合わせください
               </p>
-              <Button variant="cta" size="lg" asChild>
-                <Link href="/contact">
-                  お問い合わせ
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </Button>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button variant="cta" size="lg" asChild>
+                  <Link href="/contact">
+                    お問い合わせ
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link href="/services">
+                    サービス一覧を見る
+                  </Link>
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
         </div>

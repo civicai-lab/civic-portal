@@ -66,7 +66,7 @@ export default function ContactPage() {
     if (!formData.email.trim()) {
       newErrors.email = "メールアドレスを入力してください";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "正しいメールアドレスの形式で入力してください";
+      newErrors.email = "メールアドレスの形式が正しくありません（例: taro@city.tokyo.lg.jp）";
     }
     if (!formData.organization.trim()) {
       newErrors.organization = "自治体名・組織名を入力してください";
@@ -135,7 +135,9 @@ export default function ContactPage() {
               お問い合わせありがとうございます
             </CardTitle>
             <CardDescription className="text-base animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both">
-              内容を確認の上、2営業日以内にご連絡いたします。
+              お問い合わせを受け付けました。
+              <br />
+              <span className="mt-1 inline-block text-sm">通常2営業日以内にご連絡いたします</span>
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-500 fill-mode-both">
@@ -245,6 +247,7 @@ export default function ContactPage() {
                         メールアドレス <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
+                      <p className="mt-1 text-xs text-muted-foreground/70">確認メールをお送りします</p>
                       <input
                         type="email"
                         id="email"
@@ -275,6 +278,7 @@ export default function ContactPage() {
                         <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
+                      <p className="mt-1 text-xs text-muted-foreground/70">自治体以外の方も歓迎です</p>
                       <input
                         type="text"
                         id="organization"
@@ -342,6 +346,7 @@ export default function ContactPage() {
                         <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
+                      <p className="mt-1 text-xs text-muted-foreground/70">ご検討中のサービスや課題をお聞かせください</p>
                       <textarea
                         id="message"
                         name="message"
@@ -375,7 +380,7 @@ export default function ContactPage() {
                           送信中...
                         </>
                       ) : (
-                        "送信する"
+                        "お問い合わせを送信"
                       )}
                     </Button>
                   </form>
