@@ -153,8 +153,8 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {teamMembers.map((member, i) => (
               <AnimatedSection key={member.name} animation="fade-up" delay={i * 150}>
-                <div className="group cursor-pointer rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-                  <div className={`relative mx-auto mb-4 flex size-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br ${member.gradient} ring-2 ring-primary/10 transition-all duration-300 group-hover:ring-primary/30`}>
+                <div className="group cursor-pointer rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.02]">
+                  <div className={`relative mx-auto mb-4 flex size-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br ${member.gradient} ring-2 ring-primary/10 transition-[box-shadow] duration-300 group-hover:ring-primary/30`}>
                     <span className="text-xl font-bold text-primary/70">
                       {member.initial}
                     </span>

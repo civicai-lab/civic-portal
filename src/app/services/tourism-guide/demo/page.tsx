@@ -611,7 +611,7 @@ export default function TourismGuideDemoPage() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300 ${
+                className={`flex gap-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-300 ${
                   msg.role === "user" ? "flex-row-reverse" : "flex-row"
                 }`}
               >

@@ -261,7 +261,7 @@ export default function FacilityConciergeDemo() {
                   {purposes.map((p) => (
                     <Card
                       key={p.id}
-                      className={`cursor-pointer transition-all hover:shadow-md ${
+                      className={`cursor-pointer transition-[box-shadow] hover:shadow-md ${
                         selectedPurpose === p.id
                           ? "ring-2 ring-primary shadow-md"
                           : ""
@@ -396,7 +396,7 @@ export default function FacilityConciergeDemo() {
                     return (
                       <Card
                         key={f.id}
-                        className={`transition-all ${
+                        className={`transition-[box-shadow] ${
                           isSelected ? "ring-2 ring-primary shadow-md" : ""
                         }`}
                       >

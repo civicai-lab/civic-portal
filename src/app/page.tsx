@@ -37,6 +37,7 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
           priority
+          aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
@@ -123,7 +124,7 @@ export default function HomePage() {
                 href={`/services/${service.slug}`}
                 className="group"
               >
-                <Card className="h-full cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+                <Card className="h-full cursor-pointer transition-[box-shadow,transform] duration-300 hover:shadow-xl hover:-translate-y-0.5">
                   <div className="relative h-40 w-full overflow-hidden rounded-t-lg">
                     <Image
                       src={getServiceThumbnail(service.slug)}
@@ -300,7 +301,7 @@ export default function HomePage() {
               ].map((partner) => (
                 <div
                   key={partner.alt}
-                  className="rounded-lg p-3 transition-all duration-300 hover:scale-105 hover:bg-muted/30"
+                  className="rounded-lg p-3 transition-[transform,background-color] duration-300 hover:scale-105 hover:bg-muted/30"
                 >
                   <Image
                     src={partner.src}
@@ -348,6 +349,7 @@ export default function HomePage() {
           sizes="100vw"
           loading="lazy"
           className="object-cover"
+          aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
@@ -375,9 +377,9 @@ export default function HomePage() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="secondary"
               asChild
-              className="w-full border-white/30 text-white hover:bg-white/10 hover:text-white sm:w-auto"
+              className="w-full bg-white text-primary shadow-sm hover:bg-white/90 sm:w-auto"
             >
               <Link href="/services">サービス一覧を見る</Link>
             </Button>

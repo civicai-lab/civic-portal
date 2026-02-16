@@ -409,7 +409,7 @@ export default function InfraInspectionDemoPage() {
                         </div>
                         <div className="w-full h-4 bg-muted rounded-full overflow-hidden">
                           <div
-                            className={`h-full rounded-full transition-all duration-700 ${DETERIORATION_COLOR(stat.avgDeterioration)}`}
+                            className={`h-full rounded-full transition-[width] duration-700 ${DETERIORATION_COLOR(stat.avgDeterioration)}`}
                             style={{ width: `${stat.avgDeterioration}%` }}
                             role="progressbar"
                             aria-valuenow={stat.avgDeterioration}
@@ -440,7 +440,7 @@ export default function InfraInspectionDemoPage() {
                         <div className="flex-1 flex items-center gap-2">
                           <div className="flex-1 h-8 bg-muted rounded-md overflow-hidden relative">
                             <div
-                              className="h-full bg-primary/70 rounded-md transition-all duration-700 flex items-center justify-end pr-2"
+                              className="h-full bg-primary/70 rounded-md transition-[width] duration-700 flex items-center justify-end pr-2"
                               style={{ width: `${(item.count / maxAgeCount) * 100}%` }}
                               role="progressbar"
                               aria-valuenow={item.count}

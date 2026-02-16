@@ -292,7 +292,7 @@ export default function AiReskillingDemoPage() {
                         {/* 自己評価バー */}
                         <div className="relative h-6 w-full rounded-md bg-muted overflow-hidden mb-1">
                           <div
-                            className="absolute top-0 left-0 h-full bg-primary/70 rounded-md transition-all duration-700"
+                            className="absolute top-0 left-0 h-full bg-primary/70 rounded-md transition-[width] duration-700"
                             style={{ width: `${(selfRating / 5) * 100}%` }}
                           />
                           {/* 推奨レベルマーカー */}
@@ -337,7 +337,7 @@ export default function AiReskillingDemoPage() {
               <CardContent>
                 <div className="space-y-4">
                   {getRecommendedPrograms().map((program) => (
-                    <Card key={program.id} className="bg-muted/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                    <Card key={program.id} className="bg-muted/30 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-md">
                       <CardContent>
                         <div className="flex items-start justify-between gap-2 mb-2 flex-wrap">
                           <h4 className="font-semibold text-sm">{program.title}</h4>

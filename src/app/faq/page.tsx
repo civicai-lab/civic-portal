@@ -116,7 +116,7 @@ export default function FAQPage() {
                 {section.items.map((faq) => (
                   <details
                     key={faq.q}
-                    className="group rounded-lg border border-border bg-card transition-all duration-200 hover:shadow-sm open:shadow-sm open:border-l-2 open:border-l-primary open:bg-muted/30 dark:open:bg-muted/40"
+                    className="group rounded-lg border border-border bg-card transition-[box-shadow,border-color,background-color] duration-200 hover:shadow-sm open:shadow-sm open:border-l-2 open:border-l-primary open:bg-muted/30 dark:open:bg-muted/40"
                   >
                     <summary className="flex cursor-pointer select-none items-center justify-between gap-4 p-4 font-medium text-foreground transition-colors hover:text-primary focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
                       <span>{faq.q}</span>

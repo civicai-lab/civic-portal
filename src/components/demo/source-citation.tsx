@@ -34,11 +34,11 @@ const TYPE_ICONS: Record<Source["type"], React.ReactNode> = {
 };
 
 const TYPE_COLORS: Record<Source["type"], string> = {
-  法令: "text-red-600 bg-red-50 dark:text-red-400 dark:bg-red-950/50",
-  通知: "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950/50",
-  FAQ: "text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-950/50",
-  内部文書: "text-amber-600 bg-amber-50 dark:text-amber-400 dark:bg-amber-950/50",
-  外部資料: "text-purple-600 bg-purple-50 dark:text-purple-400 dark:bg-purple-950/50",
+  法令: "text-destructive bg-destructive/10 dark:bg-destructive/20",
+  通知: "text-primary bg-primary/10 dark:bg-primary/20",
+  FAQ: "text-success bg-success/10 dark:bg-success/20",
+  内部文書: "text-warning-foreground bg-warning/10 dark:bg-warning/20",
+  外部資料: "text-thinktank bg-thinktank/10 dark:bg-thinktank/20",
 };
 
 export function SourceCitation({

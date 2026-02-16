@@ -268,7 +268,7 @@ export default function AssemblyArchiveDemoPage() {
             ) : (
               <div className="space-y-3">
                 {filteredSpeeches.map((speech) => (
-                  <Card key={speech.id} className="py-4 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                  <Card key={speech.id} className="py-4 transition-[box-shadow,transform] duration-300 hover:shadow-md hover:-translate-y-0.5">
                     <CardContent className="pt-0 pb-0">
                       {/* 発言者情報 */}
                       <div className="flex items-center gap-2 flex-wrap mb-2">

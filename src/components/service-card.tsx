@@ -47,7 +47,7 @@ const priorityColor: Record<string, string> = {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <Card className="group flex flex-col transition-all duration-200 hover:shadow-md hover:bg-muted/30">
+    <Card className="group flex flex-col transition-[box-shadow,background-color] duration-200 hover:shadow-md hover:bg-muted/30">
       <CardHeader>
         <div className="mb-3 flex flex-wrap items-center gap-2">
           {/* カテゴリバッジ */}
@@ -94,7 +94,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
         >
           詳しく見る
-          <ArrowRight className="size-4 transition-all group-hover:translate-x-1 group-hover:text-primary/90" />
+          <ArrowRight className="size-4 transition-[transform,color] group-hover:translate-x-1 group-hover:text-primary/90" />
         </Link>
       </CardFooter>
     </Card>

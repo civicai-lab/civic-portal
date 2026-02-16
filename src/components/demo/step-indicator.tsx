@@ -34,7 +34,7 @@ export function StepIndicator({
                 {/* ステップ円 */}
                 <div
                   className={cn(
-                    "size-10 rounded-full flex items-center justify-center border-2 transition-all duration-300",
+                    "size-10 rounded-full flex items-center justify-center border-2 transition-[background-color,border-color,color] duration-300",
                     isCompleted && "bg-primary border-primary text-primary-foreground",
                     isCurrent && "border-primary bg-primary/10 text-primary",
                     isUpcoming && "border-muted-foreground/30 bg-muted text-muted-foreground"

@@ -253,7 +253,7 @@ export default function PubcomAnalysisDemoPage() {
                           </div>
                           <div className="h-8 w-full rounded-md bg-muted overflow-hidden">
                             <div
-                              className={`h-full ${cat.color} rounded-md transition-all duration-1000 ease-out flex items-center justify-end pr-2`}
+                              className={`h-full ${cat.color} rounded-md transition-[width] duration-1000 ease-out flex items-center justify-end pr-2`}
                               style={{
                                 width: `${(cat.count / maxCount) * 100}%`,
                               }}
@@ -371,7 +371,7 @@ export default function PubcomAnalysisDemoPage() {
               <TabsContent value="topics" className="mt-6 animate-tab-fade-in">
                 <div className="space-y-4">
                   {topics.map((topic, i) => (
-                    <Card key={i} className="transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                    <Card key={i} className="transition-[box-shadow,transform] duration-300 hover:shadow-md hover:-translate-y-0.5">
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <div>

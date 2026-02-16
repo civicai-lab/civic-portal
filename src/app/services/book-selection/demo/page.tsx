@@ -432,7 +432,7 @@ export default function BookSelectionDemoPage() {
                       </div>
                       <div className="h-7 w-full rounded-md bg-muted overflow-hidden">
                         <div
-                          className={`h-full ${statusBarColor(ndc.status)} rounded-md transition-all duration-1000 ease-out flex items-center justify-end pr-2`}
+                          className={`h-full ${statusBarColor(ndc.status)} rounded-md transition-[width] duration-1000 ease-out flex items-center justify-end pr-2`}
                           style={{
                             width: `${(ndc.pct / maxNdcPct) * 100}%`,
                           }}

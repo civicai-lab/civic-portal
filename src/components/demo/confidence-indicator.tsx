@@ -32,7 +32,7 @@ export function ConfidenceIndicator({
         <span className="text-xs text-muted-foreground">信頼度:</span>
         <div className="flex-1 max-w-[120px] h-2 bg-muted rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full transition-all duration-500 ${getColor()}`}
+            className={`h-full rounded-full transition-[width] duration-500 ${getColor()}`}
             style={{ width: `${confidence}%` }}
           />
         </div>

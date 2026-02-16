@@ -104,13 +104,13 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ${
         isScrolled
           ? "bg-background/95 shadow-sm backdrop-blur-md border-b"
           : "bg-transparent"
       }`}
     >
-      <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${isScrolled ? "h-14" : "h-16"}`}>
+      <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-[height] duration-300 sm:px-6 lg:px-8 ${isScrolled ? "h-14" : "h-16"}`}>
         {/* ロゴ */}
         <Link
           href="/"
@@ -182,7 +182,7 @@ export function Header() {
       <div
         id="mobile-navigation"
         ref={menuRef}
-        className={`border-t bg-background md:hidden transition-all duration-200 ease-out overflow-hidden ${
+        className={`border-t bg-background md:hidden transition-[max-height,opacity,border-color] duration-200 ease-out overflow-hidden ${
           isMobileMenuOpen
             ? "max-h-[80vh] opacity-100"
             : "max-h-0 opacity-0 border-t-0"

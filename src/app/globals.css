@@ -355,6 +355,12 @@ details .faq-content > div {
     animation: none !important;
     opacity: 1 !important;
   }
+  [data-slot="animate-in"],
+  .animate-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
   details .faq-content {
     transition: none !important;
     opacity: 1 !important;

@@ -82,7 +82,7 @@ export function FeatureGrid({ title, subtitle, features }: FeatureGridProps) {
             return (
               <Card
                 key={index}
-                className="transition-all duration-200 hover:shadow-md hover:bg-muted/30"
+                className="transition-[box-shadow,background-color] duration-200 hover:shadow-md hover:bg-muted/30"
               >
                 <CardHeader>
                   <div className="mb-2 flex size-12 items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20">

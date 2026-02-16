@@ -47,7 +47,7 @@ export function AnimatedSection({
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-700 ease-out",
+        "transition-[transform,opacity] duration-700 ease-out",
         isVisible ? classes.visible : classes.hidden,
         className
       )}

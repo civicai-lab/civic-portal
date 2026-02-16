@@ -56,8 +56,8 @@ const newsItems = [
 
 const categoryStyles: Record<string, string> = {
   "プレスリリース": "bg-primary/10 text-primary dark:bg-primary/20",
-  "イベント": "bg-amber-500/10 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400",
-  "メディア": "bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400",
+  "イベント": "bg-warning/10 text-warning-foreground dark:bg-warning/20",
+  "メディア": "bg-success/10 text-success dark:bg-success/20",
 };
 
 function formatDate(dateStr: string): string {
@@ -92,7 +92,7 @@ export default function NewsPage() {
           <div className="space-y-6">
             {newsItems.map((item, i) => (
               <AnimatedSection key={item.title} animation="fade-up" delay={i * 100}>
-                <Card className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
+                <Card className="group cursor-pointer overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.01]">
                   <div className="flex flex-col md:flex-row">
                     <div className="relative h-48 w-full shrink-0 overflow-hidden md:h-auto md:w-64">
                       <Image

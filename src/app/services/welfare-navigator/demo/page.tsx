@@ -200,7 +200,7 @@ function ProgressBar({
       </div>
       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
         <div
-          className="h-full rounded-full bg-primary transition-all duration-500"
+          className="h-full rounded-full bg-primary transition-[width] duration-500"
           style={{ width: `${percent}%` }}
         />
       </div>
@@ -531,7 +531,7 @@ export default function WelfareNavigatorDemo() {
                     {matchedPrograms.map((program) => {
                       const match = matchLevelConfig[program.matchLevel];
                       return (
-                        <Card key={program.id} className="transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                        <Card key={program.id} className="transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:-translate-y-0.5">
                           <CardHeader>
                             <div className="flex items-start justify-between gap-2">
                               <CardTitle className="text-base">

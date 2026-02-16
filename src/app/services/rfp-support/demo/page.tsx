@@ -249,7 +249,7 @@ export default function RfpSupportDemoPage() {
               const items = checklist.filter((item) => item.cat === cat);
               const catChecked = items.filter((i) => i.checked).length;
               return (
-                <Card key={cat} className="transition-all duration-300 hover:shadow-md">
+                <Card key={cat} className="transition-shadow duration-300 hover:shadow-md">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-base flex items-center gap-2">
@@ -303,7 +303,7 @@ export default function RfpSupportDemoPage() {
               </Badge>
             </div>
 
-            <Card className="border-primary/20 transition-all duration-300 hover:shadow-lg">
+            <Card className="border-primary/20 transition-shadow duration-300 hover:shadow-lg">
               <CardHeader>
                 <CardTitle>
                   ○○市 {serviceType || "AI開発"}業務委託 提案依頼書（RFP）

@@ -125,7 +125,7 @@ export default function TourismAnalyticsDemoPage() {
 
       {/* KPIカード */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card className="animate-stagger-in transition-all duration-300 hover:shadow-md">
+        <Card className="animate-stagger-in transition-shadow duration-300 hover:shadow-md">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Users className="size-4 text-muted-foreground" />
@@ -136,7 +136,7 @@ export default function TourismAnalyticsDemoPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="animate-stagger-in transition-all duration-300 hover:shadow-md">
+        <Card className="animate-stagger-in transition-shadow duration-300 hover:shadow-md">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Clock className="size-4 text-muted-foreground" />
@@ -147,7 +147,7 @@ export default function TourismAnalyticsDemoPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="animate-stagger-in transition-all duration-300 hover:shadow-md">
+        <Card className="animate-stagger-in transition-shadow duration-300 hover:shadow-md">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Star className="size-4 text-muted-foreground" />
@@ -158,7 +158,7 @@ export default function TourismAnalyticsDemoPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="animate-stagger-in transition-all duration-300 hover:shadow-md">
+        <Card className="animate-stagger-in transition-shadow duration-300 hover:shadow-md">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <MessageCircle className="size-4 text-muted-foreground" />
@@ -217,7 +217,7 @@ export default function TourismAnalyticsDemoPage() {
                     </div>
                     {/* 棒 */}
                     <div
-                      className="w-full bg-primary/80 rounded-t-md transition-all duration-700 hover:bg-primary cursor-pointer relative group"
+                      className="w-full bg-primary/80 rounded-t-md transition-[height,background-color] duration-700 hover:bg-primary cursor-pointer relative group"
                       style={{ height: `${(d.visitors / MAX_VISITORS) * 100}%` }}
                     >
                       {/* ツールチップ */}
@@ -258,7 +258,7 @@ export default function TourismAnalyticsDemoPage() {
                     </div>
                     <div className="h-4 w-full rounded-full bg-muted overflow-hidden">
                       <div
-                        className={`h-full ${lang.color} rounded-full transition-all duration-1000`}
+                        className={`h-full ${lang.color} rounded-full transition-[width] duration-1000`}
                         style={{ width: `${lang.percent}%` }}
                       />
                     </div>

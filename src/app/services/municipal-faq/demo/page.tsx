@@ -63,11 +63,11 @@ function detectCategory(text: string): Category {
 
 const CATEGORY_COLORS: Record<Category, string> = {
   税務: "bg-primary/10 text-primary/90",
-  福祉: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
-  届出: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  福祉: "bg-success/10 text-success dark:bg-success/20",
+  届出: "bg-thinktank/10 text-thinktank dark:bg-thinktank/20",
   環境: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
   施設: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
-  防災: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+  防災: "bg-destructive/10 text-destructive dark:bg-destructive/20",
   一般: "bg-muted text-foreground",
 };
 
@@ -282,7 +282,7 @@ export default function MunicipalFaqDemoPage() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300 ${
+                className={`flex gap-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-300 ${
                   msg.role === "user" ? "flex-row-reverse" : "flex-row"
                 }`}
               >

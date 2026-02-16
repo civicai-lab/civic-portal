@@ -220,7 +220,7 @@ function FeatureCard({ feature }: { feature: ServiceFeature }) {
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
     <Card
-      className={`relative h-full transition-all hover:shadow-lg ${
+      className={`relative h-full transition-[box-shadow,transform] hover:shadow-lg ${
         plan.recommended
           ? "scale-[1.02] border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
           : "hover:scale-[1.01]"

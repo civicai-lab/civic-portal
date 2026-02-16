@@ -467,7 +467,7 @@ export default function GuidelineServiceDemoPage() {
                         setSelectedTemplate(opt.id);
                         setDraftGenerated(false);
                       }}
-                      className={`w-full p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`w-full p-4 rounded-lg border-2 text-left transition-[border-color,background-color] cursor-pointer ${
                         selectedTemplate === opt.id
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"

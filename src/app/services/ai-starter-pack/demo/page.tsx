@@ -263,7 +263,7 @@ export default function AiStarterPackDemoPage() {
                     </div>
                     <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
                       <div
-                        className={`h-full rounded-full transition-all duration-700 ease-out ${
+                        className={`h-full rounded-full transition-[width] duration-700 ease-out ${
                           scores[idx] >= 75
                             ? "bg-success"
                             : scores[idx] >= 50
@@ -302,7 +302,7 @@ export default function AiStarterPackDemoPage() {
                 {recommendations.map((service, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-lg border border-border bg-muted/30 hover:bg-muted/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                    className="p-4 rounded-lg border border-border bg-muted/30 hover:bg-muted/50 transition-[box-shadow,transform,background-color] duration-300 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
@@ -370,7 +370,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, population: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
+                      className={`p-4 rounded-lg border-2 text-left transition-[border-color,background-color,transform] cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.population === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -398,7 +398,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, itEnv: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
+                      className={`p-4 rounded-lg border-2 text-left transition-[border-color,background-color,transform] cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.itEnv === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -426,7 +426,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => togglePurpose(opt.value)}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
+                      className={`p-4 rounded-lg border-2 text-left transition-[border-color,background-color,transform] cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.purposes.includes(opt.value)
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -459,7 +459,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, budget: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
+                      className={`p-4 rounded-lg border-2 text-left transition-[border-color,background-color,transform] cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.budget === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -487,7 +487,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, team: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
+                      className={`p-4 rounded-lg border-2 text-left transition-[border-color,background-color,transform] cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.team === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"

@@ -199,7 +199,7 @@ function StepIndicator({ currentStep }: { currentStep: number }) {
       {/* プログレスバー */}
       <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-muted">
         <div
-          className="h-full rounded-full bg-primary transition-all duration-700 ease-out"
+          className="h-full rounded-full bg-primary transition-[width] duration-700 ease-out"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
@@ -384,7 +384,7 @@ function Step2Processing({ onComplete }: { onComplete: () => void }) {
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
               <div
-                className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+                className="h-full rounded-full bg-primary transition-[width] duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
