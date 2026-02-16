@@ -116,7 +116,7 @@ export default function CasesPage() {
                       {caseItem.results.map((result) => (
                         <span
                           key={result}
-                          className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400"
+                          className="inline-flex items-center gap-1 rounded-full bg-success/10 px-3 py-1 text-xs font-medium text-success"
                         >
                           <TrendingUp className="size-3" />
                           {result}

@@ -277,7 +277,7 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-red-500 dark:text-red-400">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-destructive">
             課題
           </p>
           <p className="text-sm text-muted-foreground">{useCase.problem}</p>

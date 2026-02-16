@@ -472,7 +472,7 @@ export default function FacilityConciergeDemo() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <CheckCircle2 className="size-5 text-emerald-600 dark:text-emerald-400" />
+                      <CheckCircle2 className="size-5 text-success" />
                       {selectedFacility.name}
                     </CardTitle>
                     <CardDescription>
@@ -529,8 +529,8 @@ export default function FacilityConciergeDemo() {
                     {/* 注意事項 */}
                     <div className="rounded-lg border border-warning/30 bg-warning/10 p-4">
                       <div className="flex items-start gap-2">
-                        <AlertCircle className="mt-0.5 size-4 shrink-0 text-amber-600 dark:text-amber-400" />
-                        <div className="text-sm text-amber-800 dark:text-amber-300">
+                        <AlertCircle className="mt-0.5 size-4 shrink-0 text-warning-foreground" />
+                        <div className="text-sm text-warning-foreground">
                           <p className="font-semibold">ご注意</p>
                           <ul className="mt-1 list-inside list-disc space-y-1">
                             <li>

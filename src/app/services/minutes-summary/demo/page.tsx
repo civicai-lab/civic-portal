@@ -353,7 +353,7 @@ function Step2Processing({ onComplete }: { onComplete: () => void }) {
             {steps.map((step, i) => (
               <div key={i} className="flex items-center gap-3">
                 {step.status === "done" && (
-                  <CheckCircle2 className="size-5 shrink-0 text-green-600 dark:text-green-400" />
+                  <CheckCircle2 className="size-5 shrink-0 text-success" />
                 )}
                 {step.status === "processing" && (
                   <Loader2 className="size-5 shrink-0 animate-spin text-primary" />
@@ -537,7 +537,7 @@ function Step3Result({ onReset }: { onReset: () => void }) {
                             key={j}
                             className="flex items-start gap-2 rounded-lg border border-success/30 bg-success/10 px-4 py-3 text-sm text-success"
                           >
-                            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600 dark:text-green-400" />
+                            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" />
                             {dec}
                           </div>
                         ))}
@@ -646,7 +646,7 @@ function Step3Result({ onReset }: { onReset: () => void }) {
               </Button>
               <Button
                 variant="outline"
-                className={`w-full justify-start ${copied ? "border-green-500 text-green-600 dark:border-green-400 dark:text-green-400" : ""}`}
+                className={`w-full justify-start ${copied ? "border-success text-success" : ""}`}
                 onClick={handleCopy}
               >
                 <Copy className="size-4" />

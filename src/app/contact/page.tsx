@@ -187,7 +187,7 @@ export default function ContactPage() {
                   <CardTitle>お問い合わせフォーム</CardTitle>
                   <CardDescription>
                     以下の項目をご入力の上、送信してください。
-                    <span className="text-red-500" aria-hidden="true">*</span> は必須項目です。
+                    <span className="text-destructive" aria-hidden="true">*</span> は必須項目です。
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -206,7 +206,7 @@ export default function ContactPage() {
                         htmlFor="name"
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
-                        お名前 <span className="text-red-500" aria-hidden="true">*</span>
+                        お名前 <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
                       <input
@@ -235,7 +235,7 @@ export default function ContactPage() {
                         htmlFor="email"
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
-                        メールアドレス <span className="text-red-500" aria-hidden="true">*</span>
+                        メールアドレス <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
                       <input
@@ -265,7 +265,7 @@ export default function ContactPage() {
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         自治体名・組織名{" "}
-                        <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
                       <input
@@ -332,7 +332,7 @@ export default function ContactPage() {
                         className="mb-2 block text-sm font-medium text-foreground/80"
                       >
                         お問い合わせ内容{" "}
-                        <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
                       <textarea
