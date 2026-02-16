@@ -23,13 +23,14 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon-sm"
+      className="group hover:bg-muted"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label={resolvedTheme === "dark" ? "ライトモードに切替" : "ダークモードに切替"}
     >
       {resolvedTheme === "dark" ? (
-        <Sun className="size-4" />
+        <Sun className="size-4 transition-transform duration-300 group-hover:rotate-90" />
       ) : (
-        <Moon className="size-4" />
+        <Moon className="size-4 transition-transform duration-300 group-hover:-rotate-12" />
       )}
     </Button>
   );

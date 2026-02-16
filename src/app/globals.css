@@ -228,15 +228,14 @@
 }
 
 /* スムーズスクロール（reduced-motionを尊重） */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* ヘッダー分のスクロールオフセット（アンカーリンク時のかぶり防止） */
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* カスタムフォーカスリング - 全インタラクティブ要素 */
@@ -325,12 +324,19 @@ html {
   animation: tab-fade-in 0.25s ease-out;
 }
 
+/* CTAボタンの微妙なパルスアニメーション */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
 /* 全追加アニメーションも reduced-motion で無効化 */
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-down,
   .animate-scale-in,
   .animate-stagger-in,
-  .animate-tab-fade-in {
+  .animate-tab-fade-in,
+  .animate-\[pulse-subtle_2s_ease-in-out_infinite\] {
     animation: none !important;
     opacity: 1 !important;
   }

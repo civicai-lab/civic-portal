@@ -2,7 +2,10 @@ export default function Loading() {
   return (
     <div className="min-h-screen bg-background">
       {/* ヘッダースケルトン */}
-      <div className="border-b border-border bg-background">
+      <div
+        className="border-b border-border bg-background"
+        style={{ opacity: 0, animation: "stagger-in 0.4s ease-out forwards", animationDelay: "0ms" }}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* ロゴ */}
@@ -21,7 +24,10 @@ export default function Loading() {
       </div>
 
       {/* Heroセクションスケルトン */}
-      <div className="bg-muted/50">
+      <div
+        className="bg-muted/50"
+        style={{ opacity: 0, animation: "stagger-in 0.4s ease-out forwards", animationDelay: "50ms" }}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl space-y-6">
             <div className="h-10 w-3/4 rounded-lg bg-muted skeleton-shimmer" />
@@ -38,7 +44,10 @@ export default function Loading() {
       {/* メインコンテンツスケルトン */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         {/* セクション見出し */}
-        <div className="text-center mb-12 space-y-3">
+        <div
+          className="text-center mb-12 space-y-3"
+          style={{ opacity: 0, animation: "stagger-in 0.4s ease-out forwards", animationDelay: "100ms" }}
+        >
           <div className="h-8 w-64 mx-auto rounded-lg bg-muted skeleton-shimmer" />
           <div className="h-5 w-96 mx-auto rounded bg-muted skeleton-shimmer" />
         </div>
@@ -49,6 +58,7 @@ export default function Loading() {
             <div
               key={i}
               className="rounded-xl border border-border bg-background p-6 space-y-4"
+              style={{ opacity: 0, animation: "stagger-in 0.4s ease-out forwards", animationDelay: `${150 + i * 50}ms` }}
             >
               <div className="h-40 w-full rounded-lg bg-muted skeleton-shimmer" />
               <div className="h-5 w-3/4 rounded bg-muted skeleton-shimmer" />

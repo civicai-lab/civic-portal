@@ -1,13 +1,13 @@
 # State
 
 ## Current
-- 作業中: なし
+- 作業中: UI/UX洗練（Phase H24）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 32/32パス（Playwright, 10.8秒）
-- 直近コミット: （プッシュ予定）E2Eテスト修正+パフォーマンス最適化
-- 直近完了: Phase G1-G7完了（品質基盤+E2E全パス+パフォーマンス最適化）
-- Vercel: https://civic-portal-nine.vercel.app (sitemap.xml 71URL, robots.txt 配信確認済み)
+- E2Eテスト: 32/32パス（Playwright, 10.3秒）
+- 直近コミット: e99dc18 — UX改善第4弾
+- 直近完了: Phase H26 コンタクトフォーム+ローディングUX改善（未コミット）
+- Vercel: https://civic-portal-nine.vercel.app
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -132,14 +132,75 @@
 - [x] Playwright E2Eテスト: 32テスト/6ファイル（home/services/detail/demo/navigation/accessibility）
 - [x] .gitignore: Playwright出力ディレクトリ追加
 
+### デモページ品質改善（44e6a6f）
+- 16デモページのハードコード色→デザイントークン置換（48箇所）
+- レスポンシブ修正: min-h-[400px]→min-h-[300px] md:min-h-[400px]等
+- アクセシビリティ: aria-label追加（送信ボタン、入力フィールド、画像プレースホルダ）
+
+### Phase H20: SEO+画像最適化+色トークン統一（e478bbd）
+- SEO: /services, /contact にメタデータ追加（layout.tsx方式）
+- SEO: 20デモページに動的メタデータ生成（lib/demo-metadata.ts + 20 layout.tsx）
+- 画像: 26 JPGファイル→WebP変換（品質80）、元JPG削除
+- 画像: ソースコード内の全.jpg参照→.webp更新
+- 色: globals.cssにsuccess/warning/thinktankセマンティック変数追加
+- 色: ホームページemerald→thinktankトークン、bg-white→bg-card統一
+- 色: toast/disclaimer/refusal-messageコンポーネントのデザイントークン化
+- 品質: ビルド54ページ成功、E2E 32/32パス
+
+### Phase H22: UI/UX洗練第3弾（e9f4a7c → e62366a）
+- 構造化データ（JSON-LD）: Organization + FAQPage schema
+- パンくずリスト: 全サブページ+サービス詳細+デモページに配置
+- ナビゲーション改善: アクティブリンク表示+モバイルメニューアニメーション+フォーカストラップ
+- 画像最適化: PNG→WebP統一+partner画像混在修正+sizes属性追加
+- OG/Twitter Card: 全ページにOpenGraphメタデータ追加
+- CSPヘッダー: Content-Security-Policy追加（default-src 'self'）
+- デモUX体験向上: stagger-in/tab-fade-inアニメーション+active:scale-95
+- デモページ色トークン: 全20デモのステータス/バッジ色→success/warning/destructive統一
+- contactフォームUX: 送信完了リセットボタン+サーバーエラーハンドリング+Loader2スピナー
+- a11y改善: ai-auditリスクマトリクスaria-label+ai-starter-pack focus-visible+tourism-guide SpotCard aria-label
+- confidence-indicator: ハードコード色→デザイントークン
+- マイクロインタラクション: button active:translate-y-px+service-card hover:bg-muted/30+FAQ open:border-l-primary
+- scroll-padding-top: 4.5rem（アンカーリンクかぶり防止）
+- optimizePackageImports: radix-ui, class-variance-authority追加
+- ダークモード: next-themes導入+ThemeToggle（Sun/Moon）+21ファイル dark:対応
+  - ロゴ: dark:brightness-0 dark:invert
+  - パートナーロゴ: dark:invert+dark:opacity-60
+  - source-citation: 5タイプ色にdark:バリアント
+  - 16デモページ: バッジ/ステータス色にdark:追加
+  - services/[slug]: チェックアイコン+課題ラベル
+
+### Phase H23: UX改善第4弾（e99dc18）
+- レスポンシブ: Hero H1テキストサイズ段階化（text-3xl→sm:4xl→md:5xl→lg:6xl）
+- レスポンシブ: サービスグリッド grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+- パフォーマンス: 最初の3サービス画像にpriority属性（LCP改善）
+- アニメーション: Trust/CTAセクションにAnimatedSection追加
+- テキスト選択コントラスト強化（0.15→0.25）
+- フッターリンクhover:underline+SNSアイコンhover:scale-110
+- 404ページテキスト段階化（80px→120px→180px）
+- CardDescription leading-relaxed+CardTitle transition-colors
+- フィルタボタンtext-xs sm:text-sm段階化
+- サービス詳細カードhover:shadow-lg統一
+- next.config.ts deviceSizes/imageSizes最適化
+
+### Phase H24: ホームページ+グローバルUI改善（未コミット）
+- header.tsx: スクロール進捗バー追加（高さ2px、primary色グラデーション、scaleX変形、ダークモード対応、aria-progressbar）
+- page.tsx: パートナーロゴをdivでラップ、ホバー時scale-105+bg-muted/30のラウンドパッド
+- page.tsx: 資格バッジをrounded-xl bg-muted/30 p-4のカード風コンテナにラップ、hover:scale-110
+- globals.css: @keyframes pulse-subtle追加（opacity 0.6→1サイクル、2s）
+- page.tsx: HeroセクションCTA「無料相談」ボタンにpulse-subtleアニメーション追加
+- reduced-motion対応: pulse-subtleアニメーションもprefers-reduced-motionで無効化
+- services/[slug]/page.tsx: Hero H1レスポンシブサイズ段階化（text-2xl sm:3xl md:4xl lg:5xl）
+- services/[slug]/page.tsx: FeatureCardにborder-l-4 border-l-primary追加（左ボーダーアクセント）
+- theme-toggle.tsx: Sun/Moonアイコンにtransition-transform duration-300+group-hover:rotate遷移、hover:bg-muted
+- button.tsx: outlineバリアントにhover:border-primary/50追加（ライト/ダーク両対応）
+
 ## Next
-- [x] Vercelデプロイ確認（sitemap.xml + robots.txt 配信OK）
-- [ ] E2Eテスト実行・修正（devサーバー起動後）
 - [ ] パフォーマンス最適化（Lighthouse）
-- [ ] 20-ai-lab Vercel再デプロイ確認
+- [ ] UI/UXさらなる改善（ユーザーフィードバックベース）
+- [ ] 不要デフォルトファイル削除（vercel.svg等）
 
 ## Blocked
 - なし
 
 ---
-*最終更新: 2026-02-16*
+*最終更新: 2026-02-17 Phase H24 ホームページ+グローバルUI改善*

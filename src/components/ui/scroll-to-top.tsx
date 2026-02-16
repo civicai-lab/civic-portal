@@ -33,13 +33,13 @@ export function ScrollToTop({
       type="button"
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-6 right-6 z-50 size-10 rounded-full bg-primary text-primary-foreground shadow-lg",
+        "fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 size-10 rounded-full bg-primary text-primary-foreground shadow-lg",
         "flex items-center justify-center",
-        "transition-all duration-300 hover:bg-primary/90 hover:shadow-xl",
+        "transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:bg-primary/90 hover:shadow-xl hover:scale-110",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         isVisible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-4 opacity-0 pointer-events-none",
+          ? "translate-y-0 opacity-100 scale-100"
+          : "translate-y-4 opacity-0 scale-75 pointer-events-none",
         className
       )}
       aria-label="ページトップに戻る"

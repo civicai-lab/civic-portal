@@ -28,6 +28,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://civic-portal-nine.vercel.app"),
   title: {
     default: "Civic AI - 自治体向けAIソリューション",
     template: "%s | Civic AI",
@@ -49,6 +50,21 @@ export const metadata: Metadata = {
     title: "Civic AI - 自治体向けAIソリューション",
     description:
       "自治体向けAI 20サービスで行政サービスのデジタル変革を支援します。",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Civic AI - 自治体向けAIソリューション",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Civic AI - 自治体向けAIソリューション",
+    description:
+      "自治体向けAI 20サービスで行政サービスのデジタル変革を支援します。",
+    images: ["/og-image.webp"],
   },
 };
 

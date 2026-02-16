@@ -23,6 +23,7 @@ function isActiveLink(pathname: string, href: string): boolean {
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -31,6 +32,12 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      // スクロール進捗を計算
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        setScrollProgress(Math.min(window.scrollY / scrollHeight, 1));
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -210,6 +217,17 @@ export function Header() {
           </div>
         </nav>
       </div>
+
+      {/* スクロール進捗バー */}
+      <div
+        className="h-0.5 w-full origin-left bg-gradient-to-r from-primary via-primary/80 to-primary/60 dark:from-primary dark:via-primary/70 dark:to-primary/50"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+        role="progressbar"
+        aria-valuenow={Math.round(scrollProgress * 100)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label="ページスクロール進捗"
+      />
     </header>
   );
 }

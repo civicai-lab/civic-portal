@@ -64,7 +64,7 @@ export default function HomePage() {
               size="lg"
               variant="cta"
               asChild
-              className="w-full shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
+              className="w-full animate-[pulse-subtle_2s_ease-in-out_infinite] shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
             >
               <Link href="/contact">無料相談</Link>
             </Button>
@@ -296,44 +296,43 @@ export default function HomePage() {
                 { src: "/images/partners/quickiterate_logo.webp", alt: "QuickIterate" },
                 { src: "/images/partners/shinagawaship_logo.webp", alt: "品川シップ" },
               ].map((partner) => (
-                <Image
+                <div
                   key={partner.alt}
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={120}
-                  height={40}
-                  loading="lazy"
-                  className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert dark:opacity-60 dark:hover:opacity-90"
-                />
+                  className="rounded-lg p-3 transition-all duration-300 hover:scale-105 hover:bg-muted/30"
+                >
+                  <Image
+                    src={partner.src}
+                    alt={partner.alt}
+                    width={120}
+                    height={40}
+                    loading="lazy"
+                    className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert dark:opacity-60 dark:hover:opacity-90"
+                  />
+                </div>
               ))}
             </div>
           </AnimatedSection>
           {/* 資格バッジ */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-            <Image
-              src="/images/credentials/ipa_security_action.webp"
-              alt="IPA SECURITY ACTION"
-              width={80}
-              height={80}
-              loading="lazy"
-              className="size-16 object-contain"
-            />
-            <Image
-              src="/images/credentials/sdgs_wheel.webp"
-              alt="SDGs"
-              width={80}
-              height={80}
-              loading="lazy"
-              className="size-16 object-contain"
-            />
-            <Image
-              src="/images/credentials/microsoft.webp"
-              alt="Microsoft Partner"
-              width={80}
-              height={80}
-              loading="lazy"
-              className="size-16 object-contain"
-            />
+            {[
+              { src: "/images/credentials/ipa_security_action.webp", alt: "IPA SECURITY ACTION" },
+              { src: "/images/credentials/sdgs_wheel.webp", alt: "SDGs" },
+              { src: "/images/credentials/microsoft.webp", alt: "Microsoft Partner" },
+            ].map((badge) => (
+              <div
+                key={badge.alt}
+                className="rounded-xl bg-muted/30 p-4 transition-transform duration-200 hover:scale-110"
+              >
+                <Image
+                  src={badge.src}
+                  alt={badge.alt}
+                  width={80}
+                  height={80}
+                  loading="lazy"
+                  className="size-16 object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

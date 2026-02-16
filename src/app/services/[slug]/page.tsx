@@ -201,7 +201,7 @@ export async function generateMetadata({
 function FeatureCard({ feature }: { feature: ServiceFeature }) {
   const Icon = getIcon(feature.icon);
   return (
-    <Card className="h-full transition-shadow hover:shadow-lg">
+    <Card className="h-full border-l-4 border-l-primary transition-shadow hover:shadow-lg">
       <CardHeader>
         <div className="mb-3 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon className="size-6" />
@@ -367,7 +367,7 @@ export default async function ServiceDetailPage({
               <Badge className="bg-warning text-warning-foreground">注力サービス</Badge>
             )}
           </div>
-          <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
             {service.displayName}
           </h1>
           <p className="mt-4 text-xl text-primary-foreground/80">{service.tagline}</p>
