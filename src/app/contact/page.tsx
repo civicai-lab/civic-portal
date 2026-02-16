@@ -223,7 +223,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="山田 太郎"
-                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.04] ${errors.name ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.name ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.name && (
                         <p id="name-error" className="mt-1.5 text-sm text-destructive" role="alert">
@@ -252,7 +252,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="taro.yamada@city.example.lg.jp"
-                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.04] ${errors.email ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.email ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.email && (
                         <p id="email-error" className="mt-1.5 text-sm text-destructive" role="alert">
@@ -282,7 +282,7 @@ export default function ContactPage() {
                         value={formData.organization}
                         onChange={handleChange}
                         placeholder="○○市 DX推進課"
-                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.04] ${errors.organization ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.organization ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.organization && (
                         <p id="organization-error" className="mt-1.5 text-sm text-destructive" role="alert">
@@ -304,7 +304,7 @@ export default function ContactPage() {
                         name="serviceSlug"
                         value={formData.serviceSlug}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.04]"
+                        className="w-full rounded-md border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08]"
                       >
                         <option value="">選択してください（任意）</option>
                         <optgroup label="SaaS型サービス">
@@ -349,7 +349,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="ご質問やご要望をご記入ください"
-                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.04] ${errors.message ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
+                        className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.message ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.message && (
                         <p id="message-error" className="mt-1.5 text-sm text-destructive" role="alert">
@@ -402,7 +402,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm font-medium text-foreground">電話</p>
                       <p className="text-sm text-muted-foreground">03-XXXX-XXXX</p>
-                      <p className="text-xs text-muted-foreground/60">
+                      <p className="text-xs text-muted-foreground/70">
                         平日 9:00-18:00
                       </p>
                     </div>

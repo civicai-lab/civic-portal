@@ -94,7 +94,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
         >
           詳しく見る
-          <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-4 transition-all group-hover:translate-x-1 group-hover:text-primary/90" />
         </Link>
       </CardFooter>
     </Card>

@@ -37,7 +37,7 @@ export function CTASection({
             <Button
               asChild
               size="lg"
-              className="min-w-[200px] bg-white text-primary hover:bg-white/90"
+              className="min-w-[200px] bg-white text-primary hover:bg-white/90 dark:hover:bg-white/80"
             >
               <Link href={primaryCTA.href}>{primaryCTA.label}</Link>
             </Button>
@@ -46,7 +46,7 @@ export function CTASection({
                 asChild
                 variant="ghost"
                 size="lg"
-                className="min-w-[200px] border border-white/30 text-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
+                className="min-w-[200px] border border-white/30 text-primary-foreground hover:bg-white/10 dark:hover:bg-white/20 hover:text-primary-foreground"
               >
                 <Link href={secondaryCTA.href}>{secondaryCTA.label}</Link>
               </Button>

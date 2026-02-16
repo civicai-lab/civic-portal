@@ -66,7 +66,7 @@ export function HeroSection({
             <Button
               asChild
               size="lg"
-              className="min-w-[200px] bg-white text-primary hover:bg-white/90"
+              className="min-w-[200px] bg-white text-primary hover:bg-white/90 dark:hover:bg-white/80"
             >
               <Link href={primaryCTA.href}>{primaryCTA.label}</Link>
             </Button>

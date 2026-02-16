@@ -35,7 +35,7 @@ export function PricingSection({ title, plans }: PricingSectionProps) {
               key={index}
               className={`relative flex flex-col ${
                 plan.recommended
-                  ? "ring-2 ring-primary shadow-lg"
+                  ? "ring-2 ring-primary dark:ring-primary/70 shadow-lg"
                   : ""
               }`}
             >
