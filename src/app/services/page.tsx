@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { services, getServicesByCategory, getServiceThumbnail } from "@/data/services";
 import { shimmerBlur } from "@/lib/utils";
 import type { ServiceData } from "@/types/service";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 const priorityLabels: Record<string, string> = {
   all: "すべて",
@@ -133,7 +133,7 @@ export default function ServicesPage() {
       {/* Filters */}
       <section className="border-b bg-card py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
             {/* Priority Filter */}
             <div className="flex items-center gap-2">
               <span className="shrink-0 text-sm font-medium text-muted-foreground">
@@ -173,6 +173,22 @@ export default function ServicesPage() {
                 ))}
               </div>
             </div>
+
+            {/* Clear Filters */}
+            {(priorityFilter !== "all" || subcategoryFilter !== "すべて") && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="min-h-[44px] shrink-0 text-xs text-muted-foreground hover:text-foreground sm:text-sm"
+                onClick={() => {
+                  setPriorityFilter("all");
+                  setSubcategoryFilter("すべて");
+                }}
+              >
+                <X className="mr-1 size-3" />
+                フィルタをクリア
+              </Button>
+            )}
           </div>
         </div>
       </section>
