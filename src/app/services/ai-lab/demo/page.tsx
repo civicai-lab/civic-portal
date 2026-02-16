@@ -69,15 +69,15 @@ const PROJECTS: Project[] = [
 
 const STATUS_COLORS: Record<EventStatus, string> = {
   "募集中": "bg-emerald-100 text-emerald-800",
-  "開催中": "bg-blue-100 text-blue-800",
-  "終了": "bg-gray-100 text-gray-600",
+  "開催中": "bg-primary/10 text-primary/90",
+  "終了": "bg-muted text-muted-foreground",
 };
 
 const CATEGORIES: EventCategory[] = ["ハッカソン", "セミナー", "ワークショップ", "デモデイ"];
 
 const CATEGORY_COLORS: Record<EventCategory, string> = {
   "ハッカソン": "bg-orange-100 text-orange-800",
-  "セミナー": "bg-blue-100 text-blue-800",
+  "セミナー": "bg-primary/10 text-primary/90",
   "ワークショップ": "bg-purple-100 text-purple-800",
   "デモデイ": "bg-emerald-100 text-emerald-800",
 };
@@ -92,7 +92,7 @@ const EVALUATION_CRITERIA = [
 
 const getGrade = (score: number): { grade: string; color: string } => {
   if (score >= 22) return { grade: "A", color: "bg-emerald-100 text-emerald-800" };
-  if (score >= 17) return { grade: "B", color: "bg-blue-100 text-blue-800" };
+  if (score >= 17) return { grade: "B", color: "bg-primary/10 text-primary/90" };
   if (score >= 12) return { grade: "C", color: "bg-amber-100 text-amber-800" };
   return { grade: "D", color: "bg-red-100 text-red-800" };
 };

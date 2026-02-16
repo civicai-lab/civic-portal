@@ -698,6 +698,7 @@ export default function DisasterGuideDemoPage() {
                         ? "緊急時のご質問をどうぞ"
                         : "防災に関するご質問をどうぞ"
                     }
+                    aria-label="防災に関する質問を入力"
                     className="flex-1 rounded-full border border-input bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     disabled={isTyping}
                   />
@@ -706,6 +707,7 @@ export default function DisasterGuideDemoPage() {
                     className="rounded-full shrink-0"
                     onClick={() => handleSend()}
                     disabled={!input.trim() || isTyping}
+                    aria-label="メッセージを送信"
                   >
                     <Send className="size-4" />
                   </Button>
@@ -724,14 +726,14 @@ export default function DisasterGuideDemoPage() {
                   {Array.from({ length: 8 }).map((_, i) => (
                     <div
                       key={`h-${i}`}
-                      className="absolute w-full border-t border-gray-400"
+                      className="absolute w-full border-t border-muted-foreground"
                       style={{ top: `${(i + 1) * 12.5}%` }}
                     />
                   ))}
                   {Array.from({ length: 8 }).map((_, i) => (
                     <div
                       key={`v-${i}`}
-                      className="absolute h-full border-l border-gray-400"
+                      className="absolute h-full border-l border-muted-foreground"
                       style={{ left: `${(i + 1) * 12.5}%` }}
                     />
                   ))}
@@ -752,8 +754,8 @@ export default function DisasterGuideDemoPage() {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  <div className="size-4 bg-blue-500 rounded-full border-2 border-white shadow-lg animate-pulse" />
-                  <span className="text-[9px] mt-0.5 font-medium text-blue-800 bg-white/80 px-1 rounded">
+                  <div className="size-4 bg-primary rounded-full border-2 border-white shadow-lg animate-pulse" />
+                  <span className="text-[9px] mt-0.5 font-medium text-primary/90 bg-white/80 px-1 rounded">
                     現在地
                   </span>
                 </div>
@@ -767,7 +769,7 @@ export default function DisasterGuideDemoPage() {
                 {/* マップ凡例 */}
                 <div className="absolute bottom-2 left-2 bg-white/90 rounded p-1.5 text-[9px]">
                   <div className="flex items-center gap-1 mb-0.5">
-                    <div className="size-2.5 bg-blue-500 rounded-full" />
+                    <div className="size-2.5 bg-primary rounded-full" />
                     <span>現在地</span>
                   </div>
                   <div className="flex items-center gap-1">
@@ -939,11 +941,11 @@ export default function DisasterGuideDemoPage() {
                       <p className="text-lg font-bold text-red-600">119</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 bg-blue-50 rounded-lg p-2.5">
-                    <Phone className="size-4 text-blue-600" />
+                  <div className="flex items-center gap-2 bg-primary/5 rounded-lg p-2.5">
+                    <Phone className="size-4 text-primary" />
                     <div>
                       <p className="text-xs text-muted-foreground">警察</p>
-                      <p className="text-lg font-bold text-blue-600">110</p>
+                      <p className="text-lg font-bold text-primary">110</p>
                     </div>
                   </div>
                 </div>

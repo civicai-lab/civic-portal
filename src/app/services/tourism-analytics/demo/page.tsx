@@ -57,16 +57,16 @@ const MONTHLY_DATA = [
 const MAX_VISITORS = Math.max(...MONTHLY_DATA.map((d) => d.visitors));
 
 const LANGUAGES = [
-  { name: "日本語", percent: 60, color: "bg-blue-500", textColor: "text-blue-700" },
+  { name: "日本語", percent: 60, color: "bg-primary", textColor: "text-primary" },
   { name: "英語", percent: 15, color: "bg-emerald-500", textColor: "text-emerald-700" },
   { name: "中国語", percent: 12, color: "bg-red-500", textColor: "text-red-700" },
   { name: "韓国語", percent: 8, color: "bg-purple-500", textColor: "text-purple-700" },
-  { name: "その他", percent: 5, color: "bg-gray-400", textColor: "text-gray-700" },
+  { name: "その他", percent: 5, color: "bg-muted-foreground", textColor: "text-muted-foreground" },
 ];
 
 const SENTIMENTS = {
   positive: { label: "ポジティブ", percent: 68, color: "bg-emerald-500" },
-  neutral: { label: "中立", percent: 22, color: "bg-gray-400" },
+  neutral: { label: "中立", percent: 22, color: "bg-muted-foreground" },
   negative: { label: "ネガティブ", percent: 10, color: "bg-red-500" },
 };
 
@@ -74,7 +74,7 @@ const REPRESENTATIVE_POSTS = [
   {
     text: "桜の季節に訪れましたが、城跡公園の景色が素晴らしかったです。地元のガイドさんも親切で、歴史の解説が面白かったです。",
     lang: "日本語",
-    langColor: "bg-blue-100 text-blue-800",
+    langColor: "bg-primary/10 text-primary/90",
     sentiment: "ポジティブ",
     sentimentColor: "bg-emerald-100 text-emerald-800",
     icon: <ThumbsUp className="size-4 text-emerald-500" />,
@@ -84,8 +84,8 @@ const REPRESENTATIVE_POSTS = [
     lang: "英語",
     langColor: "bg-emerald-100 text-emerald-800",
     sentiment: "中立",
-    sentimentColor: "bg-gray-100 text-gray-800",
-    icon: <Minus className="size-4 text-gray-400" />,
+    sentimentColor: "bg-muted text-foreground",
+    icon: <Minus className="size-4 text-muted-foreground" />,
   },
   {
     text: "바다가 정말 아름다웠어요! 다만 대중교통 접근성이 좀 아쉬웠습니다. 다음에는 렌터카를 빌려야 할 것 같아요.",
@@ -291,7 +291,7 @@ export default function TourismAnalyticsDemoPage() {
               <div className="mb-6">
                 <div className="flex text-xs mb-2 justify-between">
                   <span className="text-emerald-600 font-medium">ポジティブ {SENTIMENTS.positive.percent}%</span>
-                  <span className="text-gray-500">中立 {SENTIMENTS.neutral.percent}%</span>
+                  <span className="text-muted-foreground">中立 {SENTIMENTS.neutral.percent}%</span>
                   <span className="text-red-500 font-medium">ネガティブ {SENTIMENTS.negative.percent}%</span>
                 </div>
                 <div className="h-6 w-full rounded-full overflow-hidden flex">

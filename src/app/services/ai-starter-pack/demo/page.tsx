@@ -110,7 +110,7 @@ function getTotalScore(scores: number[]): number {
 
 function getLevel(score: number): { label: string; className: string } {
   if (score >= 80) return { label: "最適化", className: "bg-green-100 text-green-800" };
-  if (score >= 60) return { label: "成熟", className: "bg-blue-100 text-blue-800" };
+  if (score >= 60) return { label: "成熟", className: "bg-primary/10 text-primary/90" };
   if (score >= 40) return { label: "成長", className: "bg-amber-100 text-amber-800" };
   return { label: "初期", className: "bg-red-100 text-red-800" };
 }
@@ -267,7 +267,7 @@ export default function AiStarterPackDemoPage() {
                           scores[idx] >= 75
                             ? "bg-green-500"
                             : scores[idx] >= 50
-                            ? "bg-blue-500"
+                            ? "bg-primary"
                             : scores[idx] >= 25
                             ? "bg-amber-500"
                             : "bg-red-500"
@@ -314,7 +314,7 @@ export default function AiStarterPackDemoPage() {
                               service.fit >= 85
                                 ? "bg-green-100 text-green-800"
                                 : service.fit >= 70
-                                ? "bg-blue-100 text-blue-800"
+                                ? "bg-primary/10 text-primary/90"
                                 : "bg-amber-100 text-amber-800"
                             }`}
                           >

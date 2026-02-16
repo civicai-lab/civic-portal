@@ -53,14 +53,14 @@ const MOCK_SPEECHES: Speech[] = [
 
 const ROLE_COLORS: Record<string, string> = {
   "議長": "bg-purple-100 text-purple-800",
-  "委員長": "bg-blue-100 text-blue-800",
+  "委員長": "bg-primary/10 text-primary/90",
   "議員": "bg-green-100 text-green-800",
   "部長": "bg-amber-100 text-amber-800",
   "課長": "bg-orange-100 text-orange-800",
 };
 
 const PARTY_COLORS: Record<string, string> = {
-  "無所属": "bg-gray-100 text-gray-800",
+  "無所属": "bg-muted text-foreground",
   "市民の会": "bg-sky-100 text-sky-800",
   "執行部": "bg-slate-100 text-slate-800",
   "緑の党": "bg-emerald-100 text-emerald-800",
@@ -98,13 +98,13 @@ function highlightText(text: string, query: string) {
 function TimelineDot({ role }: { role: string }) {
   const colorMap: Record<string, string> = {
     "議長": "bg-purple-500",
-    "委員長": "bg-blue-500",
+    "委員長": "bg-primary",
     "議員": "bg-green-500",
     "部長": "bg-amber-500",
     "課長": "bg-orange-500",
   };
   return (
-    <div className={`size-3 rounded-full ${colorMap[role] || "bg-gray-400"} shrink-0 ring-4 ring-background`} />
+    <div className={`size-3 rounded-full ${colorMap[role] || "bg-muted-foreground"} shrink-0 ring-4 ring-background`} />
   );
 }
 
@@ -276,10 +276,10 @@ export default function AssemblyArchiveDemoPage() {
                           <User className="size-4 text-muted-foreground" />
                           <span className="font-medium text-foreground">{speech.speaker}</span>
                         </div>
-                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${ROLE_COLORS[speech.role] || "bg-gray-100 text-gray-800"}`}>
+                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${ROLE_COLORS[speech.role] || "bg-muted text-foreground"}`}>
                           {speech.role}
                         </Badge>
-                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${PARTY_COLORS[speech.party] || "bg-gray-100 text-gray-800"}`}>
+                        <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${PARTY_COLORS[speech.party] || "bg-muted text-foreground"}`}>
                           {speech.party}
                         </Badge>
                       </div>

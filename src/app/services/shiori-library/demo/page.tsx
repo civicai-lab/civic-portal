@@ -68,7 +68,7 @@ const MOCK_BOOKS: BookData[] = [
 const STATUS_MAP: Record<BookData["status"], { label: string; color: string }> = {
   available: { label: "在庫あり", color: "bg-green-100 text-green-800" },
   lending: { label: "貸出中", color: "bg-amber-100 text-amber-800" },
-  reserve: { label: "取り寄せ可", color: "bg-blue-100 text-blue-800" },
+  reserve: { label: "取り寄せ可", color: "bg-primary/10 text-primary/90" },
 };
 
 // --- 応答ロジック ---

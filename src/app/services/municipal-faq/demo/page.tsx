@@ -62,13 +62,13 @@ function detectCategory(text: string): Category {
 // --- カテゴリバッジカラー ---
 
 const CATEGORY_COLORS: Record<Category, string> = {
-  税務: "bg-blue-100 text-blue-800",
+  税務: "bg-primary/10 text-primary/90",
   福祉: "bg-green-100 text-green-800",
   届出: "bg-purple-100 text-purple-800",
   環境: "bg-emerald-100 text-emerald-800",
   施設: "bg-amber-100 text-amber-800",
   防災: "bg-red-100 text-red-800",
-  一般: "bg-gray-100 text-gray-800",
+  一般: "bg-muted text-foreground",
 };
 
 // --- モックレスポンス ---
@@ -388,6 +388,7 @@ export default function MunicipalFaqDemoPage() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="お住まいの地域のことをお気軽にお聞きください"
+                aria-label="住民問合せを入力"
                 className="flex-1 rounded-full border border-input bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 disabled={isTyping}
               />
@@ -396,6 +397,7 @@ export default function MunicipalFaqDemoPage() {
                 className="rounded-full shrink-0"
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isTyping}
+                aria-label="メッセージを送信"
               >
                 <Send className="size-4" />
               </Button>

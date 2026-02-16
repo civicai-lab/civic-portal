@@ -51,7 +51,7 @@ const CHECKLIST = [
 const CATEGORIES = ["機能要件", "非機能要件", "セキュリティ", "運用保守"] as const;
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "機能要件": "bg-blue-100 text-blue-800",
+  "機能要件": "bg-primary/10 text-primary/90",
   "非機能要件": "bg-purple-100 text-purple-800",
   "セキュリティ": "bg-red-100 text-red-800",
   "運用保守": "bg-emerald-100 text-emerald-800",

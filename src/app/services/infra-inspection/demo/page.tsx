@@ -222,7 +222,7 @@ export default function InfraInspectionDemoPage() {
           {/* 次回点検 */}
           <Card className="py-4">
             <CardContent className="pt-0 pb-0 text-center">
-              <Calendar className="size-6 text-blue-500 mx-auto mb-1" />
+              <Calendar className="size-6 text-primary mx-auto mb-1" />
               <p className="text-xs text-muted-foreground">次回点検予定</p>
               <div className="text-2xl font-bold text-foreground mt-1">
                 <CountUp end={nextInspectionCount} />

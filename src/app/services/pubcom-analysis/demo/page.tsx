@@ -34,12 +34,12 @@ import {
 // --- データ定義 ---
 
 const categoryData = [
-  { name: "交通・道路", count: 320, color: "bg-blue-500" },
+  { name: "交通・道路", count: 320, color: "bg-primary" },
   { name: "住環境", count: 285, color: "bg-emerald-500" },
   { name: "公園・緑地", count: 198, color: "bg-green-500" },
   { name: "防災", count: 156, color: "bg-orange-500" },
   { name: "商業", count: 145, color: "bg-purple-500" },
-  { name: "その他", count: 143, color: "bg-gray-400" },
+  { name: "その他", count: 143, color: "bg-muted-foreground" },
 ];
 
 const maxCount = Math.max(...categoryData.map((d) => d.count));
@@ -324,7 +324,7 @@ export default function PubcomAnalysisDemoPage() {
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <div className="size-4 rounded-full bg-gray-400" />
+                          <div className="size-4 rounded-full bg-muted-foreground" />
                           <span className="font-medium">
                             中立 {sentimentData.neutral.pct}%
                           </span>
@@ -351,7 +351,7 @@ export default function PubcomAnalysisDemoPage() {
                                 <ThumbsDown className="size-4 text-red-500" />
                               )}
                               {op.sentiment === "中立" && (
-                                <Minus className="size-4 text-gray-400" />
+                                <Minus className="size-4 text-muted-foreground" />
                               )}
                               <Badge variant={op.badge}>{op.sentiment}</Badge>
                               <span className="text-xs text-muted-foreground">
@@ -402,7 +402,7 @@ export default function PubcomAnalysisDemoPage() {
                               style={{ width: `${topic.positive}%` }}
                             />
                             <div
-                              className="h-full bg-gray-300"
+                              className="h-full bg-muted-foreground/60"
                               style={{ width: `${topic.neutral}%` }}
                             />
                             <div
@@ -443,7 +443,7 @@ export default function PubcomAnalysisDemoPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="border rounded-lg p-6 bg-white space-y-8">
+                    <div className="border rounded-lg p-6 bg-card space-y-8">
                       <div className="text-center border-b pb-6">
                         <h2 className="text-xl font-bold">
                           パブリックコメント分析報告書

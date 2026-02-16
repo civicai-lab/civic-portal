@@ -397,15 +397,15 @@ function EmergencyPanel({
 
           <button
             type="button"
-            className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors w-full text-left"
+            className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors w-full text-left"
             aria-label={data.hospital}
           >
-            <div className="size-10 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
+            <div className="size-10 rounded-full bg-primary flex items-center justify-center shrink-0">
               <Hospital className="size-5 text-white" />
             </div>
             <div>
-              <p className="font-bold text-sm text-blue-800">{data.hospital}</p>
-              <p className="text-xs text-blue-600">
+              <p className="font-bold text-sm text-primary/90">{data.hospital}</p>
+              <p className="text-xs text-primary">
                 {lang === "ja" ? "GPS連動検索" : lang === "en" ? "GPS-based search" : lang === "zh" ? "GPS定位搜索" : "GPS 기반 검색"}
               </p>
             </div>

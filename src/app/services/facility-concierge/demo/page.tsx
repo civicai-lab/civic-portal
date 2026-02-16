@@ -241,7 +241,7 @@ export default function FacilityConciergeDemo() {
       subtitle="4ステップウィザードデモ"
     >
       {/* ステップインジケーター */}
-      <div className="border-b bg-white rounded-lg py-6 px-4 mb-6 -mx-4 sm:mx-0 sm:px-6">
+      <div className="border-b bg-card rounded-lg py-6 px-4 mb-6 -mx-4 sm:mx-0 sm:px-6">
         <StepIndicator currentStep={step} steps={stepLabels} />
       </div>
 
@@ -403,7 +403,7 @@ export default function FacilityConciergeDemo() {
                         <CardContent className="flex flex-col gap-4 sm:flex-row">
                           {/* 写真プレースホルダー */}
                           <div className="flex size-full shrink-0 items-center justify-center rounded-lg bg-muted sm:size-32">
-                            <ImageIcon className="size-8 text-muted-foreground/40" />
+                            <ImageIcon className="size-8 text-muted-foreground/40" aria-label="施設画像なし" />
                           </div>
                           {/* 情報 */}
                           <div className="flex-1 space-y-2">

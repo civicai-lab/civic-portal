@@ -176,7 +176,7 @@ const emergencyKeywords = [
 
 const matchLevelConfig = {
   high: { label: "高", className: "bg-emerald-100 text-emerald-800" },
-  medium: { label: "中", className: "bg-blue-100 text-blue-800" },
+  medium: { label: "中", className: "bg-primary/10 text-primary/90" },
   low: { label: "低", className: "bg-slate-100 text-slate-700" },
 };
 
@@ -395,6 +395,7 @@ export default function WelfareNavigatorDemo() {
                           <input
                             type="text"
                             placeholder={question.inputPlaceholder}
+                            aria-label={question.inputPlaceholder}
                             value={textInputs[question.id] || ""}
                             onChange={(e) =>
                               setTextInputs((prev) => ({
@@ -430,6 +431,7 @@ export default function WelfareNavigatorDemo() {
                         <div className="space-y-3">
                           <textarea
                             placeholder={question.inputPlaceholder}
+                            aria-label={question.inputPlaceholder}
                             value={textInputs[question.id] || ""}
                             onChange={(e) =>
                               setTextInputs((prev) => ({
@@ -495,7 +497,7 @@ export default function WelfareNavigatorDemo() {
             {/* 右カラム: マッチング結果 */}
             <div className="w-full lg:w-3/5">
               {!completed ? (
-                <Card className="flex min-h-[400px] items-center justify-center">
+                <Card className="flex min-h-[300px] items-center justify-center md:min-h-[400px]">
                   <CardContent className="text-center">
                     <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
                       <HelpCircle className="size-8 text-muted-foreground/50" />
@@ -623,7 +625,7 @@ export default function WelfareNavigatorDemo() {
           </div>
 
           {/* 免責事項 */}
-          <div className="mt-10 rounded-lg border bg-white p-4 text-center text-sm text-muted-foreground">
+          <div className="mt-10 rounded-lg border bg-card p-4 text-center text-sm text-muted-foreground">
             <p>
               ※
               このデモは参考情報の提供を目的としています。実際の受給資格や支給額は個別の状況により異なります。

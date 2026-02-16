@@ -57,7 +57,7 @@ const PROGRAMS = [
 
 const LEVEL_COLORS: Record<string, string> = {
   入門: "bg-emerald-100 text-emerald-800",
-  中級: "bg-blue-100 text-blue-800",
+  中級: "bg-primary/10 text-primary/90",
   上級: "bg-purple-100 text-purple-800",
 };
 

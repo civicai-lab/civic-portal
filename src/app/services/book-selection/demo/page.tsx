@@ -247,7 +247,7 @@ function statusBadgeVariant(
 
 function statusBarColor(status: "適正" | "不足" | "過多"): string {
   if (status === "不足") return "bg-red-500";
-  if (status === "過多") return "bg-blue-500";
+  if (status === "過多") return "bg-primary";
   return "bg-emerald-500";
 }
 
@@ -361,7 +361,7 @@ export default function BookSelectionDemoPage() {
                 <BarChart3 className="size-4 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">蔵書回転率</p>
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-blue-600">
+              <div className="text-2xl sm:text-3xl font-bold text-primary">
                 <CountUp end={3} suffix=".21" />
               </div>
             </CardContent>
@@ -458,7 +458,7 @@ export default function BookSelectionDemoPage() {
                     <span>不足（需要超過）</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="size-3 rounded-full bg-blue-500" />
+                    <div className="size-3 rounded-full bg-primary" />
                     <span>過多（供給超過）</span>
                   </div>
                 </div>
@@ -508,7 +508,7 @@ export default function BookSelectionDemoPage() {
                               isShortage
                                 ? "bg-red-50"
                                 : isExcess
-                                  ? "bg-blue-50"
+                                  ? "bg-primary/5"
                                   : ""
                             }`}
                           >
@@ -527,7 +527,7 @@ export default function BookSelectionDemoPage() {
                                   row.gap > 0
                                     ? "text-red-600"
                                     : row.gap < -2
-                                      ? "text-blue-600"
+                                      ? "text-primary"
                                       : "text-muted-foreground"
                                 }`}
                               >

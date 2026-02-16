@@ -145,7 +145,7 @@ const DB_SOURCES = [
 // --- DB Badge カラー ---
 
 const DB_COLORS: Record<PaperData["db"], string> = {
-  CiNii: "bg-blue-100 text-blue-800",
+  CiNii: "bg-primary/10 text-primary/90",
   "J-STAGE": "bg-green-100 text-green-800",
   "Google Scholar": "bg-purple-100 text-purple-800",
 };
