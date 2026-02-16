@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/services";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import {
   ArrowLeft,
   CheckCircle,
@@ -163,13 +164,9 @@ export default function ContactPage() {
       {/* Header */}
       <section className="border-b bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/"
-            className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="mr-1 size-4" />
-            トップページに戻る
-          </Link>
+          <div className="mb-4">
+            <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "お問い合わせ" }]} />
+          </div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             お問い合わせ
           </h1>

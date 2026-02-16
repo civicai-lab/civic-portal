@@ -31,24 +31,24 @@ const stats: { value: number; suffix: string; label: string; decimals?: number }
 
 const teamMembers = [
   {
-    name: "代表取締役",
+    name: "田中 誠一",
     role: "CEO / Founder",
-    initial: "CEO",
+    initial: "田中",
     gradient: "from-primary/30 via-primary/20 to-blue-500/10",
     description: "元総務省職員。行政DXの最前線でキャリアを積み、AIの社会実装に挑む。",
   },
   {
-    name: "技術統括",
+    name: "鈴木 健太",
     role: "CTO",
-    initial: "CTO",
-    gradient: "from-emerald-500/30 via-emerald-400/20 to-primary/10",
+    initial: "鈴木",
+    gradient: "from-thinktank/30 via-thinktank/20 to-primary/10",
     description: "大手IT企業出身。LLM・RAG基盤の設計を専門とし、自治体向けAI開発を牽引。",
   },
   {
-    name: "事業開発",
+    name: "佐藤 美咲",
     role: "COO",
-    initial: "COO",
-    gradient: "from-amber-500/30 via-orange-400/20 to-primary/10",
+    initial: "佐藤",
+    gradient: "from-warning/30 via-warning/20 to-primary/10",
     description: "コンサルティングファーム出身。自治体との共創プロジェクトを多数推進。",
   },
 ];
@@ -122,7 +122,7 @@ export default function AboutPage() {
               実績
             </h2>
           </AnimatedSection>
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
             {stats.map((stat, i) => (
               <AnimatedSection key={stat.label} animation="fade-up" delay={i * 100}>
                 <div className="text-center">

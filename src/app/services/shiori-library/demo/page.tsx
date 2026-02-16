@@ -378,7 +378,7 @@ export default function ShioriLibraryDemoPage() {
               </div>
               <div className="flex justify-between">
                 <span>貸出可能</span>
-                <span className="font-medium text-green-700 dark:text-green-400">138,290冊</span>
+                <span className="font-medium text-success">138,290冊</span>
               </div>
               <div className="flex justify-between">
                 <span>本日の来館者</span>

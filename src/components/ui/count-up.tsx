@@ -54,9 +54,12 @@ export function CountUp({
     requestAnimationFrame(animate);
   }, [isVisible, end, duration, decimals]);
 
+  const displayValue = `${prefix}${decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}${suffix}`;
+  const finalValue = `${prefix}${decimals > 0 ? end.toFixed(decimals) : end.toLocaleString()}${suffix}`;
+
   return (
-    <div ref={ref} className={className}>
-      {prefix}{decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}{suffix}
+    <div ref={ref} className={className} aria-label={finalValue}>
+      {displayValue}
     </div>
   );
 }
