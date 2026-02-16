@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { shimmerBlur } from "@/lib/utils";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
@@ -104,6 +105,8 @@ export default function AboutPage() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={shimmerBlur}
                 />
               </div>
             </AnimatedSection>

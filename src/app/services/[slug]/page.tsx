@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { shimmerBlur } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -344,11 +345,13 @@ export default async function ServiceDetailPage({
       <section className="relative overflow-hidden py-20 text-white">
         <Image
           src={getServiceHero(service.slug)}
-          alt=""
+          alt={service.displayName + " イメージ画像"}
           fill
           sizes="100vw"
           className="object-cover"
           priority
+          placeholder="blur"
+          blurDataURL={shimmerBlur}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

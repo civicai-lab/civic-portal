@@ -419,7 +419,7 @@ export default function ShioriLibraryDemoPage() {
           {/* チャットエリア */}
           <Card className="flex-1 flex flex-col min-h-0 py-0">
             {/* メッセージリスト */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4" role="log" aria-label="チャット履歴">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4" role="log" aria-label="チャット履歴" aria-live="polite">
               {messages.map((msg) => (
                 <div
                   key={msg.id}

@@ -108,7 +108,7 @@ export default function AiAuditDemoPage() {
       subtitle="AI監査デモ"
     >
       {/* KPIカード */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">監査済み</p>

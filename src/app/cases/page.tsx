@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { shimmerBlur } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -95,6 +96,8 @@ export default function CasesPage() {
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      placeholder="blur"
+                      blurDataURL={shimmerBlur}
                     />
                   </div>
                   <CardHeader>

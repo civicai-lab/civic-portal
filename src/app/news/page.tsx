@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { shimmerBlur } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
@@ -100,6 +101,8 @@ export default function NewsPage() {
                         fill
                         sizes="(max-width: 768px) 100vw, 256px"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        placeholder="blur"
+                        blurDataURL={shimmerBlur}
                       />
                     </div>
                     <div className="flex-1">
