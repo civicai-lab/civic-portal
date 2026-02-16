@@ -268,7 +268,7 @@ export default function AiLabDemoPage() {
           {submitted ? (
             <Card className="text-center">
               <CardContent className="py-12">
-                <CheckCircle2 className="size-16 text-emerald-500 dark:text-emerald-400 mx-auto mb-4" />
+                <CheckCircle2 className="size-16 text-success mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">審査を送信しました</h3>
                 <p className="text-muted-foreground mb-4">
                   合計スコア: {totalScore}/25 | 判定:{" "}

@@ -77,7 +77,7 @@ const REPRESENTATIVE_POSTS = [
     langColor: "bg-primary/10 text-primary/90",
     sentiment: "ポジティブ",
     sentimentColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
-    icon: <ThumbsUp className="size-4 text-emerald-500 dark:text-emerald-400" />,
+    icon: <ThumbsUp className="size-4 text-success" />,
   },
   {
     text: "The temple was beautiful but the signage was hard to follow for non-Japanese speakers. Would love more multilingual maps.",
@@ -93,7 +93,7 @@ const REPRESENTATIVE_POSTS = [
     langColor: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
     sentiment: "ネガティブ",
     sentimentColor: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
-    icon: <ThumbsDown className="size-4 text-red-500 dark:text-red-400" />,
+    icon: <ThumbsDown className="size-4 text-destructive" />,
   },
 ];
 
@@ -206,11 +206,11 @@ export default function TourismAnalyticsDemoPage() {
                     {/* 前年比Badge */}
                     <div className="text-xs flex items-center gap-0.5 mb-1">
                       {d.yoy >= 0 ? (
-                        <ArrowUpRight className="size-3 text-emerald-500" />
+                        <ArrowUpRight className="size-3 text-success" />
                       ) : (
-                        <ArrowDownRight className="size-3 text-red-500" />
+                        <ArrowDownRight className="size-3 text-destructive" />
                       )}
-                      <span className={d.yoy >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-500 dark:text-red-400"}>
+                      <span className={d.yoy >= 0 ? "text-success" : "text-destructive"}>
                         {d.yoy > 0 ? "+" : ""}
                         {d.yoy}%
                       </span>
@@ -290,9 +290,9 @@ export default function TourismAnalyticsDemoPage() {
               {/* 比率バー */}
               <div className="mb-6">
                 <div className="flex text-xs mb-2 justify-between">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-medium">ポジティブ {SENTIMENTS.positive.percent}%</span>
+                  <span className="text-success font-medium">ポジティブ {SENTIMENTS.positive.percent}%</span>
                   <span className="text-muted-foreground">中立 {SENTIMENTS.neutral.percent}%</span>
-                  <span className="text-red-500 dark:text-red-400 font-medium">ネガティブ {SENTIMENTS.negative.percent}%</span>
+                  <span className="text-destructive font-medium">ネガティブ {SENTIMENTS.negative.percent}%</span>
                 </div>
                 <div className="h-6 w-full rounded-full overflow-hidden flex">
                   <div className={`h-full ${SENTIMENTS.positive.color}`} style={{ width: `${SENTIMENTS.positive.percent}%` }} />

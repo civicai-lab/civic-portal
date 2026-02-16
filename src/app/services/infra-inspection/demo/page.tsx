@@ -206,7 +206,7 @@ export default function InfraInspectionDemoPage() {
           {/* 平均劣化度 */}
           <Card className="py-4">
             <CardContent className="pt-0 pb-0 text-center">
-              <BarChart3 className="size-6 text-amber-500 mx-auto mb-1" />
+              <BarChart3 className="size-6 text-warning-foreground mx-auto mb-1" />
               <p className="text-xs text-muted-foreground">平均劣化度</p>
               <div className="text-2xl font-bold text-foreground mt-1">
                 <CountUp end={avgDeterioration} suffix="%" />
