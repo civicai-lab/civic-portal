@@ -41,6 +41,12 @@
   --color-card: var(--card);
   --color-cta: var(--cta);
   --color-cta-foreground: var(--cta-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-thinktank: var(--thinktank);
+  --color-thinktank-foreground: var(--thinktank-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -78,6 +84,14 @@
   --border: oklch(0.922 0.012 250);
   --input: oklch(0.922 0.012 250);
   --ring: oklch(0.546 0.245 262.881);
+  /* Status semantic colors */
+  --success: oklch(0.55 0.16 155);
+  --success-foreground: oklch(1 0 0);
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.30 0.08 60);
+  /* Thinktank: Emerald accent (SaaS=primary, Thinktank=thinktank) */
+  --thinktank: oklch(0.55 0.17 160);
+  --thinktank-foreground: oklch(1 0 0);
   /* Chart colors */
   --chart-1: oklch(0.546 0.245 262.881);
   --chart-2: oklch(0.60 0.15 195);
@@ -116,6 +130,12 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.55 0.12 262);
+  --success: oklch(0.60 0.16 155);
+  --success-foreground: oklch(0.14 0.02 250);
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.14 0.02 250);
+  --thinktank: oklch(0.60 0.17 160);
+  --thinktank-foreground: oklch(0.14 0.02 250);
   --chart-1: oklch(0.55 0.18 262);
   --chart-2: oklch(0.65 0.15 195);
   --chart-3: oklch(0.60 0.12 170);

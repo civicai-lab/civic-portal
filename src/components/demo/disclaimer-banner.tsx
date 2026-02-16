@@ -16,8 +16,8 @@ export function DisclaimerBanner({
     <div
       className={`px-4 py-2 text-center border-b ${
         isWarning
-          ? "bg-amber-50 border-amber-200 text-amber-800"
-          : "bg-blue-50 border-blue-200 text-blue-800"
+          ? "bg-warning/10 border-warning/30 text-warning-foreground"
+          : "bg-primary/5 border-primary/20 text-primary"
       }`}
       role="status"
     >

@@ -29,7 +29,7 @@ const cases = [
   {
     title: "自治体DX推進 — 庁内ナレッジ検索AI",
     description: "庁内の過去文書・規程・マニュアルをAIで横断検索。新人職員の業務習得期間を大幅短縮。",
-    image: "/images/cases/backend-code.jpg",
+    image: "/images/cases/backend-code.webp",
     category: "庁内業務",
     service: "庁内ナレッジ検索AI",
   },

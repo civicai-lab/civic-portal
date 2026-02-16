@@ -115,7 +115,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-muted">
       {/* Header */}
-      <section className="border-b bg-white py-16">
+      <section className="border-b bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             サービス一覧
@@ -128,7 +128,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Filters */}
-      <section className="border-b bg-white py-4">
+      <section className="border-b bg-card py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             {/* Priority Filter */}
@@ -236,7 +236,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t bg-white py-16 md:py-20">
+      <section className="border-t bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground">
             お探しのサービスが見つかりましたか？

@@ -38,7 +38,7 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-20 text-primary-foreground">
         <Image
-          src="/images/team/team-meeting.jpg"
+          src="/images/team/team-meeting.webp"
           alt="シビックAI総合研究所のチームミーティング風景"
           fill
           sizes="100vw"

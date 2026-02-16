@@ -19,19 +19,19 @@ const teamMembers = [
   {
     name: "代表取締役",
     role: "CEO / Founder",
-    image: "/images/team/office-modern.jpg",
+    image: "/images/team/office-modern.webp",
     description: "元総務省職員。行政DXの最前線でキャリアを積み、AIの社会実装に挑む。",
   },
   {
     name: "技術統括",
     role: "CTO",
-    image: "/images/team/office-modern.jpg",
+    image: "/images/team/office-modern.webp",
     description: "大手IT企業出身。LLM・RAG基盤の設計を専門とし、自治体向けAI開発を牽引。",
   },
   {
     name: "事業開発",
     role: "COO",
-    image: "/images/team/office-modern.jpg",
+    image: "/images/team/office-modern.webp",
     description: "コンサルティングファーム出身。自治体との共創プロジェクトを多数推進。",
   },
 ];
@@ -77,7 +77,7 @@ export default function AboutPage() {
             <AnimatedSection animation="slide-right">
               <div className="relative aspect-video overflow-hidden rounded-xl shadow-lg">
                 <Image
-                  src="/images/team/office-modern.jpg"
+                  src="/images/team/office-modern.webp"
                   alt="シビックAI総合研究所のオフィス風景"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

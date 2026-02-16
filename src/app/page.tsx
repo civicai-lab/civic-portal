@@ -73,7 +73,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="border-b bg-white py-16">
+      <section className="border-b bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
@@ -178,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* Category Explanation */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
@@ -231,9 +231,9 @@ export default function HomePage() {
 
             {/* Think Tank */}
             <AnimatedSection animation="slide-right" delay={200}>
-            <Card className="relative overflow-hidden border-emerald-200 bg-gradient-to-br from-emerald-50 to-white">
+            <Card className="relative overflow-hidden border-thinktank/20 bg-gradient-to-br from-thinktank/5 to-card">
               <CardHeader>
-                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-emerald-600 text-white">
+                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-thinktank text-thinktank-foreground">
                   <Lightbulb className="size-7" />
                 </div>
                 <CardTitle className="text-2xl">
@@ -249,15 +249,15 @@ export default function HomePage() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-emerald-600" />
+                    <CheckCircle className="size-4 text-thinktank" />
                     策定支援・データ分析・専門実証
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-emerald-600" />
+                    <CheckCircle className="size-4 text-thinktank" />
                     スポット利用から年間契約まで柔軟に
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="size-4 text-emerald-600" />
+                    <CheckCircle className="size-4 text-thinktank" />
                     専門家チームが伴走支援
                   </li>
                 </ul>
@@ -275,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust Section - パートナー & 資格 */}
-      <section className="border-t bg-white py-16 md:py-20" aria-label="信頼のパートナー">
+      <section className="border-t bg-card py-16 md:py-20" aria-label="信頼のパートナー">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
@@ -338,7 +338,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="relative overflow-hidden py-16 text-white md:py-20">
         <Image
-          src="/images/hero/hero-collaboration.jpg"
+          src="/images/hero/hero-collaboration.webp"
           alt=""
           fill
           sizes="100vw"

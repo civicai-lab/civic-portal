@@ -23,8 +23,8 @@ export function DemoLayout({
   return (
     <div className="min-h-screen bg-muted">
       {/* デモバナー */}
-      <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center">
-        <p className="text-sm text-amber-800 flex items-center justify-center gap-2">
+      <div className="bg-warning/10 border-b border-warning/30 px-4 py-2 text-center">
+        <p className="text-sm text-warning-foreground flex items-center justify-center gap-2">
           <AlertTriangle className="size-4" />
           デモ版 - 実際のデータは使用していません
         </p>

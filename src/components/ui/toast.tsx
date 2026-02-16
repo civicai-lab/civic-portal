@@ -33,9 +33,9 @@ export function useToast() {
 }
 
 const VARIANT_STYLES: Record<ToastVariant, string> = {
-  success: "bg-green-50 border-green-200 text-green-800",
-  error: "bg-red-50 border-red-200 text-red-800",
-  info: "bg-blue-50 border-blue-200 text-blue-800",
+  success: "bg-success/10 border-success/30 text-success",
+  error: "bg-destructive/10 border-destructive/30 text-destructive",
+  info: "bg-primary/5 border-primary/20 text-primary",
 };
 
 const VARIANT_ICONS: Record<ToastVariant, ReactNode> = {

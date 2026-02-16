@@ -280,7 +280,7 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
           <p className="text-sm text-muted-foreground">{useCase.solution}</p>
         </div>
         <div>
-          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-emerald-500">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-success">
             成果
           </p>
           <p className="text-sm text-muted-foreground">{useCase.result}</p>

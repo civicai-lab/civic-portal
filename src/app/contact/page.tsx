@@ -130,7 +130,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-muted">
       {/* Header */}
-      <section className="border-b bg-white py-16">
+      <section className="border-b bg-card py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/"

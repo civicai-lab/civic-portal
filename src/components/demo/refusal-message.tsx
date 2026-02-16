@@ -21,18 +21,18 @@ export function RefusalMessage({
   return (
     <div
       className={cn(
-        "rounded-lg border border-amber-200 bg-amber-50 p-4",
+        "rounded-lg border border-warning/30 bg-warning/10 p-4",
         className
       )}
       role="alert"
     >
       <div className="flex items-start gap-3">
-        <ShieldAlert className="size-5 text-amber-600 shrink-0 mt-0.5" />
+        <ShieldAlert className="size-5 text-warning-foreground shrink-0 mt-0.5" />
         <div className="flex-1 space-y-2">
-          <p className="text-sm font-medium text-amber-900">
+          <p className="text-sm font-medium text-warning-foreground">
             この質問にはお答えできません
           </p>
-          <p className="text-sm text-amber-800">
+          <p className="text-sm text-warning-foreground/80">
             「{topic}」に関するご質問は、AI による回答が適切でない分野です。
             {suggestedAction}
           </p>
@@ -40,7 +40,7 @@ export function RefusalMessage({
             <Button
               variant="outline"
               size="sm"
-              className="mt-2 text-xs h-8 border-amber-300 text-amber-800 hover:bg-amber-100"
+              className="mt-2 text-xs h-8 border-warning/40 text-warning-foreground hover:bg-warning/15"
               asChild
             >
               <a
