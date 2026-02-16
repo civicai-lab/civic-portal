@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getPriorityServices, services, getServiceThumbnail } from "@/data/services";
+import { shimmerBlur } from "@/lib/utils";
 import {
   ArrowRight,
   Building2,
@@ -130,6 +131,8 @@ export default function HomePage() {
                       alt={service.displayName}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      placeholder="blur"
+                      blurDataURL={shimmerBlur}
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                       priority={index < 3}
                     />

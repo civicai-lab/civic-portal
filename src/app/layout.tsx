@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     "公共サービス",
   ],
   authors: [{ name: "シビックAI総合研究所" }],
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "ja_JP",

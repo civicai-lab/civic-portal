@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { RefreshCw, Home, AlertTriangle } from "lucide-react";
 
 export default function Error({
   error,
@@ -10,10 +12,14 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-muted flex items-center justify-center px-4">
-      <div className="max-w-md w-full text-center space-y-6">
+    <div className="flex min-h-[60vh] items-center justify-center px-4">
+      <div className="w-full max-w-md space-y-6 text-center">
+        <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-destructive/10">
+          <AlertTriangle className="size-8 text-destructive" />
+        </div>
+
         <div className="space-y-2">
-          <h1 className="text-4xl font-bold text-foreground">
+          <h1 className="text-2xl font-bold text-foreground md:text-3xl">
             エラーが発生しました
           </h1>
           <p className="text-muted-foreground">
@@ -24,24 +30,22 @@ export default function Error({
         </div>
 
         {error.message && (
-          <p className="text-sm text-muted-foreground bg-background rounded-lg p-4 border border-border">
+          <p className="rounded-lg border border-border bg-card p-4 text-sm text-muted-foreground">
             {error.message}
           </p>
         )}
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button
-            onClick={reset}
-            className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
+        <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <Button onClick={reset}>
+            <RefreshCw className="mr-2 size-4" />
             もう一度試す
-          </button>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            ホームに戻る
-          </Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href="/">
+              <Home className="mr-2 size-4" />
+              ホームに戻る
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

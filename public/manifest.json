@@ -1,0 +1,27 @@
+{
+  "name": "Civic AI - 自治体向けAIソリューション",
+  "short_name": "Civic AI",
+  "description": "自治体のDXを支援する20のAIサービス。住民サービスの向上と業務効率化を実現します。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563EB",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
