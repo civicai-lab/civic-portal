@@ -345,10 +345,10 @@ export default function PubcomAnalysisDemoPage() {
                           <CardContent className="pt-0">
                             <div className="flex items-center gap-2 mb-2">
                               {op.sentiment === "賛成" && (
-                                <ThumbsUp className="size-4 text-emerald-500" />
+                                <ThumbsUp className="size-4 text-success" />
                               )}
                               {op.sentiment === "反対" && (
-                                <ThumbsDown className="size-4 text-red-500" />
+                                <ThumbsDown className="size-4 text-destructive" />
                               )}
                               {op.sentiment === "中立" && (
                                 <Minus className="size-4 text-muted-foreground" />
@@ -389,10 +389,10 @@ export default function PubcomAnalysisDemoPage() {
                         {/* 賛否バー */}
                         <div className="mb-3">
                           <div className="flex text-xs mb-1 justify-between">
-                            <span className="text-emerald-600 dark:text-emerald-400">
+                            <span className="text-success">
                               賛成 {topic.positive}%
                             </span>
-                            <span className="text-red-500 dark:text-red-400">
+                            <span className="text-destructive">
                               反対 {topic.negative}%
                             </span>
                           </div>

@@ -212,24 +212,24 @@ function EmergencyBanner() {
   return (
     <div className="rounded-lg border-2 border-destructive/30 bg-destructive/10 p-4">
       <div className="flex items-start gap-3">
-        <AlertTriangle className="mt-0.5 size-5 shrink-0 text-red-600 dark:text-red-400" />
+        <AlertTriangle className="mt-0.5 size-5 shrink-0 text-destructive" />
         <div>
-          <p className="font-bold text-red-800 dark:text-red-300">
+          <p className="font-bold text-destructive">
             緊急の相談窓口のご案内
           </p>
-          <p className="mt-1 text-sm text-red-700 dark:text-red-400">
+          <p className="mt-1 text-sm text-destructive">
             つらい状況にいらっしゃるかもしれません。すぐに専門の相談員がお話を伺います。
           </p>
           <div className="mt-3 space-y-2">
-            <div className="flex items-center gap-2 text-sm font-semibold text-red-800 dark:text-red-300">
+            <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
               <Phone className="size-4" />
               <span>よりそいホットライン: 0120-279-338（24時間）</span>
             </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-red-800 dark:text-red-300">
+            <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
               <Shield className="size-4" />
               <span>DV相談ナビ: #8008</span>
             </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-red-800 dark:text-red-300">
+            <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
               <Phone className="size-4" />
               <span>児童相談所虐待対応ダイヤル: 189</span>
             </div>
@@ -464,7 +464,7 @@ export default function WelfareNavigatorDemo() {
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                      <div className="flex items-center gap-2 text-success">
                         <CheckCircle2 className="size-5" />
                         <span className="font-semibold">
                           すべての質問に回答しました

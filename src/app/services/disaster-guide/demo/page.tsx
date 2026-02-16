@@ -302,10 +302,10 @@ function ShelterCard({ shelter }: { shelter: ShelterInfo }) {
             <div
               className={`h-full rounded-full ${
                 occupancyRate > 80
-                  ? "bg-red-500"
+                  ? "bg-destructive"
                   : occupancyRate > 50
-                  ? "bg-yellow-500"
-                  : "bg-green-500"
+                  ? "bg-warning"
+                  : "bg-success"
               }`}
               style={{ width: `${occupancyRate}%` }}
             />
@@ -482,7 +482,7 @@ export default function DisasterGuideDemoPage() {
     >
       {/* 緊急情報バナー（有事モード時） */}
       {phase === "emergency" && (
-        <div className="bg-red-600 text-white px-4 py-3 text-center -mx-4 -mt-4 mb-4">
+        <div className="bg-destructive text-destructive-foreground px-4 py-3 text-center -mx-4 -mt-4 mb-4">
           <p className="text-sm font-bold flex items-center justify-center gap-2">
             <Siren className="size-5 motion-safe:animate-pulse" />
             {strings.emergencyBanner}
@@ -524,7 +524,7 @@ export default function DisasterGuideDemoPage() {
             onClick={() => handlePhaseChange("emergency")}
             className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
               phase === "emergency"
-                ? "bg-red-600 text-white shadow-sm"
+                ? "bg-destructive text-destructive-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -820,10 +820,10 @@ export default function DisasterGuideDemoPage() {
                         <div
                           className={`h-full rounded-full ${
                             occupancyRate > 80
-                              ? "bg-red-500"
+                              ? "bg-destructive"
                               : occupancyRate > 50
-                              ? "bg-yellow-500"
-                              : "bg-green-500"
+                              ? "bg-warning"
+                              : "bg-success"
                           }`}
                           style={{ width: `${occupancyRate}%` }}
                         />
@@ -879,9 +879,9 @@ export default function DisasterGuideDemoPage() {
                               disabled={selectedAnswer !== null}
                               className={`w-full text-left text-sm px-3 py-2 rounded-lg border transition-colors ${
                                 showResult && isCorrect
-                                  ? "border-green-500 bg-green-50 text-green-800 dark:bg-green-950/30 dark:text-green-300 dark:border-green-600"
+                                  ? "border-success bg-success/10 text-success dark:bg-success/15"
                                   : showResult && isSelected && !isCorrect
-                                  ? "border-red-500 bg-red-50 text-red-800 dark:bg-red-950/30 dark:text-red-300 dark:border-red-600"
+                                  ? "border-destructive bg-destructive/10 text-destructive dark:bg-destructive/15"
                                   : isSelected
                                   ? "border-primary bg-primary/5"
                                   : "border-border hover:border-primary/50 hover:bg-muted"
@@ -889,10 +889,10 @@ export default function DisasterGuideDemoPage() {
                             >
                               <span className="flex items-center gap-2">
                                 {showResult && isCorrect && (
-                                  <CheckCircle className="size-4 text-green-600 dark:text-green-400 shrink-0" />
+                                  <CheckCircle className="size-4 text-success shrink-0" />
                                 )}
                                 {showResult && isSelected && !isCorrect && (
-                                  <AlertTriangle className="size-4 text-red-600 dark:text-red-400 shrink-0" />
+                                  <AlertTriangle className="size-4 text-destructive shrink-0" />
                                 )}
                                 {option}
                               </span>
@@ -932,13 +932,13 @@ export default function DisasterGuideDemoPage() {
               </CardHeader>
               <CardContent className="pt-0 pb-0">
                 <div className="grid grid-cols-2 gap-2">
-                  <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/30 rounded-lg p-2.5">
-                    <Phone className="size-4 text-red-600 dark:text-red-400" />
+                  <div className="flex items-center gap-2 bg-destructive/10 dark:bg-destructive/15 rounded-lg p-2.5">
+                    <Phone className="size-4 text-destructive" />
                     <div>
                       <p className="text-xs text-muted-foreground">
                         消防・救急
                       </p>
-                      <p className="text-lg font-bold text-red-600 dark:text-red-400">119</p>
+                      <p className="text-lg font-bold text-destructive">119</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 bg-primary/5 rounded-lg p-2.5">
