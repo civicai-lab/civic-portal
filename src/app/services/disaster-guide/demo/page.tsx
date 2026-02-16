@@ -563,7 +563,7 @@ export default function DisasterGuideDemoPage() {
 
                     {/* メッセージ本文 */}
                     <div
-                      className={`max-w-[75%] ${
+                      className={`max-w-[80%] ${
                         msg.role === "user" ? "text-right" : "text-left"
                       }`}
                     >
@@ -617,7 +617,7 @@ export default function DisasterGuideDemoPage() {
                       <Bot className="size-4 text-muted-foreground" />
                     </div>
                     <div className="bg-muted rounded-2xl px-4 py-3">
-                      <div className="flex gap-1">
+                      <div className="flex gap-1" role="status" aria-label="応答を生成中">
                         <span
                           className="size-2 bg-muted-foreground/40 rounded-full motion-safe:animate-bounce"
                           style={{ animationDelay: "0ms" }}

@@ -394,7 +394,7 @@ export default function ShioriAcademicDemoPage() {
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="研究テーマを入力してください（例: AI 自治体）"
-                  className="w-full rounded-lg border border-input bg-background pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full rounded-full border border-input bg-background pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   disabled={isSearching}
                   aria-label="研究テーマ検索"
                 />
@@ -473,7 +473,7 @@ export default function ShioriAcademicDemoPage() {
       {isSearching && (
         <Card className="mb-4 py-6">
           <CardContent className="flex flex-col items-center gap-3 pb-0">
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5" role="status" aria-label="応答を生成中">
               <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
               <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
               <span className="size-2.5 bg-primary/40 rounded-full motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />

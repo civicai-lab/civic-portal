@@ -109,7 +109,7 @@ export function Header() {
         {/* ロゴ */}
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
           aria-label="Civic AI ホーム"
         >
           <Image
@@ -117,7 +117,7 @@ export function Header() {
             alt="Civic AI"
             width={120}
             height={32}
-            className="h-8 w-auto dark:brightness-0 dark:invert"
+            className="h-9 w-auto dark:brightness-0 dark:invert"
             priority
           />
         </Link>
@@ -179,7 +179,7 @@ export function Header() {
         ref={menuRef}
         className={`border-t bg-background md:hidden transition-all duration-200 ease-out overflow-hidden ${
           isMobileMenuOpen
-            ? "max-h-[400px] opacity-100"
+            ? "max-h-[80vh] opacity-100"
             : "max-h-0 opacity-0 border-t-0"
         }`}
         role="region"
