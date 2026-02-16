@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -90,17 +92,30 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqJsonLd()) }}
       />
       {/* Hero */}
-      <section className="border-b border-border bg-card py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20 text-primary-foreground">
+        <Image
+          src="/images/team/office-modern.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-4">
             <Breadcrumb items={[{ label: "ホーム", href: "/" }, { label: "よくある質問" }]} />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            よくある質問
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            お客様からよくいただくご質問にお答えします
-          </p>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+              よくある質問
+            </h1>
+            <p className="mt-4 text-lg text-primary-foreground/80">
+              お客様からよくいただくご質問にお答えします
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 

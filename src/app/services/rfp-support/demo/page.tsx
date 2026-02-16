@@ -53,7 +53,7 @@ const CATEGORIES = ["機能要件", "非機能要件", "セキュリティ", "�
 const CATEGORY_COLORS: Record<string, string> = {
   "機能要件": "bg-primary/10 text-primary/90",
   "非機能要件": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
-  "セキュリティ": "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+  "セキュリティ": "bg-destructive/10 text-destructive dark:bg-destructive/20",
   "運用保守": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
 };
 

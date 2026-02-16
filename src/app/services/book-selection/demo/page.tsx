@@ -246,9 +246,9 @@ function statusBadgeVariant(
 }
 
 function statusBarColor(status: "適正" | "不足" | "過多"): string {
-  if (status === "不足") return "bg-red-500";
+  if (status === "不足") return "bg-destructive";
   if (status === "過多") return "bg-primary";
-  return "bg-emerald-500";
+  return "bg-success";
 }
 
 // --- コンポーネント ---
@@ -450,11 +450,11 @@ export default function BookSelectionDemoPage() {
 
                 <div className="flex flex-wrap gap-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="size-3 rounded-full bg-emerald-500" />
+                    <div className="size-3 rounded-full bg-success" />
                     <span>適正</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="size-3 rounded-full bg-red-500" />
+                    <div className="size-3 rounded-full bg-destructive" />
                     <span>不足（需要超過）</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -506,7 +506,7 @@ export default function BookSelectionDemoPage() {
                             key={row.ndc}
                             className={`border-b transition-colors ${
                               isShortage
-                                ? "bg-red-50 dark:bg-red-950/20"
+                                ? "bg-destructive/10 dark:bg-destructive/10"
                                 : isExcess
                                   ? "bg-primary/5"
                                   : ""

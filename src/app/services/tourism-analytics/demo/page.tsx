@@ -65,9 +65,9 @@ const LANGUAGES = [
 ];
 
 const SENTIMENTS = {
-  positive: { label: "ポジティブ", percent: 68, color: "bg-emerald-500" },
+  positive: { label: "ポジティブ", percent: 68, color: "bg-success" },
   neutral: { label: "中立", percent: 22, color: "bg-muted-foreground" },
-  negative: { label: "ネガティブ", percent: 10, color: "bg-red-500" },
+  negative: { label: "ネガティブ", percent: 10, color: "bg-destructive" },
 };
 
 const REPRESENTATIVE_POSTS = [
@@ -76,7 +76,7 @@ const REPRESENTATIVE_POSTS = [
     lang: "日本語",
     langColor: "bg-primary/10 text-primary/90",
     sentiment: "ポジティブ",
-    sentimentColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+    sentimentColor: "bg-success/10 text-success dark:bg-success/20",
     icon: <ThumbsUp className="size-4 text-success" />,
   },
   {
@@ -92,7 +92,7 @@ const REPRESENTATIVE_POSTS = [
     lang: "韓国語",
     langColor: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
     sentiment: "ネガティブ",
-    sentimentColor: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+    sentimentColor: "bg-destructive/10 text-destructive dark:bg-destructive/20",
     icon: <ThumbsDown className="size-4 text-destructive" />,
   },
 ];

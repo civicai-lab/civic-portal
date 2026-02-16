@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 
@@ -121,26 +122,37 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-card">
       {/* Hero */}
-      <AnimatedSection animation="fade-up">
-        <section className="border-b border-border py-16">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-4">
-              <Breadcrumb
-                items={[
-                  { label: "ホーム", href: "/" },
-                  { label: "プライバシーポリシー" },
-                ]}
-              />
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+      <section className="relative overflow-hidden py-20 text-primary-foreground">
+        <Image
+          src="/images/tech/blockchain-security.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <Breadcrumb
+              items={[
+                { label: "ホーム", href: "/" },
+                { label: "プライバシーポリシー" },
+              ]}
+            />
+          </div>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               プライバシーポリシー
             </h1>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-primary-foreground/80">
               最終更新日: 2026年1月1日
             </p>
-          </div>
-        </section>
-      </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* 目次 */}
       <AnimatedSection animation="fade-up" delay={100}>

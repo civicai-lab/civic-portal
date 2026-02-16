@@ -54,17 +54,17 @@ const SYSTEMS: AuditSystem[] = [
 ];
 
 const RISK_COLORS: Record<RiskLevel, string> = {
-  Low: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  Low: "bg-success/10 text-success dark:bg-success/20",
   Medium: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
   High: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
-  Critical: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+  Critical: "bg-destructive/10 text-destructive dark:bg-destructive/20",
 };
 
 const RISK_DOT_COLORS: Record<RiskLevel, string> = {
-  Low: "bg-emerald-500",
+  Low: "bg-success",
   Medium: "bg-amber-500",
   High: "bg-orange-500",
-  Critical: "bg-red-500",
+  Critical: "bg-destructive",
 };
 
 interface Improvement {
@@ -88,9 +88,9 @@ const IMPROVEMENTS: Improvement[] = [
 ];
 
 const PRIORITY_COLORS: Record<string, string> = {
-  High: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+  High: "bg-destructive/10 text-destructive dark:bg-destructive/20",
   Medium: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
-  Low: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  Low: "bg-success/10 text-success dark:bg-success/20",
 };
 
 const IMPACT_LABELS = ["", "低", "中", "高", "致命的"];
@@ -239,8 +239,8 @@ export default function AiAuditDemoPage() {
                               (s) => s.impact === impact && s.probability === prob
                             );
                             const dangerLevel = impact + prob;
-                            let bgColor = "bg-emerald-50 dark:bg-emerald-950/30";
-                            if (dangerLevel >= 7) bgColor = "bg-red-50 dark:bg-red-950/30";
+                            let bgColor = "bg-success/10 dark:bg-success/10";
+                            if (dangerLevel >= 7) bgColor = "bg-destructive/10 dark:bg-destructive/10";
                             else if (dangerLevel >= 5) bgColor = "bg-amber-50 dark:bg-amber-950/30";
                             else if (dangerLevel >= 4) bgColor = "bg-yellow-50 dark:bg-yellow-950/30";
 
@@ -307,9 +307,9 @@ export default function AiAuditDemoPage() {
               return (
                 <div key={priority}>
                   <div className="flex items-center gap-2 mb-4">
-                    {priority === "High" && <XCircle className="size-5 text-red-500 dark:text-red-400" />}
+                    {priority === "High" && <XCircle className="size-5 text-destructive" />}
                     {priority === "Medium" && <AlertTriangle className="size-5 text-amber-500 dark:text-amber-400" />}
-                    {priority === "Low" && <CheckCircle2 className="size-5 text-emerald-500 dark:text-emerald-400" />}
+                    {priority === "Low" && <CheckCircle2 className="size-5 text-success" />}
                     <h3 className="font-semibold text-foreground">
                       優先度: {priority}
                     </h3>
