@@ -56,9 +56,9 @@ const PROGRAMS = [
 ];
 
 const LEVEL_COLORS: Record<string, string> = {
-  入門: "bg-emerald-100 text-emerald-800",
+  入門: "bg-success/15 text-success",
   中級: "bg-primary/10 text-primary/90",
-  上級: "bg-purple-100 text-purple-800",
+  上級: "bg-chart-5/15 text-chart-5",
 };
 
 const MILESTONES = [
@@ -283,7 +283,7 @@ export default function AiReskillingDemoPage() {
                           <span className="text-xs text-muted-foreground">
                             自己: {selfRating} / 推奨: {recommended}
                             {gap > 0 && (
-                              <Badge className="ml-2 bg-amber-100 text-amber-800 text-xs">
+                              <Badge className="ml-2 bg-warning/15 text-warning-foreground text-xs">
                                 GAP: -{gap}
                               </Badge>
                             )}

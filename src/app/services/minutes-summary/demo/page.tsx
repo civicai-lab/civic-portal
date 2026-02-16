@@ -535,7 +535,7 @@ function Step3Result({ onReset }: { onReset: () => void }) {
                         {topic.decisions.map((dec, j) => (
                           <div
                             key={j}
-                            className="flex items-start gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
+                            className="flex items-start gap-2 rounded-lg border border-success/30 bg-success/10 px-4 py-3 text-sm text-success"
                           >
                             <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600" />
                             {dec}

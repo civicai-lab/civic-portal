@@ -66,8 +66,8 @@ const MOCK_BOOKS: BookData[] = [
 // --- 在庫ステータスの表示 ---
 
 const STATUS_MAP: Record<BookData["status"], { label: string; color: string }> = {
-  available: { label: "在庫あり", color: "bg-green-100 text-green-800" },
-  lending: { label: "貸出中", color: "bg-amber-100 text-amber-800" },
+  available: { label: "在庫あり", color: "bg-success/15 text-success" },
+  lending: { label: "貸出中", color: "bg-warning/15 text-warning-foreground" },
   reserve: { label: "取り寄せ可", color: "bg-primary/10 text-primary/90" },
 };
 

@@ -175,7 +175,7 @@ const emergencyKeywords = [
 ];
 
 const matchLevelConfig = {
-  high: { label: "高", className: "bg-emerald-100 text-emerald-800" },
+  high: { label: "高", className: "bg-success/15 text-success" },
   medium: { label: "中", className: "bg-primary/10 text-primary/90" },
   low: { label: "低", className: "bg-slate-100 text-slate-700" },
 };
@@ -210,7 +210,7 @@ function ProgressBar({
 
 function EmergencyBanner() {
   return (
-    <div className="rounded-lg border-2 border-red-300 bg-red-50 p-4">
+    <div className="rounded-lg border-2 border-destructive/30 bg-destructive/10 p-4">
       <div className="flex items-start gap-3">
         <AlertTriangle className="mt-0.5 size-5 shrink-0 text-red-600" />
         <div>

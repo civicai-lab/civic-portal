@@ -132,9 +132,9 @@ const mockFacilities: Facility[] = [
 ];
 
 const availabilityConfig = {
-  available: { label: "空き", className: "bg-emerald-100 text-emerald-800" },
-  few: { label: "残りわずか", className: "bg-amber-100 text-amber-800" },
-  full: { label: "満室", className: "bg-red-100 text-red-800" },
+  available: { label: "空き", className: "bg-success/15 text-success" },
+  few: { label: "残りわずか", className: "bg-warning/15 text-warning-foreground" },
+  full: { label: "満室", className: "bg-destructive/15 text-destructive" },
 };
 
 const checklistItems = [
@@ -527,7 +527,7 @@ export default function FacilityConciergeDemo() {
                     <Separator />
 
                     {/* 注意事項 */}
-                    <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+                    <div className="rounded-lg border border-warning/30 bg-warning/10 p-4">
                       <div className="flex items-start gap-2">
                         <AlertCircle className="mt-0.5 size-4 shrink-0 text-amber-600" />
                         <div className="text-sm text-amber-800">

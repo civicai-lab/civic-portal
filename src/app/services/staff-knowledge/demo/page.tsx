@@ -72,9 +72,9 @@ const MOCK_DOCS: Document[] = [
 ];
 
 const ACCESS_CONFIG: Record<AccessLevel, { label: string; icon: string; className: string }> = {
-  public: { label: "公開", icon: "\uD83D\uDD13", className: "bg-green-100 text-green-800" },
-  internal: { label: "課内限定", icon: "\uD83D\uDD12", className: "bg-amber-100 text-amber-800" },
-  confidential: { label: "機密", icon: "\uD83D\uDD34", className: "bg-red-100 text-red-800" },
+  public: { label: "公開", icon: "\uD83D\uDD13", className: "bg-success/15 text-success" },
+  internal: { label: "課内限定", icon: "\uD83D\uDD12", className: "bg-warning/15 text-warning-foreground" },
+  confidential: { label: "機密", icon: "\uD83D\uDD34", className: "bg-destructive/15 text-destructive" },
 };
 
 const MOCK_AUDIT_LOG: AuditLogEntry[] = [

@@ -58,11 +58,11 @@ const FACILITIES: Facility[] = [
   { id: "10", name: "駅前ペデストリアンデッキ", type: "橋梁", age: 15, deterioration: 12, grade: "A" },
 ];
 
-const GRADE_CONFIG: Record<Grade, { label: string; className: string; description: string }> = {
-  A: { label: "良好", className: "bg-green-100 text-green-800", description: "健全な状態" },
-  B: { label: "経過観察", className: "bg-amber-100 text-amber-800", description: "軽微な劣化あり" },
-  C: { label: "要注意", className: "bg-orange-100 text-orange-800", description: "早期に対策が必要" },
-  D: { label: "要補修", className: "bg-red-100 text-red-800", description: "緊急対応が必要" },
+const GRADE_CONFIG: Record<Grade, { label: string; className: string; bgClass: string; description: string }> = {
+  A: { label: "良好", className: "bg-success/15 text-success", bgClass: "bg-success/10", description: "健全な状態" },
+  B: { label: "経過観察", className: "bg-warning/15 text-warning-foreground", bgClass: "bg-warning/10", description: "軽微な劣化あり" },
+  C: { label: "要注意", className: "bg-warning/15 text-warning-foreground", bgClass: "bg-warning/10", description: "早期に対策が必要" },
+  D: { label: "要補修", className: "bg-destructive/15 text-destructive", bgClass: "bg-destructive/10", description: "緊急対応が必要" },
 };
 
 const TYPE_ICONS: Record<FacilityType, React.ReactNode> = {
@@ -73,10 +73,10 @@ const TYPE_ICONS: Record<FacilityType, React.ReactNode> = {
 };
 
 const DETERIORATION_COLOR = (value: number): string => {
-  if (value >= 75) return "bg-red-500";
-  if (value >= 50) return "bg-orange-500";
-  if (value >= 25) return "bg-amber-500";
-  return "bg-green-500";
+  if (value >= 75) return "bg-destructive";
+  if (value >= 50) return "bg-warning";
+  if (value >= 25) return "bg-warning";
+  return "bg-success";
 };
 
 type SortKey = "name" | "age" | "deterioration" | "grade";
@@ -471,7 +471,7 @@ export default function InfraInspectionDemoPage() {
                       return (
                         <div
                           key={grade}
-                          className={`p-4 rounded-lg text-center ${config.className.replace("text-", "").includes("green") ? "bg-green-50" : config.className.replace("text-", "").includes("amber") ? "bg-amber-50" : config.className.replace("text-", "").includes("orange") ? "bg-orange-50" : "bg-red-50"}`}
+                          className={`p-4 rounded-lg text-center ${config.bgClass}`}
                         >
                           <p className="text-3xl font-bold">{count}</p>
                           <p className="text-xs mt-1 font-medium">

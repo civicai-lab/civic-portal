@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
 
   // バンドル最適化（lucide-react等のTree Shaking改善）
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "radix-ui", "class-variance-authority"],
   },
 
   // セキュリティヘッダー

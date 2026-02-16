@@ -197,9 +197,9 @@ AIの利用にあたっては、人権の尊重、差別の禁止、
 
 function StatusCell({ status }: { status: SectionStatus }) {
   const config: Record<SectionStatus, { className: string; label: string }> = {
-    "あり": { className: "bg-green-100 text-green-800", label: "あり" },
-    "なし": { className: "bg-red-100 text-red-800", label: "なし" },
-    "部分的": { className: "bg-amber-100 text-amber-800", label: "部分的" },
+    "あり": { className: "bg-success/15 text-success", label: "あり" },
+    "なし": { className: "bg-destructive/15 text-destructive", label: "なし" },
+    "部分的": { className: "bg-warning/15 text-warning-foreground", label: "部分的" },
   };
   const c = config[status];
   return (
@@ -222,9 +222,9 @@ function AnalysisStatusIcon({ status }: { status: AnalysisSection["status"] }) {
 
 function AnalysisStatusBadge({ status }: { status: AnalysisSection["status"] }) {
   const config: Record<AnalysisSection["status"], { className: string; label: string }> = {
-    complete: { className: "bg-green-100 text-green-800", label: "記載あり" },
-    partial: { className: "bg-amber-100 text-amber-800", label: "不十分" },
-    missing: { className: "bg-red-100 text-red-800", label: "欠落" },
+    complete: { className: "bg-success/15 text-success", label: "記載あり" },
+    partial: { className: "bg-warning/15 text-warning-foreground", label: "不十分" },
+    missing: { className: "bg-destructive/15 text-destructive", label: "欠落" },
   };
   const c = config[status];
   return (
@@ -417,19 +417,19 @@ export default function GuidelineServiceDemoPage() {
 
               {/* サマリー */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="p-3 rounded-lg bg-green-50 text-center">
+                <div className="p-3 rounded-lg bg-success/10 text-center">
                   <p className="text-2xl font-bold text-green-700">
                     {COMPARISON.filter((r) => r.self === "あり").length}
                   </p>
                   <p className="text-xs text-green-600 mt-1">記載あり</p>
                 </div>
-                <div className="p-3 rounded-lg bg-amber-50 text-center">
+                <div className="p-3 rounded-lg bg-warning/10 text-center">
                   <p className="text-2xl font-bold text-amber-700">
                     {COMPARISON.filter((r) => r.self === "部分的").length}
                   </p>
                   <p className="text-xs text-amber-600 mt-1">部分的</p>
                 </div>
-                <div className="p-3 rounded-lg bg-red-50 text-center">
+                <div className="p-3 rounded-lg bg-destructive/10 text-center">
                   <p className="text-2xl font-bold text-red-700">
                     {COMPARISON.filter((r) => r.self === "なし").length}
                   </p>
