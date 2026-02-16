@@ -21,6 +21,10 @@ import {
   CheckCircle,
   Lightbulb,
   BrainCircuit,
+  Quote,
+  MessageSquare,
+  FileCheck,
+  Rocket,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -337,6 +341,118 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-muted py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              導入自治体の声
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              実際にご利用いただいている方々からの評価
+            </p>
+          </AnimatedSection>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "AI司書の導入で、利用者からの質問対応が格段に改善しました。特に専門的なレファレンス対応で司書の負担が大幅に軽減されています。",
+                name: "中野区立図書館",
+                role: "図書館長",
+              },
+              {
+                quote: "住民問い合わせAIのおかげで、24時間対応が実現。夜間や休日の問い合わせにも対応でき、住民満足度が向上しました。",
+                name: "品川区役所",
+                role: "DX推進課",
+              },
+              {
+                quote: "庁内ナレッジ検索AIで、新人職員の業務習得が加速。これまで数ヶ月かかっていた引き継ぎが半分以下の期間になりました。",
+                name: "千葉市役所",
+                role: "総務部",
+              },
+            ].map((testimonial, i) => (
+              <AnimatedSection key={testimonial.name} animation="fade-up" delay={i * 150}>
+                <Card className="h-full">
+                  <CardContent className="pt-6">
+                    <Quote className="mb-4 size-8 text-primary/30" />
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {testimonial.quote}
+                    </p>
+                    <div className="mt-6 border-t pt-4">
+                      <p className="font-semibold text-foreground">{testimonial.name}</p>
+                      <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 導入ステップ */}
+      <section className="bg-card py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              導入までの流れ
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              3ステップで始められます
+            </p>
+          </AnimatedSection>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                step: 1,
+                icon: MessageSquare,
+                title: "無料相談",
+                description: "課題やご要望をヒアリング。最適なサービスをご提案します。オンラインでも対応可能です。",
+              },
+              {
+                step: 2,
+                icon: FileCheck,
+                title: "POC・実証実験",
+                description: "小規模な実証実験で効果を検証。データに基づいた導入判断をサポートします。",
+              },
+              {
+                step: 3,
+                icon: Rocket,
+                title: "本格導入・運用",
+                description: "段階的な導入と伴走支援。運用開始後も継続的なサポートを提供します。",
+              },
+            ].map((item, i) => (
+              <AnimatedSection key={item.step} animation="fade-up" delay={i * 150}>
+                <div className="relative text-center">
+                  {i < 2 && (
+                    <div className="absolute left-[calc(50%+2rem)] top-8 hidden h-0.5 w-[calc(100%-4rem)] bg-gradient-to-r from-primary/30 to-primary/10 md:block" />
+                  )}
+                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <item.icon className="size-7" />
+                  </div>
+                  <div className="mb-2 text-sm font-bold text-primary">
+                    STEP {item.step}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection animation="fade-up" delay={500}>
+            <div className="mt-12 text-center">
+              <Button variant="cta" size="lg" asChild>
+                <Link href="/contact">
+                  まずは無料相談から
+                  <ArrowRight className="ml-2 size-4" />
+                </Link>
+              </Button>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
