@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "/", label: "ホーム" },
@@ -138,8 +139,9 @@ export function Header() {
           })}
         </nav>
 
-        {/* CTA ボタン + モバイルメニュー */}
-        <div className="flex items-center gap-3">
+        {/* CTA ボタン + テーマ切替 + モバイルメニュー */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild size="sm" className="hidden md:inline-flex">
             <Link href="/contact">無料相談</Link>
           </Button>

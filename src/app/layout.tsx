@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import { Source_Sans_3 } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ToastProvider } from "@/components/ui/toast";
@@ -93,17 +94,19 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd),
           }}
         />
-        <ToastProvider>
-          <a href="#main-content" className="skip-link">
-            メインコンテンツにスキップ
-          </a>
-          <Header />
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <ScrollToTop />
-        </ToastProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ToastProvider>
+            <a href="#main-content" className="skip-link">
+              メインコンテンツにスキップ
+            </a>
+            <Header />
+            <main id="main-content" className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <ScrollToTop />
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
