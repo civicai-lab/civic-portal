@@ -510,7 +510,7 @@ export default function ShioriAcademicDemoPage() {
           {/* 論文カード一覧 */}
           <div className="space-y-3">
             {searchResults.map((paper, index) => (
-              <div key={paper.id} className="animate-in fade-in slide-in-from-bottom-2 duration-300" style={{ animationDelay: `${index * 50}ms`, animationFillMode: "backwards" }}>
+              <div key={paper.id} className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-300" style={{ animationDelay: `${index * 50}ms`, animationFillMode: "backwards" }}>
                 <PaperCard
                   paper={paper}
                   onCite={setCitationPaper}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -50,6 +50,13 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      successRef.current?.focus();
+    }
+  }, [isSubmitted]);
 
   function validateForm(): FormErrors {
     const newErrors: FormErrors = {};
@@ -119,7 +126,7 @@ export default function ContactPage() {
   if (isSubmitted) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-muted px-4">
-        <Card className="w-full max-w-md text-center animate-scale-in">
+        <Card ref={successRef} tabIndex={-1} className="w-full max-w-md text-center animate-scale-in outline-none">
           <CardHeader>
             <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-success/10 animate-in zoom-in-50 duration-500">
               <CheckCircle className="size-8 text-success" />
