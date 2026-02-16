@@ -12,7 +12,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/services";
-import { ArrowLeft, CheckCircle, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle,
+  Loader2,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 interface FormData {
   name: string;
@@ -40,6 +47,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
 
   function validateForm(): FormErrors {
@@ -78,7 +86,7 @@ export default function ContactPage() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setHasAttemptedSubmit(true);
 
@@ -93,13 +101,18 @@ export default function ContactPage() {
     }
 
     setErrors({});
+    setServerError(null);
     setIsSubmitting(true);
 
-    // バックエンド未接続のため、送信完了をシミュレート
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // バックエンド未接続のため、送信完了をシミュレート
+      await new Promise<void>((resolve) => setTimeout(resolve, 1000));
       setIsSubmitted(true);
-    }, 1000);
+    } catch {
+      setServerError("送信に失敗しました。もう一度お試しください。");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (isSubmitted) {
@@ -117,9 +130,27 @@ export default function ContactPage() {
               内容を確認の上、2営業日以内にご連絡いたします。
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col items-center gap-3">
             <Button asChild>
               <Link href="/">トップページに戻る</Link>
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setIsSubmitted(false);
+                setFormData({
+                  name: "",
+                  email: "",
+                  organization: "",
+                  serviceSlug: "",
+                  message: "",
+                });
+                setErrors({});
+                setServerError(null);
+                setHasAttemptedSubmit(false);
+              }}
+            >
+              別のお問い合わせを送る
             </Button>
           </CardContent>
         </Card>
@@ -163,6 +194,14 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {serverError && (
+                    <div
+                      role="alert"
+                      className="mb-6 rounded-md bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                    >
+                      {serverError}
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* 名前 */}
                     <div>
@@ -326,7 +365,14 @@ export default function ContactPage() {
                       className="w-full"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "送信中..." : "送信する"}
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 size-4 animate-spin" />
+                          送信中...
+                        </>
+                      ) : (
+                        "送信する"
+                      )}
                     </Button>
                   </form>
                 </CardContent>

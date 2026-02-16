@@ -244,10 +244,16 @@ export default function AiAuditDemoPage() {
                             else if (dangerLevel >= 5) bgColor = "bg-amber-50";
                             else if (dangerLevel >= 4) bgColor = "bg-yellow-50";
 
+                            let riskLabel = "低リスク";
+                            if (dangerLevel >= 7) riskLabel = "高リスク";
+                            else if (dangerLevel >= 5) riskLabel = "中リスク";
+                            else if (dangerLevel >= 4) riskLabel = "やや低リスク";
+
                             return (
                               <div
                                 key={`${impact}-${prob}`}
                                 className={`${bgColor} border rounded-md p-2 min-h-[70px] flex flex-col gap-1`}
+                                aria-label={`影響度${IMPACT_LABELS[impact]}・発生確率${PROBABILITY_LABELS[prob]}: ${riskLabel}`}
                               >
                                 {cellSystems.map((sys) => (
                                   <div key={sys.id} className="flex items-center gap-1">

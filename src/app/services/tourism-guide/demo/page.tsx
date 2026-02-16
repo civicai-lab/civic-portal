@@ -293,7 +293,7 @@ function SpotCard({ spot, lang }: { spot: SpotData; lang: Language }) {
             <h4 className="font-bold text-sm text-foreground">
               {spot.name[lang]}
             </h4>
-            <Badge variant="secondary" className={`text-[10px] shrink-0 gap-1 ${catColor}`}>
+            <Badge variant="secondary" className={`text-[10px] shrink-0 gap-1 ${catColor}`} aria-label={spot.category + "カテゴリ"}>
               {catIcon}
               {spot.category}
             </Badge>

@@ -370,12 +370,13 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, population: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.population === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
                       }`}
                       aria-pressed={answers.population === opt.value}
+                      aria-label={opt.label + "を選択"}
                     >
                       <span className="text-sm font-medium text-foreground">{opt.label}</span>
                     </button>
@@ -397,12 +398,13 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, itEnv: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.itEnv === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
                       }`}
                       aria-pressed={answers.itEnv === opt.value}
+                      aria-label={opt.label + "を選択"}
                     >
                       <span className="text-sm font-medium text-foreground">{opt.label}</span>
                     </button>
@@ -424,12 +426,13 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => togglePurpose(opt.value)}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.purposes.includes(opt.value)
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
                       }`}
                       aria-pressed={answers.purposes.includes(opt.value)}
+                      aria-label={opt.label + "を選択"}
                     >
                       <span className="text-sm font-medium text-foreground">{opt.label}</span>
                     </button>
@@ -456,12 +459,13 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, budget: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.budget === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
                       }`}
                       aria-pressed={answers.budget === opt.value}
+                      aria-label={opt.label + "を選択"}
                     >
                       <span className="text-sm font-medium text-foreground">{opt.label}</span>
                     </button>
@@ -483,12 +487,13 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, team: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 focus-visible:ring-2 focus-visible:ring-ring ${
                         answers.team === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
                       }`}
                       aria-pressed={answers.team === opt.value}
+                      aria-label={opt.label + "を選択"}
                     >
                       <span className="text-sm font-medium text-foreground">{opt.label}</span>
                     </button>
