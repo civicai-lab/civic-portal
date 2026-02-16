@@ -30,17 +30,22 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let rafId = 0;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-
-      // スクロール進捗を計算
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollHeight > 0) {
-        setScrollProgress(Math.min(window.scrollY / scrollHeight, 1));
-      }
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 10);
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollHeight > 0) {
+          setScrollProgress(Math.min(window.scrollY / scrollHeight, 1));
+        }
+      });
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   // ページ遷移時にモバイルメニューを閉じる

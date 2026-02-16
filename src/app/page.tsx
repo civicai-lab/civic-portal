@@ -86,14 +86,14 @@ export default function HomePage() {
               <AnimatedSection key={stat.label} animation="fade-up" delay={index * 100} className="text-center">
                 <stat.icon className="mx-auto mb-3 size-8 text-primary" />
                 {stat.display ? (
-                  <div className="text-3xl font-bold text-foreground md:text-4xl">
+                  <div className="text-3xl font-bold text-foreground md:text-4xl min-h-[2.5rem]">
                     {stat.display}
                   </div>
                 ) : (
                   <CountUp
                     end={stat.end}
                     suffix={stat.suffix}
-                    className="text-3xl font-bold text-foreground md:text-4xl"
+                    className="text-3xl font-bold text-foreground md:text-4xl min-h-[2.5rem]"
                   />
                 )}
                 <div className="mt-1 text-sm text-muted-foreground">
@@ -122,9 +122,8 @@ export default function HomePage() {
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 className="group"
-                aria-label={service.displayName + "の詳細を見る"}
               >
-                <Card className="h-full cursor-pointer transition-shadow hover:shadow-lg">
+                <Card className="h-full cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
                   <div className="relative h-40 w-full overflow-hidden rounded-t-lg">
                     <Image
                       src={getServiceThumbnail(service.slug)}

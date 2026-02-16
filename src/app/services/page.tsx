@@ -39,7 +39,7 @@ const subcategoryLabels = [
 function ServiceCard({ service }: { service: ServiceData }) {
   return (
     <Link href={`/services/${service.slug}`} className="group cursor-pointer">
-      <Card className="h-full transition-shadow duration-200 hover:shadow-lg">
+      <Card className="h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
         <div className="relative h-40 w-full overflow-hidden">
           <Image
             src={getServiceThumbnail(service.slug)}

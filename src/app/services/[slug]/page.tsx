@@ -350,6 +350,7 @@ export default async function ServiceDetailPage({
           sizes="100vw"
           className="object-cover"
           priority
+          fetchPriority="high"
           placeholder="blur"
           blurDataURL={shimmerBlur}
         />

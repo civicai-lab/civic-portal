@@ -1,12 +1,12 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H24）
+- 作業中: UI/UX洗練（Phase H33完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 32/32パス（Playwright, 10.3秒）
-- 直近コミット: e99dc18 — UX改善第4弾
-- 直近完了: Phase H26 コンタクトフォーム+ローディングUX改善（未コミット）
+- E2Eテスト: 32/32パス（Playwright, ~7秒）
+- 直近コミット: ed19faa — Phase H33 a11y強化+テーブルレスポンシブ改善
+- 直近完了: Phase H33 a11y強化+テーブルレスポンシブ改善
 - Vercel: https://civic-portal-nine.vercel.app
 
 ## Completed (UI/UX改善 Phase A-D)
@@ -182,25 +182,101 @@
 - サービス詳細カードhover:shadow-lg統一
 - next.config.ts deviceSizes/imageSizes最適化
 
-### Phase H24: ホームページ+グローバルUI改善（未コミット）
-- header.tsx: スクロール進捗バー追加（高さ2px、primary色グラデーション、scaleX変形、ダークモード対応、aria-progressbar）
-- page.tsx: パートナーロゴをdivでラップ、ホバー時scale-105+bg-muted/30のラウンドパッド
-- page.tsx: 資格バッジをrounded-xl bg-muted/30 p-4のカード風コンテナにラップ、hover:scale-110
-- globals.css: @keyframes pulse-subtle追加（opacity 0.6→1サイクル、2s）
-- page.tsx: HeroセクションCTA「無料相談」ボタンにpulse-subtleアニメーション追加
-- reduced-motion対応: pulse-subtleアニメーションもprefers-reduced-motionで無効化
-- services/[slug]/page.tsx: Hero H1レスポンシブサイズ段階化（text-2xl sm:3xl md:4xl lg:5xl）
-- services/[slug]/page.tsx: FeatureCardにborder-l-4 border-l-primary追加（左ボーダーアクセント）
-- theme-toggle.tsx: Sun/Moonアイコンにtransition-transform duration-300+group-hover:rotate遷移、hover:bg-muted
-- button.tsx: outlineバリアントにhover:border-primary/50追加（ライト/ダーク両対応）
+### Phase H24: UX改善第5弾（9155b74）
+- パフォーマンス: 不要Next.jsデフォルトSVG5個削除、未参照JPGロゴ2個削除
+- OG画像: og-image.jpg→WebP変換、layout.tsxにOG/Twitter Card画像設定+metadataBase
+- スクロール進捗バー: header最下部2px、primary色グラデーション、scaleX変形
+- パートナーロゴ: hover:scale-105+bg-muted/30ラウンドパッド
+- 資格バッジ: カード風コンテナ+hover:scale-110
+- Hero CTA: pulse-subtleアニメーション（reduced-motion対応）
+- フォーム: focus:ring-[3px]統一、focus:bg-primary/[0.02]、エラー時bg-destructive/5
+- 成功画面: stagger fade-in+zoom-inアニメーション
+- タブ: アクティブ下線→primary色、非アクティブhover:bg-accent/50
+- テーマトグル: rotate遷移+hover:bg-muted
+- Outlineボタン: hover:border-primary/50
+- スケルトンUI: stagger-in段階表示
+- Back to Top: バウンスイージング+hover:scale-110+レスポンシブ位置
+- フッター: dark:hover:text-primary統一
+- scroll-behavior: smooth（reduced-motion対応）
+- サービス詳細: Hero H1 4段階レスポンシブ、FeatureCard左ボーダーアクセント
+
+### Phase H25: error.tsx改善+PWA+blurDataURL+a11y+ページ充実（c8219e1 → c3a86f4）
+- error.tsx: Button+lucide icons化（AlertTriangle/RefreshCw/Home）
+- PWA: manifest.json追加、layout.tsxにmanifestリンク
+- shimmerBlur: lib/utils.tsに共通blur SVG定義、ホーム+サービス一覧のImageに適用
+- globals.css: OKLCH色修正（hsl()ラッパー→var()/color-mix()に5箇所修正）
+- FAQ: CSS grid-template-rows + opacity transitionアニメーション追加
+- motion-safe: 6デモページの23 animate-bounce/pulse→motion-safe:プレフィックス
+- サービス詳細: 料金カード視覚差別化（ring-primary, scale-[1.02], おすすめBadge）、CTA pulse
+- about: Hero AnimatedSection、実績数値強化、チーム gradient placeholders
+- cases: 成果バッジ（TrendingUp）、AnimatedSection、hover効果
+- news: グラデーションHero、カテゴリ色分け、Calendar日付アイコン
+- count-up: decimalsプロパティ追加、useEffect依存配列修正
+
+### Phase H26: privacy/terms/careers充実+blurDataURL+aria-live（58f0dc0 → ffa65cb）
+- privacy: AnimatedSection + TOC目次 + 9セクション拡充
+- terms: AnimatedSection + TOC目次 + 11セクション拡充
+- careers: Why Civic AIセクション + 職種アイコン + AnimatedSection全面
+- blurDataURL: about/cases/news/services/[slug]のImage全てにshimmerBlur追加
+- alt属性: サービス詳細HeroのImage alt=""→service.displayName+"イメージ画像"
+- aria-live: 6チャットデモのメッセージコンテナにaria-live="polite"追加
+- レスポンシブ: ai-auditデモKPIグリッドにmd:grid-cols-2追加
+
+### Phase H27: ダークモードコントラスト+ホバー効果（2a1bbb1）
+- feature-grid: アイコンbg dark:bg-primary/20 + Card hover:bg-muted/30
+- pricing: 推奨プラン dark:ring-primary/70
+- hero/cta: ボタン dark:hover 調整
+- breadcrumb: セパレータ /50→/70 コントラスト向上
+- service-card: hover:bg-muted/20 追加
+- contact: フォーカスbg dark:/[0.04]→/[0.08]、連絡先テキスト /60→/70
+- faq: アコーディオン dark:open:bg-muted/40
+
+### Phase H28: header/footer改善+デモ一貫性（c2a6e48）
+- header: ロゴh-8→h-9タッチターゲット拡大、focus-visible ring-offset追加、max-h-[80vh]
+- footer: LinkedIn追加、リンクhover:underline追加
+- デモ: チャット吹き出しmax-w-[75%]→[80%]統一（6ページ）
+- デモ: TypingIndicator role="status" aria-label="応答を生成中"追加
+
+### Phase H29: 視覚レビュー指摘修正（6c624ec）
+- shiori-library/demo: text-green-700→text-success デザイントークン
+- count-up: aria-label追加（最終値をスクリーンリーダーに通知）
+- about: チームメンバーに架空人名追加、CTO gradient→thinktank、実績グリッドsm:grid-cols-3
+- contact: Breadcrumbパンくずリスト追加
+
+### Phase H30: ステータス色セマンティックトークン統一（ea84d46）
+- contact: text-red-500→text-destructive（必須マーク5箇所）
+- minutes-summary/demo: text-green→text-success（完了/コピー成功3箇所）
+- guideline-service/demo: 完了/不十分/欠落→success/warning-foreground/destructive（10箇所）
+- facility-concierge/demo: 成功/注意→success/warning-foreground（3箇所）
+- cases: 成果バッジ emerald→success（1箇所）
+- services/[slug]: 課題ラベル red→destructive（1箇所）
+
+### Phase H31: 7デモ ステータス色セマンティック統一（b34bcf8 → 3630b1e）
+- welfare-navigator/demo: EmergencyBanner text-red→destructive + 成功→success（7箇所）
+- disaster-guide/demo: 緊急バナー/モードボタン/避難所占有率/クイズ/電話→destructive/warning/success（15箇所）
+- pubcom-analysis/demo: 賛成/反対→success/destructive（4箇所）
+- book-selection/demo: 蔵書過剰→destructive, 注意→warning-foreground（3箇所）
+- ai-lab/demo: CheckCircle2→success（1箇所）
+- tourism-analytics/demo: YoY変化率/ポジティブ/ネガティブ→success/destructive（8箇所）
+- infra-inspection/demo: BarChart3→warning-foreground（1箇所）
+
+### Phase H32: サービス一覧フィルタ改善（ffd2ff3）
+- フィルタクリアボタン追加（Xアイコン付きghost variant）
+- フィルタアクティブ時のみ表示
+
+### Phase H33: a11y強化+テーブルレスポンシブ改善（ed19faa）
+- aria-pressed: services/page フィルタ + disaster-guide/tourism-guide/ai-lab トグルボタン
+- テーブルcaption: infra-inspection/rfp-support/guideline-service にsr-only caption追加
+- テーブルmin-w: infra-inspection/guideline-service/book-selection(2テーブル)にmin-w-[600px]
+- avatar-character: TypingIndicatorドット bg-amber-400→bg-warning(3箇所)
 
 ## Next
-- [ ] パフォーマンス最適化（Lighthouse）
-- [ ] UI/UXさらなる改善（ユーザーフィードバックベース）
-- [ ] 不要デフォルトファイル削除（vercel.svg等）
+- [ ] Lighthouseスコア計測+改善
+- [ ] デモページ共通コンポーネント抽出（ChatMessage, TypingIndicator等）
+- [ ] 残カテゴリ色分けはデータ可視化用途のため変更不要
 
 ## Blocked
 - なし
 
 ---
-*最終更新: 2026-02-17 Phase H24 ホームページ+グローバルUI改善*
+*最終更新: 2026-02-17 Phase H33 a11y強化+テーブルレスポンシブ改善*
