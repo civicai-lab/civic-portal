@@ -10,6 +10,17 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "採用情報",
   description: "シビックAI総合研究所の採用情報・募集職種",
+  openGraph: {
+    title: "採用情報 | Civic AI",
+    description: "AIで行政を変える仲間を募集。AIエンジニア、フロントエンド、カスタマーサクセス。",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "採用情報 | Civic AI",
+    description: "シビックAI総合研究所の採用情報・募集職種",
+  },
 };
 
 const positions = [

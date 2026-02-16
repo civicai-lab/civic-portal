@@ -10,6 +10,17 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "導入事例",
   description: "Civic AIサービスの自治体導入事例をご紹介します",
+  openGraph: {
+    title: "導入事例 | Civic AI",
+    description: "全国の自治体でのAI活用事例をご紹介。図書館AI、住民対応AI、庁内ナレッジ検索AIなどの導入実績。",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "導入事例 | Civic AI",
+    description: "全国の自治体でのAI活用事例をご紹介します",
+  },
 };
 
 const cases = [

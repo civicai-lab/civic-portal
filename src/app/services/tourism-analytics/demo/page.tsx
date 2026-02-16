@@ -125,7 +125,7 @@ export default function TourismAnalyticsDemoPage() {
 
       {/* KPIカード */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Users className="size-4 text-muted-foreground" />
@@ -136,35 +136,35 @@ export default function TourismAnalyticsDemoPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Clock className="size-4 text-muted-foreground" />
               <p className="text-sm text-muted-foreground">平均滞在時間</p>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
+            <div className="text-2xl sm:text-3xl font-bold text-success">
               2.3<span className="text-base font-normal text-muted-foreground">日</span>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <Star className="size-4 text-muted-foreground" />
               <p className="text-sm text-muted-foreground">満足度</p>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-amber-600">
+            <div className="text-2xl sm:text-3xl font-bold text-warning">
               4.2<span className="text-base font-normal text-muted-foreground">/ 5.0</span>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <div className="flex items-center gap-1.5 mb-1">
               <MessageCircle className="size-4 text-muted-foreground" />
               <p className="text-sm text-muted-foreground">SNS言及</p>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-purple-600">
+            <div className="text-2xl sm:text-3xl font-bold text-chart-5">
               <CountUp end={3421} />
             </div>
           </CardContent>
@@ -189,7 +189,7 @@ export default function TourismAnalyticsDemoPage() {
         </TabsList>
 
         {/* トレンドタブ */}
-        <TabsContent value="trend" className="mt-6">
+        <TabsContent value="trend" className="mt-6 animate-tab-fade-in">
           <Card>
             <CardHeader>
               <CardTitle>月別訪問者数</CardTitle>
@@ -235,7 +235,7 @@ export default function TourismAnalyticsDemoPage() {
         </TabsContent>
 
         {/* 言語分析タブ */}
-        <TabsContent value="language" className="mt-6">
+        <TabsContent value="language" className="mt-6 animate-tab-fade-in">
           <Card>
             <CardHeader>
               <CardTitle>言語別比率</CardTitle>
@@ -280,7 +280,7 @@ export default function TourismAnalyticsDemoPage() {
         </TabsContent>
 
         {/* 感情分析タブ */}
-        <TabsContent value="sentiment" className="mt-6">
+        <TabsContent value="sentiment" className="mt-6 animate-tab-fade-in">
           <Card>
             <CardHeader>
               <CardTitle>感情分析結果</CardTitle>

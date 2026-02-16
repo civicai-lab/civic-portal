@@ -364,7 +364,7 @@ export default async function ServiceDetailPage({
               {audienceLabel}
             </Badge>
             {service.priority === "S" && (
-              <Badge className="bg-amber-500 text-white">注力サービス</Badge>
+              <Badge className="bg-warning text-warning-foreground">注力サービス</Badge>
             )}
           </div>
           <h1 className="text-3xl font-bold tracking-tight md:text-5xl">

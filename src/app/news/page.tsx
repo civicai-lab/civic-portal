@@ -7,6 +7,17 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "ニュース",
   description: "シビックAI総合研究所からの最新ニュース・お知らせ",
+  openGraph: {
+    title: "ニュース | Civic AI",
+    description: "シビックAI総合研究所からの最新ニュース・プレスリリース・イベント情報",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "ニュース | Civic AI",
+    description: "シビックAI総合研究所からの最新ニュース・お知らせ",
+  },
 };
 
 const newsItems = [

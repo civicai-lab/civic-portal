@@ -109,10 +109,10 @@ function getTotalScore(scores: number[]): number {
 }
 
 function getLevel(score: number): { label: string; className: string } {
-  if (score >= 80) return { label: "最適化", className: "bg-green-100 text-green-800" };
-  if (score >= 60) return { label: "成熟", className: "bg-primary/10 text-primary/90" };
-  if (score >= 40) return { label: "成長", className: "bg-amber-100 text-amber-800" };
-  return { label: "初期", className: "bg-red-100 text-red-800" };
+  if (score >= 80) return { label: "最適化", className: "bg-success/15 text-success" };
+  if (score >= 60) return { label: "成熟", className: "bg-primary/10 text-primary" };
+  if (score >= 40) return { label: "成長", className: "bg-warning/15 text-warning-foreground" };
+  return { label: "初期", className: "bg-destructive/15 text-destructive" };
 }
 
 function getRecommendations(answers: DiagnosisAnswers): RecommendedService[] {
@@ -256,7 +256,7 @@ export default function AiStarterPackDemoPage() {
             <CardContent>
               <div className="space-y-4">
                 {SCORE_LABELS.map((label, idx) => (
-                  <div key={label}>
+                  <div key={label} className="animate-stagger-in">
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-sm text-foreground">{label}</span>
                       <span className="text-sm font-medium text-foreground">{scores[idx]}%</span>
@@ -265,12 +265,12 @@ export default function AiStarterPackDemoPage() {
                       <div
                         className={`h-full rounded-full transition-all duration-700 ease-out ${
                           scores[idx] >= 75
-                            ? "bg-green-500"
+                            ? "bg-success"
                             : scores[idx] >= 50
                             ? "bg-primary"
                             : scores[idx] >= 25
-                            ? "bg-amber-500"
-                            : "bg-red-500"
+                            ? "bg-warning"
+                            : "bg-destructive"
                         }`}
                         style={{ width: `${scores[idx]}%` }}
                         role="progressbar"
@@ -312,10 +312,10 @@ export default function AiStarterPackDemoPage() {
                             variant="secondary"
                             className={`text-xs ${
                               service.fit >= 85
-                                ? "bg-green-100 text-green-800"
+                                ? "bg-success/15 text-success"
                                 : service.fit >= 70
-                                ? "bg-primary/10 text-primary/90"
-                                : "bg-amber-100 text-amber-800"
+                                ? "bg-primary/10 text-primary"
+                                : "bg-warning/15 text-warning-foreground"
                             }`}
                           >
                             適合度 {service.fit}%
@@ -370,7 +370,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, population: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
                         answers.population === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -397,7 +397,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, itEnv: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
                         answers.itEnv === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -424,7 +424,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => togglePurpose(opt.value)}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
                         answers.purposes.includes(opt.value)
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -456,7 +456,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, budget: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
                         answers.budget === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"
@@ -483,7 +483,7 @@ export default function AiStarterPackDemoPage() {
                       key={opt.value}
                       type="button"
                       onClick={() => setAnswers((prev) => ({ ...prev, team: opt.value }))}
-                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer ${
+                      className={`p-4 rounded-lg border-2 text-left transition-all cursor-pointer active:scale-95 ${
                         answers.team === opt.value
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50"

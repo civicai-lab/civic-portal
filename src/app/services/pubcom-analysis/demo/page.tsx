@@ -169,7 +169,7 @@ export default function PubcomAnalysisDemoPage() {
           <div className="flex-1 min-w-0">
             {/* 統計サマリー */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              <Card>
+              <Card className="animate-stagger-in">
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">
                     総意見数
@@ -179,26 +179,26 @@ export default function PubcomAnalysisDemoPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="animate-stagger-in">
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">賛成率</p>
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
+                  <div className="text-2xl sm:text-3xl font-bold text-success">
                     <CountUp end={58} suffix=".3%" />
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="animate-stagger-in">
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">反対率</p>
-                  <div className="text-2xl sm:text-3xl font-bold text-red-500">
+                  <div className="text-2xl sm:text-3xl font-bold text-destructive">
                     <CountUp end={23} suffix=".1%" />
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="animate-stagger-in">
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">提案数</p>
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-600">
+                  <div className="text-2xl sm:text-3xl font-bold text-chart-5">
                     <CountUp end={234} suffix="件" />
                   </div>
                 </CardContent>
@@ -230,7 +230,7 @@ export default function PubcomAnalysisDemoPage() {
               </TabsList>
 
               {/* Tab 1: 意見分類 */}
-              <TabsContent value="classification" className="mt-6">
+              <TabsContent value="classification" className="mt-6 animate-tab-fade-in">
                 <Card>
                   <CardHeader>
                     <CardTitle>カテゴリ別意見数</CardTitle>
@@ -271,7 +271,7 @@ export default function PubcomAnalysisDemoPage() {
               </TabsContent>
 
               {/* Tab 2: 感情分析 */}
-              <TabsContent value="sentiment" className="mt-6">
+              <TabsContent value="sentiment" className="mt-6 animate-tab-fade-in">
                 <Card>
                   <CardHeader>
                     <CardTitle>感情分析結果</CardTitle>
@@ -368,7 +368,7 @@ export default function PubcomAnalysisDemoPage() {
               </TabsContent>
 
               {/* Tab 3: 主要論点 */}
-              <TabsContent value="topics" className="mt-6">
+              <TabsContent value="topics" className="mt-6 animate-tab-fade-in">
                 <div className="space-y-4">
                   {topics.map((topic, i) => (
                     <Card key={i}>
@@ -426,7 +426,7 @@ export default function PubcomAnalysisDemoPage() {
               </TabsContent>
 
               {/* Tab 4: レポート */}
-              <TabsContent value="report" className="mt-6">
+              <TabsContent value="report" className="mt-6 animate-tab-fade-in">
                 <Card>
                   <CardHeader>
                     <div className="flex items-center justify-between flex-wrap gap-4">
@@ -479,25 +479,25 @@ export default function PubcomAnalysisDemoPage() {
           {/* サイドバー（デスクトップのみ） */}
           <aside className="hidden lg:block w-72 shrink-0 space-y-6">
             {/* 炎上リスク検出 */}
-            <Card className="border-amber-300 bg-amber-50">
+            <Card className="border-warning/50 bg-warning/10">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <Flame className="size-5 text-amber-600" />
-                  <CardTitle className="text-amber-800 text-sm">
+                  <Flame className="size-5 text-warning" />
+                  <CardTitle className="text-warning-foreground text-sm">
                     炎上リスク検出
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <Badge className="bg-amber-500 text-white mb-3">注意</Badge>
-                <p className="text-sm text-amber-800">
+                <Badge className="bg-warning text-warning-foreground mb-3">注意</Badge>
+                <p className="text-sm text-warning-foreground">
                   交通政策に関する意見が急増しています。直近7日間で前週比
                   <strong>+180%</strong>の増加。SNS上でも関連する投稿が拡散中。
                 </p>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="mt-3 w-full text-amber-700 border-amber-300"
+                  className="mt-3 w-full text-warning-foreground border-warning/50 active:scale-95 transition-transform"
                 >
                   詳細を確認
                   <ChevronRight className="size-4" />
@@ -612,13 +612,13 @@ export default function PubcomAnalysisDemoPage() {
 
       {/* モバイル用 炎上リスク（lgで非表示） */}
       <div className="lg:hidden pb-4">
-        <Card className="border-amber-300 bg-amber-50">
+        <Card className="border-warning/50 bg-warning/10">
           <CardContent className="pt-0">
             <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle className="size-4 text-amber-600" />
-              <Badge className="bg-amber-500 text-white">注意</Badge>
+              <AlertTriangle className="size-4 text-warning" />
+              <Badge className="bg-warning text-warning-foreground">注意</Badge>
             </div>
-            <p className="text-sm text-amber-800">
+            <p className="text-sm text-warning-foreground">
               交通政策に関する意見が急増（前週比+180%）
             </p>
           </CardContent>

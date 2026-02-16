@@ -3,6 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "利用規約",
   description: "シビックAI総合研究所のサービス利用規約",
+  openGraph: {
+    title: "利用規約 | Civic AI",
+    description: "シビックAI総合研究所のサービス利用規約",
+    type: "website",
+    locale: "ja_JP",
+  },
 };
 
 export default function TermsPage() {

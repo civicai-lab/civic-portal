@@ -7,6 +7,17 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 export const metadata: Metadata = {
   title: "よくある質問",
   description: "Civic AIサービスに関するよくある質問と回答",
+  openGraph: {
+    title: "よくある質問 | Civic AI",
+    description: "導入期間、セキュリティ、料金体系など、Civic AIサービスに関するよくある質問にお答えします。",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "よくある質問 | Civic AI",
+    description: "Civic AIサービスに関するよくある質問と回答",
+  },
 };
 
 const faqs = [

@@ -333,7 +333,7 @@ export default function BookSelectionDemoPage() {
 
         {/* 統計サマリー */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card>
+          <Card className="animate-stagger-in">
             <CardContent className="pt-0">
               <div className="flex items-center gap-2 mb-1">
                 <BookOpen className="size-4 text-muted-foreground" />
@@ -344,18 +344,18 @@ export default function BookSelectionDemoPage() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="animate-stagger-in">
             <CardContent className="pt-0">
               <div className="flex items-center gap-2 mb-1">
                 <TrendingUp className="size-4 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">年間貸出</p>
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
+              <div className="text-2xl sm:text-3xl font-bold text-success">
                 <CountUp end={489210} suffix="回" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="animate-stagger-in">
             <CardContent className="pt-0">
               <div className="flex items-center gap-2 mb-1">
                 <BarChart3 className="size-4 text-muted-foreground" />
@@ -366,13 +366,13 @@ export default function BookSelectionDemoPage() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="animate-stagger-in">
             <CardContent className="pt-0">
               <div className="flex items-center gap-2 mb-1">
                 <ShoppingCart className="size-4 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">予算消化率</p>
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-purple-600">
+              <div className="text-2xl sm:text-3xl font-bold text-chart-5">
                 <CountUp end={87} suffix=".5%" />
               </div>
             </CardContent>
@@ -405,7 +405,7 @@ export default function BookSelectionDemoPage() {
           </TabsList>
 
           {/* Tab 1: NDC分類分布 */}
-          <TabsContent value="ndc" className="mt-6">
+          <TabsContent value="ndc" className="mt-6 animate-tab-fade-in">
             <Card>
               <CardHeader>
                 <CardTitle>NDC分類別 蔵書分布</CardTitle>
@@ -467,7 +467,7 @@ export default function BookSelectionDemoPage() {
           </TabsContent>
 
           {/* Tab 2: ギャップ分析 */}
-          <TabsContent value="gap" className="mt-6">
+          <TabsContent value="gap" className="mt-6 animate-tab-fade-in">
             <Card>
               <CardHeader>
                 <CardTitle>需要・供給ギャップ分析</CardTitle>
@@ -574,7 +574,7 @@ export default function BookSelectionDemoPage() {
           </TabsContent>
 
           {/* Tab 3: 推薦リスト */}
-          <TabsContent value="recommend" className="mt-6">
+          <TabsContent value="recommend" className="mt-6 animate-tab-fade-in">
             <Card>
               <CardHeader>
                 <div className="flex items-center justify-between flex-wrap gap-4">
@@ -669,7 +669,7 @@ export default function BookSelectionDemoPage() {
           </TabsContent>
 
           {/* Tab 4: 除籍候補 */}
-          <TabsContent value="disposal" className="mt-6">
+          <TabsContent value="disposal" className="mt-6 animate-tab-fade-in">
             <Card>
               <CardHeader>
                 <CardTitle>除籍候補リスト</CardTitle>

@@ -3,6 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description: "シビックAI総合研究所のプライバシーポリシー",
+  openGraph: {
+    title: "プライバシーポリシー | Civic AI",
+    description: "シビックAI総合研究所の個人情報保護方針",
+    type: "website",
+    locale: "ja_JP",
+  },
 };
 
 export default function PrivacyPage() {

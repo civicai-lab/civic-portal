@@ -159,7 +159,7 @@ export default function AiLabDemoPage() {
         </TabsList>
 
         {/* イベントタブ */}
-        <TabsContent value="events" className="mt-6">
+        <TabsContent value="events" className="mt-6 animate-tab-fade-in">
           {/* カテゴリフィルタ */}
           <div className="flex items-center gap-2 mb-4 flex-wrap">
             <Filter className="size-4 text-muted-foreground" />
@@ -231,7 +231,7 @@ export default function AiLabDemoPage() {
         </TabsContent>
 
         {/* プロジェクトタブ */}
-        <TabsContent value="projects" className="mt-6">
+        <TabsContent value="projects" className="mt-6 animate-tab-fade-in">
           <div className="space-y-4">
             {PROJECTS.map((project) => (
               <Card key={project.id}>
@@ -264,7 +264,7 @@ export default function AiLabDemoPage() {
         </TabsContent>
 
         {/* 審査タブ */}
-        <TabsContent value="evaluation" className="mt-6">
+        <TabsContent value="evaluation" className="mt-6 animate-tab-fade-in">
           {submitted ? (
             <Card className="text-center">
               <CardContent className="py-12">

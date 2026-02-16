@@ -109,7 +109,7 @@ export default function AiAuditDemoPage() {
     >
       {/* KPIカード */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">監査済み</p>
             <div className="text-2xl sm:text-3xl font-bold text-primary">
@@ -117,26 +117,26 @@ export default function AiAuditDemoPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">平均リスクスコア</p>
-            <div className="text-2xl sm:text-3xl font-bold text-amber-600">
+            <div className="text-2xl sm:text-3xl font-bold text-warning">
               3.2 <span className="text-base font-normal text-muted-foreground">/ 5.0</span>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">PII検出</p>
-            <div className="text-2xl sm:text-3xl font-bold text-red-500">
+            <div className="text-2xl sm:text-3xl font-bold text-destructive">
               <CountUp end={23} suffix="件" />
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="animate-stagger-in">
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">改善提案</p>
-            <div className="text-2xl sm:text-3xl font-bold text-purple-600">
+            <div className="text-2xl sm:text-3xl font-bold text-chart-5">
               <CountUp end={47} suffix="件" />
             </div>
           </CardContent>
@@ -164,7 +164,7 @@ export default function AiAuditDemoPage() {
         </TabsList>
 
         {/* システム一覧タブ */}
-        <TabsContent value="systems" className="mt-6">
+        <TabsContent value="systems" className="mt-6 animate-tab-fade-in">
           <div className="grid gap-4 sm:grid-cols-2">
             {SYSTEMS.map((sys) => (
               <Card
@@ -211,7 +211,7 @@ export default function AiAuditDemoPage() {
         </TabsContent>
 
         {/* リスクマトリクスタブ */}
-        <TabsContent value="matrix" className="mt-6">
+        <TabsContent value="matrix" className="mt-6 animate-tab-fade-in">
           <Card>
             <CardHeader>
               <CardTitle>リスクマトリクス</CardTitle>
@@ -293,7 +293,7 @@ export default function AiAuditDemoPage() {
         </TabsContent>
 
         {/* 改善レポートタブ */}
-        <TabsContent value="improvements" className="mt-6">
+        <TabsContent value="improvements" className="mt-6 animate-tab-fade-in">
           <div className="space-y-6">
             {(["High", "Medium", "Low"] as const).map((priority) => {
               const items = IMPROVEMENTS.filter((i) => i.priority === priority);

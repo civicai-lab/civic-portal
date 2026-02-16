@@ -7,6 +7,17 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "会社概要",
   description: "シビックAI総合研究所の会社情報・ミッション・チーム紹介",
+  openGraph: {
+    title: "会社概要 | Civic AI",
+    description: "シビックAI総合研究所の会社情報・ミッション・チーム紹介",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "会社概要 | Civic AI",
+    description: "シビックAI総合研究所の会社情報・ミッション・チーム紹介",
+  },
 };
 
 const stats = [
