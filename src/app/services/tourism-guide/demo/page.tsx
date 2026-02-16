@@ -167,10 +167,10 @@ const CATEGORY_ICONS: Record<SpotCategory, React.ReactNode> = {
 };
 
 const CATEGORY_COLORS: Record<SpotCategory, string> = {
-  神社仏閣: "bg-red-100 text-red-800",
-  自然: "bg-green-100 text-green-800",
-  グルメ: "bg-orange-100 text-orange-800",
-  文化: "bg-purple-100 text-purple-800",
+  神社仏閣: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+  自然: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
+  グルメ: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
+  文化: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
 };
 
 // --- 多言語応答テキスト ---
@@ -345,9 +345,9 @@ function EmergencyPanel({
         className="w-full max-w-sm border-red-300 py-0"
         onClick={(e) => e.stopPropagation()}
       >
-        <CardHeader className="bg-red-50 rounded-t-lg pb-2">
+        <CardHeader className="bg-red-50 dark:bg-red-950/50 rounded-t-lg pb-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base flex items-center gap-2 text-red-800">
+            <CardTitle className="text-base flex items-center gap-2 text-red-800 dark:text-red-300">
               <ShieldAlert className="size-5" />
               {data.title}
             </CardTitle>
@@ -365,15 +365,15 @@ function EmergencyPanel({
         <CardContent className="pt-4 space-y-3">
           <a
             href="tel:110"
-            className="flex items-center gap-3 p-3 rounded-lg bg-red-50 hover:bg-red-100 transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg bg-red-50 hover:bg-red-100 dark:bg-red-950/50 dark:hover:bg-red-950/70 transition-colors"
             aria-label={data.police}
           >
             <div className="size-10 rounded-full bg-red-600 flex items-center justify-center shrink-0">
               <Phone className="size-5 text-white" />
             </div>
             <div>
-              <p className="font-bold text-sm text-red-800">{data.police}</p>
-              <p className="text-xs text-red-600">
+              <p className="font-bold text-sm text-red-800 dark:text-red-300">{data.police}</p>
+              <p className="text-xs text-red-600 dark:text-red-400">
                 {lang === "ja" ? "緊急通報" : lang === "en" ? "Emergency call" : lang === "zh" ? "紧急报警" : "긴급 신고"}
               </p>
             </div>
@@ -381,15 +381,15 @@ function EmergencyPanel({
 
           <a
             href="tel:119"
-            className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 hover:bg-orange-100 dark:bg-orange-950/50 dark:hover:bg-orange-950/70 transition-colors"
             aria-label={data.fire}
           >
             <div className="size-10 rounded-full bg-orange-600 flex items-center justify-center shrink-0">
               <AlertTriangle className="size-5 text-white" />
             </div>
             <div>
-              <p className="font-bold text-sm text-orange-800">{data.fire}</p>
-              <p className="text-xs text-orange-600">
+              <p className="font-bold text-sm text-orange-800 dark:text-orange-300">{data.fire}</p>
+              <p className="text-xs text-orange-600 dark:text-orange-400">
                 {lang === "ja" ? "火災・救急" : lang === "en" ? "Fire & Ambulance" : lang === "zh" ? "火灾/急救" : "화재/구급"}
               </p>
             </div>

@@ -52,19 +52,19 @@ const MOCK_SPEECHES: Speech[] = [
 ];
 
 const ROLE_COLORS: Record<string, string> = {
-  "議長": "bg-purple-100 text-purple-800",
+  "議長": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
   "委員長": "bg-primary/10 text-primary/90",
-  "議員": "bg-green-100 text-green-800",
-  "部長": "bg-amber-100 text-amber-800",
-  "課長": "bg-orange-100 text-orange-800",
+  "議員": "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
+  "部長": "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
+  "課長": "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
 };
 
 const PARTY_COLORS: Record<string, string> = {
   "無所属": "bg-muted text-foreground",
-  "市民の会": "bg-sky-100 text-sky-800",
-  "執行部": "bg-slate-100 text-slate-800",
-  "緑の党": "bg-emerald-100 text-emerald-800",
-  "未来創造": "bg-indigo-100 text-indigo-800",
+  "市民の会": "bg-sky-100 text-sky-800 dark:bg-sky-950/50 dark:text-sky-300",
+  "執行部": "bg-slate-100 text-slate-800 dark:bg-slate-950/50 dark:text-slate-300",
+  "緑の党": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  "未来創造": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/50 dark:text-indigo-300",
 };
 
 const QUICK_SEARCHES = [

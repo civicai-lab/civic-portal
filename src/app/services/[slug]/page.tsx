@@ -239,7 +239,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         <ul className="space-y-2">
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2 text-sm">
-              <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500" />
+              <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500 dark:text-green-400" />
               <span className="text-muted-foreground">{feature}</span>
             </li>
           ))}
@@ -268,7 +268,7 @@ function UseCaseCard({ useCase, index }: { useCase: UseCase; index: number }) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-red-500">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wider text-red-500 dark:text-red-400">
             課題
           </p>
           <p className="text-sm text-muted-foreground">{useCase.problem}</p>

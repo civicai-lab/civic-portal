@@ -212,11 +212,11 @@ function StatusCell({ status }: { status: SectionStatus }) {
 function AnalysisStatusIcon({ status }: { status: AnalysisSection["status"] }) {
   switch (status) {
     case "complete":
-      return <CheckCircle2 className="size-5 text-green-600" aria-label="完了" />;
+      return <CheckCircle2 className="size-5 text-green-600 dark:text-green-400" aria-label="完了" />;
     case "partial":
-      return <AlertTriangle className="size-5 text-amber-600" aria-label="不十分" />;
+      return <AlertTriangle className="size-5 text-amber-600 dark:text-amber-400" aria-label="不十分" />;
     case "missing":
-      return <XCircle className="size-5 text-red-600" aria-label="欠落" />;
+      return <XCircle className="size-5 text-red-600 dark:text-red-400" aria-label="欠落" />;
   }
 }
 
@@ -345,9 +345,9 @@ export default function GuidelineServiceDemoPage() {
                   <CardTitle className="text-base">分析結果</CardTitle>
                   <CardDescription>
                     <span className="inline-flex items-center gap-4 flex-wrap">
-                      <span className="text-green-700">記載あり: {completeSections}件</span>
-                      <span className="text-amber-700">不十分: {partialSections}件</span>
-                      <span className="text-red-700">欠落: {missingSections}件</span>
+                      <span className="text-green-700 dark:text-green-400">記載あり: {completeSections}件</span>
+                      <span className="text-amber-700 dark:text-amber-400">不十分: {partialSections}件</span>
+                      <span className="text-red-700 dark:text-red-400">欠落: {missingSections}件</span>
                     </span>
                   </CardDescription>
                 </CardHeader>
@@ -418,22 +418,22 @@ export default function GuidelineServiceDemoPage() {
               {/* サマリー */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="p-3 rounded-lg bg-success/10 text-center">
-                  <p className="text-2xl font-bold text-green-700">
+                  <p className="text-2xl font-bold text-green-700 dark:text-green-400">
                     {COMPARISON.filter((r) => r.self === "あり").length}
                   </p>
-                  <p className="text-xs text-green-600 mt-1">記載あり</p>
+                  <p className="text-xs text-green-600 dark:text-green-400 mt-1">記載あり</p>
                 </div>
                 <div className="p-3 rounded-lg bg-warning/10 text-center">
-                  <p className="text-2xl font-bold text-amber-700">
+                  <p className="text-2xl font-bold text-amber-700 dark:text-amber-400">
                     {COMPARISON.filter((r) => r.self === "部分的").length}
                   </p>
-                  <p className="text-xs text-amber-600 mt-1">部分的</p>
+                  <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">部分的</p>
                 </div>
                 <div className="p-3 rounded-lg bg-destructive/10 text-center">
-                  <p className="text-2xl font-bold text-red-700">
+                  <p className="text-2xl font-bold text-red-700 dark:text-red-400">
                     {COMPARISON.filter((r) => r.self === "なし").length}
                   </p>
-                  <p className="text-xs text-red-600 mt-1">未記載</p>
+                  <p className="text-xs text-red-600 dark:text-red-400 mt-1">未記載</p>
                 </div>
               </div>
             </CardContent>

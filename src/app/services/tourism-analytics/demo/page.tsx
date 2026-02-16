@@ -58,9 +58,9 @@ const MAX_VISITORS = Math.max(...MONTHLY_DATA.map((d) => d.visitors));
 
 const LANGUAGES = [
   { name: "日本語", percent: 60, color: "bg-primary", textColor: "text-primary" },
-  { name: "英語", percent: 15, color: "bg-emerald-500", textColor: "text-emerald-700" },
-  { name: "中国語", percent: 12, color: "bg-red-500", textColor: "text-red-700" },
-  { name: "韓国語", percent: 8, color: "bg-purple-500", textColor: "text-purple-700" },
+  { name: "英語", percent: 15, color: "bg-emerald-500", textColor: "text-emerald-700 dark:text-emerald-400" },
+  { name: "中国語", percent: 12, color: "bg-red-500", textColor: "text-red-700 dark:text-red-400" },
+  { name: "韓国語", percent: 8, color: "bg-purple-500", textColor: "text-purple-700 dark:text-purple-400" },
   { name: "その他", percent: 5, color: "bg-muted-foreground", textColor: "text-muted-foreground" },
 ];
 
@@ -76,13 +76,13 @@ const REPRESENTATIVE_POSTS = [
     lang: "日本語",
     langColor: "bg-primary/10 text-primary/90",
     sentiment: "ポジティブ",
-    sentimentColor: "bg-emerald-100 text-emerald-800",
-    icon: <ThumbsUp className="size-4 text-emerald-500" />,
+    sentimentColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+    icon: <ThumbsUp className="size-4 text-emerald-500 dark:text-emerald-400" />,
   },
   {
     text: "The temple was beautiful but the signage was hard to follow for non-Japanese speakers. Would love more multilingual maps.",
     lang: "英語",
-    langColor: "bg-emerald-100 text-emerald-800",
+    langColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
     sentiment: "中立",
     sentimentColor: "bg-muted text-foreground",
     icon: <Minus className="size-4 text-muted-foreground" />,
@@ -90,10 +90,10 @@ const REPRESENTATIVE_POSTS = [
   {
     text: "바다가 정말 아름다웠어요! 다만 대중교통 접근성이 좀 아쉬웠습니다. 다음에는 렌터카를 빌려야 할 것 같아요.",
     lang: "韓国語",
-    langColor: "bg-purple-100 text-purple-800",
+    langColor: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
     sentiment: "ネガティブ",
-    sentimentColor: "bg-red-100 text-red-800",
-    icon: <ThumbsDown className="size-4 text-red-500" />,
+    sentimentColor: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
+    icon: <ThumbsDown className="size-4 text-red-500 dark:text-red-400" />,
   },
 ];
 
@@ -210,7 +210,7 @@ export default function TourismAnalyticsDemoPage() {
                       ) : (
                         <ArrowDownRight className="size-3 text-red-500" />
                       )}
-                      <span className={d.yoy >= 0 ? "text-emerald-600" : "text-red-500"}>
+                      <span className={d.yoy >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-500 dark:text-red-400"}>
                         {d.yoy > 0 ? "+" : ""}
                         {d.yoy}%
                       </span>
@@ -290,9 +290,9 @@ export default function TourismAnalyticsDemoPage() {
               {/* 比率バー */}
               <div className="mb-6">
                 <div className="flex text-xs mb-2 justify-between">
-                  <span className="text-emerald-600 font-medium">ポジティブ {SENTIMENTS.positive.percent}%</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-medium">ポジティブ {SENTIMENTS.positive.percent}%</span>
                   <span className="text-muted-foreground">中立 {SENTIMENTS.neutral.percent}%</span>
-                  <span className="text-red-500 font-medium">ネガティブ {SENTIMENTS.negative.percent}%</span>
+                  <span className="text-red-500 dark:text-red-400 font-medium">ネガティブ {SENTIMENTS.negative.percent}%</span>
                 </div>
                 <div className="h-6 w-full rounded-full overflow-hidden flex">
                   <div className={`h-full ${SENTIMENTS.positive.color}`} style={{ width: `${SENTIMENTS.positive.percent}%` }} />

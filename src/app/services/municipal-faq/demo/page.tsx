@@ -63,11 +63,11 @@ function detectCategory(text: string): Category {
 
 const CATEGORY_COLORS: Record<Category, string> = {
   税務: "bg-primary/10 text-primary/90",
-  福祉: "bg-green-100 text-green-800",
-  届出: "bg-purple-100 text-purple-800",
-  環境: "bg-emerald-100 text-emerald-800",
-  施設: "bg-amber-100 text-amber-800",
-  防災: "bg-red-100 text-red-800",
+  福祉: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
+  届出: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  環境: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  施設: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
+  防災: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
   一般: "bg-muted text-foreground",
 };
 

@@ -389,10 +389,10 @@ export default function PubcomAnalysisDemoPage() {
                         {/* 賛否バー */}
                         <div className="mb-3">
                           <div className="flex text-xs mb-1 justify-between">
-                            <span className="text-emerald-600">
+                            <span className="text-emerald-600 dark:text-emerald-400">
                               賛成 {topic.positive}%
                             </span>
-                            <span className="text-red-500">
+                            <span className="text-red-500 dark:text-red-400">
                               反対 {topic.negative}%
                             </span>
                           </div>

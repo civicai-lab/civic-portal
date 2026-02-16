@@ -301,7 +301,7 @@ export default function HomePage() {
                 width={120}
                 height={40}
                 loading="lazy"
-                className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0"
+                className="h-10 w-auto object-contain opacity-85 transition-opacity duration-300 grayscale hover:opacity-100 hover:grayscale-0 dark:brightness-0 dark:invert dark:opacity-60 dark:hover:opacity-90"
               />
             ))}
           </div>

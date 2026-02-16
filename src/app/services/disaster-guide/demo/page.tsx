@@ -514,7 +514,7 @@ export default function DisasterGuideDemoPage() {
             onClick={() => handlePhaseChange("normal")}
             className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
               phase === "normal"
-                ? "bg-white text-foreground shadow-sm"
+                ? "bg-background text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -879,9 +879,9 @@ export default function DisasterGuideDemoPage() {
                               disabled={selectedAnswer !== null}
                               className={`w-full text-left text-sm px-3 py-2 rounded-lg border transition-colors ${
                                 showResult && isCorrect
-                                  ? "border-green-500 bg-green-50 text-green-800"
+                                  ? "border-green-500 bg-green-50 text-green-800 dark:bg-green-950/30 dark:text-green-300 dark:border-green-600"
                                   : showResult && isSelected && !isCorrect
-                                  ? "border-red-500 bg-red-50 text-red-800"
+                                  ? "border-red-500 bg-red-50 text-red-800 dark:bg-red-950/30 dark:text-red-300 dark:border-red-600"
                                   : isSelected
                                   ? "border-primary bg-primary/5"
                                   : "border-border hover:border-primary/50 hover:bg-muted"
@@ -889,10 +889,10 @@ export default function DisasterGuideDemoPage() {
                             >
                               <span className="flex items-center gap-2">
                                 {showResult && isCorrect && (
-                                  <CheckCircle className="size-4 text-green-600 shrink-0" />
+                                  <CheckCircle className="size-4 text-green-600 dark:text-green-400 shrink-0" />
                                 )}
                                 {showResult && isSelected && !isCorrect && (
-                                  <AlertTriangle className="size-4 text-red-600 shrink-0" />
+                                  <AlertTriangle className="size-4 text-red-600 dark:text-red-400 shrink-0" />
                                 )}
                                 {option}
                               </span>
@@ -932,13 +932,13 @@ export default function DisasterGuideDemoPage() {
               </CardHeader>
               <CardContent className="pt-0 pb-0">
                 <div className="grid grid-cols-2 gap-2">
-                  <div className="flex items-center gap-2 bg-red-50 rounded-lg p-2.5">
-                    <Phone className="size-4 text-red-600" />
+                  <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/30 rounded-lg p-2.5">
+                    <Phone className="size-4 text-red-600 dark:text-red-400" />
                     <div>
                       <p className="text-xs text-muted-foreground">
                         消防・救急
                       </p>
-                      <p className="text-lg font-bold text-red-600">119</p>
+                      <p className="text-lg font-bold text-red-600 dark:text-red-400">119</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 bg-primary/5 rounded-lg p-2.5">

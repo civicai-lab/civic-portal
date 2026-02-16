@@ -76,10 +76,10 @@ const STATUS_COLORS: Record<EventStatus, string> = {
 const CATEGORIES: EventCategory[] = ["ハッカソン", "セミナー", "ワークショップ", "デモデイ"];
 
 const CATEGORY_COLORS: Record<EventCategory, string> = {
-  "ハッカソン": "bg-orange-100 text-orange-800",
+  "ハッカソン": "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
   "セミナー": "bg-primary/10 text-primary/90",
-  "ワークショップ": "bg-purple-100 text-purple-800",
-  "デモデイ": "bg-emerald-100 text-emerald-800",
+  "ワークショップ": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  "デモデイ": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
 };
 
 const EVALUATION_CRITERIA = [
@@ -268,7 +268,7 @@ export default function AiLabDemoPage() {
           {submitted ? (
             <Card className="text-center">
               <CardContent className="py-12">
-                <CheckCircle2 className="size-16 text-emerald-500 mx-auto mb-4" />
+                <CheckCircle2 className="size-16 text-emerald-500 dark:text-emerald-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">審査を送信しました</h3>
                 <p className="text-muted-foreground mb-4">
                   合計スコア: {totalScore}/25 | 判定:{" "}

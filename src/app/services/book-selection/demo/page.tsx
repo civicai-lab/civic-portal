@@ -506,7 +506,7 @@ export default function BookSelectionDemoPage() {
                             key={row.ndc}
                             className={`border-b transition-colors ${
                               isShortage
-                                ? "bg-red-50"
+                                ? "bg-red-50 dark:bg-red-950/20"
                                 : isExcess
                                   ? "bg-primary/5"
                                   : ""
@@ -525,7 +525,7 @@ export default function BookSelectionDemoPage() {
                               <span
                                 className={`inline-flex items-center gap-1 font-medium ${
                                   row.gap > 0
-                                    ? "text-red-600"
+                                    ? "text-red-600 dark:text-red-400"
                                     : row.gap < -2
                                       ? "text-primary"
                                       : "text-muted-foreground"
@@ -711,7 +711,7 @@ export default function BookSelectionDemoPage() {
                             {book.lastLent}
                           </td>
                           <td className="py-3 px-2 text-right">
-                            <span className="text-red-600 font-medium">
+                            <span className="text-red-600 dark:text-red-400 font-medium">
                               {book.turnover.toFixed(2)}
                             </span>
                           </td>
@@ -751,7 +751,7 @@ export default function BookSelectionDemoPage() {
 
                 <div className="mt-4 bg-muted/50 rounded-lg p-4">
                   <div className="flex items-start gap-2">
-                    <AlertCircle className="size-5 text-amber-600 mt-0.5 shrink-0" />
+                    <AlertCircle className="size-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
                     <div>
                       <p className="font-medium text-sm">除籍判断の注意事項</p>
                       <p className="text-sm text-muted-foreground mt-1">
