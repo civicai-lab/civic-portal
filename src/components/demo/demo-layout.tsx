@@ -66,7 +66,7 @@ export function DemoLayout({
 
       {/* 免責事項フッター */}
       <footer className="border-t border-border bg-card px-4 py-3">
-        <p className="text-xs text-muted-foreground text-center max-w-4xl mx-auto">
+        <p className="text-xs sm:text-sm text-muted-foreground text-center max-w-4xl mx-auto">
           このデモはAI技術の活用例を示すものであり、実際のサービスとは異なる場合があります。
           回答内容は参考情報であり、正確性を保証するものではありません。
         </p>

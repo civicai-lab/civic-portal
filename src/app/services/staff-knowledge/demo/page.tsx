@@ -315,7 +315,7 @@ export default function StaffKnowledgeDemoPage() {
               {messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex gap-3 ${
+                  className={`flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300 ${
                     msg.role === "user" ? "flex-row-reverse" : "flex-row"
                   }`}
                 >
@@ -415,7 +415,7 @@ export default function StaffKnowledgeDemoPage() {
                 />
                 <Button
                   size="icon"
-                  className="rounded-full shrink-0"
+                  className="rounded-full shrink-0 transition-transform active:scale-90"
                   onClick={() => handleSend()}
                   disabled={!input.trim() || isTyping}
                   aria-label="送信"

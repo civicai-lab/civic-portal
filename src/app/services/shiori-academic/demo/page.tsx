@@ -402,7 +402,7 @@ export default function ShioriAcademicDemoPage() {
               <Button
                 onClick={() => handleSearch()}
                 disabled={!query.trim() || isSearching}
-                className="shrink-0 gap-1.5"
+                className="shrink-0 gap-1.5 transition-transform active:scale-90"
                 aria-label="検索を実行"
               >
                 <Search className="size-4" />
@@ -509,12 +509,13 @@ export default function ShioriAcademicDemoPage() {
 
           {/* 論文カード一覧 */}
           <div className="space-y-3">
-            {searchResults.map((paper) => (
-              <PaperCard
-                key={paper.id}
-                paper={paper}
-                onCite={setCitationPaper}
-              />
+            {searchResults.map((paper, index) => (
+              <div key={paper.id} className="animate-in fade-in slide-in-from-bottom-2 duration-300" style={{ animationDelay: `${index * 50}ms`, animationFillMode: "backwards" }}>
+                <PaperCard
+                  paper={paper}
+                  onCite={setCitationPaper}
+                />
+              </div>
             ))}
           </div>
 

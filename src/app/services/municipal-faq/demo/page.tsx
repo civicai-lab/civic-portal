@@ -282,7 +282,7 @@ export default function MunicipalFaqDemoPage() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex gap-3 ${
+                className={`flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300 ${
                   msg.role === "user" ? "flex-row-reverse" : "flex-row"
                 }`}
               >
@@ -318,7 +318,7 @@ export default function MunicipalFaqDemoPage() {
                     >
                       <Badge
                         variant="secondary"
-                        className={`text-[10px] px-1.5 py-0 ${
+                        className={`text-xs px-1.5 py-0 ${
                           CATEGORY_COLORS[msg.category]
                         }`}
                       >
@@ -394,7 +394,7 @@ export default function MunicipalFaqDemoPage() {
               />
               <Button
                 size="icon"
-                className="rounded-full shrink-0"
+                className="rounded-full shrink-0 transition-transform active:scale-90"
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isTyping}
                 aria-label="メッセージを送信"

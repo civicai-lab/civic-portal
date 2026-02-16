@@ -555,6 +555,9 @@ export default function BookSelectionDemoPage() {
                     </tbody>
                   </table>
                 </div>
+                <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
+                  ← 横スクロールで全体を表示 →
+                </p>
 
                 <Separator className="my-6" />
 
@@ -731,6 +734,9 @@ export default function BookSelectionDemoPage() {
                     </tbody>
                   </table>
                 </div>
+                <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
+                  ← 横スクロールで全体を表示 →
+                </p>
 
                 <Separator className="my-6" />
 

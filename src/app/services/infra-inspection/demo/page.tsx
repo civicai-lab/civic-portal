@@ -371,6 +371,9 @@ export default function InfraInspectionDemoPage() {
                     </tbody>
                   </table>
                 </div>
+                <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
+                  ← 横スクロールで全体を表示 →
+                </p>
 
                 {filteredFacilities.length === 0 && (
                   <div className="text-center py-8">

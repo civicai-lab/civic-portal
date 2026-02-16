@@ -163,7 +163,7 @@ function StepIndicator({
           <div key={label} className="flex items-center gap-2 sm:gap-4">
             <div className="flex flex-col items-center gap-1">
               <div
-                className={`flex size-9 items-center justify-center rounded-full text-sm font-bold transition-colors ${
+                className={`flex size-10 items-center justify-center rounded-full text-sm font-bold transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : isCompleted
