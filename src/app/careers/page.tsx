@@ -45,21 +45,21 @@ const whyReasons = [
     title: "社会的インパクト",
     description:
       "自治体のDXを推進し、住民の暮らしを直接改善する。あなたの仕事が社会を変える実感を得られます。全国50以上の自治体に導入され、数百万人の住民生活に貢献しています。",
-    gradient: "from-rose-500/20 to-pink-500/10",
+    gradient: "from-destructive/20 to-destructive/5",
   },
   {
     icon: Rocket,
     title: "技術的チャレンジ",
     description:
       "LLM、RAG、マルチモーダルAIなど最先端技術に取り組める環境。自治体特有の課題を技術で解決するやりがいがあります。社内勉強会や論文読み会も活発に行われています。",
-    gradient: "from-blue-500/20 to-indigo-500/10",
+    gradient: "from-primary/20 to-primary/5",
   },
   {
     icon: Clock,
     title: "柔軟な働き方",
     description:
       "フルリモート勤務可能、フレックスタイム制を採用。ワークライフバランスを大切にしながら、高い生産性を実現できる環境を整えています。副業・兼業も歓迎しています。",
-    gradient: "from-emerald-500/20 to-teal-500/10",
+    gradient: "from-success/20 to-success/5",
   },
 ];
 
@@ -177,7 +177,7 @@ export default function CareersPage() {
                 animation="fade-up"
                 delay={index * 100}
               >
-                <Card className="group h-full cursor-pointer transition-shadow duration-300 hover:shadow-lg">
+                <Card className="group h-full transition-shadow duration-300 hover:shadow-lg">
                   <CardHeader>
                     <div className="mb-2 flex items-center gap-3">
                       <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-300 group-hover:bg-primary/20">

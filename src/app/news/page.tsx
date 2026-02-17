@@ -100,8 +100,34 @@ export default function NewsPage() {
   const featured = sortedNews[0];
   const rest = sortedNews.slice(1);
 
+  // JSON-LD構造化データ（NewsArticle ItemList）
+  const newsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": sortedNews.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": item.title,
+        "description": item.description,
+        "datePublished": item.date,
+        "publisher": {
+          "@type": "Organization",
+          "name": "シビックAI総合研究所"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-muted">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border py-20 text-primary-foreground">
         <Image
@@ -142,7 +168,7 @@ export default function NewsPage() {
                     alt={featured.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover"
                     placeholder="blur"
                     blurDataURL={shimmerBlur}
                     priority
@@ -167,7 +193,7 @@ export default function NewsPage() {
                         {featured.category}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl md:text-2xl transition-colors duration-200 group-hover:text-primary">
+                    <CardTitle className="text-xl md:text-2xl">
                       {featured.title}
                     </CardTitle>
                   </CardHeader>
@@ -197,7 +223,7 @@ export default function NewsPage() {
                         alt={item.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 256px"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="object-cover"
                         placeholder="blur"
                         blurDataURL={shimmerBlur}
                       />
@@ -218,7 +244,7 @@ export default function NewsPage() {
                             {item.category}
                           </Badge>
                         </div>
-                        <CardTitle className="text-lg transition-colors duration-200 group-hover:text-primary">
+                        <CardTitle className="text-lg">
                           {item.title}
                         </CardTitle>
                       </CardHeader>

@@ -223,7 +223,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
     <Card
       className={`relative h-full transition-[box-shadow,transform] ${
         plan.recommended
-          ? "scale-105 border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
+          ? "md:scale-105 border-primary ring-2 ring-primary shadow-lg shadow-primary/10"
           : "hover:-translate-y-0.5 hover:shadow-lg"
       }`}
     >
@@ -340,8 +340,37 @@ export default async function ServiceDetailPage({
         ? "庁内向け"
         : "官民連携";
 
+  // JSON-LD構造化データ（Service型）
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.displayName,
+    "description": service.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "シビックAI総合研究所",
+      "url": "https://civic-portal-nine.vercel.app"
+    },
+    "serviceType": service.category === "saas" ? "SaaS" : "シンクタンク型",
+    ...(service.pricing && service.pricing.length > 0 ? {
+      "offers": service.pricing.map(plan => ({
+        "@type": "Offer",
+        "name": plan.name,
+        "description": plan.features.join(", "),
+        "price": plan.price,
+        "priceCurrency": "JPY"
+      }))
+    } : {})
+  };
+
   return (
     <div className="min-h-screen bg-muted">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 text-white">
         <Image

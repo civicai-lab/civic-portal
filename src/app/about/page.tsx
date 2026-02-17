@@ -137,7 +137,12 @@ export default function AboutPage() {
           </AnimatedSection>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
             {stats.map((stat, i) => (
-              <AnimatedSection key={stat.label} animation="fade-up" delay={i * 100}>
+              <AnimatedSection
+                key={stat.label}
+                animation="fade-up"
+                delay={i * 100}
+                className={i === stats.length - 1 ? "col-span-2 sm:col-span-1" : ""}
+              >
                 <div className="text-center">
                   <CountUp
                     end={stat.value}
@@ -166,7 +171,7 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {teamMembers.map((member, i) => (
               <AnimatedSection key={member.name} animation="fade-up" delay={i * 150}>
-                <div className="group cursor-pointer rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.02]">
+                <div className="group rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-[box-shadow,transform] duration-300 hover:shadow-lg hover:scale-[1.02]">
                   <div className={`relative mx-auto mb-4 flex size-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br ${member.gradient} ring-2 ring-primary/10 transition-[box-shadow] duration-300 group-hover:ring-primary/30`}>
                     <span className="text-xl font-bold text-primary/70">
                       {member.initial}

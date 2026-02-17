@@ -93,8 +93,33 @@ const cases = [
 ];
 
 export default function CasesPage() {
+  // JSON-LD構造化データ（Article ItemList）
+  const casesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": cases.map((caseItem, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Article",
+        "headline": caseItem.title,
+        "description": caseItem.description,
+        "author": {
+          "@type": "Organization",
+          "name": "シビックAI総合研究所"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-muted">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(casesJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative overflow-hidden py-20 text-primary-foreground">
         <Image
@@ -137,7 +162,7 @@ export default function CasesPage() {
                       alt={caseItem.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover"
                       placeholder="blur"
                       blurDataURL={shimmerBlur}
                     />

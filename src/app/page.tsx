@@ -33,7 +33,7 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 text-white md:py-32">
+      <section className="relative overflow-hidden py-24 text-primary-foreground md:py-32">
         <Image
           src="/images/hero/hero_bg.webp"
           alt=""
@@ -458,7 +458,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden py-16 text-white md:py-20">
+      <section className="relative overflow-hidden py-16 text-primary-foreground md:py-20">
         <Image
           src="/images/hero/hero-collaboration.webp"
           alt=""

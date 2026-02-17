@@ -158,6 +158,7 @@ export default function ContactPage() {
                 setErrors({});
                 setServerError(null);
                 setHasAttemptedSubmit(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
               別のお問い合わせを送る
@@ -406,7 +407,7 @@ export default function ContactPage() {
                         メール
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        contact@civic-ai.jp
+                        <a href="mailto:contact@civic-ai.jp" className="text-primary hover:underline">contact@civic-ai.jp</a>
                       </p>
                     </div>
                   </div>
@@ -414,7 +415,7 @@ export default function ContactPage() {
                     <Phone className="mt-0.5 size-5 text-primary" />
                     <div>
                       <p className="text-sm font-medium text-foreground">電話</p>
-                      <p className="text-sm text-muted-foreground">050-1234-5678</p>
+                      <p className="text-sm text-muted-foreground"><a href="tel:050-1234-5678" className="text-primary hover:underline">050-1234-5678</a></p>
                       <p className="text-xs text-muted-foreground/70">
                         平日 9:00-18:00
                       </p>

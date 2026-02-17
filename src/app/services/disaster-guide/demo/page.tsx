@@ -652,7 +652,7 @@ export default function DisasterGuideDemoPage() {
           <div className="md:w-[40%] flex flex-col gap-4 min-h-0 overflow-y-auto">
             {/* モックマップ */}
             <Card className="py-0 overflow-hidden">
-              <div className="relative bg-[#e8eaed] aspect-[4/3]">
+              <div className="relative bg-muted aspect-[4/3]">
                 {/* グリッド線 */}
                 <div className="absolute inset-0 opacity-20">
                   {Array.from({ length: 8 }).map((_, i) => (

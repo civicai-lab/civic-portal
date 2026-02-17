@@ -16,12 +16,20 @@ export function ScrollToTop({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
     const handleScroll = () => {
-      setIsVisible(window.scrollY > threshold);
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        setIsVisible(window.scrollY > threshold);
+        rafId = null;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, [threshold]);
 
   const scrollToTop = () => {
