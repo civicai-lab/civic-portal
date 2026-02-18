@@ -303,7 +303,7 @@ export default function AiLabDemoPage() {
                           onClick={() => setRating(criterion.id, value)}
                           className={`p-1 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                             value <= ratings[criterion.id]
-                              ? "text-amber-400"
+                              ? "text-warning"
                               : "text-muted-foreground/30"
                           }`}
                           aria-label={`${criterion.label}: ${value}点`}

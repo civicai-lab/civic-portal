@@ -1,14 +1,14 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H36完了）
+- 作業中: UI/UX洗練（Phase H44完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 32/32パス（Playwright, ~7秒）
-- 直近コミット: 未コミット — Phase H36 残り10デモhoverインタラクション強化
-- 直近完了: Phase H36 残り10デモhoverインタラクション強化
+- E2Eテスト: 32/32パス（Playwright, ~9.5秒）
+- 直近コミット: 2c53c6b Phase H44 — 全デモページのハードコード色を完全セマンティック化
+- 直近完了: Phase H44 デモページ色完全セマンティック化
 - Vercel: https://civic-portal-nine.vercel.app
-- Lighthouse（H33時点）: Performance 91, Accessibility 96, Best Practices 100, SEO 100
+- Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -300,12 +300,89 @@
 - ai-reskilling: 推奨研修カード hover:-translate-y-0.5 hover:shadow-md
 - ai-lab: イベントカード+プロジェクトカード hover:shadow-lg hover:-translate-y-0.5
 
+### Phase H37: transition-all最適化+a11y強化+色トークン化（a6aa9b0）
+- transition-all → 具体的transition（box-shadow,transform等）に35+箇所で最適化
+  - カードhover: transition-[box-shadow,transform]
+  - プログレスバー: transition-[width]
+  - 色変化: transition-colors
+  - 残存: FAQアコーディオン1件のみ（grid-template-rows+opacityの複合遷移）
+- 装飾画像aria-hidden="true"追加（Hero/CTA背景2箇所）
+- チャットデモ5ページのanimate-inにmotion-safe:プレフィックス追加
+- globals.cssにanimate-in reduced-motionフォールバック追加
+- CTAセクション「サービス一覧を見る」ボタン: bg-white text-primary（コントラスト修正）
+- 色トークン化:
+  - news: amber→warning, emerald→success
+  - source-citation: 5色全てデザイントークン化（destructive/primary/success/warning/thinktank）
+  - municipal-faq: 福祉→success, 届出→thinktank, 防災→destructive
+- Lighthouse: Performance 95(+4), Accessibility 96, Best Practices 100, SEO 100
+
+### Phase H38: セマンティックHTML+Hero背景画像+a11y強化（c71b081）
+- about/page.tsx: 会社情報テーブルをdl/dt/ddセマンティック構造に変更（div+span→dl+dt+dd）
+- about/page.tsx: Hero背景画像追加（hero-about.webp + グラデーションオーバーレイ維持）
+- cases/page.tsx: Hero背景画像追加（hero-cases.webp）
+- news/page.tsx: Hero背景画像追加（hero-tech.webp）
+- shiori-academic/demo: staggerアニメーションにmotion-safe:プレフィックス追加
+- contact/page.tsx: 送信成功後のフォーカス管理（useRef+useEffect、successRef→Card、tabIndex=-1）
+
+### Phase H39: チャット共通コンポーネント抽出+Hero背景+色セマンティック化（57125bc）
+- ChatMessage/TypingIndicator共通コンポーネントを5デモから抽出（src/components/demo/）
+- faq/privacy/termsにHero背景画像追加（全サブページ統一完了）
+- ai-audit/book-selection/tourism-analytics等の残ハードコード色をデザイントークン化（21箇所）
+
+### Phase H40: コンテンツ充実+CTA動線+マイクロコピー改善（02c8281）
+- cases: 事例4→8件に増加（品川区/横浜市/千葉市/静岡県追加）+2段階CTA
+- news: ニュース4→8件に増加+最新1件をfeatured大型表示
+- about: 関連ページCTAセクション追加（お問い合わせ+サービス一覧）
+- contact: ヒントテキスト3箇所+エラーメッセージ改善+送信ボタンテキスト変更
+- services: 空状態をアイコン+説明+クリアボタン付きに改善
+- cases/news: カードhoverをtranslate-y統一（scale削除）
+
+### Phase H41: テスティモニアル+導入ステップ追加（90bb234）
+- ホームページに「導入自治体の声」セクション追加（中野区/品川区/千葉市の3件）
+- ホームページに「導入までの流れ」3ステップガイド追加（無料相談→POC→本格導入）
+- ステップ間にグラデーションライン接続
+
+### Phase H42: 包括的UX改善（784d295）
+- services/[slug]: AnimatedSection全5セクション追加、Breadcrumbコンポーネント化（手動nav→正規コンポーネント）、PricingCard hover統一（scale→translate-y-0.5）、Pricing lg:grid-cols-3、パルス1箇所に削減、Target Customers見出しtext-3xl化
+- services/page: Breadcrumb追加+AnimatedSection統一
+- page.tsx: CTAコピー重複解消（「一緒に始めませんか？」）、Heroパルス削除、モバイルSTEP番号追加
+- news/cases: cursor-pointer削除（リンク先なしカードのUX不一致解消）
+- contact: textarea文字数カウンター+maxLength=1000、電話番号プレースホルダー改善
+- faq: faq-contentクラス適用でアニメーション統一
+- デモ8ファイル+source-citation: text-[10px]→text-xs一括統一（20+箇所）
+- E2Eテスト: パンくずリストlocatorをgetByLabel限定に修正、32/32パス
+
+### Phase H43: UX信頼性+SEO+レスポンシブ+ダークモード改善（80c85a5）
+- cursor-pointer詐欺解消: about/careers/servicesから不要cursor-pointer削除
+- hover不一致解消: news/casesからgroup-hover:scale-105/text-primary削除（リンクなしカード）
+- contact: tel:/mailto:リンク化、フォームリセット後scrollToTop追加
+- page.tsx: text-white→text-primary-foregroundデザイントークン統一
+- SEO: services/[slug]にService JSON-LD追加、news/casesにNewsArticle/Article ItemList JSON-LD追加
+- レスポンシブ: PricingCard scale-105→md:scale-105、about実績5カラム最後col-span-2
+- ダークモード: disaster-guide bg-[#e8eaed]→bg-muted、careers gradient色セマンティック化
+- パフォーマンス: ScrollToTopにRAFスロットリング追加
+- ビルド54ページ成功、E2E 32/32パス
+
+### Phase H44: 全デモページハードコード色完全セマンティック化（2c53c6b）
+- 10ファイル50+箇所のTailwind直接色指定→デザイントークンに置換
+- assembly-archive: ROLE_COLORS/PARTY_COLORS/TimelineDot→chart-5/success/warning/cta/primary/thinktank
+- shiori-academic: DB_COLORS J-STAGE→success, Google Scholar→chart-5
+- tourism-guide: CATEGORY_COLORS 4種→destructive/success/cta/chart-5、EmergencyPanel→warning
+- tourism-analytics: LANGUAGES 3色→success/destructive/chart-5、REPRESENTATIVE_POSTS langColor統一
+- ai-audit: RISK_COLORS/RISK_DOT_COLORS/PRIORITY_COLORS amber/orange→warning/cta、マトリクス背景→warning
+- rfp-support: CATEGORY_COLORS 非機能要件→chart-5、運用保守→success
+- pubcom-analysis: categoryData 4色→thinktank/success/cta/chart-5、凡例+賛否バー→success/destructive
+- municipal-faq: CATEGORY_COLORS 環境→success、施設→warning
+- welfare-navigator: matchLevelConfig low→bg-muted text-muted-foreground
+- ai-lab: CATEGORY_COLORS ハッカソン→cta、ワークショップ→chart-5、デモデイ→success
+- **src/配下のハードコード色がゼロに到達**
+- ビルド54ページ成功、E2E 32/32パス
+
 ## Next
-- [ ] Lighthouse再計測（H34+H35+H36改善後）
-- [ ] デモページ共通コンポーネント抽出（ChatMessage, TypingIndicator等）
+- [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
 ## Blocked
 - なし
 
 ---
-*最終更新: 2026-02-17 Phase H36 残り10デモhoverインタラクション強化*
+*最終更新: 2026-02-18 Phase H44 全デモページハードコード色完全セマンティック化*
