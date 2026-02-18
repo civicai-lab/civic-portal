@@ -333,7 +333,7 @@ export default function FacilityConciergeDemo() {
                         placeholder="例: 2026年3月15日 14:00〜17:00"
                         value={dateTime}
                         onChange={(e) => setDateTime(e.target.value)}
-                        className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-[3px] focus:ring-primary/20"
                       />
                     </div>
 
@@ -351,7 +351,7 @@ export default function FacilityConciergeDemo() {
                         placeholder="例: 20"
                         value={people}
                         onChange={(e) => setPeople(e.target.value)}
-                        className="w-32 rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-32 rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-[3px] focus:ring-primary/20"
                       />
                       <span className="ml-2 text-sm text-muted-foreground">
                         名
@@ -468,10 +468,12 @@ export default function FacilityConciergeDemo() {
             {step === 4 && selectedFacility && (
               <div>
                 <h2 className="mb-6 text-xl font-bold">予約内容の確認</h2>
-                <Card>
-                  <CardHeader>
+                <Card className="border-success/30">
+                  <CardHeader className="bg-success/5 rounded-t-xl">
                     <CardTitle className="flex items-center gap-2">
-                      <CheckCircle2 className="size-5 text-success" />
+                      <span className="bg-success/10 rounded-full p-1.5">
+                        <CheckCircle2 className="size-5 text-success" />
+                      </span>
                       {selectedFacility.name}
                     </CardTitle>
                     <CardDescription>

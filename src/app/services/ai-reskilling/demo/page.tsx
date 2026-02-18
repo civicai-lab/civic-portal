@@ -257,7 +257,20 @@ export default function AiReskillingDemoPage() {
         {/* Step 3: 結果 */}
         {currentStep === 2 && (
           <div className="space-y-6">
-            <h2 className="text-xl font-bold text-foreground">診断結果</h2>
+            {/* 診断完了ヘッダー */}
+            <Card className="border-success/30">
+              <CardHeader className="bg-success/5 rounded-t-xl">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <span className="bg-success/10 rounded-full p-1.5">
+                    <CheckCircle2 className="size-5 text-success" />
+                  </span>
+                  診断結果
+                </CardTitle>
+                <CardDescription>
+                  スキルマップ・推奨研修・フォローアップスケジュールを確認できます
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
             {/* スキルマップ */}
             <Card>

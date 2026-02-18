@@ -242,7 +242,7 @@ function Step1Input({
         </CardHeader>
         <CardContent className="space-y-4">
           <textarea
-            className="w-full resize-y rounded-lg border border-input bg-background px-4 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="w-full resize-y rounded-lg border border-input bg-background px-4 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/20"
             rows={20}
             placeholder="ここに議事録のテキストを貼り付けてください..."
             aria-label="議事録テキスト入力欄"

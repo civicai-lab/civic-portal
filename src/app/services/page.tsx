@@ -158,7 +158,7 @@ export default function ServicesPage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="サービス名・説明で検索..."
                 aria-label="サービスを検索"
-                className="w-full rounded-md border border-border bg-background py-2.5 pl-10 pr-4 text-sm placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+                className="w-full rounded-md border border-border bg-background py-2.5 pl-10 pr-4 text-sm placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20"
               />
               {searchQuery && (
                 <button

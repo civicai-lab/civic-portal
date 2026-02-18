@@ -212,7 +212,7 @@ export default function RfpSupportDemoPage() {
                     placeholder="例: 500万円"
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
-                    className="w-full max-w-xs rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full max-w-xs rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-[3px] focus:ring-primary/20"
                   />
                 </div>
 
@@ -310,9 +310,12 @@ export default function RfpSupportDemoPage() {
               </Badge>
             </div>
 
-            <Card className="border-primary/20 transition-shadow duration-300 hover:shadow-lg">
-              <CardHeader>
-                <CardTitle>
+            <Card className="border-success/30 transition-shadow duration-300 hover:shadow-lg">
+              <CardHeader className="bg-success/5 rounded-t-xl">
+                <CardTitle className="flex items-center gap-2">
+                  <span className="bg-success/10 rounded-full p-1.5">
+                    <CheckSquare className="size-5 text-success" />
+                  </span>
                   ○○市 {serviceType || "AI開発"}業務委託 提案依頼書（RFP）
                 </CardTitle>
                 <CardDescription>

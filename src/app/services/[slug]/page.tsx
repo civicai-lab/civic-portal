@@ -15,7 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { services, getServiceBySlug, getServiceHero } from "@/data/services";
+import { services, getServiceBySlug, getServiceHero, getServiceThumbnail } from "@/data/services";
 import type { ServiceFeature, PricingPlan, UseCase, FAQ } from "@/types/service";
 import {
   ArrowRight,
@@ -599,6 +599,46 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
+
+      {/* 関連サービス */}
+      {(() => {
+        const relatedServices = services
+          .filter((s) => s.category === service.category && s.slug !== service.slug)
+          .slice(0, 3);
+        if (relatedServices.length === 0) return null;
+        return (
+          <AnimatedSection className="py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h2 className="mb-8 text-2xl font-bold tracking-tight sm:text-3xl">
+                関連サービス
+              </h2>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedServices.map((s) => (
+                  <Link key={s.slug} href={`/services/${s.slug}`} className="group">
+                    <Card className="h-full transition-[box-shadow,transform] hover:-translate-y-0.5 hover:shadow-lg">
+                      <div className="relative h-40 overflow-hidden rounded-t-xl">
+                        <Image
+                          src={getServiceThumbnail(s.slug)}
+                          alt={s.displayName}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          placeholder="blur"
+                          blurDataURL={shimmerBlur}
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="text-lg">{s.displayName}</CardTitle>
+                        <CardDescription>{s.description}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        );
+      })()}
     </div>
   );
 }

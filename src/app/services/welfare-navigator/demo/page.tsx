@@ -334,7 +334,7 @@ export default function WelfareNavigatorDemo() {
           <div className="flex flex-col gap-8 lg:flex-row">
             {/* 左カラム: 質問フロー */}
             <div className="w-full lg:w-2/5">
-              <Card className="sticky top-8">
+              <Card className="md:sticky md:top-8">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                     <HelpCircle className="size-5 text-primary" />
@@ -401,7 +401,7 @@ export default function WelfareNavigatorDemo() {
                                 [question.id]: e.target.value,
                               }))
                             }
-                            className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                            className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-[3px] focus:ring-primary/20"
                           />
                           <div className="flex gap-2">
                             <Button
@@ -438,7 +438,7 @@ export default function WelfareNavigatorDemo() {
                               }))
                             }
                             rows={4}
-                            className="w-full resize-none rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+                            className="w-full resize-none rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-[3px] focus:ring-primary/20"
                           />
                           <div className="flex gap-2">
                             <Button
@@ -463,7 +463,9 @@ export default function WelfareNavigatorDemo() {
                   ) : (
                     <div className="space-y-4">
                       <div className="flex items-center gap-2 text-success">
-                        <CheckCircle2 className="size-5" />
+                        <span className="bg-success/10 rounded-full p-1.5">
+                          <CheckCircle2 className="size-5" />
+                        </span>
                         <span className="font-semibold">
                           すべての質問に回答しました
                         </span>
@@ -512,14 +514,21 @@ export default function WelfareNavigatorDemo() {
                 </Card>
               ) : (
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-bold">
-                      該当する可能性のある制度
-                    </h2>
-                    <Badge variant="outline">
-                      {matchedPrograms.length}件
-                    </Badge>
-                  </div>
+                  <Card className="border-success/30">
+                    <CardHeader className="bg-success/5 rounded-t-xl">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="flex items-center gap-2 text-lg">
+                          <span className="bg-success/10 rounded-full p-1.5">
+                            <CheckCircle2 className="size-5 text-success" />
+                          </span>
+                          該当する可能性のある制度
+                        </CardTitle>
+                        <Badge variant="outline">
+                          {matchedPrograms.length}件
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                  </Card>
 
                   {/* 緊急バナー（結果側にも表示） */}
                   {hasEmergency && <EmergencyBanner />}
