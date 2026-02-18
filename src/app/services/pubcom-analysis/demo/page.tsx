@@ -35,10 +35,10 @@ import {
 
 const categoryData = [
   { name: "交通・道路", count: 320, color: "bg-primary" },
-  { name: "住環境", count: 285, color: "bg-emerald-500" },
-  { name: "公園・緑地", count: 198, color: "bg-green-500" },
-  { name: "防災", count: 156, color: "bg-orange-500" },
-  { name: "商業", count: 145, color: "bg-purple-500" },
+  { name: "住環境", count: 285, color: "bg-thinktank" },
+  { name: "公園・緑地", count: 198, color: "bg-success" },
+  { name: "防災", count: 156, color: "bg-cta" },
+  { name: "商業", count: 145, color: "bg-chart-5" },
   { name: "その他", count: 143, color: "bg-muted-foreground" },
 ];
 
@@ -306,7 +306,7 @@ export default function PubcomAnalysisDemoPage() {
                       {/* 凡例 */}
                       <div className="space-y-3 flex-1">
                         <div className="flex items-center gap-3">
-                          <div className="size-4 rounded-full bg-emerald-500" />
+                          <div className="size-4 rounded-full bg-success" />
                           <span className="font-medium">
                             賛成 {sentimentData.positive.pct}%
                           </span>
@@ -315,7 +315,7 @@ export default function PubcomAnalysisDemoPage() {
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <div className="size-4 rounded-full bg-red-500" />
+                          <div className="size-4 rounded-full bg-destructive" />
                           <span className="font-medium">
                             反対 {sentimentData.negative.pct}%
                           </span>
@@ -398,7 +398,7 @@ export default function PubcomAnalysisDemoPage() {
                           </div>
                           <div className="h-3 w-full rounded-full bg-muted overflow-hidden flex">
                             <div
-                              className="h-full bg-emerald-500"
+                              className="h-full bg-success"
                               style={{ width: `${topic.positive}%` }}
                             />
                             <div
@@ -406,7 +406,7 @@ export default function PubcomAnalysisDemoPage() {
                               style={{ width: `${topic.neutral}%` }}
                             />
                             <div
-                              className="h-full bg-red-500"
+                              className="h-full bg-destructive"
                               style={{ width: `${topic.negative}%` }}
                             />
                           </div>

@@ -76,10 +76,10 @@ const STATUS_COLORS: Record<EventStatus, string> = {
 const CATEGORIES: EventCategory[] = ["ハッカソン", "セミナー", "ワークショップ", "デモデイ"];
 
 const CATEGORY_COLORS: Record<EventCategory, string> = {
-  "ハッカソン": "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
+  "ハッカソン": "bg-cta/10 text-cta dark:bg-cta/20",
   "セミナー": "bg-primary/10 text-primary/90",
-  "ワークショップ": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
-  "デモデイ": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  "ワークショップ": "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
+  "デモデイ": "bg-success/10 text-success dark:bg-success/20",
 };
 
 const EVALUATION_CRITERIA = [

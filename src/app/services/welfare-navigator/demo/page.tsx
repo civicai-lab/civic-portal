@@ -177,7 +177,7 @@ const emergencyKeywords = [
 const matchLevelConfig = {
   high: { label: "高", className: "bg-success/15 text-success" },
   medium: { label: "中", className: "bg-primary/10 text-primary/90" },
-  low: { label: "低", className: "bg-slate-100 text-slate-700 dark:bg-slate-800/50 dark:text-slate-300" },
+  low: { label: "低", className: "bg-muted text-muted-foreground" },
 };
 
 // ---- コンポーネント ----

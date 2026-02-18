@@ -167,10 +167,10 @@ const CATEGORY_ICONS: Record<SpotCategory, React.ReactNode> = {
 };
 
 const CATEGORY_COLORS: Record<SpotCategory, string> = {
-  神社仏閣: "bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300",
-  自然: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
-  グルメ: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
-  文化: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  神社仏閣: "bg-destructive/10 text-destructive dark:bg-destructive/20",
+  自然: "bg-success/10 text-success dark:bg-success/20",
+  グルメ: "bg-cta/10 text-cta dark:bg-cta/20",
+  文化: "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
 };
 
 // --- 多言語応答テキスト ---
@@ -381,15 +381,15 @@ function EmergencyPanel({
 
           <a
             href="tel:119"
-            className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 hover:bg-orange-100 dark:bg-orange-950/50 dark:hover:bg-orange-950/70 transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg bg-warning/10 hover:bg-warning/15 dark:bg-warning/20 dark:hover:bg-warning/25 transition-colors"
             aria-label={data.fire}
           >
-            <div className="size-10 rounded-full bg-orange-600 flex items-center justify-center shrink-0">
+            <div className="size-10 rounded-full bg-warning flex items-center justify-center shrink-0">
               <AlertTriangle className="size-5 text-white" />
             </div>
             <div>
-              <p className="font-bold text-sm text-orange-800 dark:text-orange-300">{data.fire}</p>
-              <p className="text-xs text-orange-600 dark:text-orange-400">
+              <p className="font-bold text-sm text-warning-foreground dark:text-warning">{data.fire}</p>
+              <p className="text-xs text-warning dark:text-warning">
                 {lang === "ja" ? "火災・救急" : lang === "en" ? "Fire & Ambulance" : lang === "zh" ? "火灾/急救" : "화재/구급"}
               </p>
             </div>

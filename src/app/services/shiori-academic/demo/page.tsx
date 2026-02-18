@@ -146,8 +146,8 @@ const DB_SOURCES = [
 
 const DB_COLORS: Record<PaperData["db"], string> = {
   CiNii: "bg-primary/10 text-primary/90",
-  "J-STAGE": "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
-  "Google Scholar": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  "J-STAGE": "bg-success/10 text-success dark:bg-success/20",
+  "Google Scholar": "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
 };
 
 // --- 引用モーダルコンポーネント ---

@@ -55,15 +55,15 @@ const SYSTEMS: AuditSystem[] = [
 
 const RISK_COLORS: Record<RiskLevel, string> = {
   Low: "bg-success/10 text-success dark:bg-success/20",
-  Medium: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
-  High: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
+  Medium: "bg-warning/10 text-warning dark:bg-warning/20",
+  High: "bg-cta/10 text-cta dark:bg-cta/20",
   Critical: "bg-destructive/10 text-destructive dark:bg-destructive/20",
 };
 
 const RISK_DOT_COLORS: Record<RiskLevel, string> = {
   Low: "bg-success",
-  Medium: "bg-amber-500",
-  High: "bg-orange-500",
+  Medium: "bg-warning",
+  High: "bg-cta",
   Critical: "bg-destructive",
 };
 
@@ -89,7 +89,7 @@ const IMPROVEMENTS: Improvement[] = [
 
 const PRIORITY_COLORS: Record<string, string> = {
   High: "bg-destructive/10 text-destructive dark:bg-destructive/20",
-  Medium: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
+  Medium: "bg-warning/10 text-warning dark:bg-warning/20",
   Low: "bg-success/10 text-success dark:bg-success/20",
 };
 
@@ -193,7 +193,7 @@ export default function AiAuditDemoPage() {
                       <ShieldAlert className="size-3.5 text-muted-foreground" />
                       <span className="text-muted-foreground">バイアス:</span>
                       {sys.bias === "要確認" ? (
-                        <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300 text-xs">{sys.bias}</Badge>
+                        <Badge className="bg-warning/10 text-warning dark:bg-warning/20 text-xs">{sys.bias}</Badge>
                       ) : (
                         <Badge variant="secondary" className="text-xs">{sys.bias}</Badge>
                       )}
@@ -241,8 +241,8 @@ export default function AiAuditDemoPage() {
                             const dangerLevel = impact + prob;
                             let bgColor = "bg-success/10 dark:bg-success/10";
                             if (dangerLevel >= 7) bgColor = "bg-destructive/10 dark:bg-destructive/10";
-                            else if (dangerLevel >= 5) bgColor = "bg-amber-50 dark:bg-amber-950/30";
-                            else if (dangerLevel >= 4) bgColor = "bg-yellow-50 dark:bg-yellow-950/30";
+                            else if (dangerLevel >= 5) bgColor = "bg-warning/10 dark:bg-warning/10";
+                            else if (dangerLevel >= 4) bgColor = "bg-warning/5 dark:bg-warning/5";
 
                             let riskLabel = "低リスク";
                             if (dangerLevel >= 7) riskLabel = "高リスク";
@@ -308,7 +308,7 @@ export default function AiAuditDemoPage() {
                 <div key={priority}>
                   <div className="flex items-center gap-2 mb-4">
                     {priority === "High" && <XCircle className="size-5 text-destructive" />}
-                    {priority === "Medium" && <AlertTriangle className="size-5 text-amber-500 dark:text-amber-400" />}
+                    {priority === "Medium" && <AlertTriangle className="size-5 text-warning" />}
                     {priority === "Low" && <CheckCircle2 className="size-5 text-success" />}
                     <h3 className="font-semibold text-foreground">
                       優先度: {priority}

@@ -52,19 +52,19 @@ const MOCK_SPEECHES: Speech[] = [
 ];
 
 const ROLE_COLORS: Record<string, string> = {
-  "議長": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  "議長": "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
   "委員長": "bg-primary/10 text-primary/90",
-  "議員": "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300",
-  "部長": "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
-  "課長": "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300",
+  "議員": "bg-success/10 text-success dark:bg-success/20",
+  "部長": "bg-warning/10 text-warning dark:bg-warning/20",
+  "課長": "bg-cta/10 text-cta dark:bg-cta/20",
 };
 
 const PARTY_COLORS: Record<string, string> = {
   "無所属": "bg-muted text-foreground",
-  "市民の会": "bg-sky-100 text-sky-800 dark:bg-sky-950/50 dark:text-sky-300",
-  "執行部": "bg-slate-100 text-slate-800 dark:bg-slate-950/50 dark:text-slate-300",
-  "緑の党": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
-  "未来創造": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/50 dark:text-indigo-300",
+  "市民の会": "bg-primary/10 text-primary dark:bg-primary/20",
+  "執行部": "bg-muted text-muted-foreground",
+  "緑の党": "bg-thinktank/10 text-thinktank dark:bg-thinktank/20",
+  "未来創造": "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
 };
 
 const QUICK_SEARCHES = [
@@ -84,7 +84,7 @@ function highlightText(text: string, query: string) {
     <>
       {parts.map((part, i) =>
         part.toLowerCase() === query.toLowerCase() ? (
-          <mark key={i} className="bg-yellow-200 text-foreground rounded px-0.5">{part}</mark>
+          <mark key={i} className="bg-warning/30 text-foreground rounded px-0.5">{part}</mark>
         ) : (
           <span key={i}>{part}</span>
         )
@@ -97,11 +97,11 @@ function highlightText(text: string, query: string) {
 
 function TimelineDot({ role }: { role: string }) {
   const colorMap: Record<string, string> = {
-    "議長": "bg-purple-500",
+    "議長": "bg-chart-5",
     "委員長": "bg-primary",
-    "議員": "bg-green-500",
-    "部長": "bg-amber-500",
-    "課長": "bg-orange-500",
+    "議員": "bg-success",
+    "部長": "bg-warning",
+    "課長": "bg-cta",
   };
   return (
     <div className={`size-3 rounded-full ${colorMap[role] || "bg-muted-foreground"} shrink-0 ring-4 ring-background`} />

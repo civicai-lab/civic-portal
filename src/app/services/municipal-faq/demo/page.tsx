@@ -63,8 +63,8 @@ const CATEGORY_COLORS: Record<Category, string> = {
   税務: "bg-primary/10 text-primary/90",
   福祉: "bg-success/10 text-success dark:bg-success/20",
   届出: "bg-thinktank/10 text-thinktank dark:bg-thinktank/20",
-  環境: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
-  施設: "bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300",
+  環境: "bg-success/10 text-success dark:bg-success/20",
+  施設: "bg-warning/10 text-warning dark:bg-warning/20",
   防災: "bg-destructive/10 text-destructive dark:bg-destructive/20",
   一般: "bg-muted text-foreground",
 };

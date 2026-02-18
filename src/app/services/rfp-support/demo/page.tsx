@@ -52,9 +52,9 @@ const CATEGORIES = ["機能要件", "非機能要件", "セキュリティ", "�
 
 const CATEGORY_COLORS: Record<string, string> = {
   "機能要件": "bg-primary/10 text-primary/90",
-  "非機能要件": "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+  "非機能要件": "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
   "セキュリティ": "bg-destructive/10 text-destructive dark:bg-destructive/20",
-  "運用保守": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+  "運用保守": "bg-success/10 text-success dark:bg-success/20",
 };
 
 const RFP_SECTIONS = [

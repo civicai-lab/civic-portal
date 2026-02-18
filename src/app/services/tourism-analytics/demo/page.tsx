@@ -58,9 +58,9 @@ const MAX_VISITORS = Math.max(...MONTHLY_DATA.map((d) => d.visitors));
 
 const LANGUAGES = [
   { name: "日本語", percent: 60, color: "bg-primary", textColor: "text-primary" },
-  { name: "英語", percent: 15, color: "bg-emerald-500", textColor: "text-emerald-700 dark:text-emerald-400" },
-  { name: "中国語", percent: 12, color: "bg-red-500", textColor: "text-red-700 dark:text-red-400" },
-  { name: "韓国語", percent: 8, color: "bg-purple-500", textColor: "text-purple-700 dark:text-purple-400" },
+  { name: "英語", percent: 15, color: "bg-success", textColor: "text-success" },
+  { name: "中国語", percent: 12, color: "bg-destructive", textColor: "text-destructive" },
+  { name: "韓国語", percent: 8, color: "bg-chart-5", textColor: "text-chart-5" },
   { name: "その他", percent: 5, color: "bg-muted-foreground", textColor: "text-muted-foreground" },
 ];
 
@@ -82,7 +82,7 @@ const REPRESENTATIVE_POSTS = [
   {
     text: "The temple was beautiful but the signage was hard to follow for non-Japanese speakers. Would love more multilingual maps.",
     lang: "英語",
-    langColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300",
+    langColor: "bg-success/10 text-success dark:bg-success/20",
     sentiment: "中立",
     sentimentColor: "bg-muted text-foreground",
     icon: <Minus className="size-4 text-muted-foreground" />,
@@ -90,7 +90,7 @@ const REPRESENTATIVE_POSTS = [
   {
     text: "바다가 정말 아름다웠어요! 다만 대중교통 접근성이 좀 아쉬웠습니다. 다음에는 렌터카를 빌려야 할 것 같아요.",
     lang: "韓国語",
-    langColor: "bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300",
+    langColor: "bg-chart-5/10 text-chart-5 dark:bg-chart-5/20",
     sentiment: "ネガティブ",
     sentimentColor: "bg-destructive/10 text-destructive dark:bg-destructive/20",
     icon: <ThumbsDown className="size-4 text-destructive" />,
