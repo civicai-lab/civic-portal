@@ -22,6 +22,7 @@ export function CountUp({
 }: CountUpProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
   const [count, setCount] = useState(0);
+  const [animationDone, setAnimationDone] = useState(false);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ export function CountUp({
 
     if (prefersReducedMotion) {
       setCount(end);
+      setAnimationDone(true);
       return;
     }
 
@@ -48,6 +50,8 @@ export function CountUp({
 
       if (progress < 1) {
         requestAnimationFrame(animate);
+      } else {
+        setAnimationDone(true);
       }
     };
 
@@ -60,6 +64,14 @@ export function CountUp({
   return (
     <div ref={ref} className={className} aria-label={finalValue}>
       {displayValue}
+      {animationDone && (
+        <span
+          aria-live="polite"
+          className="sr-only"
+        >
+          {finalValue}
+        </span>
+      )}
     </div>
   );
 }

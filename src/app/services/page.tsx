@@ -122,6 +122,9 @@ export default function ServicesPage() {
   const filteredSaas = filterServices(saasServices);
   const filteredThinktank = filterServices(thinktankServices);
 
+  const isFilterActive =
+    priorityFilter !== "all" || subcategoryFilter !== "すべて" || searchQuery !== "";
+
   return (
     <div className="min-h-screen bg-muted">
       {/* Header */}
@@ -168,6 +171,11 @@ export default function ServicesPage() {
                 </button>
               )}
             </div>
+            {isFilterActive && (
+              <p className="text-sm text-muted-foreground mt-2" aria-live="polite">
+                {filteredAll.length}件のサービスが見つかりました
+              </p>
+            )}
           </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
             {/* Priority Filter */}
@@ -213,7 +221,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Clear Filters */}
-            {(priorityFilter !== "all" || subcategoryFilter !== "すべて" || searchQuery !== "") && (
+            {isFilterActive && (
               <Button
                 variant="ghost"
                 size="sm"

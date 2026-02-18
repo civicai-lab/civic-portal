@@ -291,30 +291,64 @@ export default function AiLabDemoPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                {EVALUATION_CRITERIA.map((criterion) => (
+                {EVALUATION_CRITERIA.map((criterion) => {
+                  const currentRating = ratings[criterion.id];
+                  const handleStarKeyDown = (e: React.KeyboardEvent) => {
+                    let newValue = currentRating;
+                    if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+                      e.preventDefault();
+                      newValue = Math.min(5, currentRating + 1);
+                    } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+                      e.preventDefault();
+                      newValue = Math.max(1, currentRating - 1);
+                    } else if (e.key === "Home") {
+                      e.preventDefault();
+                      newValue = 1;
+                    } else if (e.key === "End") {
+                      e.preventDefault();
+                      newValue = 5;
+                    } else {
+                      return;
+                    }
+                    setRating(criterion.id, newValue);
+                  };
+
+                  return (
                   <div key={criterion.id}>
-                    <label className="block text-sm font-semibold mb-2">
-                      {criterion.label}
-                    </label>
                     <div
+                      id={`rating-label-${criterion.id}`}
+                      className="block text-sm font-semibold mb-2"
+                    >
+                      {criterion.label}
+                    </div>
+                    <div
+                      role="radiogroup"
+                      aria-labelledby={`rating-label-${criterion.id}`}
                       className="flex items-center gap-1"
                       onMouseLeave={() => setHoverRating((prev) => ({ ...prev, [criterion.id]: 0 }))}
                     >
                       {[1, 2, 3, 4, 5].map((value) => {
                         const hv = hoverRating[criterion.id] || 0;
-                        const active = hv > 0 ? value <= hv : value <= ratings[criterion.id];
+                        const active = hv > 0 ? value <= hv : value <= currentRating;
+                        const isSelected = value === currentRating;
+                        // roving tabindex: 選択中の星(またはまだ未評価なら1番目の星)のみtab到達可能
+                        const isTabbable = currentRating > 0 ? isSelected : value === 1;
                         return (
                           <button
                             key={value}
                             type="button"
+                            role="radio"
+                            aria-checked={isSelected}
+                            tabIndex={isTabbable ? 0 : -1}
                             onClick={() => setRating(criterion.id, value)}
+                            onKeyDown={handleStarKeyDown}
                             onMouseEnter={() => setHoverRating((prev) => ({ ...prev, [criterion.id]: value }))}
                             className={`p-1 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                               active
                                 ? "text-warning"
                                 : "text-muted-foreground/30 hover:text-warning/40"
                             }`}
-                            aria-label={`${criterion.label}: ${value}点${value === ratings[criterion.id] ? '（選択中）' : ''}`}
+                            aria-label={`${criterion.label}: ${value}点`}
                           >
                             <Star
                               className="size-7"
@@ -323,9 +357,9 @@ export default function AiLabDemoPage() {
                           </button>
                         );
                       })}
-                      <span className="ml-2 text-sm text-muted-foreground">
-                        {ratings[criterion.id] > 0
-                          ? `${ratings[criterion.id]}/5`
+                      <span className="ml-2 text-sm text-muted-foreground" aria-live="polite">
+                        {currentRating > 0
+                          ? `${currentRating}/5`
                           : "未評価"}
                       </span>
                     </div>
@@ -333,7 +367,8 @@ export default function AiLabDemoPage() {
                       <Separator className="mt-4" />
                     )}
                   </div>
-                ))}
+                  );
+                })}
 
                 <Separator />
 

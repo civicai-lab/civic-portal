@@ -362,7 +362,13 @@ export default function ContactPage() {
                         placeholder="ご質問やご要望をご記入ください"
                         className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.message ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
-                      <div className="mt-1 text-right text-xs text-muted-foreground/70">
+                      <div className={`mt-1 text-right text-xs ${
+                        formData.message.length >= 950
+                          ? "text-destructive"
+                          : formData.message.length >= 800
+                            ? "text-warning-foreground"
+                            : "text-muted-foreground/70"
+                      }`}>
                         {formData.message.length}/1000文字
                       </div>
                       {errors.message && (

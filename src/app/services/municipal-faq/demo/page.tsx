@@ -304,7 +304,12 @@ export default function MunicipalFaqDemoPage() {
                 }
                 footer={
                   msg.role === "ai" && msg.confidence !== undefined ? (
-                    <ConfidenceIndicator confidence={msg.confidence} />
+                    <div>
+                      <ConfidenceIndicator confidence={msg.confidence} />
+                      <p className="mt-1.5 text-xs text-muted-foreground/70">
+                        ※ この回答は参考情報です。正確な内容は各担当窓口にてご確認ください。
+                      </p>
+                    </div>
                   ) : undefined
                 }
               />
