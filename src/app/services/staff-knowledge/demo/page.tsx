@@ -359,7 +359,7 @@ export default function StaffKnowledgeDemoPage() {
                 />
                 <Button
                   size="icon"
-                  className="rounded-full shrink-0 transition-transform active:scale-90"
+                  className="rounded-full shrink-0 transition-transform motion-safe:active:scale-90"
                   onClick={() => handleSend()}
                   disabled={!input.trim() || isTyping}
                   aria-label="送信"

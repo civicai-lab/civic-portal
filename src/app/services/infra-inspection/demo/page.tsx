@@ -267,6 +267,7 @@ export default function InfraInspectionDemoPage() {
                 </div>
 
                 {/* テーブル */}
+                <div className="relative">
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[600px] text-sm" role="table" aria-label="施設一覧">
                     <caption className="sr-only">施設点検一覧</caption>
@@ -370,6 +371,8 @@ export default function InfraInspectionDemoPage() {
                       })}
                     </tbody>
                   </table>
+                </div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent md:hidden" aria-hidden="true" />
                 </div>
                 <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
                   ← 横スクロールで全体を表示 →
@@ -477,7 +480,7 @@ export default function InfraInspectionDemoPage() {
                           key={grade}
                           className={`p-4 rounded-lg text-center ${config.bgClass}`}
                         >
-                          <p className="text-3xl font-bold">{count}</p>
+                          <CountUp end={count} className="text-3xl font-bold" />
                           <p className="text-xs mt-1 font-medium">
                             {grade}: {config.label}
                           </p>

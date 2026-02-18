@@ -183,7 +183,7 @@ export default function PubcomAnalysisDemoPage() {
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">賛成率</p>
                   <div className="text-2xl sm:text-3xl font-bold text-success">
-                    <CountUp end={58} suffix=".3%" />
+                    <CountUp end={58.3} decimals={1} suffix="%" />
                   </div>
                 </CardContent>
               </Card>
@@ -191,7 +191,7 @@ export default function PubcomAnalysisDemoPage() {
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground mb-1">反対率</p>
                   <div className="text-2xl sm:text-3xl font-bold text-destructive">
-                    <CountUp end={23} suffix=".1%" />
+                    <CountUp end={23.1} decimals={1} suffix="%" />
                   </div>
                 </CardContent>
               </Card>

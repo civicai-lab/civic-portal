@@ -143,7 +143,7 @@ export default function TourismAnalyticsDemoPage() {
               <p className="text-sm text-muted-foreground">平均滞在時間</p>
             </div>
             <div className="text-2xl sm:text-3xl font-bold text-success">
-              2.3<span className="text-base font-normal text-muted-foreground">日</span>
+              <CountUp end={2.3} decimals={1} suffix="日" />
             </div>
           </CardContent>
         </Card>
@@ -154,7 +154,7 @@ export default function TourismAnalyticsDemoPage() {
               <p className="text-sm text-muted-foreground">満足度</p>
             </div>
             <div className="text-2xl sm:text-3xl font-bold text-warning">
-              4.2<span className="text-base font-normal text-muted-foreground">/ 5.0</span>
+              <CountUp end={4.2} decimals={1} /><span className="text-base font-normal text-muted-foreground">/ 5.0</span>
             </div>
           </CardContent>
         </Card>

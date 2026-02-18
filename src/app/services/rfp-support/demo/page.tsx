@@ -348,6 +348,7 @@ export default function RfpSupportDemoPage() {
               </CardHeader>
               <CardContent>
                 {/* テーブル */}
+                <div className="relative">
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[600px] text-sm" role="table">
                     <caption className="sr-only">ベンダー質問票一覧</caption>
@@ -372,6 +373,8 @@ export default function RfpSupportDemoPage() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent md:hidden" aria-hidden="true" />
                 </div>
               </CardContent>
             </Card>

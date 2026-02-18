@@ -49,11 +49,11 @@
 ## 最近の変更 (git log)
 
 ```
-ee97095 test(civic-portal): Phase H46 — E2Eテスト拡充（ダークモード+レスポンシブ）
-7ad1e9d feat(civic-portal): Phase H45 — 星評価色text-amber-400→text-warning完全トークン化+ai/整理
-2c53c6b feat(civic-portal): Phase H44 — 全デモページのハードコード色を完全セマンティック化
-80c85a5 feat(civic-portal): Phase H43 — UX信頼性+SEO+レスポンシブ+ダークモード改善
-784d295 feat(civic-portal): Phase H42 — サービス詳細AnimatedSection+Breadcrumb統一+デモtext-xs化+フォーム改善
+e7cd962 docs: STATE.md更新（Phase H49-H51）
+65d7fc6 feat(civic-portal): Phase H51 — サービス詳細ページ専用スケルトンUI
+d469565 test(civic-portal): Phase H50 — E2Eテスト拡充（検索+デモ操作、44→54テスト）
+35eea98 feat(civic-portal): Phase H49 — サービス検索入力+テーブルmin-w+STATE.md更新
+5e12160 feat(civic-portal): Phase H48 — 星評価ホバープレビュー+CODEBASE.md更新
 ```
 
 **現在のブランチ**: `main`
@@ -68,16 +68,16 @@ ee97095 test(civic-portal): Phase H46 — E2Eテスト拡充（ダークモー�
 - ./e2e/responsive.spec.ts
 - ./e2e/demo.spec.ts
 - ./e2e/services.spec.ts
+- ./e2e/demo-interactions.spec.ts
+- ./e2e/search.spec.ts
 - ./e2e/home.spec.ts
 - ./e2e/accessibility.spec.ts
 - ./e2e/service-detail.spec.ts
 - ./next.config.ts
 - ./src/types/service.ts
 - ./src/app/sitemap.ts
-- ./src/app/layout.tsx
-- ./src/app/error.tsx
 
 ### Python
 
 ---
-*自動生成: 2026-02-18 23:11*
+*自動生成: 2026-02-18 23:28*

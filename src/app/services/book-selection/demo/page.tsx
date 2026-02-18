@@ -362,7 +362,7 @@ export default function BookSelectionDemoPage() {
                 <p className="text-sm text-muted-foreground">蔵書回転率</p>
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-primary">
-                <CountUp end={3} suffix=".21" />
+                <CountUp end={3.21} decimals={2} />
               </div>
             </CardContent>
           </Card>
@@ -373,7 +373,7 @@ export default function BookSelectionDemoPage() {
                 <p className="text-sm text-muted-foreground">予算消化率</p>
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-chart-5">
-                <CountUp end={87} suffix=".5%" />
+                <CountUp end={87.5} decimals={1} suffix="%" />
               </div>
             </CardContent>
           </Card>
@@ -476,6 +476,7 @@ export default function BookSelectionDemoPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                <div className="relative">
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[600px] text-sm">
                     <thead>
@@ -554,6 +555,8 @@ export default function BookSelectionDemoPage() {
                       })}
                     </tbody>
                   </table>
+                </div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent md:hidden" aria-hidden="true" />
                 </div>
                 <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
                   ← 横スクロールで全体を表示 →
@@ -681,6 +684,7 @@ export default function BookSelectionDemoPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                <div className="relative">
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[600px] text-sm">
                     <thead>
@@ -733,6 +737,8 @@ export default function BookSelectionDemoPage() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent md:hidden" aria-hidden="true" />
                 </div>
                 <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
                   ← 横スクロールで全体を表示 →

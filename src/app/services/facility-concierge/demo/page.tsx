@@ -170,6 +170,7 @@ function StepIndicator({
                       ? "bg-primary/20 text-primary"
                       : "bg-muted text-muted-foreground"
                 }`}
+                aria-current={isActive ? "step" : undefined}
               >
                 {isCompleted ? <Check className="size-4" /> : stepNum}
               </div>

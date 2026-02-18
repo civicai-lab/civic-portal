@@ -388,6 +388,7 @@ export default function GuidelineServiceDemoPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="relative">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[600px] text-sm" role="table" aria-label="ガイドライン比較表">
                   <caption className="sr-only">ガイドライン比較表</caption>
@@ -412,6 +413,8 @@ export default function GuidelineServiceDemoPage() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent md:hidden" aria-hidden="true" />
               </div>
               <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
                 ← 横スクロールで全体を表示 →

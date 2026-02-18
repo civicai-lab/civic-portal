@@ -121,7 +121,7 @@ export default function AiAuditDemoPage() {
           <CardContent className="pt-0">
             <p className="text-sm text-muted-foreground mb-1">平均リスクスコア</p>
             <div className="text-2xl sm:text-3xl font-bold text-warning">
-              3.2 <span className="text-base font-normal text-muted-foreground">/ 5.0</span>
+              <CountUp end={3.2} decimals={1} /> <span className="text-base font-normal text-muted-foreground">/ 5.0</span>
             </div>
           </CardContent>
         </Card>

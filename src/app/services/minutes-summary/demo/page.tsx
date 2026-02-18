@@ -173,6 +173,7 @@ function StepIndicator({ currentStep }: { currentStep: number }) {
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-background text-muted-foreground"
                 }`}
+                aria-current={currentStep === step.num ? "step" : undefined}
               >
                 {currentStep > step.num ? (
                   <CheckCircle2 className="size-5" />

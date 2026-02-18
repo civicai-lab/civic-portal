@@ -402,7 +402,7 @@ export default function ShioriAcademicDemoPage() {
               <Button
                 onClick={() => handleSearch()}
                 disabled={!query.trim() || isSearching}
-                className="shrink-0 gap-1.5 transition-transform active:scale-90"
+                className="shrink-0 gap-1.5 transition-transform motion-safe:active:scale-90"
                 aria-label="検索を実行"
               >
                 <Search className="size-4" />

@@ -409,6 +409,14 @@
 ### Phase H51: サービス詳細スケルトンUI（65d7fc6）
 - services/[slug]/loading.tsx新規: Hero+概要+特徴グリッド+料金プランのスケルトン
 
+### Phase H52: テーブルスクロールグラデーション+デモloading.tsx（未コミット）
+- テーブルスクロールグラデーションフェード: 4ファイル5テーブルに右端グラデーション追加（モバイルのみ表示）
+  - infra-inspection/demo: 施設一覧テーブル（1箇所）
+  - rfp-support/demo: ベンダー質問票テーブル（1箇所）
+  - guideline-service/demo: 比較表テーブル（1箇所）
+  - book-selection/demo: ギャップ分析+除籍候補テーブル（2箇所）
+- デモページ共用loading.tsx: services/[slug]/demo/loading.tsx新規作成（DemoLayoutスケルトン+stagger-inアニメーション）
+
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
@@ -416,4 +424,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-18 Phase H51 サービス詳細スケルトンUI*
+*最終更新: 2026-02-19 Phase H52 テーブルスクロールグラデーション+デモloading.tsx*

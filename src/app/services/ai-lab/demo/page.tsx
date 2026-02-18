@@ -314,7 +314,7 @@ export default function AiLabDemoPage() {
                                 ? "text-warning"
                                 : "text-muted-foreground/30 hover:text-warning/40"
                             }`}
-                            aria-label={`${criterion.label}: ${value}点`}
+                            aria-label={`${criterion.label}: ${value}点${value === ratings[criterion.id] ? '（選択中）' : ''}`}
                           >
                             <Star
                               className="size-7"
