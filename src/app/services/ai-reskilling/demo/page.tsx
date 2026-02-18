@@ -139,6 +139,7 @@ export default function AiReskillingDemoPage() {
   return (
     <DemoLayout
       serviceName="AI研修・リスキリング支援"
+      serviceSlug="ai-reskilling"
       serviceIcon={<GraduationCap className="size-5 text-primary-foreground" />}
       subtitle="スキル診断デモ"
     >

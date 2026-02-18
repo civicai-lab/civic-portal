@@ -105,6 +105,7 @@ export default function TourismAnalyticsDemoPage() {
   return (
     <DemoLayout
       serviceName="観光データ分析AI"
+      serviceSlug="tourism-analytics"
       serviceIcon={<TrendingUp className="size-5 text-primary-foreground" />}
       subtitle="観光分析デモ"
     >

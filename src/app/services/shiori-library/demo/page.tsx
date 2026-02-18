@@ -271,10 +271,9 @@ export default function ShioriLibraryDemoPage() {
       setInput("");
       setIsTyping(true);
 
-      const delay = 600 + Math.random() * 600;
+      const response = generateResponse(messageText);
+      const delay = Math.min(1200 + response.content.length * 5, 3000);
       setTimeout(() => {
-        const response = generateResponse(messageText);
-
         const aiMessage: ChatMessage = {
           id: `ai-${Date.now()}`,
           role: "ai",
@@ -324,6 +323,7 @@ export default function ShioriLibraryDemoPage() {
   return (
     <DemoLayout
       serviceName="AI司書 SHIORI"
+      serviceSlug="shiori-library"
       serviceIcon={<BookOpen className="size-5 text-primary-foreground" />}
       subtitle="蔵書検索・おすすめデモ"
       fullHeight

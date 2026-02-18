@@ -230,11 +230,10 @@ export default function StaffKnowledgeDemoPage() {
         ...prev.slice(0, 4),
       ]);
 
-      const delay = 600 + Math.random() * 600;
+      const mockResponse =
+        MOCK_RESPONSES[messageText] || getDefaultResponse(messageText);
+      const delay = Math.min(1200 + mockResponse.content.length * 5, 3000);
       setTimeout(() => {
-        const mockResponse =
-          MOCK_RESPONSES[messageText] || getDefaultResponse(messageText);
-
         const aiMessage: ChatMessage = {
           id: `ai-${Date.now()}`,
           role: "ai",
@@ -278,6 +277,7 @@ export default function StaffKnowledgeDemoPage() {
   return (
     <DemoLayout
       serviceName="庁内ナレッジ検索AI"
+      serviceSlug="staff-knowledge"
       serviceIcon={<BookOpen className="size-5 text-primary-foreground" />}
       subtitle="ナレッジ検索デモ"
       fullHeight

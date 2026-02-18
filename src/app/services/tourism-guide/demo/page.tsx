@@ -480,31 +480,29 @@ export default function TourismGuideDemoPage() {
       setInput("");
       setIsTyping(true);
 
-      const delay = 500 + Math.random() * 600;
-      setTimeout(() => {
-        let responseContent: string;
-        let responseSpots: SpotData[] | undefined;
-        let confidence: number;
+      let responseContent: string;
+      let responseSpots: SpotData[] | undefined;
+      let confidence: number;
 
-        if (isRecommendRequest(messageText)) {
-          // おすすめリクエスト
-          const shuffled = [...SPOTS].sort(() => Math.random() - 0.5);
-          responseSpots = shuffled.slice(0, 3);
-          responseContent = RECOMMEND_PREFIX[lang];
-          confidence = 88;
+      if (isRecommendRequest(messageText)) {
+        const shuffled = [...SPOTS].sort(() => Math.random() - 0.5);
+        responseSpots = shuffled.slice(0, 3);
+        responseContent = RECOMMEND_PREFIX[lang];
+        confidence = 88;
+      } else {
+        const found = searchSpots(messageText);
+        if (found.length > 0) {
+          responseSpots = found;
+          responseContent = SEARCH_RESULT[lang];
+          confidence = 92;
         } else {
-          // キーワード検索
-          const found = searchSpots(messageText);
-          if (found.length > 0) {
-            responseSpots = found;
-            responseContent = SEARCH_RESULT[lang];
-            confidence = 92;
-          } else {
-            responseContent = NOT_FOUND[lang];
-            confidence = 40;
-          }
+          responseContent = NOT_FOUND[lang];
+          confidence = 40;
         }
+      }
 
+      const delay = Math.min(1200 + responseContent.length * 5, 3000);
+      setTimeout(() => {
         const aiMessage: ChatMessage = {
           id: `ai-${Date.now()}`,
           role: "ai",
@@ -536,6 +534,7 @@ export default function TourismGuideDemoPage() {
   return (
     <DemoLayout
       serviceName="多言語観光AIガイド"
+      serviceSlug="tourism-guide"
       serviceIcon={<Globe className="size-5 text-primary-foreground" />}
       subtitle="観光案内デモ"
       fullHeight

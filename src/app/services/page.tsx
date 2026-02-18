@@ -373,7 +373,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="border-t bg-card py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground">
             お探しのサービスが見つかりましたか？
           </h2>
           <p className="mt-4 text-muted-foreground">

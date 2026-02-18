@@ -711,6 +711,7 @@ export default function MinutesSummaryDemoPage() {
   return (
     <DemoLayout
       serviceName="議事録要約AI"
+      serviceSlug="minutes-summary"
       serviceIcon={<FileText className="size-5 text-primary-foreground" />}
       subtitle="要約ワークフローデモ"
     >

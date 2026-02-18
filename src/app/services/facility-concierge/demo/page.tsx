@@ -236,6 +236,7 @@ export default function FacilityConciergeDemo() {
   return (
     <DemoLayout
       serviceName="施設予約AIコンシェルジュ"
+      serviceSlug="facility-concierge"
       serviceIcon={<Building2 className="size-5 text-primary-foreground" />}
       subtitle="4ステップウィザードデモ"
     >

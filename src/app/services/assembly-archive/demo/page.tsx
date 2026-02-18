@@ -161,6 +161,7 @@ export default function AssemblyArchiveDemoPage() {
   return (
     <DemoLayout
       serviceName="議会アーカイブ検索AI"
+      serviceSlug="assembly-archive"
       serviceIcon={<Building2 className="size-5 text-primary-foreground" />}
       subtitle="議会検索デモ"
       fullHeight

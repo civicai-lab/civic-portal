@@ -326,6 +326,7 @@ export default function WelfareNavigatorDemo() {
   return (
     <DemoLayout
       serviceName="福祉制度ナビゲーター"
+      serviceSlug="welfare-navigator"
       serviceIcon={<Shield className="size-5 text-primary-foreground" />}
       subtitle="制度マッチングデモ"
     >

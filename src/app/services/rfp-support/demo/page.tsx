@@ -158,6 +158,7 @@ export default function RfpSupportDemoPage() {
   return (
     <DemoLayout
       serviceName="RFP作成支援AI"
+      serviceSlug="rfp-support"
       serviceIcon={<ClipboardList className="size-5 text-primary-foreground" />}
       subtitle="RFP作成デモ"
     >

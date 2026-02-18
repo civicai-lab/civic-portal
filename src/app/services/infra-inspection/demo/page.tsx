@@ -165,6 +165,7 @@ export default function InfraInspectionDemoPage() {
   return (
     <DemoLayout
       serviceName="インフラ点検AIサポーター"
+      serviceSlug="infra-inspection"
       serviceIcon={<Construction className="size-5 text-primary-foreground" />}
       subtitle="インフラ点検デモ"
     >

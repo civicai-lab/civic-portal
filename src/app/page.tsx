@@ -47,7 +47,7 @@ export default function HomePage() {
           priority
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/92 via-primary/85 to-accent-foreground/78" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <Badge variant="secondary" className="mb-6 text-sm">
@@ -166,7 +166,7 @@ export default function HomePage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="line-clamp-2 text-sm text-muted-foreground">
                       {service.description}
                     </p>
                     <div className="mt-4 flex items-center text-sm font-semibold text-primary">
@@ -539,7 +539,7 @@ export default function HomePage() {
           className="object-cover"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/92 via-primary/85 to-accent-foreground/80" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">

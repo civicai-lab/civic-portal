@@ -226,6 +226,7 @@ export default function AiStarterPackDemoPage() {
     return (
       <DemoLayout
         serviceName="AI導入スターターパック"
+        serviceSlug="ai-starter-pack"
         serviceIcon={<Rocket className="size-5 text-primary-foreground" />}
         subtitle="AI導入診断デモ"
       >
@@ -347,6 +348,7 @@ export default function AiStarterPackDemoPage() {
   return (
     <DemoLayout
       serviceName="AI導入スターターパック"
+      serviceSlug="ai-starter-pack"
       serviceIcon={<Rocket className="size-5 text-primary-foreground" />}
       subtitle="AI導入診断デモ"
     >

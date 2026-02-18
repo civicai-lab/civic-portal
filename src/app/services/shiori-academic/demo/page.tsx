@@ -378,6 +378,7 @@ export default function ShioriAcademicDemoPage() {
   return (
     <DemoLayout
       serviceName="SHIORI Academic"
+      serviceSlug="shiori-academic"
       serviceIcon={<GraduationCap className="size-5 text-primary-foreground" />}
       subtitle="学術検索デモ"
     >

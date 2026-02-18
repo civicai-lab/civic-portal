@@ -148,6 +148,7 @@ export default function PubcomAnalysisDemoPage() {
   return (
     <DemoLayout
       serviceName="パブコメ分析AI"
+      serviceSlug="pubcom-analysis"
       serviceIcon={<BarChart3 className="size-5 text-primary-foreground" />}
       subtitle="分析ダッシュボードデモ"
     >

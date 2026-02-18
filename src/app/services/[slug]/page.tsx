@@ -384,7 +384,7 @@ export default async function ServiceDetailPage({
           placeholder="blur"
           blurDataURL={shimmerBlur}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent-foreground/85" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/88 to-accent-foreground/82" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 [&_nav]:text-primary-foreground/70 [&_a]:text-primary-foreground/70 [&_a:hover]:text-white [&_span]:text-primary-foreground/90 [&_svg]:text-primary-foreground/50">
             <Breadcrumb items={[
@@ -568,7 +568,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 py-16 text-primary-foreground md:py-20">
+      <section className="bg-gradient-to-br from-primary via-primary/90 to-accent-foreground/85 py-16 text-primary-foreground md:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight">
             {service.displayName}の導入をご検討ですか？

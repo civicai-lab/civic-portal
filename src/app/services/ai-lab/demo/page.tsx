@@ -138,6 +138,7 @@ export default function AiLabDemoPage() {
   return (
     <DemoLayout
       serviceName="官民共創AIラボ"
+      serviceSlug="ai-lab"
       serviceIcon={<Lightbulb className="size-5 text-primary-foreground" />}
       subtitle="共創ラボデモ"
     >

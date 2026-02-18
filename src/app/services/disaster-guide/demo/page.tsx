@@ -415,16 +415,15 @@ export default function DisasterGuideDemoPage() {
       setInput("");
       setIsTyping(true);
 
-      const delay = 500 + Math.random() * 500;
+      const responses =
+        phase === "emergency" ? EMERGENCY_RESPONSES : NORMAL_RESPONSES;
+      const mockResponse =
+        responses[messageText] ||
+        (phase === "emergency"
+          ? getDefaultEmergencyResponse(messageText)
+          : getDefaultNormalResponse(messageText));
+      const delay = Math.min(1200 + mockResponse.content.length * 5, 3000);
       setTimeout(() => {
-        const responses =
-          phase === "emergency" ? EMERGENCY_RESPONSES : NORMAL_RESPONSES;
-        const mockResponse =
-          responses[messageText] ||
-          (phase === "emergency"
-            ? getDefaultEmergencyResponse(messageText)
-            : getDefaultNormalResponse(messageText));
-
         const aiMessage: ChatMessage = {
           id: `ai-${Date.now()}`,
           role: "ai",
@@ -475,6 +474,7 @@ export default function DisasterGuideDemoPage() {
   return (
     <DemoLayout
       serviceName="防災AIガイド"
+      serviceSlug="disaster-guide"
       serviceIcon={<Shield className="size-5 text-primary-foreground" />}
       subtitle="チャット+マップデモ"
       fullHeight

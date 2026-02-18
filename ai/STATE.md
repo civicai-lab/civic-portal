@@ -1,12 +1,12 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練継続（Phase H58探索中）
+- 作業中: UI/UX洗練継続（Phase H59探索中）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 78/78パス（Playwright, ~14秒）
-- 直近コミット: cc6bc80 Phase H57 — E2E 78件+ChatSuggestions共通化+AVIF+removeConsole
-- 直近完了: Phase H57 E2E 78件+ChatSuggestions共通化+AVIF+removeConsole
+- E2Eテスト: 78/78パス（Playwright, ~17秒）
+- 直近コミット: 282c6c6 Phase H58 — ChatSuggestions改善+技術スタック+テスティモニアル拡張+ダーク微調整
+- 直近完了: Phase H58 ChatSuggestions改善+技術スタック+テスティモニアル拡張+ダーク微調整
 - Vercel: https://civic-portal-nine.vercel.app
 - Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
 - 全21バックエンドリポ: クリーン+リモート同期済み（H47確認）
@@ -462,6 +462,16 @@
 - next.config.ts: compiler.removeConsole追加（本番でconsole.log除去、error/warn残留）
 - 未参照画像~65件特定（将来コンテンツ用に保留）
 
+### Phase H58: ChatSuggestions改善+技術スタック+テスティモニアル拡張+ダーク微調整（282c6c6）
+- ChatSuggestions: focus-visible:ring-[3px]+hover:scale-[1.02]+motion-safe:active:scale-95追加
+- disaster-guide: text-[9px]→text-xs統一（3箇所）
+- FAQ: open:shadow-md+hover:shadow-md強化
+- footer: ソーシャルアイコンtransition-[colors,transform]統一
+- demo-layout: 警告バナーdark:bg-warning/20+dark:border-warning/50
+- services: ArrowRight size-5拡大+aria-atomic="true"+useMemoメモ化
+- services/[slug]: 関連サービス説明テキスト追加
+- page.tsx: テスティモニアル+2件（横浜市/静岡県）、「信頼の技術基盤」セクション新設（Brain/Database/Globe/Cloud 4カード）
+
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
@@ -469,4 +479,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-19 Phase H57 E2E 78件+ChatSuggestions共通化+AVIF+removeConsole*
+*最終更新: 2026-02-19 Phase H58 ChatSuggestions改善+技術スタック+テスティモニアル拡張+ダーク微調整*

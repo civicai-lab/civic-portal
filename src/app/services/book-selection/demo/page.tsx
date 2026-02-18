@@ -275,6 +275,7 @@ export default function BookSelectionDemoPage() {
   return (
     <DemoLayout
       serviceName="AI選書最適化"
+      serviceSlug="book-selection"
       serviceIcon={<BookOpen className="size-5 text-primary-foreground" />}
       subtitle="選書ダッシュボードデモ"
     >

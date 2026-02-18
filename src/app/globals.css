@@ -149,6 +149,9 @@
   --sidebar-accent-foreground: oklch(0.90 0.04 250);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.55 0.12 262);
+  /* ダークモード用カスタムシャドウ: primary色ティントで浮遊感を演出 */
+  --shadow-card: 0 1px 3px oklch(0.55 0.18 262 / 8%), 0 1px 2px oklch(0.55 0.18 262 / 6%);
+  --shadow-card-hover: 0 10px 25px oklch(0.55 0.18 262 / 12%), 0 4px 10px oklch(0.55 0.18 262 / 8%);
 }
 
 @layer base {
@@ -157,6 +160,13 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* ダークモードのカード/要素にprimaryティントシャドウを適用 */
+  .dark .shadow-sm,
+  .dark .shadow-md,
+  .dark .shadow-lg,
+  .dark .shadow-xl {
+    --tw-shadow-color: oklch(0.55 0.18 262 / 10%);
   }
   /* スキップリンク */
   .skip-link {
@@ -192,11 +202,11 @@
 
 /* ページ遷移 */
 @keyframes page-enter {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-page-enter {
-  animation: page-enter 0.3s ease-out;
+  animation: page-enter 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* アクセシビリティ: モーション軽減 */

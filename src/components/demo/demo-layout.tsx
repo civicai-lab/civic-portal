@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, AlertTriangle } from "lucide-react";
+import { ArrowLeft, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react";
+import { services } from "@/data/services";
+import { useMemo } from "react";
 
 interface DemoLayoutProps {
   serviceName: string;
   serviceIcon: React.ReactNode;
+  serviceSlug?: string;
   subtitle?: string;
   backHref?: string;
   children: React.ReactNode;
@@ -15,11 +18,22 @@ interface DemoLayoutProps {
 export function DemoLayout({
   serviceName,
   serviceIcon,
+  serviceSlug,
   subtitle = "デモ",
   backHref = "/services",
   children,
   fullHeight = false,
 }: DemoLayoutProps) {
+  const { prev, next } = useMemo(() => {
+    if (!serviceSlug) return { prev: null, next: null };
+    const index = services.findIndex((s) => s.slug === serviceSlug);
+    if (index === -1) return { prev: null, next: null };
+    return {
+      prev: index > 0 ? services[index - 1] : null,
+      next: index < services.length - 1 ? services[index + 1] : null,
+    };
+  }, [serviceSlug]);
+
   return (
     <div className="min-h-screen bg-muted">
       {/* デモバナー */}
@@ -63,6 +77,39 @@ export function DemoLayout({
       >
         {children}
       </div>
+
+      {/* モバイル前後ナビゲーション */}
+      {serviceSlug && (prev || next) && (
+        <nav
+          className="md:hidden border-t border-border bg-card px-4 py-3"
+          aria-label="前後のサービスデモ"
+        >
+          <div className="flex justify-between items-center max-w-4xl mx-auto">
+            {prev ? (
+              <Link
+                href={`/services/${prev.slug}/demo`}
+                className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors min-w-0 mr-2"
+              >
+                <ChevronLeft className="size-4 shrink-0" />
+                <span className="truncate">{prev.displayName}</span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link
+                href={`/services/${next.slug}/demo`}
+                className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors min-w-0 ml-2 text-right"
+              >
+                <span className="truncate">{next.displayName}</span>
+                <ChevronRight className="size-4 shrink-0" />
+              </Link>
+            ) : (
+              <span />
+            )}
+          </div>
+        </nav>
+      )}
 
       {/* 免責事項フッター */}
       <footer className="border-t border-border bg-card px-4 py-3">

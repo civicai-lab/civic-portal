@@ -277,6 +277,7 @@ export default function GuidelineServiceDemoPage() {
   return (
     <DemoLayout
       serviceName="AI利用ガイドライン策定支援"
+      serviceSlug="guideline-service"
       serviceIcon={<FileText className="size-5 text-primary-foreground" />}
       subtitle="ガイドライン策定デモ"
     >

@@ -102,6 +102,7 @@ export default function AiAuditDemoPage() {
   return (
     <DemoLayout
       serviceName="AI監査・評価サービス"
+      serviceSlug="ai-audit"
       serviceIcon={<ShieldCheck className="size-5 text-primary-foreground" />}
       subtitle="AI監査デモ"
     >

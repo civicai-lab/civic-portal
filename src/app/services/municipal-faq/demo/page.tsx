@@ -210,11 +210,10 @@ export default function MunicipalFaqDemoPage() {
       setInput("");
       setIsTyping(true);
 
-      const delay = 500 + Math.random() * 500;
+      const mockResponse =
+        MOCK_RESPONSES[messageText] || getDefaultResponse(messageText);
+      const delay = Math.min(1200 + mockResponse.content.length * 5, 3000);
       setTimeout(() => {
-        const mockResponse =
-          MOCK_RESPONSES[messageText] || getDefaultResponse(messageText);
-
         const aiMessage: ChatMessage = {
           id: `ai-${Date.now()}`,
           role: "ai",
@@ -244,6 +243,7 @@ export default function MunicipalFaqDemoPage() {
   return (
     <DemoLayout
       serviceName="住民問い合わせAI"
+      serviceSlug="municipal-faq"
       serviceIcon={<MessageSquare className="size-5 text-primary-foreground" />}
       subtitle="チャットデモ"
       fullHeight
