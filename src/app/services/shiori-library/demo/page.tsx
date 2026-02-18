@@ -452,6 +452,21 @@ export default function ShioriLibraryDemoPage() {
 
               {isTyping && <TypingIndicator />}
 
+              {/* 空状態ガイダンス */}
+              {messages.length <= 1 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {["恋愛小説のおすすめは？", "プログラミング入門書を探して", "子供向けの絵本は？"].map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => { setInput(q); }}
+                      className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
 
@@ -473,7 +488,7 @@ export default function ShioriLibraryDemoPage() {
                   className="rounded-full shrink-0 transition-transform motion-safe:active:scale-90"
                   onClick={() => handleSend()}
                   disabled={!input.trim() || isTyping}
-                  aria-label="メッセージを送信"
+                  aria-label={isTyping ? "応答を生成中" : "メッセージを送信"}
                 >
                   <Send className="size-4" />
                 </Button>

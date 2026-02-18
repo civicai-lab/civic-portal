@@ -224,12 +224,13 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
+                        autoComplete="name"
                         aria-required="true"
                         aria-invalid={!!errors.name}
                         aria-describedby={errors.name ? "name-error" : undefined}
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="山田 太郎"
+                        placeholder="例: 田中太郎"
                         className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.name ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.name && (
@@ -248,18 +249,19 @@ export default function ContactPage() {
                         メールアドレス <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
-                      <p className="mt-1 text-xs text-muted-foreground/70">確認メールをお送りします</p>
+                      <p id="email-hint" className="mt-1 text-xs text-muted-foreground/70">確認メールをお送りします</p>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         required
+                        autoComplete="email"
                         aria-required="true"
                         aria-invalid={!!errors.email}
-                        aria-describedby={errors.email ? "email-error" : undefined}
+                        aria-describedby={[errors.email ? "email-error" : "", "email-hint"].filter(Boolean).join(" ") || undefined}
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="taro.yamada@city.example.lg.jp"
+                        placeholder="例: taro@city.example.lg.jp"
                         className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.email ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.email && (
@@ -279,18 +281,19 @@ export default function ContactPage() {
                         <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
-                      <p className="mt-1 text-xs text-muted-foreground/70">自治体以外の方も歓迎です</p>
+                      <p id="organization-hint" className="mt-1 text-xs text-muted-foreground/70">自治体以外の方も歓迎です</p>
                       <input
                         type="text"
                         id="organization"
                         name="organization"
                         required
+                        autoComplete="organization"
                         aria-required="true"
                         aria-invalid={!!errors.organization}
-                        aria-describedby={errors.organization ? "organization-error" : undefined}
+                        aria-describedby={[errors.organization ? "organization-error" : "", "organization-hint"].filter(Boolean).join(" ") || undefined}
                         value={formData.organization}
                         onChange={handleChange}
-                        placeholder="○○市 DX推進課"
+                        placeholder="例: 東京都渋谷区 デジタル推進課"
                         className={`w-full rounded-md border px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-[3px] focus:ring-primary/20 focus:bg-primary/[0.02] dark:focus:bg-primary/[0.08] ${errors.organization ? "border-destructive bg-destructive/5 dark:bg-destructive/10" : "border-border"}`}
                       />
                       {errors.organization && (
@@ -347,14 +350,14 @@ export default function ContactPage() {
                         <span className="text-destructive" aria-hidden="true">*</span>
                         <span className="sr-only">（必須）</span>
                       </label>
-                      <p className="mt-1 text-xs text-muted-foreground/70">ご検討中のサービスや課題をお聞かせください</p>
+                      <p id="message-hint" className="mt-1 text-xs text-muted-foreground/70">ご検討中のサービスや課題をお聞かせください</p>
                       <textarea
                         id="message"
                         name="message"
                         required
                         aria-required="true"
                         aria-invalid={!!errors.message}
-                        aria-describedby={errors.message ? "message-error" : undefined}
+                        aria-describedby={[errors.message ? "message-error" : "", "message-hint"].filter(Boolean).join(" ") || undefined}
                         rows={6}
                         maxLength={1000}
                         value={formData.message}

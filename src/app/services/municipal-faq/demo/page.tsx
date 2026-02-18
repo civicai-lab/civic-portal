@@ -317,6 +317,21 @@ export default function MunicipalFaqDemoPage() {
 
             {isTyping && <TypingIndicator />}
 
+            {/* 空状態ガイダンス */}
+            {messages.length <= 1 && (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {["住民票の取り方を教えて", "ゴミ出しのルールは？", "子育て支援制度は？"].map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => { setInput(q); }}
+                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div ref={messagesEndRef} />
           </div>
 
@@ -338,7 +353,7 @@ export default function MunicipalFaqDemoPage() {
                 className="rounded-full shrink-0 transition-transform motion-safe:active:scale-90"
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isTyping}
-                aria-label="メッセージを送信"
+                aria-label={isTyping ? "応答を生成中" : "メッセージを送信"}
               >
                 <Send className="size-4" />
               </Button>

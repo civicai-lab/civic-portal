@@ -641,6 +641,21 @@ export default function TourismGuideDemoPage() {
 
             {isTyping && <TypingIndicator />}
 
+            {/* 空状態ガイダンス */}
+            {messages.length <= 1 && (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {["おすすめの観光スポットは？", "地元グルメを教えて", "子連れで楽しめる場所は？"].map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => { setInput(q); }}
+                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+
             <div ref={messagesEndRef} />
           </div>
 
@@ -673,7 +688,9 @@ export default function TourismGuideDemoPage() {
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isTyping}
                 aria-label={
-                  lang === "ja" ? "送信" : lang === "en" ? "Send" : lang === "zh" ? "发送" : "전송"
+                  isTyping
+                    ? (lang === "ja" ? "応答を生成中" : lang === "en" ? "Generating response" : lang === "zh" ? "正在生成回复" : "응답 생성 중")
+                    : (lang === "ja" ? "メッセージを送信" : lang === "en" ? "Send message" : lang === "zh" ? "发送消息" : "메시지 전송")
                 }
               >
                 <Send className="size-4" />

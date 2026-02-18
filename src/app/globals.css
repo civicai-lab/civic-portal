@@ -133,7 +133,7 @@
   --success: oklch(0.60 0.16 155);
   --success-foreground: oklch(0.14 0.02 250);
   --warning: oklch(0.75 0.15 75);
-  --warning-foreground: oklch(0.14 0.02 250);
+  --warning-foreground: oklch(0.30 0.08 60);
   --thinktank: oklch(0.60 0.17 160);
   --thinktank-foreground: oklch(0.14 0.02 250);
   --chart-1: oklch(0.55 0.18 262);
@@ -368,5 +368,52 @@ details .faq-content > div {
   }
   details[open] .faq-content {
     grid-template-rows: 1fr !important;
+  }
+}
+
+/* ========================================
+   プリント用スタイル
+   ======================================== */
+@media print {
+  header,
+  footer,
+  nav,
+  .back-to-top,
+  .scroll-to-top {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript"]::after,
+  nav a[href]::after {
+    content: none;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .card,
+  img,
+  table {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
   }
 }

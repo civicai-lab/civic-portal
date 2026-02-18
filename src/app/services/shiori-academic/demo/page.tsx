@@ -403,7 +403,7 @@ export default function ShioriAcademicDemoPage() {
                 onClick={() => handleSearch()}
                 disabled={!query.trim() || isSearching}
                 className="shrink-0 gap-1.5 transition-transform motion-safe:active:scale-90"
-                aria-label="検索を実行"
+                aria-label={isSearching ? "応答を生成中" : "検索を実行"}
               >
                 <Search className="size-4" />
                 検索
@@ -552,6 +552,18 @@ export default function ShioriAcademicDemoPage() {
               <Badge variant="outline" className="text-xs">CiNii</Badge>
               <Badge variant="outline" className="text-xs">J-STAGE</Badge>
               <Badge variant="outline" className="text-xs">Google Scholar</Badge>
+            </div>
+            {/* 空状態ガイダンス */}
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              {["AIの倫理に関する論文", "気候変動の最新研究", "教育DXの先行事例"].map((q) => (
+                <button
+                  key={q}
+                  onClick={() => { setQuery(q); }}
+                  className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  {q}
+                </button>
+              ))}
             </div>
           </CardContent>
           <CardFooter className="justify-center pt-4">
