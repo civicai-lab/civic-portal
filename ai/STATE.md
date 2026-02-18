@@ -1,12 +1,12 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H48完了）
+- 作業中: UI/UX洗練（Phase H51完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 44/44パス（Playwright, ~11.6秒）
-- 直近コミット: 5e12160 Phase H48 — 星評価ホバープレビュー+CODEBASE.md更新
-- 直近完了: Phase H48 星評価ホバープレビュー
+- E2Eテスト: 54/54パス（Playwright, ~15秒）
+- 直近コミット: 65d7fc6 Phase H51 — サービス詳細ページ専用スケルトンUI
+- 直近完了: Phase H51 サービス詳細スケルトンUI
 - Vercel: https://civic-portal-nine.vercel.app
 - Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
 - 全21バックエンドリポ: クリーン+リモート同期済み（H47確認）
@@ -397,6 +397,18 @@
 - ai-lab/demo: hoverRating state追加、onMouseEnter/onMouseLeave で星の仮選択プレビュー表示
 - ビルド54ページ成功、E2E 44/44パス
 
+### Phase H49: サービス検索入力+テーブルmin-w（35eea98）
+- services/page: 検索入力フィールド追加（名前・説明でリアルタイム絞り込み、Xクリアボタン付き）
+- rfp-support/demo: ベンダー質問票テーブルにmin-w-[600px]追加
+
+### Phase H50: E2Eテスト拡充（d469565）
+- search.spec.ts新規: サービス検索テスト4件（検索/絞り込み/クリア/空状態）
+- demo-interactions.spec.ts新規: デモ操作テスト6件（タブ切替/フィルタ/星評価）
+- E2Eテスト: 44→54テスト（+10）
+
+### Phase H51: サービス詳細スケルトンUI（65d7fc6）
+- services/[slug]/loading.tsx新規: Hero+概要+特徴グリッド+料金プランのスケルトン
+
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
@@ -404,4 +416,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-18 Phase H48 星評価ホバープレビュー*
+*最終更新: 2026-02-18 Phase H51 サービス詳細スケルトンUI*
