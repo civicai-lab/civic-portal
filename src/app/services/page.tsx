@@ -99,6 +99,7 @@ function ServiceCard({ service }: { service: ServiceData }) {
 export default function ServicesPage() {
   const [priorityFilter, setPriorityFilter] = useState("all");
   const [subcategoryFilter, setSubcategoryFilter] = useState("すべて");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const saasServices = getServicesByCategory("saas");
   const thinktankServices = getServicesByCategory("thinktank");
@@ -109,7 +110,11 @@ export default function ServicesPage() {
         priorityFilter === "all" || s.priority === priorityFilter;
       const matchSubcategory =
         subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
-      return matchPriority && matchSubcategory;
+      const matchSearch =
+        searchQuery === "" ||
+        s.displayName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchPriority && matchSubcategory && matchSearch;
     });
   }
 
@@ -140,6 +145,30 @@ export default function ServicesPage() {
       {/* Filters */}
       <section className="border-b bg-card py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Search */}
+          <div className="mb-4">
+            <div className="relative max-w-md">
+              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="サービス名・説明で検索..."
+                aria-label="サービスを検索"
+                className="w-full rounded-md border border-border bg-background py-2.5 pl-10 pr-4 text-sm placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="検索をクリア"
+                >
+                  <X className="size-4" />
+                </button>
+              )}
+            </div>
+          </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
             {/* Priority Filter */}
             <div className="flex items-center gap-2">
@@ -184,7 +213,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Clear Filters */}
-            {(priorityFilter !== "all" || subcategoryFilter !== "すべて") && (
+            {(priorityFilter !== "all" || subcategoryFilter !== "すべて" || searchQuery !== "") && (
               <Button
                 variant="ghost"
                 size="sm"
@@ -192,6 +221,7 @@ export default function ServicesPage() {
                 onClick={() => {
                   setPriorityFilter("all");
                   setSubcategoryFilter("すべて");
+                  setSearchQuery("");
                 }}
               >
                 <X className="mr-1 size-3" />
@@ -234,7 +264,7 @@ export default function ServicesPage() {
                     variant="outline"
                     size="sm"
                     className="mt-4"
-                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); setSearchQuery(""); }}
                   >
                     フィルタをクリア
                   </Button>
@@ -264,7 +294,7 @@ export default function ServicesPage() {
                     variant="outline"
                     size="sm"
                     className="mt-4"
-                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); setSearchQuery(""); }}
                   >
                     フィルタをクリア
                   </Button>
@@ -294,7 +324,7 @@ export default function ServicesPage() {
                     variant="outline"
                     size="sm"
                     className="mt-4"
-                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); }}
+                    onClick={() => { setPriorityFilter("all"); setSubcategoryFilter("すべて"); setSearchQuery(""); }}
                   >
                     フィルタをクリア
                   </Button>

@@ -1,14 +1,15 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H44完了）
+- 作業中: UI/UX洗練（Phase H48完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 32/32パス（Playwright, ~9.5秒）
-- 直近コミット: 2c53c6b Phase H44 — 全デモページのハードコード色を完全セマンティック化
-- 直近完了: Phase H44 デモページ色完全セマンティック化
+- E2Eテスト: 44/44パス（Playwright, ~11.6秒）
+- 直近コミット: 5e12160 Phase H48 — 星評価ホバープレビュー+CODEBASE.md更新
+- 直近完了: Phase H48 星評価ホバープレビュー
 - Vercel: https://civic-portal-nine.vercel.app
 - Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
+- 全21バックエンドリポ: クリーン+リモート同期済み（H47確認）
 
 ## Completed (UI/UX改善 Phase A-D)
 
@@ -378,6 +379,24 @@
 - **src/配下のハードコード色がゼロに到達**
 - ビルド54ページ成功、E2E 32/32パス
 
+### Phase H45: 星評価色トークン化+ai/整理（7ad1e9d）
+- ai-lab/demo: text-amber-400→text-warning（星評価、src/配下ハードコード色完全ゼロ維持）
+- ai/DECISIONS.md, ai/LEARNINGS.md削除（内容をSTATE.mdに統合）
+- ai/CODEBASE.md更新
+
+### Phase H46: E2Eテスト拡充（ee97095）
+- dark-mode.spec.ts新規作成（5テスト）: テーマトグル表示/darkクラス付与/ヘッダー/サービスカード/デモページ
+- responsive.spec.ts新規作成（7テスト）: モバイル375px(3)/タブレット768px(2)/デスクトップ1440px(2)
+- E2Eテスト: 32→44テスト（+12）
+
+### Phase H47: 全21バックエンドリポジトリ同期確認
+- 全21サービス（00-core〜20-ai-lab）のgit statusクリーン+リモート同期確認
+- アクション不要（全てpush済み）
+
+### Phase H48: 星評価ホバープレビュー（5e12160）
+- ai-lab/demo: hoverRating state追加、onMouseEnter/onMouseLeave で星の仮選択プレビュー表示
+- ビルド54ページ成功、E2E 44/44パス
+
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
@@ -385,4 +404,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-18 Phase H44 全デモページハードコード色完全セマンティック化*
+*最終更新: 2026-02-18 Phase H48 星評価ホバープレビュー*
