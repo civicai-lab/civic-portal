@@ -10,6 +10,7 @@
 ./ai
 ./e2e
 ./playwright-report
+./playwright-report/data
 ./public
 ./public/images
 ./public/logo
@@ -21,6 +22,7 @@
 ./src/lib
 ./src/types
 ./test-results
+./test-results/.playwright-artifacts-2
 ```
 
 ## 主要ファイル
@@ -49,11 +51,11 @@
 ## 最近の変更 (git log)
 
 ```
+b181943 feat(civic-portal): Phase H54 — フォームa11y+チャット空状態ガイダンス+プリントCSS
+4a906b2 feat(civic-portal): Phase H53 — 星評価キーボードナビ+CountUp aria-live+検索件数表示+文字数警告
+e323c92 feat(civic-portal): Phase H52 — KPI CountUp統一+a11y強化+テーブルUX改善+デモloading
 e7cd962 docs: STATE.md更新（Phase H49-H51）
 65d7fc6 feat(civic-portal): Phase H51 — サービス詳細ページ専用スケルトンUI
-d469565 test(civic-portal): Phase H50 — E2Eテスト拡充（検索+デモ操作、44→54テスト）
-35eea98 feat(civic-portal): Phase H49 — サービス検索入力+テーブルmin-w+STATE.md更新
-5e12160 feat(civic-portal): Phase H48 — 星評価ホバープレビュー+CODEBASE.md更新
 ```
 
 **現在のブランチ**: `main`
@@ -80,4 +82,4 @@ d469565 test(civic-portal): Phase H50 — E2Eテスト拡充（検索+デモ操�
 ### Python
 
 ---
-*自動生成: 2026-02-18 23:28*
+*自動生成: 2026-02-18 23:47*

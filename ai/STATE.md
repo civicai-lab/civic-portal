@@ -1,12 +1,12 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H51完了）
+- 作業中: UI/UX洗練（Phase H56完了）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 54/54パス（Playwright, ~15秒）
-- 直近コミット: 65d7fc6 Phase H51 — サービス詳細ページ専用スケルトンUI
-- 直近完了: Phase H51 サービス詳細スケルトンUI
+- E2Eテスト: 62/62パス（Playwright, ~15秒）
+- 直近コミット: 7a00a71 Phase H56 — 関連サービス+結果画面視覚強化+モバイルsticky修正
+- 直近完了: Phase H56 関連サービス+結果画面視覚強化+モバイルsticky修正
 - Vercel: https://civic-portal-nine.vercel.app
 - Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
 - 全21バックエンドリポ: クリーン+リモート同期済み（H47確認）
@@ -409,13 +409,48 @@
 ### Phase H51: サービス詳細スケルトンUI（65d7fc6）
 - services/[slug]/loading.tsx新規: Hero+概要+特徴グリッド+料金プランのスケルトン
 
-### Phase H52: テーブルスクロールグラデーション+デモloading.tsx（未コミット）
+### Phase H52: KPI CountUp統一+a11y強化+テーブルUX改善+デモloading（e323c92）
+- CountUp統一: 5デモのKPIカードで小数をsuffix誤用→decimalsプロパティに修正
+  - ai-audit: リスクスコア3.2にCountUp追加
+  - pubcom-analysis: 58.3%/23.1% suffix→decimals修正
+  - tourism-analytics: 2.3日/4.2にCountUp追加
+  - infra-inspection: 統計タブ等級分布にCountUp追加
+  - book-selection: 回転率3.21/予算消化率87.5% suffix→decimals修正
+- a11y強化: step-indicator/minutes-summary/facility-concierge にaria-current="step"追加
+  6チャットデモの送信ボタンにmotion-safe:active:scale-90
+  ai-lab星評価aria-labelに「（選択中）」suffix追加
 - テーブルスクロールグラデーションフェード: 4ファイル5テーブルに右端グラデーション追加（モバイルのみ表示）
-  - infra-inspection/demo: 施設一覧テーブル（1箇所）
-  - rfp-support/demo: ベンダー質問票テーブル（1箇所）
-  - guideline-service/demo: 比較表テーブル（1箇所）
-  - book-selection/demo: ギャップ分析+除籍候補テーブル（2箇所）
+  - infra-inspection/rfp-support/guideline-service/book-selection(2箇所)
 - デモページ共用loading.tsx: services/[slug]/demo/loading.tsx新規作成（DemoLayoutスケルトン+stagger-inアニメーション）
+
+### Phase H53: 星評価キーボードナビ+CountUp aria-live+検索件数表示+文字数警告（4a906b2）
+- ai-lab星評価: WAI-ARIA radiogroup+roving tabindex+Arrow/Home/Endキー操作
+- CountUp: animationDone時aria-live="polite"でスクリーンリーダー通知
+- municipal-faq: AI回答にdisclaimer注記追加（※参考情報です。各担当窓口にてご確認ください。）
+- services検索: 結果件数表示（aria-live="polite"）
+- contactフォーム: 文字数800→warning/950→destructiveカラー変化
+- dark muted-foreground: oklch(0.72)で適正コントラスト確認
+
+### Phase H54: フォームa11y+チャット空状態ガイダンス+プリントCSS（b181943）
+- contact: autocomplete属性追加（name/email/organization）、placeholder改善、aria-describedby動的構築
+- チャット6デモ: サジェスチョン質問ボタン追加（messages<=1で表示、クリックで入力欄にセット）
+  - shiori-library/shiori-academic/staff-knowledge/municipal-faq/tourism-guide/disaster-guide
+- チャット6デモ: 送信ボタンaria-label動的化（isTyping時「応答を生成中」）
+- globals.css: @media print追加（header/footer非表示、ページ分割回避、リンクURL表示）
+- globals.css: ダークモードwarning-foreground明度修正（0.14→0.30でコントラスト確保）
+
+### Phase H55: E2Eテスト62件+デモ初期ガイダンス+未使用import削除（3d3de45）
+- E2E: 8デモ操作テスト追加（rfp-support/ai-audit/minutes-summary/welfare-navigator/assembly-archive/infra-inspection/tourism-analytics/ai-reskilling）、54→62テスト
+- デモ8ページ: 初期ガイダンス「このデモの使い方」ブロック追加（ダッシュボード/ツール型）
+- 未使用import削除: 7ファイルから11シンボル（Button/Separator/Library/Link/ChevronLeft/ArrowLeft/ListChecks/ShieldCheck）
+- マイクロコピー: welfare-navigator電話番号045-XXX-XXXX→045-000-0000
+
+### Phase H56: 関連サービス+結果画面視覚強化+モバイルsticky修正（7a00a71）
+- services/[slug]: 関連サービスセクション追加（同カテゴリ3件、サムネイル+hover+blurDataURL）
+- ウィザード4デモ結果画面: border-success/30+bg-success/5+アイコン背景円（facility-concierge/welfare-navigator/ai-reskilling/rfp-support）
+- welfare-navigator: sticky top-8→md:sticky md:top-8（モバイル修正）
+- demo-layout: header shadow-sm追加
+- フォーカスリング統一: focus:ring-2→focus:ring-[3px]（6ファイル8箇所）
 
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
@@ -424,4 +459,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-19 Phase H52 テーブルスクロールグラデーション+デモloading.tsx*
+*最終更新: 2026-02-19 Phase H56 関連サービス+結果画面視覚強化+モバイルsticky修正*
