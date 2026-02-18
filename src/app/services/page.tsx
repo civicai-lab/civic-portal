@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -88,7 +88,7 @@ function ServiceCard({ service }: { service: ServiceData }) {
           </div>
           <div className="flex items-center text-sm font-medium text-primary">
             詳しく見る
-            <ArrowRight className="ml-1 size-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-1 size-5 transition-transform group-hover:translate-x-1" />
           </div>
         </CardContent>
       </Card>
@@ -104,23 +104,44 @@ export default function ServicesPage() {
   const saasServices = getServicesByCategory("saas");
   const thinktankServices = getServicesByCategory("thinktank");
 
-  function filterServices(list: ServiceData[]): ServiceData[] {
-    return list.filter((s) => {
-      const matchPriority =
-        priorityFilter === "all" || s.priority === priorityFilter;
-      const matchSubcategory =
-        subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
+  const filteredAll = useMemo(() => {
+    const lowerQuery = searchQuery.toLowerCase();
+    return services.filter((s) => {
+      const matchPriority = priorityFilter === "all" || s.priority === priorityFilter;
+      const matchSubcategory = subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
       const matchSearch =
         searchQuery === "" ||
-        s.displayName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        s.description.toLowerCase().includes(searchQuery.toLowerCase());
+        s.displayName.toLowerCase().includes(lowerQuery) ||
+        s.description.toLowerCase().includes(lowerQuery);
       return matchPriority && matchSubcategory && matchSearch;
     });
-  }
+  }, [priorityFilter, subcategoryFilter, searchQuery]);
 
-  const filteredAll = filterServices(services);
-  const filteredSaas = filterServices(saasServices);
-  const filteredThinktank = filterServices(thinktankServices);
+  const filteredSaas = useMemo(() => {
+    const lowerQuery = searchQuery.toLowerCase();
+    return saasServices.filter((s) => {
+      const matchPriority = priorityFilter === "all" || s.priority === priorityFilter;
+      const matchSubcategory = subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
+      const matchSearch =
+        searchQuery === "" ||
+        s.displayName.toLowerCase().includes(lowerQuery) ||
+        s.description.toLowerCase().includes(lowerQuery);
+      return matchPriority && matchSubcategory && matchSearch;
+    });
+  }, [saasServices, priorityFilter, subcategoryFilter, searchQuery]);
+
+  const filteredThinktank = useMemo(() => {
+    const lowerQuery = searchQuery.toLowerCase();
+    return thinktankServices.filter((s) => {
+      const matchPriority = priorityFilter === "all" || s.priority === priorityFilter;
+      const matchSubcategory = subcategoryFilter === "すべて" || s.subcategory === subcategoryFilter;
+      const matchSearch =
+        searchQuery === "" ||
+        s.displayName.toLowerCase().includes(lowerQuery) ||
+        s.description.toLowerCase().includes(lowerQuery);
+      return matchPriority && matchSubcategory && matchSearch;
+    });
+  }, [thinktankServices, priorityFilter, subcategoryFilter, searchQuery]);
 
   const isFilterActive =
     priorityFilter !== "all" || subcategoryFilter !== "すべて" || searchQuery !== "";
@@ -172,7 +193,7 @@ export default function ServicesPage() {
               )}
             </div>
             {isFilterActive && (
-              <p className="text-sm text-muted-foreground mt-2" aria-live="polite">
+              <p className="text-sm text-muted-foreground mt-2" aria-live="polite" aria-atomic="true">
                 {filteredAll.length}件のサービスが見つかりました
               </p>
             )}

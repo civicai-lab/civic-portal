@@ -609,9 +609,10 @@ export default async function ServiceDetailPage({
         return (
           <AnimatedSection className="py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="mb-8 text-2xl font-bold tracking-tight sm:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
                 関連サービス
               </h2>
+              <p className="text-muted-foreground mt-2 mb-8">より効果的な導入のため、以下のサービスとの組み合わせをご検討ください。</p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {relatedServices.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}`} className="group">

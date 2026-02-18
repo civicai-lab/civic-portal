@@ -25,6 +25,10 @@ import {
   MessageSquare,
   FileCheck,
   Rocket,
+  Brain,
+  Database,
+  Globe,
+  Cloud,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -372,6 +376,16 @@ export default function HomePage() {
                 name: "千葉市役所",
                 role: "総務部",
               },
+              {
+                quote: "議会アーカイブ検索で、過去の議事録を瞬時に検索できるようになりました。職員の調査時間が大幅に削減され、市民への回答速度も向上しています。",
+                name: "横浜市",
+                role: "デジタル推進課 課長",
+              },
+              {
+                quote: "AI研修プログラムにより、職員のDXリテラシーが飛躍的に向上しました。特に管理職向けコースが好評で、組織全体のデジタル変革を加速できています。",
+                name: "静岡県",
+                role: "総務部 DX推進室長",
+              },
             ].map((testimonial, i) => (
               <AnimatedSection key={testimonial.name} animation="fade-up" delay={i * 150}>
                 <Card className="h-full">
@@ -454,6 +468,63 @@ export default function HomePage() {
               </Button>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Technology Stack Section */}
+      <section className="border-t bg-card py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              信頼の技術基盤
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              最新のAI技術とエンタープライズグレードのインフラで、安全・高速なサービスを提供します
+            </p>
+          </AnimatedSection>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Brain,
+                category: "AI/LLM",
+                name: "Claude (Anthropic)",
+                description: "最新の大規模言語モデルによる高精度な自然言語処理",
+              },
+              {
+                icon: Database,
+                category: "ベクトルDB",
+                name: "Pinecone",
+                description: "大規模ベクトル検索による高速なRAG検索基盤",
+              },
+              {
+                icon: Globe,
+                category: "フロントエンド",
+                name: "Next.js + React",
+                description: "サーバーサイドレンダリングで高速・SEO最適化",
+              },
+              {
+                icon: Cloud,
+                category: "インフラ",
+                name: "AWS",
+                description: "エンタープライズグレードのクラウド基盤で安定稼働",
+              },
+            ].map((tech, i) => (
+              <AnimatedSection key={tech.category} animation="fade-up" delay={i * 100}>
+                <div className="rounded-xl border border-border bg-card p-6 transition-[box-shadow,transform] duration-300 hover:shadow-md hover:-translate-y-0.5">
+                  <tech.icon className="mb-4 size-8 text-primary" />
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {tech.category}
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold text-foreground">
+                    {tech.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {tech.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

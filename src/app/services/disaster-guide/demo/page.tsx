@@ -334,7 +334,7 @@ function MapMarker({
       style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -100%)" }}
     >
       <span
-        className={`text-[9px] px-1.5 py-0.5 rounded whitespace-nowrap font-medium ${
+        className={`text-xs px-1.5 py-0.5 rounded whitespace-nowrap font-medium ${
           active
             ? "bg-primary text-primary-foreground"
             : "bg-white text-foreground shadow-sm"
@@ -695,7 +695,7 @@ export default function DisasterGuideDemoPage() {
                   }}
                 >
                   <div className="size-4 bg-primary rounded-full border-2 border-white shadow-lg motion-safe:animate-pulse" />
-                  <span className="text-[9px] mt-0.5 font-medium text-primary/90 bg-white/80 px-1 rounded">
+                  <span className="text-xs mt-0.5 font-medium text-primary/90 bg-white/80 px-1 rounded">
                     現在地
                   </span>
                 </div>
@@ -707,7 +707,7 @@ export default function DisasterGuideDemoPage() {
                 <MapMarker x={60} y={75} label="南公園防災広場" />
 
                 {/* マップ凡例 */}
-                <div className="absolute bottom-2 left-2 bg-white/90 rounded p-1.5 text-[9px]">
+                <div className="absolute bottom-2 left-2 bg-white/90 rounded p-1.5 text-xs">
                   <div className="flex items-center gap-1 mb-0.5">
                     <div className="size-2.5 bg-primary rounded-full" />
                     <span>現在地</span>

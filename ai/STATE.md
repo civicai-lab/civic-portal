@@ -1,12 +1,12 @@
 # State
 
 ## Current
-- 作業中: UI/UX洗練（Phase H56完了）
+- 作業中: UI/UX洗練継続（Phase H58探索中）
 - ブランチ: main
 - ビルド状態: 成功（54ページ、TypeScriptエラーなし）
-- E2Eテスト: 62/62パス（Playwright, ~15秒）
-- 直近コミット: 7a00a71 Phase H56 — 関連サービス+結果画面視覚強化+モバイルsticky修正
-- 直近完了: Phase H56 関連サービス+結果画面視覚強化+モバイルsticky修正
+- E2Eテスト: 78/78パス（Playwright, ~14秒）
+- 直近コミット: cc6bc80 Phase H57 — E2E 78件+ChatSuggestions共通化+AVIF+removeConsole
+- 直近完了: Phase H57 E2E 78件+ChatSuggestions共通化+AVIF+removeConsole
 - Vercel: https://civic-portal-nine.vercel.app
 - Lighthouse（H37後）: Performance 92, Accessibility 100, Best Practices 100, SEO 100
 - 全21バックエンドリポ: クリーン+リモート同期済み（H47確認）
@@ -452,6 +452,16 @@
 - demo-layout: header shadow-sm追加
 - フォーカスリング統一: focus:ring-2→focus:ring-[3px]（6ファイル8箇所）
 
+### Phase H57: E2E 78件+ChatSuggestions共通化+AVIF+removeConsole（cc6bc80）
+- E2Eテスト拡充: 62→78テスト（+16）
+  - form-handling.spec.ts新規: 7テスト（空送信/無効メール/有効送信/成功画面/リセット/文字数カウンター/リアルタイムバリデーション）
+  - keyboard-navigation.spec.ts新規: 6テスト（Skip Link/ヘッダーリンクTab/focus-visible/Escape閉じ/フォーカストラップ/フォーカス復帰）
+  - persistence.spec.ts新規: 3テスト（ダークモード永続化/ライトモード永続化/localStorage確認）
+- ChatSuggestions共通コンポーネント抽出: src/components/demo/chat-suggestions.tsx新規作成、6チャットデモからインライン実装を置換
+- next.config.ts: AVIF画像フォーマット追加（formats: ["image/avif", "image/webp"]）
+- next.config.ts: compiler.removeConsole追加（本番でconsole.log除去、error/warn残留）
+- 未参照画像~65件特定（将来コンテンツ用に保留）
+
 ## Next
 - [ ] さらなるUI/UX洗練（探索→実装サイクル継続）
 
@@ -459,4 +469,4 @@
 - なし
 
 ---
-*最終更新: 2026-02-19 Phase H56 関連サービス+結果画面視覚強化+モバイルsticky修正*
+*最終更新: 2026-02-19 Phase H57 E2E 78件+ChatSuggestions共通化+AVIF+removeConsole*

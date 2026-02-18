@@ -85,11 +85,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group rounded-md p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="group rounded-md p-2 text-muted-foreground transition-[colors,transform] hover:bg-accent hover:text-foreground hover:scale-110 dark:hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
-                  <span className="block transition-transform duration-200 group-hover:scale-110">
-                    {social.icon}
-                  </span>
+                  {social.icon}
                 </a>
               ))}
             </div>

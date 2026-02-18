@@ -10,7 +10,6 @@
 ./ai
 ./e2e
 ./playwright-report
-./playwright-report/data
 ./public
 ./public/images
 ./public/logo
@@ -22,7 +21,6 @@
 ./src/lib
 ./src/types
 ./test-results
-./test-results/.playwright-artifacts-2
 ```
 
 ## 主要ファイル
@@ -51,11 +49,11 @@
 ## 最近の変更 (git log)
 
 ```
+cc6bc80 feat(civic-portal): Phase H57 — E2E 78件+ChatSuggestions共通化+AVIF+removeConsole
+b896501 docs: STATE.md更新（Phase H53-H56）
+7a00a71 feat(civic-portal): Phase H56 — 関連サービス+結果画面視覚強化+モバイルsticky修正
+3d3de45 feat(civic-portal): Phase H55 — E2Eテスト62件+デモ初期ガイダンス+未使用import削除
 b181943 feat(civic-portal): Phase H54 — フォームa11y+チャット空状態ガイダンス+プリントCSS
-4a906b2 feat(civic-portal): Phase H53 — 星評価キーボードナビ+CountUp aria-live+検索件数表示+文字数警告
-e323c92 feat(civic-portal): Phase H52 — KPI CountUp統一+a11y強化+テーブルUX改善+デモloading
-e7cd962 docs: STATE.md更新（Phase H49-H51）
-65d7fc6 feat(civic-portal): Phase H51 — サービス詳細ページ専用スケルトンUI
 ```
 
 **現在のブランチ**: `main`
@@ -70,16 +68,16 @@ e7cd962 docs: STATE.md更新（Phase H49-H51）
 - ./e2e/responsive.spec.ts
 - ./e2e/demo.spec.ts
 - ./e2e/services.spec.ts
+- ./e2e/persistence.spec.ts
+- ./e2e/keyboard-navigation.spec.ts
+- ./e2e/form-handling.spec.ts
 - ./e2e/demo-interactions.spec.ts
 - ./e2e/search.spec.ts
 - ./e2e/home.spec.ts
 - ./e2e/accessibility.spec.ts
 - ./e2e/service-detail.spec.ts
-- ./next.config.ts
-- ./src/types/service.ts
-- ./src/app/sitemap.ts
 
 ### Python
 
 ---
-*自動生成: 2026-02-18 23:47*
+*自動生成: 2026-02-19 00:06*
