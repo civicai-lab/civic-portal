@@ -20,7 +20,6 @@ import {
   RotateCcw,
   FileText,
   CheckSquare,
-  ListChecks,
   HelpCircle,
   Download,
 } from "lucide-react";
@@ -162,6 +161,14 @@ export default function RfpSupportDemoPage() {
       serviceIcon={<ClipboardList className="size-5 text-primary-foreground" />}
       subtitle="RFP作成デモ"
     >
+      {/* 初期ガイダンス */}
+      <div className="mb-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+        <p className="text-sm text-muted-foreground">
+          ステップに沿って必要事項を入力し、チェックリストでRFPの完成度を確認できます。
+        </p>
+      </div>
+
       {/* ステップインジケーター */}
       <div className="bg-card rounded-lg py-6 px-4 mb-6 border">
         <StepIndicator steps={STEPS} currentStep={currentStep} />

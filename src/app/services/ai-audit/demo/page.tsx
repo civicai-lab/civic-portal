@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { DemoLayout } from "@/components/demo/demo-layout";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -12,7 +11,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
 import { CountUp } from "@/components/ui/count-up";
 import {
   ShieldCheck,
@@ -107,6 +105,14 @@ export default function AiAuditDemoPage() {
       serviceIcon={<ShieldCheck className="size-5 text-primary-foreground" />}
       subtitle="AI監査デモ"
     >
+      {/* 初期ガイダンス */}
+      <div className="mb-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+        <p className="text-sm text-muted-foreground">
+          上のタブを切り替えて、AIシステムの監査結果を確認できます。リスクマトリクスで優先度を把握しましょう。
+        </p>
+      </div>
+
       {/* KPIカード */}
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Card className="animate-stagger-in">

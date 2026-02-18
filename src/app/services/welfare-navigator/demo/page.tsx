@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import Link from "next/link";
 import { DemoLayout } from "@/components/demo/demo-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
-  ChevronLeft,
   ArrowRight,
   Phone,
   MapPin,
@@ -605,7 +603,7 @@ export default function WelfareNavigatorDemo() {
                       </p>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Phone className="size-3.5" />
-                        <span>045-XXX-XXXX（代表）</span>
+                        <span>045-000-0000（代表）</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Clock className="size-3.5" />

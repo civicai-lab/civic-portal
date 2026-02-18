@@ -108,6 +108,14 @@ export default function TourismAnalyticsDemoPage() {
       serviceIcon={<TrendingUp className="size-5 text-primary-foreground" />}
       subtitle="観光分析デモ"
     >
+      {/* 初期ガイダンス */}
+      <div className="mb-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+        <p className="text-sm text-muted-foreground">
+          期間フィルタで分析対象を絞り込み、各タブで詳細データを確認できます。
+        </p>
+      </div>
+
       {/* フィルタバー */}
       <div className="flex items-center gap-2 mb-6 flex-wrap">
         <span className="text-sm font-medium text-muted-foreground">期間:</span>

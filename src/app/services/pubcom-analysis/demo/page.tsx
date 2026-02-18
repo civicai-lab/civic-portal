@@ -151,6 +151,14 @@ export default function PubcomAnalysisDemoPage() {
       serviceIcon={<BarChart3 className="size-5 text-primary-foreground" />}
       subtitle="分析ダッシュボードデモ"
     >
+      {/* 初期ガイダンス */}
+      <div className="mb-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+        <p className="text-sm text-muted-foreground">
+          意見分類と感情分析の結果を確認し、レポート生成タブで報告書を作成できます。
+        </p>
+      </div>
+
       {/* ダッシュボードヘッダー */}
       <div className="bg-primary text-primary-foreground rounded-lg px-4 py-6 sm:px-6 mb-6 -mx-4 sm:mx-0">
         <h2 className="text-xl font-bold sm:text-2xl font-heading">

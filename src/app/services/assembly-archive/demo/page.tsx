@@ -166,6 +166,14 @@ export default function AssemblyArchiveDemoPage() {
       fullHeight
     >
       <div className="flex flex-col h-full gap-3">
+        {/* 初期ガイダンス */}
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 shrink-0">
+          <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+          <p className="text-sm text-muted-foreground">
+            キーワードを入力して議会発言を検索し、タイムラインで時系列の変化を確認できます。
+          </p>
+        </div>
+
         {/* 検索バー + フィルタ */}
         <Card className="py-3 shrink-0">
           <CardContent className="pt-0 pb-0">

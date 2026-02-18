@@ -21,7 +21,6 @@ import {
   Circle,
   Loader2,
   ArrowRight,
-  ArrowLeft,
   Copy,
   FileDown,
   FileType,

@@ -169,6 +169,14 @@ export default function InfraInspectionDemoPage() {
       subtitle="インフラ点検デモ"
     >
       <div className="space-y-6">
+        {/* 初期ガイダンス */}
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+          <p className="text-sm text-muted-foreground">
+            施設一覧から点検対象を確認し、統計タブで全体傾向を把握できます。
+          </p>
+        </div>
+
         {/* KPIカード */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {/* 点検済み施設 */}

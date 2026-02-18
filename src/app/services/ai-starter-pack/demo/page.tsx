@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { CountUp } from "@/components/ui/count-up";
 import {
   Rocket,
@@ -24,7 +23,6 @@ import {
   RotateCcw,
   Sparkles,
   TrendingUp,
-  ShieldCheck,
   BarChart3,
 } from "lucide-react";
 import { DemoLayout } from "@/components/demo/demo-layout";

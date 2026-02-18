@@ -280,6 +280,14 @@ export default function GuidelineServiceDemoPage() {
       serviceIcon={<FileText className="size-5 text-primary-foreground" />}
       subtitle="ガイドライン策定デモ"
     >
+      {/* 初期ガイダンス */}
+      <div className="mb-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-medium text-primary mb-1">このデモの使い方</p>
+        <p className="text-sm text-muted-foreground">
+          分析タブで現行ガイドラインを確認し、比較・ドラフト生成タブで改定作業を進められます。
+        </p>
+      </div>
+
       <Tabs defaultValue="analysis" className="space-y-4">
         <TabsList className="w-full">
           <TabsTrigger value="analysis" className="flex-1 gap-1.5">

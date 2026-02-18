@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Link from "next/link";
 import { DemoLayout } from "@/components/demo/demo-layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -32,7 +31,6 @@ import {
   Image as ImageIcon,
   CheckCircle2,
   AlertCircle,
-  ChevronLeft,
 } from "lucide-react";
 
 // ---- 型定義 ----
