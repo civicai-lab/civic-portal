@@ -27,6 +27,7 @@ import {
 import { DemoLayout } from "@/components/demo/demo-layout";
 import { ConfidenceIndicator } from "@/components/demo/confidence-indicator";
 import { SourceCitation } from "@/components/demo/source-citation";
+import { ChatSuggestions } from "@/components/demo/chat-suggestions";
 
 // --- 型定義 ---
 
@@ -554,17 +555,11 @@ export default function ShioriAcademicDemoPage() {
               <Badge variant="outline" className="text-xs">Google Scholar</Badge>
             </div>
             {/* 空状態ガイダンス */}
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
-              {["AIの倫理に関する論文", "気候変動の最新研究", "教育DXの先行事例"].map((q) => (
-                <button
-                  key={q}
-                  onClick={() => { setQuery(q); }}
-                  className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
+            <ChatSuggestions
+              suggestions={["AIの倫理に関する論文", "気候変動の最新研究", "教育DXの先行事例"]}
+              onSelect={setQuery}
+              isVisible={true}
+            />
           </CardContent>
           <CardFooter className="justify-center pt-4">
             <p className="text-xs text-muted-foreground">

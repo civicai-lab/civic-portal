@@ -18,6 +18,7 @@ import { DemoLayout } from "@/components/demo/demo-layout";
 import { ConfidenceIndicator } from "@/components/demo/confidence-indicator";
 import { ChatMessage } from "@/components/demo/chat-message";
 import { TypingIndicator } from "@/components/demo/typing-indicator";
+import { ChatSuggestions } from "@/components/demo/chat-suggestions";
 
 // --- 型定義 ---
 
@@ -318,19 +319,11 @@ export default function MunicipalFaqDemoPage() {
             {isTyping && <TypingIndicator />}
 
             {/* 空状態ガイダンス */}
-            {messages.length <= 1 && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                {["住民票の取り方を教えて", "ゴミ出しのルールは？", "子育て支援制度は？"].map((q) => (
-                  <button
-                    key={q}
-                    onClick={() => { setInput(q); }}
-                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
-            )}
+            <ChatSuggestions
+              suggestions={["住民票の取り方を教えて", "ゴミ出しのルールは？", "子育て支援制度は？"]}
+              onSelect={setInput}
+              isVisible={messages.length <= 1}
+            />
 
             <div ref={messagesEndRef} />
           </div>

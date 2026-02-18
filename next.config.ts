@@ -5,11 +5,16 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 
-  // 画像最適化
+  // 画像最適化（AVIF優先、WebPフォールバック）
   images: {
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [375, 640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+
+  // 本番ビルドでconsole.logを除去（error/warnは残す）
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
   },
 
   // バンドル最適化（lucide-react等のTree Shaking改善）

@@ -26,6 +26,7 @@ import {
 import { DemoLayout } from "@/components/demo/demo-layout";
 import { ChatMessage } from "@/components/demo/chat-message";
 import { TypingIndicator } from "@/components/demo/typing-indicator";
+import { ChatSuggestions } from "@/components/demo/chat-suggestions";
 
 // --- 型定義 ---
 
@@ -568,19 +569,11 @@ export default function DisasterGuideDemoPage() {
                 {isTyping && <TypingIndicator />}
 
                 {/* 空状態ガイダンス */}
-                {messages.length <= 1 && (
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {["避難所の場所を教えて", "地震が起きたらどうする？", "非常持出袋の中身は？"].map((q) => (
-                      <button
-                        key={q}
-                        onClick={() => { setInput(q); }}
-                        className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                      >
-                        {q}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <ChatSuggestions
+                  suggestions={["避難所の場所を教えて", "地震が起きたらどうする？", "非常持出袋の中身は？"]}
+                  onSelect={setInput}
+                  isVisible={messages.length <= 1}
+                />
 
                 <div ref={messagesEndRef} />
               </div>

@@ -33,6 +33,7 @@ import { ConfidenceIndicator } from "@/components/demo/confidence-indicator";
 import { SourceCitation } from "@/components/demo/source-citation";
 import { ChatMessage } from "@/components/demo/chat-message";
 import { TypingIndicator } from "@/components/demo/typing-indicator";
+import { ChatSuggestions } from "@/components/demo/chat-suggestions";
 
 // --- 型定義 ---
 
@@ -642,19 +643,11 @@ export default function TourismGuideDemoPage() {
             {isTyping && <TypingIndicator />}
 
             {/* 空状態ガイダンス */}
-            {messages.length <= 1 && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                {["おすすめの観光スポットは？", "地元グルメを教えて", "子連れで楽しめる場所は？"].map((q) => (
-                  <button
-                    key={q}
-                    onClick={() => { setInput(q); }}
-                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
-            )}
+            <ChatSuggestions
+              suggestions={["おすすめの観光スポットは？", "地元グルメを教えて", "子連れで楽しめる場所は？"]}
+              onSelect={setInput}
+              isVisible={messages.length <= 1}
+            />
 
             <div ref={messagesEndRef} />
           </div>
