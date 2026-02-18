@@ -110,6 +110,7 @@ export default function AiLabDemoPage() {
   });
   const [comment, setComment] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [hoverRating, setHoverRating] = useState<Record<string, number>>({});
 
   const setRating = useCallback((criterionId: string, value: number) => {
     setRatings((prev) => ({ ...prev, [criterionId]: value }));
@@ -295,25 +296,33 @@ export default function AiLabDemoPage() {
                     <label className="block text-sm font-semibold mb-2">
                       {criterion.label}
                     </label>
-                    <div className="flex items-center gap-1">
-                      {[1, 2, 3, 4, 5].map((value) => (
-                        <button
-                          key={value}
-                          type="button"
-                          onClick={() => setRating(criterion.id, value)}
-                          className={`p-1 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                            value <= ratings[criterion.id]
-                              ? "text-warning"
-                              : "text-muted-foreground/30"
-                          }`}
-                          aria-label={`${criterion.label}: ${value}点`}
-                        >
-                          <Star
-                            className="size-7"
-                            fill={value <= ratings[criterion.id] ? "currentColor" : "none"}
-                          />
-                        </button>
-                      ))}
+                    <div
+                      className="flex items-center gap-1"
+                      onMouseLeave={() => setHoverRating((prev) => ({ ...prev, [criterion.id]: 0 }))}
+                    >
+                      {[1, 2, 3, 4, 5].map((value) => {
+                        const hv = hoverRating[criterion.id] || 0;
+                        const active = hv > 0 ? value <= hv : value <= ratings[criterion.id];
+                        return (
+                          <button
+                            key={value}
+                            type="button"
+                            onClick={() => setRating(criterion.id, value)}
+                            onMouseEnter={() => setHoverRating((prev) => ({ ...prev, [criterion.id]: value }))}
+                            className={`p-1 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                              active
+                                ? "text-warning"
+                                : "text-muted-foreground/30 hover:text-warning/40"
+                            }`}
+                            aria-label={`${criterion.label}: ${value}点`}
+                          >
+                            <Star
+                              className="size-7"
+                              fill={active ? "currentColor" : "none"}
+                            />
+                          </button>
+                        );
+                      })}
                       <span className="ml-2 text-sm text-muted-foreground">
                         {ratings[criterion.id] > 0
                           ? `${ratings[criterion.id]}/5`

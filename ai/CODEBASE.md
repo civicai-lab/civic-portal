@@ -49,11 +49,11 @@
 ## 最近の変更 (git log)
 
 ```
+ee97095 test(civic-portal): Phase H46 — E2Eテスト拡充（ダークモード+レスポンシブ）
+7ad1e9d feat(civic-portal): Phase H45 — 星評価色text-amber-400→text-warning完全トークン化+ai/整理
 2c53c6b feat(civic-portal): Phase H44 — 全デモページのハードコード色を完全セマンティック化
 80c85a5 feat(civic-portal): Phase H43 — UX信頼性+SEO+レスポンシブ+ダークモード改善
 784d295 feat(civic-portal): Phase H42 — サービス詳細AnimatedSection+Breadcrumb統一+デモtext-xs化+フォーム改善
-90bb234 feat(civic-portal): Phase H41 — テスティモニアル+導入ステップ追加
-02c8281 feat(civic-portal): Phase H40 — コンテンツ充実+CTA動線+マイクロコピー改善
 ```
 
 **現在のブランチ**: `main`
@@ -64,6 +64,8 @@
 - ./next-env.d.ts
 - ./playwright.config.ts
 - ./e2e/navigation.spec.ts
+- ./e2e/dark-mode.spec.ts
+- ./e2e/responsive.spec.ts
 - ./e2e/demo.spec.ts
 - ./e2e/services.spec.ts
 - ./e2e/home.spec.ts
@@ -74,10 +76,8 @@
 - ./src/app/sitemap.ts
 - ./src/app/layout.tsx
 - ./src/app/error.tsx
-- ./src/app/loading.tsx
-- ./src/app/page.tsx
 
 ### Python
 
 ---
-*自動生成: 2026-02-18 23:00*
+*自動生成: 2026-02-18 23:11*
